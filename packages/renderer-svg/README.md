@@ -22,18 +22,17 @@ Instance badges use a 27-unit radius centered at (210, 210), a 3.5-unit rim,
 and a subtle contact shadow clipped to the face. Labels use larger monogram
 lettering; embedded PNG imports fit inside the disc without tinting their colors.
 
-The later instance-badge behavior remains intact. The twenty original identities
-and six state SVGs match 1.4.2 snapshots exactly; five instance-badge snapshots
-retain differences. New hats use the same painter and receiver-clipped shadows,
-with no separate rendering mode or random choices.
+The later instance-badge behavior remains intact. Regression baselines in
+`tests/snapshots/` match this renderer and manifest 1.9.5, including the compact
+badges. New hats use the same painter and receiver-clipped shadows, with no
+separate rendering mode or random choices.
 
 `hat-accessories.ts` draws fixed accessory assets above the hat's printed emblem
 and below the state layer. Each contact shadow is clipped to the underlying hat.
 Pilot straps and frames have separate shadow strengths; lenses are inset color
-blocks without an exterior shadow. Hats without accessories add no nodes, keeping
-the original twenty identities and six state snapshots byte-identical to 1.4.2.
+blocks without an exterior shadow. Hats without accessories add no nodes.
 
 Renderer 0.13.0 centers every expression on the approved idle eye positions
 (95.5, 185) and (163.5, 185). Non-idle geometry uses local coordinates so
-expression changes do not move the eyes. Those five revised state snapshots
-remain pending review. Manifest 1.9.2 changes the default background to slate.
+expression changes do not move the eyes. The five non-idle state baselines
+record that centering. Manifest 1.9.2 changes the default background to slate.
