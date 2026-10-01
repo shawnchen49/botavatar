@@ -1,8 +1,8 @@
 {
   "approvedOn": "2026-10-01",
-  "source": "User-approved Stage 2 preview",
-  "manifestVersion": "1.4.2",
-  "rendererVersion": "0.6.2",
+  "source": "Current intentional catalog and renderer output",
+  "manifestVersion": "1.9.5",
+  "rendererVersion": "0.13.0",
   "items": [
     {
       "file": "01.svg",
@@ -21,7 +21,7 @@
     {
       "file": "02.svg",
       "label": "Research",
-      "sha256": "57ef72cdf54f2e348d73b71b266ed470273c8ab0eef18456b14831a7f23b3a7c",
+      "sha256": "fee7dfffb8b20c04fab47e687a1d9b22b822524bbad97260a39b9735ed192e95",
       "request": {
         "templateId": "research",
         "state": "idle",
@@ -35,7 +35,7 @@
     {
       "file": "03.svg",
       "label": "Docs",
-      "sha256": "c668492443a7b206804847f5282149b367d8f921eda72ebaab52e17da42f38b7",
+      "sha256": "bb7d571dfed02c1b34b24846eb4dded8653be58d22d029ae664c83934370dfd1",
       "request": {
         "templateId": "docs",
         "state": "idle",
@@ -91,7 +91,7 @@
     {
       "file": "07.svg",
       "label": "Build",
-      "sha256": "c22cd797cb1b6ffc3eaecdafc3e47b06f6af46e54346f5d502665512165a6224",
+      "sha256": "40c2b58e317499d6295666c013efa44e6782990c0967063b1f429ea9d03ef956",
       "request": {
         "templateId": "build",
         "state": "idle",
@@ -105,7 +105,7 @@
     {
       "file": "08.svg",
       "label": "Debug",
-      "sha256": "893c7929c6b780602d98b1780992d69ceb6d2bdbc2443eed892910ab35406dd7",
+      "sha256": "c6bfb33ab796c9b5d30dbd50250399a28f9de5692832cd87bcc3f348c61f626f",
       "request": {
         "templateId": "debug",
         "state": "idle",
@@ -119,7 +119,7 @@
     {
       "file": "09.svg",
       "label": "Printer",
-      "sha256": "a20fa8b449f3c543ec78e0266ec40d4233818ede181141ff400be0b5da898c53",
+      "sha256": "93f9d2012fe78e0c854198d2a995b040d3513c93458cb85361f5fd926af78e05",
       "request": {
         "templateId": "printer",
         "state": "idle",
@@ -133,7 +133,7 @@
     {
       "file": "10.svg",
       "label": "Network",
-      "sha256": "c7144dc24a46a902bc48d0c213eb3992e1e3130280faa050146882097d710bdf",
+      "sha256": "38627a00893dff162d101a6d62002fcfa1fd60443b8ec0e2040bee45e2d117f7",
       "request": {
         "templateId": "network",
         "state": "idle",
@@ -189,7 +189,7 @@
     {
       "file": "14.svg",
       "label": "Deploy",
-      "sha256": "59034a3df32ec0d8781e6169cb4110462c3c713ea5d46125f0f7d549c38a09d8",
+      "sha256": "c08764b920ac26a5570d802ff28db3e5338036b32242f076aab968cc1405ad01",
       "request": {
         "templateId": "deploy",
         "state": "idle",
@@ -203,7 +203,7 @@
     {
       "file": "15.svg",
       "label": "Monitor",
-      "sha256": "b438027c62a0fdca46afb0f8ea80f214630019f12ea3b9eaa5bd43c5c75e2989",
+      "sha256": "45a1f4908f2fb9f812ab68b1b81754783a0a80ee71c7e19b0ea7b3c9fb523748",
       "request": {
         "templateId": "monitor",
         "state": "idle",
@@ -231,7 +231,7 @@
     {
       "file": "17.svg",
       "label": "Design",
-      "sha256": "7576900bb48a5e56ff2b31302d7f4ec6211d5b3614f7c0d9d1145a624436a155",
+      "sha256": "3e5f4a0d218f72d091cb927082641ff0b61834037628aac2f020a9ab026055a1",
       "request": {
         "templateId": "design",
         "state": "idle",
@@ -287,7 +287,7 @@
     {
       "file": "21.svg",
       "label": "dot",
-      "sha256": "3ccd709b58746a07c96f405bc348937999d46e11b627ace4f9c550edf4028069",
+      "sha256": "4d105119b4561857462c341fe084fd03fcebe16a4ec9f7ec5bc183befb064948",
       "request": {
         "templateId": "assistant",
         "instance": {
@@ -305,7 +305,7 @@
     {
       "file": "22.svg",
       "label": "check",
-      "sha256": "f4be24e64a3493e1e1b9995e6bc04e6bead1364cd77e7aef05a3ecbb76bc4ad2",
+      "sha256": "609e681c0c4c794163476e019051fdb25a5bbbb592d8e37b4aa0d01fbe3b6263",
       "request": {
         "templateId": "assistant",
         "instance": {
@@ -323,7 +323,7 @@
     {
       "file": "23.svg",
       "label": "terminal",
-      "sha256": "792e3272dc9abf150859c31a976013dce5d01225aef64682691bdb4ecfd83af4",
+      "sha256": "fb012122471ce5d0f08800a694d447962fc9952124d92e99c01a0c3094f430b2",
       "request": {
         "templateId": "assistant",
         "instance": {
@@ -341,7 +341,7 @@
     {
       "file": "24.svg",
       "label": "search",
-      "sha256": "41610fbaad54a4f8c1eea069202438b79c5104b6ddb41d23d9200d44d65b1a75",
+      "sha256": "4066dc871c6e48ad55e6c2d437c4dfe33cc58b008907e68ace1845313122a706",
       "request": {
         "templateId": "assistant",
         "instance": {
@@ -359,7 +359,7 @@
     {
       "file": "25.svg",
       "label": "server",
-      "sha256": "ec03a838db1a504a9cf817b3090aa0e67398a735bfd484936d0ae7f4c04c04db",
+      "sha256": "13a274a368e053f37fe0cc26a85541827ad2a0d0e87e23f0aa91230c04a25386",
       "request": {
         "templateId": "assistant",
         "instance": {
@@ -391,7 +391,7 @@
     {
       "file": "27.svg",
       "label": "working",
-      "sha256": "441df006fade8978a8b9e746d3c939c9bde114ae0af374593f430c8c9a5cec1e",
+      "sha256": "765f55db490b28156bd1811625b3a877fdd1cfcf795a7318756fc77ed478c888",
       "request": {
         "templateId": "assistant",
         "state": "working",
@@ -405,7 +405,7 @@
     {
       "file": "28.svg",
       "label": "waiting",
-      "sha256": "b2a574be886c0b91b35795bf734861fd3e64e188c557ce14bbc8a63239bdef5e",
+      "sha256": "72b8a4d08df96f0fe422a686b491519f3193f3f329255bb0df223a9d35aef66e",
       "request": {
         "templateId": "assistant",
         "state": "waiting",
@@ -419,7 +419,7 @@
     {
       "file": "29.svg",
       "label": "success",
-      "sha256": "b1a5ca696a9d6654d33f7c3a7b2f79611b7cd43e0ff262c34116c07ab3fc6d18",
+      "sha256": "2b1a14b09f7e1680802e239e8289831b7db0069fa62793e0634f03f7b5e56f05",
       "request": {
         "templateId": "assistant",
         "state": "success",
@@ -433,7 +433,7 @@
     {
       "file": "30.svg",
       "label": "error",
-      "sha256": "cf28becd71bee24ab823cffbca3d0dc842f54f40156c1870498c5d65f872cf09",
+      "sha256": "974c02f8a53b40483896536ecf87d73c98af4058d400ed74421afd2bee444ea8",
       "request": {
         "templateId": "assistant",
         "state": "error",
@@ -447,7 +447,7 @@
     {
       "file": "31.svg",
       "label": "offline",
-      "sha256": "aea5527539eae7bcc034b3d29615bf5a215774af383aa56338d480cf3f627988",
+      "sha256": "6909e7ee9f6497bf7cbe8e51bb6f86ec8f911e6830d861b3c21530ac43cfe033",
       "request": {
         "templateId": "assistant",
         "state": "offline",

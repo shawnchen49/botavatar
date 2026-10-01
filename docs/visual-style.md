@@ -27,7 +27,8 @@ in manifests 1.6–1.8.1 are superseded, not approved alternatives.
   original default. Template emblem color remains fixed across instance changes.
 - Retain the later compact instance badges, independent icon/rim colors, monograms,
   embedded image support, and the decision to remove glasses. These application
-  capabilities are outside the hat restoration; five badge snapshots still differ.
+  capabilities are outside the hat restoration. The five instance-badge baselines
+  now record that compact treatment.
 
 Manifest 1.9.1 / SVG renderer 0.12.0 records this restoration and additive catalog.
 `pnpm showcase:hats` generates the original twenty, the three additions, matching
@@ -83,4 +84,6 @@ Coder, AI, data, Git, and general-purpose hats retain their expressive palettes;
 these software roles do not need invented uniform color rules. Hat geometry,
 accessory construction, hair defaults and choices, role aliases, and state
 behavior remain intact. The palette changes supersede the restored hat colors
-for these ten templates only and await visual approval before snapshot updates.
+for these ten templates only. The regression SVGs in `tests/snapshots/` match
+this catalog and renderer 0.13.0, including those palette changes, the compact
+badges, and the centered expressions.

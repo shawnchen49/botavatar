@@ -123,6 +123,10 @@ pnpm build && pnpm start
 
 Open <http://127.0.0.1:3000>. The server listens on loopback only. Set `PORT` to change it. `BOT_AVATAR_INSTANCES` can point at a read-only JSON map such as [`examples/instances/local.json`](examples/instances/local.json).
 
+<img src="docs/images/studio.png" alt="Bot Avatar Studio, the local editor: Coder preview, runtime state buttons, export settings, and template, hair, and badge controls" width="880">
+
+That is the default Studio screen: the avatar preview and state controls on the left, with template, hair, and badge settings on the right.
+
 ## Commands
 
 | Command              | Purpose                                                                       |
