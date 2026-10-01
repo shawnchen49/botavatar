@@ -64,3 +64,17 @@ existing approved snapshots remain untouched.
 
 Studio follow-up: simplify controls, temporarily hide image import, preserve badges
 on template changes, and use a contrasting slate background (manifest 1.5.1).
+
+## Hat refinement — 2026-10-01
+
+Implemented for visual review: occupational hat palettes, flatter hat gradients,
+thinner brim seams, and a narrower contact shadow. See
+[hat refinement review](reviews/hat-refinement.md). Existing approved snapshots
+remain unchanged until the updated catalog is visually approved.
+
+## Fine Line and curated hair — 2026-10-01
+
+Implemented: solid avatar fills, thin hat seams, fixed template emblem colors, and
+five curated hair colors per template. See [the review](reviews/fine-line.md) and
+ADR 0007. Review generated samples
+before updating approved visual snapshots.

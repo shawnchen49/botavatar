@@ -16,9 +16,9 @@ SVG uploads, animation, and 3D styles are outside the first release.
 ## Identity model
 
 - **BotTemplate** identifies a type through a hat shape, color token, and hat badge.
-  The tuple `styleId + hat.type + hat.color + hat.badge` is unique within a manifest
+  The tuple `styleId + hat.type + hat.color + hat.badge + hat.badgeColor` is unique within a manifest
   version. A role is a semantic alias with an explicit default template.
-- **BotInstance** selects hair style and color and a circular
+- **BotInstance** selects hair style and a template-approved hair color and a circular
   bottom-right badge. It never changes the template's hat identity.
 - **BotState** selects `idle`, `working`, `waiting`, `success`, `error`, or `offline`
   eye and facial feedback. It never rerolls instance choices.
@@ -110,3 +110,6 @@ identity. HTTP ETags hash actual output bytes. Batch input is limited to 100 req
 ## Deferred decisions
 
 ADR 0006 records resvg conversion, HTTP caching, and the chosen local/offline delivery channel. Packages remain private / UNLICENSED. Public licensing and publication are deferred until explicitly requested. PNG and Studio appearance remain reviewable separately from the approved SVG baseline.
+
+[ADR 0007](decisions/0007-template-hair-palettes.md) defines curated hair palettes
+and fixed template emblem colors for the Fine Line profile.

@@ -2,7 +2,7 @@ import type { Catalog } from './catalog.js';
 import { validateCatalog } from './catalog.js';
 import { AvatarError } from './errors.js';
 import { parseAvatarRequest } from './schema/request.js';
-export const CORE_VERSION = '0.4.0';
+export const CORE_VERSION = '0.5.0';
 // FNV-1a over UTF-16 code units, with independent field namespaces.
 export function seedIndex(seed: string, field: string, count: number): number {
   if (!Number.isInteger(count) || count < 1)
@@ -54,14 +54,22 @@ export function normalizeAvatar(input: unknown, catalog: Catalog) {
     manifestVersion: catalog.version,
     styleId: catalog.styleId,
     templateId: template.id,
-    hat: { ...template.hat, fill: color(template.hat.color) },
+    hat: {
+      ...template.hat,
+      fill: color(template.hat.color),
+      badgeFill: color(template.hat.badgeColor),
+    },
     instanceId: instance?.id ?? null,
     seed,
     hair: {
       style: hairStyle,
       back: hairBack,
       color: color(
-        instance?.hair?.color ?? template.defaultHairColor ?? catalog.defaults.hairColor,
+        select(
+          instance?.hair?.color ?? template.defaultHairColor ?? catalog.defaults.hairColor,
+          template.allowedHairColors,
+          'hair color for this template',
+        ),
       ),
     },
     face: {

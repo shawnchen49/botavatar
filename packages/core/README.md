@@ -15,3 +15,7 @@ values; external callers should enter through `generateAvatar`.
 
 See [ADR 0002](../../docs/decisions/0002-deterministic-svg.md) for seed, precedence,
 validation, and resource identity contracts.
+
+Templates declare fixed emblem colors and curated `allowedHairColors`. Validation
+requires a nonempty unique palette containing the default; normalization rejects
+explicit colors outside that palette. See ADR 0007.

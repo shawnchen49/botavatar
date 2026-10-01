@@ -19,12 +19,14 @@ reviewed visual baseline is approved.
   waiting eyes are short horizontal marks, success eyes are upward arches, and
   error eyes are crosses. Offline is a muted extension of the reference.
 - Give hair rounded volume behind the face and a distinct front fringe. Template
-  defaults coordinate hair and hat colors; explicit instance hair colors remain independent.
-- Use restrained gradients, very subtle neutral texture, and thin tonal contours.
-  Avoid hard dark borders around the hat and face, harsh bevels, or strong 3D lighting.
-- Add a soft, narrow contact shadow below the hat onto the hair, with a lighter
-  shadow below the fringe onto the face. Clip shadows to receiving surfaces; avoid
-  a surrounding drop-shadow halo or stronger global shading.
+  defaults coordinate hair and hat colors; explicit hair colors use the template palette.
+- Use solid fills for the face, hair, hat, and eyes. No material grain, gradients,
+  blur, hat-to-hair shadow, or fringe-to-face shadow. Hat seams are thin tonal lines.
+- Use yellow for the Build hardhat, paper ivory for Docs, and navy for Security.
+  Hat silhouette, color, emblem, and emblem color are fixed template identity.
+- Give each template five curated hair colors with distinguishable lightness from
+  its hat; the default is included. Same-hue combinations are allowed when clear
+  at 64 pixels. Do not offer the unrestricted global palette for hair.
 - Let hat emblems follow their surface. Use direct print for standalone symbols,
   existing background-free glyphs for code and data, and dark plaques for shell and Git.
   Use licensed existing SVG icons for both hat and instance badges; never redraw

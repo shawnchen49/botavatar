@@ -23,9 +23,6 @@ export function part(id: string, fill: string, outline = fill, strokeWidth?: num
     tag: 'g',
     attributes: {
       color: outline,
-      ...(id !== 'face-round' && fill.startsWith('url(')
-        ? { filter: 'url(#avatar-soft-material-v1)' }
-        : {}),
     },
     children,
   };

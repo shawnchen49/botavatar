@@ -14,10 +14,12 @@ export type BotTemplate = {
     readonly type: string;
     readonly color: string;
     readonly badge: string;
+    readonly badgeColor: string;
   };
   readonly defaultPalette: string;
   readonly defaultHairColor?: string;
   readonly allowedHair: readonly string[];
+  readonly allowedHairColors: readonly string[];
   readonly allowedInstanceBadges: readonly string[];
 };
 

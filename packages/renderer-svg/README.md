@@ -10,8 +10,7 @@ prepares assets. Distribution code has no repository filesystem dependency.
 
 The profile implements six mouthless eye expressions, optional
 bottom-right badges, and transparent, solid, or gradient backgrounds. All supported
-sizes scale the same geometry. Gradients and a fixed-seed neutral texture provide
-soft materials. `hat-badge.ts` mounts emblems on six hat shapes using direct print,
+sizes scale the same geometry. Solid fills and thin tonal seams provide the Fine Line appearance. `hat-badge.ts` mounts emblems on six hat shapes using direct print,
 and optional dark plaques; beret emblems follow the tilted hat surface. Existing
 Lucide glyphs retain upstream paths and receive color and fitting transforms.
 Instance `iconColor` is independent of rim `color`. The upstream license notices are preserved in
@@ -21,10 +20,10 @@ SVG metadata and distribution notices. Badge label text uses system fonts. See t
 See [asset authoring](../../docs/asset-authoring.md) for the deliberately restricted
 source SVG format and [ADR 0002](../../docs/decisions/0002-deterministic-svg.md).
 
-`contact-shadow.ts` adds restrained hat-to-hair and fringe-to-face shadows using
-existing silhouettes. Receiver clips keep the transparent background clean;
-fixed offsets and blur preserve deterministic output at every supported size.
-
 Instance badges use a 27-unit radius centered at (210, 210), a 3.5-unit rim,
 and a subtle contact shadow clipped to the face. Labels use larger monogram
 lettering; embedded PNG imports fit inside the disc without tinting their colors.
+
+Renderer 0.9.0 removes avatar gradients, material texture, and hat/fringe shadows.
+Hat seams use a 1.2-unit line derived from the fixed hat color. Emblem foreground
+colors come from normalized template identity. The instance-badge shadow remains.

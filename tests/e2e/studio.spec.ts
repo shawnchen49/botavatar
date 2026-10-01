@@ -126,3 +126,23 @@ test('hides import controls while preserving existing image badges and exports',
   await expect(page.getByRole('button', { name: 'Export PNG', exact: true })).toBeEnabled();
   await page.screenshot({ path: 'output/studio-solid-refinement.png', fullPage: true });
 });
+
+test('template changes retain compatible hair and reset incompatible choices', async ({ page }) => {
+  await page.goto('/');
+  const template = page.getByRole('combobox', { name: 'Template', exact: true });
+  const color = page.getByRole('combobox', { name: 'Hair color', exact: true });
+  await expect(page.getByRole('button', { name: 'Export SVG', exact: true })).toBeEnabled();
+  await expect(color.locator('option')).toHaveCount(6);
+  await expect(color.locator('option[value="purple"]')).toHaveCount(0);
+  await color.selectOption('plum');
+  await template.selectOption('build');
+  await expect(color).toHaveValue('plum');
+  await template.selectOption('caretaker');
+  await expect(color).toHaveValue('');
+  await expect(color.locator('option[value="navy"]')).toHaveCount(0);
+  await color.selectOption('silver');
+  await page.getByRole('button', { name: 'Create share link' }).click();
+  await page.reload();
+  await expect(color).toHaveValue('silver');
+  await expect(page.getByRole('button', { name: 'Export SVG', exact: true })).toBeEnabled();
+});

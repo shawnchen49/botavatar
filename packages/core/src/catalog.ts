@@ -57,6 +57,7 @@ export function validateCatalog(catalog: Catalog): void {
       template.hat.type,
       template.hat.color,
       template.hat.badge,
+      template.hat.badgeColor,
     ]);
     if (ids.has(template.id) || identities.has(identity) || template.styleId !== catalog.styleId)
       invalid('Duplicate or incompatible template identity.');
@@ -66,12 +67,19 @@ export function validateCatalog(catalog: Catalog): void {
       !assets.has(template.hat.type) ||
       !assets.has(template.hat.badge) ||
       !Object.hasOwn(catalog.colors, template.hat.color) ||
+      !Object.hasOwn(catalog.colors, template.hat.badgeColor) ||
       !Object.hasOwn(catalog.colors, template.defaultPalette) ||
       (template.defaultHairColor !== undefined &&
         !Object.hasOwn(catalog.colors, template.defaultHairColor))
     )
       invalid('Invalid template resources.');
     if (
+      !template.allowedHairColors.length ||
+      new Set(template.allowedHairColors).size !== template.allowedHairColors.length ||
+      template.allowedHairColors.some((id) => !Object.hasOwn(catalog.colors, id)) ||
+      !template.allowedHairColors.includes(
+        template.defaultHairColor ?? catalog.defaults.hairColor,
+      ) ||
       !template.allowedHair.length ||
       template.allowedHair.some((id) => !catalog.hair.includes(id)) ||
       template.allowedInstanceBadges.some((id) => !catalog.instanceBadges.includes(id))

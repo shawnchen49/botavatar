@@ -38,7 +38,7 @@ export function hatBadge(hat: NormalizedAvatar['hat'], outline: string): SvgNode
     attributes: {
       transform: `translate(${128 + treatment.offsetX} ${64 + treatment.offsetY}) scale(${treatment.size / 256}) translate(-128 -128)`,
     },
-    children: [part(hat.badge, treatment.foreground, treatment.foreground, 2.6)],
+    children: [part(hat.badge, hat.badgeFill, hat.badgeFill, 2.6)],
   });
   return {
     tag: 'g',

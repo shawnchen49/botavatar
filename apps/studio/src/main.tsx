@@ -225,12 +225,13 @@ function App() {
             Template
             <select
               value={request.templateId}
-              onChange={(e) =>
-                change({
-                  templateId: e.target.value,
-                  instance,
-                })
-              }
+              onChange={(e) => {
+                const next = templates.find((item) => item.id === e.target.value);
+                const hair = { ...instance.hair };
+                if (hair.color && !next?.allowedHairColors.includes(hair.color)) delete hair.color;
+                if (hair.style && !next?.allowedHair.includes(hair.style)) delete hair.style;
+                change({ templateId: e.target.value, instance: { ...instance, hair } });
+              }}
             >
               {templates.map((t) => (
                 <option key={t.id} value={t.id}>
@@ -271,7 +272,7 @@ function App() {
                 }}
               >
                 <option value="">Template default</option>
-                {Object.keys(style?.colors ?? {}).map((c) => (
+                {template?.allowedHairColors.map((c) => (
                   <option key={c}>{c}</option>
                 ))}
               </select>
