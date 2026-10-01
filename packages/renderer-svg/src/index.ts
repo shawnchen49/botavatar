@@ -12,9 +12,9 @@ import { softPaint, materialTexture } from './paint.js';
 import { serializeSvg } from './svg.js';
 import type { SvgNode } from './svg.js';
 
-export const RENDERER_VERSION = '0.12.0';
+export const RENDERER_VERSION = '0.13.0';
 export function composeSvg(avatar: NormalizedAvatar): SvgNode {
-  if (avatar.styleId !== 'flat-2d' || avatar.manifestVersion !== '1.9.1')
+  if (avatar.styleId !== 'flat-2d' || avatar.manifestVersion !== '1.9.3')
     throw new AvatarError('UNKNOWN_CHOICE', 'Unsupported style or manifest version.');
   if (avatar.face.glasses !== 'none')
     throw new AvatarError('UNKNOWN_CHOICE', 'Unsupported renderer overlay.');

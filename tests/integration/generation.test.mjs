@@ -419,7 +419,7 @@ describe('template hair palettes and restored rendering', () => {
   it('accepts all curated colors without changing template identity across states', () => {
     for (const template of catalog.templates) {
       const baseline = generate({ templateId: template.id });
-      expect(template.allowedHairColors).toHaveLength(5);
+      expect(template.allowedHairColors.length).toBeGreaterThanOrEqual(10);
       expect(template.allowedHairColors).toContain(template.defaultHairColor);
       for (const color of template.allowedHairColors) {
         for (const state of ['idle', 'working', 'waiting', 'success', 'error', 'offline']) {

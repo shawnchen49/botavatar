@@ -104,3 +104,18 @@ Manifest 1.9.1 / renderer 0.12.0 implements independent pilot strap, frame, and
 lens assets, with local hat-clipped contact shadows. Original 1.4.2 identities
 remain unchanged. See [the review](reviews/soft-layered-accessories.md). Next:
 review this accessory depth before extending raised treatments to other hats.
+
+## Compact Studio and stable expressions — 2026-10-01
+
+The editor now keeps preview, state selection, settings, and export within the
+1027 by 784 desktop viewport, including expanded seed and letter-badge controls.
+Hair colors use circular swatches. Renderer 0.13.0 aligns all expressions to the
+approved idle centers; manifest 1.9.2 uses slate backgrounds to separate the face.
+The five non-idle state and five existing badge snapshot differences require
+visual approval; approved snapshots remain unchanged. Next: review expression
+alignment, background contrast, and the compact desktop workspace.
+
+Studio review follow-up: remove the introductory slogan, restore export actions
+to the right column bottom, and show named circular swatches in a dropdown.
+Manifest 1.9.3 expands hair palettes to 11–14 colors while retaining defaults.
+Next: review the expanded palette and right-side export placement.

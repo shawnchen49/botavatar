@@ -32,3 +32,8 @@ and below the state layer. Each contact shadow is clipped to the underlying hat.
 Pilot straps and frames have separate shadow strengths; lenses are inset color
 blocks without an exterior shadow. Hats without accessories add no nodes, keeping
 the original twenty identities and six state snapshots byte-identical to 1.4.2.
+
+Renderer 0.13.0 centers every expression on the approved idle eye positions
+(95.5, 185) and (163.5, 185). Non-idle geometry uses local coordinates so
+expression changes do not move the eyes. Those five revised state snapshots
+remain pending review. Manifest 1.9.2 changes the default background to slate.

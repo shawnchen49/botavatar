@@ -1,10 +1,11 @@
 import type { BotState } from '@bot-avatar/core';
 import type { SvgNode } from './svg.js';
 
-// Every state uses the same eye anchors. Mouths are intentionally absent.
+// Local expression geometry is centered on the approved idle eye positions.
+const eyeCenters = [95.5, 163.5] as const;
+const eyeY = 185;
 export function expression(state: BotState, eyeFill: string): SvgNode {
-  const ink = '#171918';
-  const line = (d: string, width: number, stroke = ink): SvgNode => ({
+  const line = (d: string, width: number, stroke = '#171918'): SvgNode => ({
     tag: 'path',
     attributes: {
       d,
@@ -15,41 +16,45 @@ export function expression(state: BotState, eyeFill: string): SvgNode {
       'stroke-linejoin': 'round',
     },
   });
-  let eyes: readonly SvgNode[];
-  switch (state) {
-    case 'idle':
-      eyes = [86, 154].map((x) => ({
-        tag: 'rect',
-        attributes: { x, y: 164, width: 19, height: 42, rx: 9.5, fill: eyeFill },
-      }));
-      break;
-    case 'working':
-      eyes = [
-        {
-          tag: 'path',
-          attributes: {
-            d: 'M85 176L103 180V197Q103 206 94 206Q85 206 85 197ZM153 180L171 176V197Q171 206 162 206Q153 206 153 197Z',
-            fill: eyeFill,
-          },
-        },
-        line('M83 175L105 179M151 179L173 175', 5),
-      ];
-      break;
-    case 'waiting':
-      eyes = [line('M87 190H101', 8), line('M155 190H169', 8)];
-      break;
-    case 'success':
-      eyes = [line('M83 192Q94 164 105 192', 8), line('M151 192Q162 164 173 192', 8)];
-      break;
-    case 'error':
-      eyes = [
-        line('M84 178L104 198M104 178L84 198', 7),
-        line('M152 178L172 198M172 178L152 198', 7),
-      ];
-      break;
-    case 'offline':
-      eyes = [line('M87 190H101', 6, '#b5b4b0'), line('M155 190H169', 6, '#b5b4b0')];
-      break;
-  }
+  const eyes: readonly SvgNode[] =
+    state === 'idle'
+      ? eyeCenters.map((x) => ({
+          tag: 'rect',
+          attributes: { x: x - 9.5, y: eyeY - 21, width: 19, height: 42, rx: 9.5, fill: eyeFill },
+        }))
+      : eyeCenters.map((x, index) => {
+          let eye: SvgNode;
+          switch (state) {
+            case 'working':
+              eye = {
+                tag: 'path',
+                attributes: {
+                  d:
+                    index === 0
+                      ? 'M-9.5 -16L9.5 -12V6.5Q9.5 16 0 16Q-9.5 16 -9.5 6.5Z'
+                      : 'M-9.5 -12L9.5 -16V6.5Q9.5 16 0 16Q-9.5 16 -9.5 6.5Z',
+                  fill: eyeFill,
+                },
+              };
+              break;
+            case 'waiting':
+              eye = line('M-7 0H7', 8);
+              break;
+            case 'success':
+              eye = line('M-11 7Q0 -21 11 7', 8);
+              break;
+            case 'error':
+              eye = line('M-10 -10L10 10M10 -10L-10 10', 7);
+              break;
+            case 'offline':
+              eye = line('M-7 0H7', 6, '#b5b4b0');
+              break;
+          }
+          return {
+            tag: 'g',
+            attributes: { transform: `translate(${x} ${eyeY})` },
+            children: [eye],
+          };
+        });
   return { tag: 'g', attributes: { 'data-layer': 'state', 'data-state': state }, children: eyes };
 }

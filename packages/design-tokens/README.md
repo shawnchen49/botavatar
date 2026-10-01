@@ -34,3 +34,11 @@ language without replacing the original role identities.
 for physical hat accessories. The pilot strap, frame, and lenses are registered
 project-owned SVG assets. They remain template identity, with no new instance
 selection or renderer randomness.
+
+Manifest 1.9.2 selects the existing slate token for the default background,
+providing separation from the cream face in solid exports. Gradient exports
+start from the same slate token and retain the sky endpoint.
+
+Manifest 1.9.3 extends each existing hair palette with nine reusable accent
+colors, deduplicating existing entries. Original defaults and the order of
+existing choices remain intact; each template now offers 11–14 colors.

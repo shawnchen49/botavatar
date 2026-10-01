@@ -31,3 +31,9 @@ Seed settings are collapsed by default. Background choices have color swatches,
 and the desktop preview stays in view while scrolling. Template changes preserve
 compatible hair choices and instance badges; incompatible hair overrides reset
 to the new template defaults. Hair colors come from each template palette. Solid and gradient background defaults follow the active catalog.
+
+The compact desktop workspace places state, and output settings below the preview, with identity and badge controls
+alongside and export actions at the bottom right. At 1027 by 784
+pixels the full editor fits even with seed and letter-badge settings expanded.
+Mobile retains a scrolling single-column layout. Hair colors use a dropdown palette of named circular swatches with a
+template-default reset, native radio keyboard navigation, and Escape dismissal.

@@ -32,7 +32,7 @@ test('preview, state, shared URL and both export formats', async ({ page }) => {
   await expect(page.getByRole('button', { name: 'Export PNG', exact: true })).toBeEnabled();
   await page.screenshot({ path: 'output/studio-desktop.png', fullPage: true });
   await page.setViewportSize({ width: 390, height: 844 });
-  await expect(page.getByRole('heading', { name: 'A face for every bot.' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'BOT / AVATAR' })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: 'output/studio-mobile.png', fullPage: true });
   expect(errors).toEqual([]);
@@ -130,19 +130,52 @@ test('hides import controls while preserving existing image badges and exports',
 test('template changes retain compatible hair and reset incompatible choices', async ({ page }) => {
   await page.goto('/');
   const template = page.getByRole('combobox', { name: 'Template', exact: true });
-  const color = page.getByRole('combobox', { name: 'Hair color', exact: true });
+  const menu = page.locator('.color-menu');
+  const open = () => menu.locator('summary').click();
   await expect(page.getByRole('button', { name: 'Export SVG', exact: true })).toBeEnabled();
-  await expect(color.locator('option')).toHaveCount(6);
-  await expect(color.locator('option[value="purple"]')).toHaveCount(0);
-  await color.selectOption('plum');
+  await open();
+  expect(await menu.getByRole('radio').count()).toBeGreaterThan(10);
+  await menu.getByRole('radio', { name: 'plum', exact: true }).check();
+  await page.keyboard.press('Escape');
+  await expect(menu).not.toHaveAttribute('open');
   await template.selectOption('build');
-  await expect(color).toHaveValue('plum');
+  await open();
+  await expect(menu.getByRole('radio', { name: 'plum', exact: true })).toBeChecked();
   await template.selectOption('caretaker');
-  await expect(color).toHaveValue('');
-  await expect(color.locator('option[value="navy"]')).toHaveCount(0);
-  await color.selectOption('silver');
+  await open();
+  await expect(menu.getByRole('radio', { name: 'Template default' })).toBeChecked();
+  await expect(menu.getByRole('radio', { name: 'navy', exact: true })).toHaveCount(0);
+  await menu.getByRole('radio', { name: 'silver', exact: true }).check();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('button', { name: 'Export SVG', exact: true })).toBeEnabled();
   await page.getByRole('button', { name: 'Create share link' }).click();
   await page.reload();
-  await expect(color).toHaveValue('silver');
+  await open();
+  await expect(menu.getByRole('radio', { name: 'silver', exact: true })).toBeChecked();
+  await page.keyboard.press('Escape');
   await expect(page.getByRole('button', { name: 'Export SVG', exact: true })).toBeEnabled();
+});
+
+test('all settings and exports fit the review viewport with a letter badge', async ({ page }) => {
+  await page.setViewportSize({ width: 1027, height: 784 });
+  await page.goto('/');
+  await page.getByRole('combobox', { name: 'Instance badge', exact: true }).selectOption('letters');
+  await page.getByText('Advanced · seed', { exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Export PNG', exact: true })).toBeEnabled();
+  expect(
+    await page.evaluate(() => ({
+      height: document.documentElement.scrollHeight,
+      width: document.documentElement.scrollWidth,
+    })),
+  ).toEqual({ height: 784, width: 1027 });
+  const preview = await page.getByRole('region', { name: 'Avatar preview' }).boundingBox();
+  const actions = await page.locator('.export-actions').boundingBox();
+  if (!actions || !preview) throw new Error('Missing editor panels');
+  expect(actions.x).toBeGreaterThan(preview.x + preview.width);
+  await expect(page.getByText('A face for every bot.')).toHaveCount(0);
+  await page.locator('.color-menu summary').click();
+  await expect(page.getByRole('radio', { name: 'copper', exact: true })).toBeVisible();
+  await page.screenshot({ path: 'output/studio-color-menu.png', fullPage: true });
+  await page.keyboard.press('Escape');
+  await page.screenshot({ path: 'output/studio-compact.png', fullPage: true });
 });

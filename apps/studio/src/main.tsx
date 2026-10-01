@@ -2,6 +2,7 @@ import { StrictMode, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import type { AvatarRequest, BotTemplate, BotState } from '@bot-avatar/core';
 import './style.css';
+import { ColorMenu } from './color-menu.js';
 
 type Style = {
   id: 'flat-2d';
@@ -190,11 +191,6 @@ function App() {
         </a>
         <span>LOCAL STUDIO · 01</span>
       </header>
-      <div className="intro">
-        <p className="eyebrow">SAME SPECIES. DIFFERENT SUPERPOWERS.</p>
-        <h1>A face for every bot.</h1>
-        <p>Pick an identity. Make it yours. Keep it across every state.</p>
-      </div>
       <div className="workspace">
         <section className="preview-panel" aria-label="Avatar preview">
           <div className="preview-top">
@@ -217,6 +213,39 @@ function App() {
                 {state}
               </button>
             ))}
+          </div>
+          <div className="export-settings">
+            <div className="field-pair">
+              <label>
+                Size
+                <select
+                  value={request.size ?? 256}
+                  onChange={(e) => change({ size: Number(e.target.value) as 64 | 128 | 256 | 512 })}
+                >
+                  {style?.sizes.map((s) => (
+                    <option key={s} value={s}>
+                      {s} px
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+            <fieldset className="background-options">
+              <legend>Background</legend>
+              <div className="option-buttons">
+                {style?.backgrounds.map((background) => (
+                  <button
+                    key={background}
+                    type="button"
+                    aria-pressed={(request.background ?? 'transparent') === background}
+                    onClick={() => change({ background })}
+                  >
+                    <span className={`background-swatch ${background}`} />
+                    {background.charAt(0).toUpperCase() + background.slice(1)}
+                  </button>
+                ))}
+              </div>
+            </fieldset>
           </div>
         </section>
         <section className="controls" aria-label="Avatar settings">
@@ -260,23 +289,18 @@ function App() {
                 ))}
               </select>
             </label>
-            <label>
-              Hair color
-              <select
-                value={instance.hair?.color ?? ''}
-                onChange={(e) => {
-                  const hair = { ...instance.hair };
-                  if (e.target.value) hair.color = e.target.value;
-                  else delete hair.color;
-                  change({ instance: { ...instance, hair } });
-                }}
-              >
-                <option value="">Template default</option>
-                {template?.allowedHairColors.map((c) => (
-                  <option key={c}>{c}</option>
-                ))}
-              </select>
-            </label>
+            <ColorMenu
+              value={instance.hair?.color ?? ''}
+              colors={template?.allowedHairColors ?? []}
+              palette={style?.colors ?? {}}
+              defaultColor={template?.defaultHairColor ?? 'purple'}
+              onChange={(color) => {
+                const hair = { ...instance.hair };
+                if (color) hair.color = color;
+                else delete hair.color;
+                change({ instance: { ...instance, hair } });
+              }}
+            />
           </div>
           <details className="advanced">
             <summary>Advanced · seed</summary>
@@ -389,49 +413,19 @@ function App() {
               </div>
             </>
           )}
-          <h3>Export</h3>
-          <div className="field-pair">
-            <label>
-              Size
-              <select
-                value={request.size ?? 256}
-                onChange={(e) => change({ size: Number(e.target.value) as 64 | 128 | 256 | 512 })}
-              >
-                {style?.sizes.map((s) => (
-                  <option key={s} value={s}>
-                    {s} px
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
-          <fieldset className="background-options">
-            <legend>Background</legend>
-            <div className="option-buttons">
-              {style?.backgrounds.map((background) => (
-                <button
-                  key={background}
-                  type="button"
-                  aria-pressed={(request.background ?? 'transparent') === background}
-                  onClick={() => change({ background })}
-                >
-                  <span className={`background-swatch ${background}`} />
-                  {background.charAt(0).toUpperCase() + background.slice(1)}
-                </button>
-              ))}
+          <div className="export-actions">
+            <div className="actions">
+              <button disabled={busy || !preview} onClick={() => void download('svg')}>
+                Export SVG
+              </button>
+              <button disabled={busy || !preview} onClick={() => void download('png')}>
+                Export PNG
+              </button>
             </div>
-          </fieldset>
-          <div className="actions">
-            <button disabled={busy || !preview} onClick={() => void download('svg')}>
-              Export SVG
-            </button>
-            <button disabled={busy || !preview} onClick={() => void download('png')}>
-              Export PNG
+            <button className="share" disabled={busy || !preview} onClick={share}>
+              Create share link ↗
             </button>
           </div>
-          <button className="share" disabled={busy || !preview} onClick={share}>
-            Create share link ↗
-          </button>
         </section>
       </div>
       {(error || linkError) && (
@@ -441,7 +435,7 @@ function App() {
       )}
       <p role="status">{notice}</p>
       <footer>
-        <span>20 identities. One family.</span>
+        <span>{templates.length} identities. One family.</span>
         <span>Generated locally · SVG + PNG</span>
       </footer>
     </main>
