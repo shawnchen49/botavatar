@@ -1,3 +1,12 @@
+<p align="center">
+  <img
+    src="docs/images/logo/bot-avatar-logo.png"
+    alt="Bot Avatar logo: cream face, purple beanie with messy hair, and a terminal badge on the beanie"
+    width="240"
+    height="240"
+  />
+</p>
+
 # Bot Avatar
 
 [![CI](https://github.com/stevenchen49/botavatar/actions/workflows/ci.yml/badge.svg)](https://github.com/stevenchen49/botavatar/actions/workflows/ci.yml)
@@ -90,7 +99,7 @@ Coder (`assistant`, `hair-crop`) keeps the same hat and hair. Only `state` chang
   </tr>
 </table>
 
-The files in [`docs/images/`](docs/images) are committed README previews. Review exports under `output/` stay untracked. Regression SVGs live in [`tests/snapshots/`](tests/snapshots).
+The mark above the title is the project logo (`docs/images/logo/`). The other files in [`docs/images/`](docs/images) are committed README previews. Review exports under `output/` stay untracked. Regression SVGs live in [`tests/snapshots/`](tests/snapshots).
 
 ## Quick start
 
