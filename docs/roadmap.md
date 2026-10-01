@@ -171,3 +171,21 @@ checks and the same 19 pending visual-baseline mismatches from the palette stage
 No runtime or visual behavior changed in this audit. Independent skill structure
 and reference checks pass; the bundled Python skill validator could not run
 because its PyYAML dependency is unavailable.
+
+## Template ids match role semantics — 2026-10-01
+
+Manifest 1.9.6 renames the default templates whose ids disagreed with their hats
+and roles: `assistant` to `coder`, `builder` to `test`, and `caretaker` to
+`security`. `security-officer` remains the patrol-cap variant. Legacy ids stay
+in the role map and normalize to the preferred id, so old requests keep the same
+hat, emblem, and resource identity as the new id. Renderer 0.13.0 still draws
+the avatar; only the SVG title uses the preferred id. See
+[ADR 0011](decisions/0011-template-id-semantics.md).
+
+`research` still shares `badge-sparkle` with `ai`. No academic emblem is in the
+vendored catalog, so that badge was left in place.
+
+Verification: alias requests match preferred-id output, variant ids stay
+distinct, and regression SVGs differ only by the title text for the renamed
+templates. Next: a separate academic emblem for research, only if a fitting
+badge is added through the asset pipeline.

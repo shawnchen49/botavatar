@@ -1,6 +1,6 @@
 import type { Catalog } from '@bot-avatar/core';
 export const catalog = {
-  version: '1.9.5',
+  version: '1.9.6',
   styleId: 'flat-2d',
   assets: [
     {
@@ -517,7 +517,7 @@ export const catalog = {
     gradientEnd: 'sky',
   },
   roles: {
-    coder: 'assistant',
+    coder: 'coder',
     research: 'research',
     docs: 'docs',
     git: 'git',
@@ -529,21 +529,22 @@ export const catalog = {
     network: 'network',
     ai: 'ai',
     general: 'general',
-    test: 'builder',
+    test: 'test',
     deploy: 'deploy',
     monitor: 'monitor',
-    security: 'caretaker',
+    security: 'security',
     design: 'design',
     data: 'data',
     search: 'search',
     support: 'support',
-    assistant: 'assistant',
-    builder: 'builder',
-    caretaker: 'caretaker',
+    // Legacy request ids. They are not templates; normalization selects the role default.
+    assistant: 'coder',
+    builder: 'test',
+    caretaker: 'security',
   },
   templates: [
     {
-      id: 'assistant',
+      id: 'coder',
       role: 'coder',
       styleId: 'flat-2d',
       hat: {
@@ -907,7 +908,7 @@ export const catalog = {
       ],
     },
     {
-      id: 'builder',
+      id: 'test',
       role: 'test',
       styleId: 'flat-2d',
       hat: {
@@ -996,7 +997,7 @@ export const catalog = {
       ],
     },
     {
-      id: 'caretaker',
+      id: 'security',
       role: 'security',
       styleId: 'flat-2d',
       hat: {

@@ -4,7 +4,7 @@ Build from the root, then generate SVG or PNG using `format` in the request:
 
 ```sh
 pnpm build
-pnpm avatar --request examples/requests/assistant.json --output output/avatar.svg
+pnpm avatar --request examples/requests/coder.json --output output/avatar.svg
 ```
 
 Create the destination parent first. Omit `--output` for stdout, including binary

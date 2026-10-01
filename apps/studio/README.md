@@ -32,6 +32,10 @@ and the desktop preview stays in view while scrolling. Template changes preserve
 compatible hair choices and instance badges; incompatible hair overrides reset
 to the new template defaults. Hair colors come from each template palette. Solid and gradient background defaults follow the active catalog.
 
+Template menu labels are the public names, such as Coder, Test, and Security.
+A share link that still sends `assistant`, `builder`, or `caretaker` selects
+`coder`, `test`, or `security`.
+
 The compact desktop workspace places state, and output settings below the preview, with identity and badge controls
 alongside and export actions at the bottom right. At 1027 by 784
 pixels the full editor fits even with seed and letter-badge settings expanded.

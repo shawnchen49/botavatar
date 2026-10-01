@@ -14,14 +14,14 @@ import { svgRenderer, composeSvg } from '../../packages/renderer-svg/dist/index.
 import { parseAsset, verifyAssetProvenance } from '../../scripts/compile-assets.mjs';
 
 const fixture = JSON.parse(
-  readFileSync(new URL('../fixtures/assistant.json', import.meta.url), 'utf8'),
+  readFileSync(new URL('../fixtures/coder.json', import.meta.url), 'utf8'),
 );
 const generate = (input) => generateAvatar(input, catalog, svgRenderer);
 describe('deterministic generation contract', () => {
   it.each([
     ['build', 'hat-hardhat', 'safety-yellow'],
     ['docs', 'hat-cap', 'ivory'],
-    ['caretaker', 'hat-cap', 'charcoal'],
+    ['security', 'hat-cap', 'charcoal'],
   ])(
     'keeps the %s occupational hat across states and hair overrides',
     (templateId, type, color) => {
@@ -30,12 +30,12 @@ describe('deterministic generation contract', () => {
           templateId,
           state,
           instance: {
-            hair: { style: 'hair-crop', color: templateId === 'caretaker' ? 'silver' : 'plum' },
+            hair: { style: 'hair-crop', color: templateId === 'security' ? 'silver' : 'plum' },
           },
         });
         expect(result.avatar.hat).toMatchObject({ type, fill: catalog.colors[color] });
         expect(result.avatar.hair.color).toBe(
-          catalog.colors[templateId === 'caretaker' ? 'silver' : 'plum'],
+          catalog.colors[templateId === 'security' ? 'silver' : 'plum'],
         );
       }
     },
@@ -67,7 +67,7 @@ describe('deterministic generation contract', () => {
   });
   it('retains explicit overrides and rejects unsupported values', () => {
     const result = generate({
-      templateId: 'builder',
+      templateId: 'test',
       instance: {
         seed: 'custom',
         hair: { style: 'hair-crop', color: 'plum' },
@@ -105,7 +105,7 @@ describe('deterministic generation contract', () => {
     { ...fixture, size: 257 },
     { ...fixture, size: NaN },
     { ...fixture, format: 'jpeg' },
-    { ...fixture, instance: { templateId: 'builder' } },
+    { ...fixture, instance: { templateId: 'test' } },
     { ...fixture, instance: { hat: { color: 'teal' } } },
     { ...fixture, instance: { seed: '' } },
     { ...fixture, instance: { hair: { style: 'unknown' } } },
@@ -126,14 +126,14 @@ describe('deterministic generation contract', () => {
     for (const label of ['\u0001', '\ud800', '\uffff']) {
       expect(() =>
         generate({
-          templateId: 'assistant',
+          templateId: 'coder',
           instance: { instanceBadge: { icon: 'dot', color: 'teal', label } },
         }),
       ).toThrow(AvatarError);
     }
     expect(
       generate({
-        templateId: 'assistant',
+        templateId: 'coder',
         instance: { instanceBadge: { icon: 'dot', color: 'teal', label: '🤖' } },
       }).svg,
     ).toContain('🤖');
@@ -171,11 +171,11 @@ describe('deterministic generation contract', () => {
     const styles = new Set();
     for (let seed = 0; seed < 20; seed++)
       styles.add(
-        normalizeAvatar({ templateId: 'assistant', instance: { seed: String(seed) } }, catalog).hair
+        normalizeAvatar({ templateId: 'coder', instance: { seed: String(seed) } }, catalog).hair
           .style,
       );
     expect(styles.size).toBe(2);
-    expect(normalizeAvatar({ templateId: 'assistant' }, catalog).seed).toBe('bot-avatar-v1');
+    expect(normalizeAvatar({ templateId: 'coder' }, catalog).seed).toBe('bot-avatar-v1');
   });
   it('keeps non-expression layers identical when changing state', () => {
     const stableLayers = (state) =>
@@ -186,14 +186,39 @@ describe('deterministic generation contract', () => {
       expect(stableLayers(state)).toEqual(stableLayers('idle'));
   });
   it('resolves template hair colors without overriding explicit instance choices', () => {
-    expect(normalizeAvatar({ templateId: 'builder' }, catalog).hair.color).toBe(
-      catalog.colors.lime,
-    );
+    expect(normalizeAvatar({ templateId: 'test' }, catalog).hair.color).toBe(catalog.colors.lime);
     expect(
-      normalizeAvatar({ templateId: 'builder', instance: { hair: { color: 'purple' } } }, catalog)
-        .hair.color,
+      normalizeAvatar({ templateId: 'test', instance: { hair: { color: 'purple' } } }, catalog).hair
+        .color,
     ).toBe(catalog.colors.purple);
     expect(() => validateCatalog({ ...catalog, hairBack: {} })).toThrow(AvatarError);
+  });
+  it('resolves legacy template ids to the same preferred identity', () => {
+    for (const [legacy, preferred, badge] of [
+      ['assistant', 'coder', 'badge-code'],
+      ['builder', 'test', 'badge-flask'],
+      ['caretaker', 'security', 'badge-shield'],
+    ]) {
+      const instance = { seed: 'alias-check', hair: { style: 'hair-crop' } };
+      const fromLegacy = normalizeAvatar({ templateId: legacy, instance }, catalog);
+      const fromPreferred = normalizeAvatar({ templateId: preferred, instance }, catalog);
+      expect(fromLegacy).toEqual(fromPreferred);
+      expect(fromPreferred.templateId).toBe(preferred);
+      expect(fromPreferred.hat.badge).toBe(badge);
+      expect(generate({ templateId: legacy, instance }).svg).toBe(
+        generate({ templateId: preferred, instance }).svg,
+      );
+    }
+    expect(normalizeAvatar({ templateId: 'security-officer' }, catalog).templateId).toBe(
+      'security-officer',
+    );
+    expect(normalizeAvatar({ templateId: 'coder' }, catalog).hat).toMatchObject({
+      type: 'hat-beanie',
+      fill: catalog.colors.purple,
+    });
+    expect(() =>
+      validateCatalog({ ...catalog, roles: { ...catalog.roles, security: 'security-officer' } }),
+    ).toThrow(AvatarError);
   });
   it('embeds every paint resource with the approved material treatment', () => {
     for (const template of catalog.templates) {
@@ -227,7 +252,7 @@ describe('deterministic generation contract', () => {
       composeSvg(normalizeAvatar({ templateId }, catalog)).children.find(
         (node) => node.attributes?.['data-layer'] === 'hat-badge',
       );
-    expect(emblem('assistant').children).toHaveLength(1);
+    expect(emblem('coder').children).toHaveLength(1);
     expect(emblem('shell').children[0].attributes.fill).toBe('#171918');
     expect(emblem('research').children).toHaveLength(1);
     expect(emblem('research').attributes.transform).not.toBe(emblem('docs').attributes.transform);
@@ -250,7 +275,7 @@ describe('deterministic generation contract', () => {
   });
   it('preserves transparent Lucide strokes and separate body contours', () => {
     const flatten = (node) => [node, ...(node.children ?? []).flatMap(flatten)];
-    const tree = composeSvg(normalizeAvatar({ templateId: 'assistant' }, catalog));
+    const tree = composeSvg(normalizeAvatar({ templateId: 'coder' }, catalog));
     const emblem = tree.children.find((node) => node.attributes?.['data-layer'] === 'hat-badge');
     const glyphs = flatten(emblem).filter((node) => node.tag === 'path');
     expect(glyphs.length).toBeGreaterThan(0);
@@ -266,7 +291,7 @@ describe('deterministic generation contract', () => {
   });
   it('recolors an instance icon independently of its circular rim', () => {
     const input = {
-      templateId: 'assistant',
+      templateId: 'coder',
       instance: { instanceBadge: { icon: 'terminal', color: 'purple', iconColor: 'teal' } },
     };
     const result = generate(input);
@@ -295,7 +320,7 @@ describe('deterministic generation contract', () => {
   it('resolves every instance badge to a vendored icon', () => {
     for (const icon of catalog.instanceBadges) {
       const result = generate({
-        templateId: 'assistant',
+        templateId: 'coder',
         instance: { instanceBadge: { icon, color: 'teal' } },
       });
       expect(
@@ -359,7 +384,7 @@ describe('catalog and asset boundaries', () => {
 describe('CLI and portable distribution', () => {
   it('matches library SVG, reports invalid input, and refuses to overwrite files', () => {
     const cli = resolve('apps/cli/dist/main.js');
-    const request = resolve('tests/fixtures/assistant.json');
+    const request = resolve('tests/fixtures/coder.json');
     expect(execFileSync(process.execPath, [cli, '--request', request], { encoding: 'utf8' })).toBe(
       generate(fixture).svg,
     );

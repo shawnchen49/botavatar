@@ -23,8 +23,9 @@ and a subtle contact shadow clipped to the face. Labels use larger monogram
 lettering; embedded PNG imports fit inside the disc without tinting their colors.
 
 The later instance-badge behavior remains intact. Regression baselines in
-`tests/snapshots/` match this renderer and manifest 1.9.5, including the compact
-badges. New hats use the same painter and receiver-clipped shadows, with no
+`tests/snapshots/` match this renderer and manifest 1.9.6, including the compact
+badges. Manifest 1.9.6 only changes which template id the SVG title records.
+New hats use the same painter and receiver-clipped shadows, with no
 separate rendering mode or random choices.
 
 `hat-accessories.ts` draws fixed accessory assets above the hat's printed emblem

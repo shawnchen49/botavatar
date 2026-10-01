@@ -41,7 +41,7 @@ writeFileSync(join(target, 'start.mjs'), "import './apps/api/dist/main.js';\n");
 writeFileSync(join(target, 'avatar.mjs'), "import './apps/cli/dist/main.js';\n");
 writeFileSync(
   join(target, 'README.txt'),
-  `Bot Avatar — local distribution\n\nRequires Node.js 22.14+ (22.x) or 24.x on ${process.platform}/${process.arch}.\nStart: node start.mjs\nOpen: http://127.0.0.1:3000\nCLI: node avatar.mjs --request examples/requests/assistant.json\nNo package installation or network access is needed at runtime.\nSet PORT and BOT_AVATAR_INSTANCES as needed. The server binds to loopback only.\nPackages are private / UNLICENSED. No open-source license is granted.\nThird-party license notices remain in the bundled packages and LUCIDE-LICENSE.\nPNG badge labels use fonts installed on the target computer.\n`,
+  `Bot Avatar — local distribution\n\nRequires Node.js 22.14+ (22.x) or 24.x on ${process.platform}/${process.arch}.\nStart: node start.mjs\nOpen: http://127.0.0.1:3000\nCLI: node avatar.mjs --request examples/requests/coder.json\nNo package installation or network access is needed at runtime.\nSet PORT and BOT_AVATAR_INSTANCES as needed. The server binds to loopback only.\nPackages are private / UNLICENSED. No open-source license is granted.\nThird-party license notices remain in the bundled packages and LUCIDE-LICENSE.\nPNG badge labels use fonts installed on the target computer.\n`,
 );
 const files = [];
 function walk(dir) {

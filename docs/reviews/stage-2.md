@@ -114,7 +114,7 @@ under ignored draft assets and is not a build dependency.
 
 ## Review entrypoints
 
-- [Example request](../../examples/requests/assistant.json) and
+- [Example request](../../examples/requests/coder.json) and
   [CLI usage](../../apps/cli/README.md).
 - [Normalization](../../packages/core/src/normalize.ts),
   [semantic composition](../../packages/core/src/composition.ts), and

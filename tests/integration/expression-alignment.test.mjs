@@ -9,11 +9,7 @@ it('keeps the visible eye bounds centered across all six states and output sizes
   for (const size of [64, 128, 256, 512]) {
     const centers = [];
     for (const state of ['idle', 'working', 'waiting', 'success', 'error', 'offline']) {
-      const { svg } = generateAvatar(
-        { templateId: 'assistant', state, size },
-        catalog,
-        svgRenderer,
-      );
+      const { svg } = generateAvatar({ templateId: 'coder', state, size }, catalog, svgRenderer);
       const stateMarkup = svg
         .slice(svg.indexOf('<g data-layer="state"'))
         .replaceAll(/url\(#[^)]+\)/g, '#171918');
@@ -49,7 +45,7 @@ it('keeps the visible eye bounds centered across all six states and output sizes
 
 it('gives the default solid background visible contrast against the face', () => {
   const { avatar, svg } = generateAvatar(
-    { templateId: 'assistant', background: 'solid' },
+    { templateId: 'coder', background: 'solid' },
     catalog,
     svgRenderer,
   );

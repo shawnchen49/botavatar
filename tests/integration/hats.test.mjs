@@ -78,7 +78,7 @@ describe('additions to the approved visual family', () => {
   it('adds optional hats without replacing the approved role defaults', () => {
     for (const [role, original, addition] of [
       ['docs', 'docs', 'docs-editor'],
-      ['security', 'caretaker', 'security-officer'],
+      ['security', 'security', 'security-officer'],
       ['deploy', 'deploy', 'deploy-aviator'],
     ]) {
       expect(catalog.roles[role]).toBe(original);
@@ -156,6 +156,9 @@ describe('occupational hardhat palettes', () => {
       'safety-yellow',
     ]);
     expect(catalog.roles.build).toBe('build');
+    expect(catalog.roles.assistant).toBe('coder');
+    expect(catalog.roles.builder).toBe('test');
+    expect(catalog.roles.caretaker).toBe('security');
     for (const template of hats) {
       let identity;
       for (const state of ['idle', 'working', 'waiting', 'success', 'error', 'offline']) {
