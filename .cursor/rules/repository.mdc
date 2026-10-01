@@ -1,0 +1,9 @@
+---
+description: Repository-wide architecture, language, and implementation conventions
+alwaysApply: true
+---
+
+Read and follow the root `AGENTS.md` for repository instructions.
+Use `CONTRIBUTING.md` for the development workflow and `docs/coding-standards.md`
+for implementation conventions. Keep these sources authoritative instead of
+duplicating their contents in editor-specific rules.

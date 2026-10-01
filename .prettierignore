@@ -1,0 +1,10 @@
+docs/draft/
+node_modules/
+.pnpm-store/
+dist/
+pnpm-lock.yaml
+coverage/
+output/
+playwright-report/
+test-results/
+packages/renderer-svg/src/generated/

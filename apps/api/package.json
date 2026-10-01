@@ -1,0 +1,26 @@
+{
+  "name": "@bot-avatar/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "UNLICENSED",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc -b"
+  },
+  "dependencies": {
+    "@bot-avatar/core": "workspace:*",
+    "@bot-avatar/design-tokens": "workspace:*",
+    "@bot-avatar/renderer-svg": "workspace:*",
+    "@bot-avatar/renderer-png": "workspace:*"
+  }
+}
