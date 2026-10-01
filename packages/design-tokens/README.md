@@ -1,7 +1,7 @@
 # Design data and catalog
 
 The current profile exports `catalog`, a versioned manifest with 24 template
-choices, three hairstyles, one face, nine hat silhouettes, and nineteen hat
+choices, six hairstyles, one face, nine hat silhouettes, and nineteen hat
 emblems. Manifest 1.9.1 preserves the twenty approved 1.4.2 identities and adds
 three separate templates: `docs-editor`, `security-officer`, and `deploy-aviator`.
 Existing role aliases continue to select the original identities.
@@ -21,7 +21,8 @@ change once this initial review is accepted.
 
 `flat2dHairFits` provides explicit hat-specific front/back geometry for an existing
 hairstyle. The bucket fit tucks sweep hair beneath its brim without adding a new
-instance choice or affecting other hats.
+instance choice or affecting other hats. Fringe, side-fringe, and wisps already
+clear that brim, so they keep one shared front/back pair on every hat.
 
 Original template colors and same-hue hair defaults match 1.4.2. The five-color
 palettes include those original defaults. New hats use the approved rendering
@@ -56,3 +57,10 @@ Monitor keeps its blue surface with a white emblem. Dark surfaces use light
 emblems. All existing hair palettes, defaults, hat geometry, template IDs, and
 role aliases remain unchanged. Every emblem is checked for at least 3:1 contrast
 against its actual backing, including the Git and terminal plaques.
+
+Manifest 1.9.6 adds three public hairstyles for hair that shows under a hat,
+without replacing `hair-sweep`, `hair-crop`, or `hair-wave`. `hair-fringe` is a
+straight forehead band. `hair-side-fringe` is an asymmetric bang on the left.
+`hair-wisps` is a few separate strands at the hat rim and nape, lighter than
+`hair-wave`. Studio lists them as fringe, side-fringe, and wisps. The same
+geometry is used on the beanie, cap, bucket, and the other silhouettes.

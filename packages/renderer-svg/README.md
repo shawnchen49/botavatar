@@ -23,7 +23,7 @@ and a subtle contact shadow clipped to the face. Labels use larger monogram
 lettering; embedded PNG imports fit inside the disc without tinting their colors.
 
 The later instance-badge behavior remains intact. Regression baselines in
-`tests/snapshots/` match this renderer and manifest 1.9.5, including the compact
+`tests/snapshots/` match this renderer for their pinned requests, including the compact
 badges. New hats use the same painter and receiver-clipped shadows, with no
 separate rendering mode or random choices.
 
@@ -36,3 +36,5 @@ Renderer 0.13.0 centers every expression on the approved idle eye positions
 (95.5, 185) and (163.5, 185). Non-idle geometry uses local coordinates so
 expression changes do not move the eyes. The five non-idle state baselines
 record that centering. Manifest 1.9.2 changes the default background to slate.
+Manifest 1.9.6 is the supported catalog. Its three added hairstyles use the
+existing hair layers; the renderer version stays 0.13.0.

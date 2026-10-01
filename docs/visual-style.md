@@ -85,5 +85,22 @@ these software roles do not need invented uniform color rules. Hat geometry,
 accessory construction, hair defaults and choices, role aliases, and state
 behavior remain intact. The palette changes supersede the restored hat colors
 for these ten templates only. The regression SVGs in `tests/snapshots/` match
-this catalog and renderer 0.13.0, including those palette changes, the compact
+renderer 0.13.0 for their pinned requests, including those palette changes, the compact
 badges, and the centered expressions.
+
+## Hair visible under hats
+
+Manifest 1.9.6 adds three hairstyles aimed at hair that remains visible beneath
+an oversized hat. They do not replace `hair-sweep`, `hair-crop`, or `hair-wave`.
+
+- `hair-fringe`: a straight forehead band tucked under the brim. It does not
+  continue into full side locks.
+- `hair-side-fringe`: bangs that lengthen toward the left side of the forehead
+  and stay off the right side.
+- `hair-wisps`: separate light strands at the hat rim and a short nape. The
+  forehead center stays clear, which keeps the style distinct from `hair-wave`.
+
+The shared geometry clears the beanie and the bucket brim, so these styles do
+not add another bucket-only fit. Sweep still uses `flat2dHairFits` on the bucket
+hat. Same-color hat and hair combinations remain available; review samples can
+use a contrasting palette color such as plum.

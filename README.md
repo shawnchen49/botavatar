@@ -13,7 +13,7 @@
 
 Deterministic avatars for software bots. A **template** fixes the bot type, an **instance** adds hair and a personal badge, and a **state** shows what the bot is doing. The same request always produces the same SVG.
 
-SVG is the primary format. PNG is available at 64, 128, 256, and 512 pixels. The shipped style is `flat-2d` (Soft Layered 2D): oversized hats, colored hair, a cream mouthless face, and capsule eyes.
+SVG is the primary format. PNG is available at 64, 128, 256, and 512 pixels. The shipped style is `flat-2d` (Soft Layered 2D): oversized hats, colored hair, a cream mouthless face, and capsule eyes. The catalog has 24 template identities, nine hat silhouettes, six hairstyles, and six runtime states.
 
 ## Gallery
 

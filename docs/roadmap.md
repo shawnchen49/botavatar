@@ -171,3 +171,29 @@ checks and the same 19 pending visual-baseline mismatches from the palette stage
 No runtime or visual behavior changed in this audit. Independent skill structure
 and reference checks pass; the bundled Python skill validator could not run
 because its PyYAML dependency is unavailable.
+
+## Hat-visible hairstyles — 2026-10-01
+
+Manifest 1.9.6 adds `hair-fringe`, `hair-side-fringe`, and `hair-wisps` after
+the existing `hair-sweep`, `hair-crop`, and `hair-wave` choices. Each style has
+project-owned front and back geometry and is selectable on every template.
+Fringe is a straight forehead band, side-fringe is a left-weighted bang, and
+wisps are separate rim and nape strands. They are drawn to clear the beanie,
+cap, and bucket brim, so they do not add a bucket-only fit. Sweep's bucket fit
+is unchanged. Renderer drawing behavior stays 0.13.0; the supported manifest
+check is 1.9.6.
+
+Unpinned seeds on templates that already offered three styles still resolve
+`bot-avatar-v1` to `hair-crop`. The assistant list grew from two styles to five,
+so its unpinned default seed now selects `hair-side-fringe`. Explicit hair
+styles, including the stage-2 sweep fixture, stay on their requested assets.
+Approved snapshot files were not replaced.
+
+The refreshed regression SVGs on main already include the occupational palettes,
+compact badges, and centered expressions. This stage does not replace them.
+Pinned sweep, crop, and wave requests keep those paths. New tests check that
+fringe, side fringe, and wisps stay distinct under the beanie, cap, and bucket
+hat, leave the eyes clear, and keep wisps lighter than `hair-wave`.
+
+Next: review the three styles at 64, 128, 256, and 512 pixels under the beanie,
+cap, and bucket hat before treating any new render as an approved baseline.

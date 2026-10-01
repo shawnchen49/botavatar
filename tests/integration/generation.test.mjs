@@ -174,7 +174,11 @@ describe('deterministic generation contract', () => {
         normalizeAvatar({ templateId: 'assistant', instance: { seed: String(seed) } }, catalog).hair
           .style,
       );
-    expect(styles.size).toBe(2);
+    expect(styles.size).toBe(5);
+    for (const style of styles)
+      expect(
+        catalog.templates.find((template) => template.id === 'assistant').allowedHair,
+      ).toContain(style);
     expect(normalizeAvatar({ templateId: 'assistant' }, catalog).seed).toBe('bot-avatar-v1');
   });
   it('keeps non-expression layers identical when changing state', () => {

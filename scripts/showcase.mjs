@@ -25,5 +25,24 @@ for (const size of [64, 128, 256, 512]) {
   await writeFile(new URL(`debug-${size}.png`, directory), renderPng(result.svg, size));
   html += `<figure><img src="debug-${size}.png" width="${size}" height="${size}" alt="Debug at ${size} pixels"><figcaption>${size} px</figcaption></figure>`;
 }
+html +=
+  '</div><h2>Hair visible under hats</h2><p>Straight fringe, side fringe, and wisps on a beanie, a brimmed cap, and a bucket hat. Sweep, crop, and wave stay selectable.</p><div class="sizes">';
+for (const templateId of ['assistant', 'docs', 'debug']) {
+  for (const style of ['hair-fringe', 'hair-side-fringe', 'hair-wisps']) {
+    const result = generateAvatar(
+      {
+        templateId,
+        size: 128,
+        background: 'solid',
+        instance: { hair: { style, color: 'plum' } },
+      },
+      catalog,
+      svgRenderer,
+    );
+    const name = `${templateId}-${style}.png`;
+    await writeFile(new URL(name, directory), renderPng(result.svg, 128));
+    html += `<figure><img src="${name}" width="128" height="128" alt="${templateId} ${style}"><figcaption>${templateId} · ${style.replace('hair-', '')}</figcaption></figure>`;
+  }
+}
 await writeFile(new URL('index.html', directory), html + '</div></html>');
 console.log('Showcase generated at output/stage-3/index.html');

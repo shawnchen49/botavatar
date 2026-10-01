@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { PNG } from 'pngjs';
 import { generateAvatar } from '../../packages/core/dist/index.js';
-import { catalog } from '../../packages/design-tokens/dist/index.js';
+import { catalog, flat2dHairFits } from '../../packages/design-tokens/dist/index.js';
 import { svgRenderer } from '../../packages/renderer-svg/dist/index.js';
 import { renderPng } from '../../packages/renderer-png/dist/index.js';
 
@@ -146,6 +146,142 @@ describe('soft layered hat accessories', () => {
     const belowFrame = (123 * 256 + 98) * 4;
     expect(shaded.data[belowFrame]).toBeLessThan(unshaded.data[belowFrame]);
   });
+});
+
+const isPlum = (red, green, blue, alpha) =>
+  alpha > 200 && red < 150 && blue < 150 && green < red && red - green > 8 && red > 40;
+const plumHair = (png, x, y) => {
+  const offset = (y * 256 + x) * 4;
+  return isPlum(png.data[offset], png.data[offset + 1], png.data[offset + 2], png.data[offset + 3]);
+};
+const plumCount = (png) => {
+  let count = 0;
+  for (let index = 0; index < png.data.length; index += 4)
+    if (isPlum(png.data[index], png.data[index + 1], png.data[index + 2], png.data[index + 3]))
+      count += 1;
+  return count;
+};
+
+describe('hat-visible hairstyles', () => {
+  const styles = ['hair-fringe', 'hair-side-fringe', 'hair-wisps'];
+  const render = (templateId, style) =>
+    PNG.sync.read(
+      Buffer.from(
+        renderPng(
+          generateAvatar(
+            { templateId, instance: { hair: { style, color: 'plum' } } },
+            catalog,
+            svgRenderer,
+          ).svg,
+          256,
+        ),
+      ),
+    );
+
+  it('appends three public styles without reordering the existing choices', () => {
+    expect(catalog.hair).toEqual([
+      'hair-sweep',
+      'hair-crop',
+      'hair-wave',
+      'hair-fringe',
+      'hair-side-fringe',
+      'hair-wisps',
+    ]);
+    expect(catalog.hairBack).toMatchObject({
+      'hair-sweep': 'hair-sweep-back',
+      'hair-crop': 'hair-crop-back',
+      'hair-wave': 'hair-crop-back',
+      'hair-fringe': 'hair-fringe-back',
+      'hair-side-fringe': 'hair-side-fringe-back',
+      'hair-wisps': 'hair-wisps-back',
+    });
+    for (const template of catalog.templates) {
+      const existing =
+        template.id === 'assistant'
+          ? ['hair-sweep', 'hair-crop']
+          : ['hair-sweep', 'hair-crop', 'hair-wave'];
+      expect(template.allowedHair.slice(0, existing.length)).toEqual(existing);
+      expect(template.allowedHair).toEqual(expect.arrayContaining(styles));
+    }
+    expect(flat2dHairFits['hat-bucket']['hair-sweep']).toEqual({
+      front: 'hair-sweep-bucket',
+      back: 'hair-sweep-bucket-back',
+    });
+    for (const style of styles) expect(flat2dHairFits['hat-bucket'][style]).toBeUndefined();
+  });
+
+  it('keeps seeded full-list hair on crop and the stage-2 beanie on sweep', () => {
+    expect(generateAvatar({ templateId: 'docs' }, catalog, svgRenderer).avatar.hair.style).toBe(
+      'hair-crop',
+    );
+    expect(
+      generateAvatar(
+        { templateId: 'assistant', instance: { seed: 'stage-2' } },
+        catalog,
+        svgRenderer,
+      ).avatar.hair.style,
+    ).toBe('hair-sweep');
+  });
+
+  it.each(['assistant', 'docs', 'debug'])(
+    'shows distinct fringe, side fringe, and wisps under %s',
+    (templateId) => {
+      const pictures = Object.fromEntries(
+        styles.map((style) => [style, render(templateId, style)]),
+      );
+      const template = catalog.templates.find((item) => item.id === templateId);
+      const wave = template.allowedHair.includes('hair-wave')
+        ? render(templateId, 'hair-wave')
+        : null;
+      expect(plumHair(pictures['hair-fringe'], 128, 140)).toBe(true);
+      expect(plumHair(pictures['hair-fringe'], 64, 150)).toBe(false);
+      expect(plumHair(pictures['hair-fringe'], 190, 146)).toBe(false);
+      expect(plumHair(pictures['hair-side-fringe'], 64, 150)).toBe(true);
+      expect(plumHair(pictures['hair-side-fringe'], 128, 140)).toBe(false);
+      expect(plumHair(pictures['hair-side-fringe'], 190, 146)).toBe(false);
+      expect(plumHair(pictures['hair-wisps'], 128, 140)).toBe(false);
+      expect(plumHair(pictures['hair-wisps'], 64, 150)).toBe(true);
+      expect(plumHair(pictures['hair-wisps'], 200, 150)).toBe(true);
+      expect(plumHair(pictures['hair-fringe'], 200, 150)).toBe(false);
+      expect(plumHair(pictures['hair-side-fringe'], 200, 150)).toBe(false);
+      for (const style of styles) {
+        expect(plumHair(pictures[style], 96, 185)).toBe(false);
+        expect(plumHair(pictures[style], 164, 185)).toBe(false);
+        const result = generateAvatar(
+          { templateId, instance: { hair: { style, color: 'plum' } } },
+          catalog,
+          svgRenderer,
+        );
+        expect(result.avatar.hair).toMatchObject({ style, back: catalog.hairBack[style] });
+        expect(
+          generateAvatar(
+            { templateId, instance: { hair: { style, color: 'plum' } } },
+            catalog,
+            svgRenderer,
+          ).svg,
+        ).toBe(result.svg);
+      }
+      if (wave) {
+        expect(plumHair(wave, 128, 140)).toBe(true);
+        expect(plumHair(wave, 64, 150)).toBe(true);
+        expect(plumCount(pictures['hair-wisps'])).toBeLessThan(plumCount(wave) / 2);
+      }
+      const states = ['idle', 'working', 'waiting', 'success', 'error', 'offline'];
+      for (const style of styles) {
+        const seen = new Set();
+        for (const state of states) {
+          const result = generateAvatar(
+            { templateId, state, instance: { hair: { style, color: 'plum' } } },
+            catalog,
+            svgRenderer,
+          );
+          expect(result.avatar.hair.style).toBe(style);
+          seen.add(result.svg);
+        }
+        expect(seen.size).toBe(states.length);
+      }
+    },
+  );
 });
 
 describe('occupational hardhat palettes', () => {
