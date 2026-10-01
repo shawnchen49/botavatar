@@ -1,6 +1,6 @@
 # Studio application
 
-React/Vite Studio configures templates, seed, hair, glasses, instance badges, state,
+React/Vite Studio configures templates, seed, hair, instance badges, state,
 size, and background. It fetches metadata, previews, and SVG/PNG exports from the
 same-origin API. Core imports are types only; selection and drawing stay on the server.
 
@@ -17,3 +17,16 @@ Preview cancellation prevents obsolete responses from replacing newer settings.
 `pnpm test:e2e` covers state changes, configuration, URL reload, SVG/PNG downloads,
 invalid-input recovery, and a mobile viewport. Install Playwright Chromium first;
 `PLAYWRIGHT_CHANNEL=chrome` uses installed Chrome instead.
+
+Badge labels support short monograms (including two letters). The image-import UI
+is temporarily hidden; existing embedded-image share links and exports still work.
+The retained import utility handles PNG, JPEG, or
+WebP up to 5 MB and 4096 pixels per side. Studio converts imports to embedded
+128-pixel PNGs locally and selects a quantized dominant foreground color, ignoring
+transparent and near-white pixels; monochrome images retain a neutral rim. Users
+can override the detected rim with a palette color. Images travel with preview,
+SVG/PNG exports, and share-link settings; no external image URL is fetched.
+
+Seed settings are collapsed by default. Background choices have color swatches,
+and the desktop preview stays in view while scrolling. Template changes preserve
+instance settings. Solid and gradient backgrounds use a contrasting slate base.

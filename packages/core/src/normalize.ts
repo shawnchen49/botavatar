@@ -2,7 +2,7 @@ import type { Catalog } from './catalog.js';
 import { validateCatalog } from './catalog.js';
 import { AvatarError } from './errors.js';
 import { parseAvatarRequest } from './schema/request.js';
-export const CORE_VERSION = '0.3.0';
+export const CORE_VERSION = '0.4.0';
 // FNV-1a over UTF-16 code units, with independent field namespaces.
 export function seedIndex(seed: string, field: string, count: number): number {
   if (!Number.isInteger(count) || count < 1)
@@ -41,6 +41,8 @@ export function normalizeAvatar(input: unknown, catalog: Catalog) {
   const badge = instance?.instanceBadge;
   if (badge?.label && Array.from(badge.label).length > 3)
     throw new AvatarError('INVALID_INPUT', 'Badge label must contain at most three characters.');
+  if (badge?.image && badge.label)
+    throw new AvatarError('INVALID_INPUT', 'Choose a badge image or label, not both.');
   const badgeIcon = badge
     ? select(badge.icon, template.allowedInstanceBadges, 'instance badge')
     : null;
@@ -77,7 +79,10 @@ export function normalizeAvatar(input: unknown, catalog: Catalog) {
             icon: badge.icon,
             asset: badgeAsset,
             iconColor: color(badge.iconColor ?? catalog.defaults.iconColor),
-            color: color(badge.color),
+            color: /^#[0-9a-fA-F]{6}$/.test(badge.color)
+              ? badge.color.toLowerCase()
+              : color(badge.color),
+            image: badge.image ?? null,
             label: badge.label ?? null,
             position: 'bottom-right' as const,
           }

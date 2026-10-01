@@ -51,9 +51,45 @@ function object<const S extends Shape>(shape: S): Schema<Parsed<S>> {
 }
 export const stateSchema = choice(['idle', 'working', 'waiting', 'success', 'error', 'offline']);
 export const faceSchema = object({ shape: optional(text), glasses: optional(text) });
+// Embedded PNG only: no network references or executable SVG markup.
+const badgeImage: Schema<string> = {
+  parse: (v, p) => {
+    if (
+      typeof v !== 'string' ||
+      v.length > 100000 ||
+      !/^data:image\/png;base64,iVBORw0KGgo[A-Za-z0-9+/]*={0,2}$/.test(v)
+    )
+      return fail(p);
+    const encoded = v.slice(22);
+    if (encoded.length % 4 !== 0 || encoded.length < 60) return fail(p);
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+    const bytes: number[] = [];
+    for (let i = 0; i < 44; i += 4) {
+      const n =
+        (alphabet.indexOf(encoded.charAt(i)) << 18) |
+        (alphabet.indexOf(encoded.charAt(i + 1)) << 12) |
+        (alphabet.indexOf(encoded.charAt(i + 2)) << 6) |
+        alphabet.indexOf(encoded.charAt(i + 3));
+      bytes.push((n >>> 16) & 255, (n >>> 8) & 255, n & 255);
+    }
+    const uint32 = (offset: number) =>
+      bytes.slice(offset, offset + 4).reduce((n, b) => n * 256 + b, 0);
+    if (
+      uint32(8) !== 13 ||
+      uint32(12) !== 0x49484452 ||
+      uint32(16) < 1 ||
+      uint32(16) > 128 ||
+      uint32(20) < 1 ||
+      uint32(20) > 128
+    )
+      return fail(p);
+    return v;
+  },
+};
 export const badgeSchema = object({
   icon: text,
   iconColor: optional(text),
+  image: optional(badgeImage),
   label: optional(text),
   color: text,
   position: optional(choice(['bottom-right'])),

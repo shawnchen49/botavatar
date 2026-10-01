@@ -48,7 +48,7 @@ describe('deterministic generation contract', () => {
       instance: {
         seed: 'custom',
         hair: { style: 'hair-crop', color: 'coral' },
-        face: { glasses: 'round' },
+        face: { glasses: 'none' },
         instanceBadge: { icon: 'check', label: '<&', color: 'teal' },
       },
     });
@@ -62,6 +62,7 @@ describe('deterministic generation contract', () => {
       asset: 'icon-check',
       iconColor: '#171918',
       label: '<&',
+      image: null,
       color: '#278b88',
       position: 'bottom-right',
     });
@@ -88,6 +89,7 @@ describe('deterministic generation contract', () => {
     { ...fixture, instance: { hair: { color: '#ff0000' } } },
     { ...fixture, instance: { face: { shape: 'missing' } } },
     { ...fixture, instance: { face: { glasses: 'square' } } },
+    { ...fixture, instance: { face: { glasses: 'round' } } },
     {
       ...fixture,
       instance: { instanceBadge: { icon: 'check', color: 'teal', position: 'top-left' } },

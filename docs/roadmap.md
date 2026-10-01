@@ -53,3 +53,14 @@ Status: implemented for the user-selected local/offline channel. Packages remain
 - Record licensing status and the selected distribution channel.
 - Validate asset provenance, offline package behavior, and release contents.
 - Add release automation and a container only for the selected delivery path.
+
+## Badge refinement — 2026-10-01
+
+Implemented: remove glasses support from flat-2d, reduce/inset instance badges,
+add face-clipped contact shadows, enlarge two-letter monograms, and import raster
+logos with automatic rim colors. See [badge refinement review](reviews/badge-refinement.md).
+The next review is visual approval of the five changed instance-badge baselines;
+existing approved snapshots remain untouched.
+
+Studio follow-up: simplify controls, temporarily hide image import, preserve badges
+on template changes, and use a contrasting slate background (manifest 1.5.1).

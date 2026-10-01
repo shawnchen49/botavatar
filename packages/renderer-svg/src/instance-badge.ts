@@ -15,35 +15,48 @@ export function instanceBadge(
   ) {
     throw new AvatarError('UNKNOWN_CHOICE', 'Unsupported instance badge icon.');
   }
-  const size = badge.icon === 'dot' ? 128 : 42;
+  const size = badge.icon === 'dot' ? 112 : 36;
   const content: SvgNode =
-    badge.label !== null
+    badge.image !== null
       ? {
-          tag: 'text',
+          tag: 'image',
           attributes: {
-            x: 213,
-            y: 219,
-            fill: badge.iconColor,
-            'text-anchor': 'middle',
-            'font-family': 'sans-serif',
-            'font-size': 16,
-            'font-weight': 700,
+            href: badge.image,
+            x: 191,
+            y: 191,
+            width: 38,
+            height: 38,
+            preserveAspectRatio: 'xMidYMid meet',
           },
-          text: badge.label,
         }
-      : {
-          tag: 'g',
-          attributes: { transform: `translate(213 213) scale(${size / 256}) translate(-128 -128)` },
-          children: [part(badge.asset, badge.iconColor, badge.iconColor, 2.6)],
-        };
+      : badge.label !== null
+        ? {
+            tag: 'text',
+            attributes: {
+              x: 210,
+              y: 218,
+              fill: badge.iconColor,
+              'text-anchor': 'middle',
+              'font-family': 'sans-serif',
+              'font-size': Array.from(badge.label).length > 2 ? 18 : 24,
+              'font-weight': 700,
+            },
+            text: badge.label,
+          }
+        : {
+            tag: 'g',
+            attributes: {
+              transform: `translate(210 210) scale(${size / 256}) translate(-128 -128)`,
+            },
+            children: [part(badge.asset, badge.iconColor, badge.iconColor, 2.6)],
+          };
   return {
     tag: 'g',
-    attributes: { 'data-layer': 'instance-badge', transform: 'translate(6 6)' },
+    attributes: { 'data-layer': 'instance-badge' },
     children: [
-      { tag: 'circle', attributes: { cx: 213, cy: 214.5, r: 34, fill: '#000000', opacity: 0.08 } },
       {
         tag: 'circle',
-        attributes: { cx: 213, cy: 213, r: 32, fill, stroke: badge.color, 'stroke-width': 4.4 },
+        attributes: { cx: 210, cy: 210, r: 27, fill, stroke: badge.color, 'stroke-width': 3.5 },
       },
       content,
     ],

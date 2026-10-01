@@ -18,7 +18,7 @@ SVG uploads, animation, and 3D styles are outside the first release.
 - **BotTemplate** identifies a type through a hat shape, color token, and hat badge.
   The tuple `styleId + hat.type + hat.color + hat.badge` is unique within a manifest
   version. A role is a semantic alias with an explicit default template.
-- **BotInstance** selects hair style and color, optional glasses, and a circular
+- **BotInstance** selects hair style and color and a circular
   bottom-right badge. It never changes the template's hat identity.
 - **BotState** selects `idle`, `working`, `waiting`, `success`, `error`, or `offline`
   eye and facial feedback. It never rerolls instance choices.
@@ -28,8 +28,7 @@ hats, colored hair, a cream mouthless face, and capsule eyes. Only one style is
 currently implemented. Other aesthetics can use separate style IDs and renderers.
 
 Use one default face for the initial visual baseline. A second face is an explicit
-alternate asset, not a random identity change. Glasses use closed frames with fixed
-material, color, and stroke; only the shape varies.
+alternate asset, not a random identity change. The current style does not support glasses; explicit non-none values fail validation.
 
 Public input types live in `packages/core/src/model/avatar.ts`. The request owns
 `templateId`; instance overrides cannot supply a conflicting template ID. Badge
@@ -50,7 +49,7 @@ Application input
 
 Value precedence is explicit request, permitted deterministic seed selection,
 template default, then style default. Normalization must retain every effective
-rendering input, including glasses, badge rim color, icon color, resolved icon asset, label, and
+rendering input, including badge rim color, icon color, resolved icon asset, embedded PNG, label, and
 background options.
 [ADR 0002](decisions/0002-deterministic-svg.md) specifies seed defaults, field-based
 selection, runtime schemas, the normalized contract, and internal resource keys.

@@ -111,9 +111,15 @@ h1 {
 .avatar-stage img {
   width: 82%;
   max-width: 400px;
+  max-height: 90%;
+  object-fit: contain;
 }
 .loading {
   position: absolute;
+  bottom: 12px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: #141713dd;
   font-size: 13px;
 }
 .state-tabs {
@@ -241,5 +247,102 @@ footer {
   footer {
     gap: 20px;
     line-height: 1.6;
+  }
+}
+
+/* Keep the editor and its live preview within reach. */
+.intro {
+  padding: 20px 0 22px;
+}
+h1 {
+  font-size: clamp(30px, 4vw, 44px);
+  letter-spacing: -1.5px;
+  margin: 12px 0;
+}
+.preview-panel {
+  position: sticky;
+  top: 16px;
+  align-self: start;
+  justify-content: flex-start;
+}
+.avatar-stage {
+  min-height: 0;
+  height: min(440px, calc(100dvh - 150px));
+  margin: 20px 0;
+}
+.controls h3 {
+  border-top: 1px solid #363b32;
+  padding-top: 20px;
+  margin: 20px 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #eaece4;
+}
+.advanced {
+  margin: 2px 0 20px;
+  font-size: 12px;
+  color: #aeb7a5;
+}
+.advanced summary {
+  cursor: pointer;
+  padding: 8px 0;
+}
+.advanced label {
+  margin-top: 10px;
+}
+.background-options {
+  border: 0;
+  padding: 0;
+  margin: 0 0 20px;
+  min-width: 0;
+}
+.background-options legend {
+  font-size: 12px;
+  color: #aeb7a5;
+  margin-bottom: 9px;
+}
+.option-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.option-buttons button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #41483b;
+  border-radius: 8px;
+  padding: 9px 10px;
+  background: #22281e;
+  color: #b5bdad;
+  font-size: 12px;
+}
+.option-buttons button[aria-pressed='true'] {
+  border-color: #c8e68a;
+  color: #eaece4;
+  background: #333e29;
+}
+.background-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid #ffffff40;
+}
+.background-swatch.transparent {
+  background: repeating-conic-gradient(#e0e3de 0% 25%, #889084 0% 50%) 0 / 8px 8px;
+}
+.background-swatch.solid {
+  background: #687d8b;
+}
+.background-swatch.gradient {
+  background: linear-gradient(135deg, #687d8b, #c7e5ee);
+}
+@media (max-width: 720px) {
+  .preview-panel {
+    position: static;
+  }
+  .avatar-stage {
+    height: auto;
+    aspect-ratio: 1;
   }
 }

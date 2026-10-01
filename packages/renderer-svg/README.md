@@ -8,7 +8,7 @@ Source assets compile into ignored `src/generated/assets.ts` before TypeScript
 builds. Run `pnpm build` from the repository root; the package build command also
 prepares assets. Distribution code has no repository filesystem dependency.
 
-The profile implements six mouthless eye expressions, fixed round glasses, optional
+The profile implements six mouthless eye expressions, optional
 bottom-right badges, and transparent, solid, or gradient backgrounds. All supported
 sizes scale the same geometry. Gradients and a fixed-seed neutral texture provide
 soft materials. `hat-badge.ts` mounts emblems on six hat shapes using direct print,
@@ -24,3 +24,7 @@ source SVG format and [ADR 0002](../../docs/decisions/0002-deterministic-svg.md)
 `contact-shadow.ts` adds restrained hat-to-hair and fringe-to-face shadows using
 existing silhouettes. Receiver clips keep the transparent background clean;
 fixed offsets and blur preserve deterministic output at every supported size.
+
+Instance badges use a 27-unit radius centered at (210, 210), a 3.5-unit rim,
+and a subtle contact shadow clipped to the face. Labels use larger monogram
+lettering; embedded PNG imports fit inside the disc without tinting their colors.

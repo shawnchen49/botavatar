@@ -11,11 +11,11 @@ import { softPaint, materialTexture } from './paint.js';
 import { serializeSvg } from './svg.js';
 import type { SvgNode } from './svg.js';
 
-export const RENDERER_VERSION = '0.6.2';
+export const RENDERER_VERSION = '0.7.0';
 export function composeSvg(avatar: NormalizedAvatar): SvgNode {
-  if (avatar.styleId !== 'flat-2d' || avatar.manifestVersion !== '1.4.2')
+  if (avatar.styleId !== 'flat-2d' || avatar.manifestVersion !== '1.5.1')
     throw new AvatarError('UNKNOWN_CHOICE', 'Unsupported style or manifest version.');
-  if (!['none', 'round'].includes(avatar.face.glasses))
+  if (avatar.face.glasses !== 'none')
     throw new AvatarError('UNKNOWN_CHOICE', 'Unsupported renderer overlay.');
   const hairFit = flat2dHairFits[avatar.hat.type]?.[avatar.hair.style];
   const frontHair = hairFit?.front ?? avatar.hair.style;
@@ -44,7 +44,16 @@ export function composeSvg(avatar: NormalizedAvatar): SvgNode {
     4,
     0.19,
   );
+  const badgeShadow = contactShadow(
+    'instance-badge',
+    { tag: 'circle', attributes: { cx: 210, cy: 210, r: 29, fill: '#000000' } },
+    [faceSilhouette],
+    1.8,
+    1.5,
+    0.18,
+  );
   const definitions: SvgNode[] = [
+    ...(avatar.instanceBadge ? badgeShadow.definitions : []),
     ...fringeShadow.definitions,
     ...hatShadow.definitions,
     materialTexture,
@@ -63,7 +72,7 @@ export function composeSvg(avatar: NormalizedAvatar): SvgNode {
     'hat-badge': [hatBadge(avatar.hat, hat.outline)],
     state: [expression(avatar.state, eye.fill)],
     'instance-badge': avatar.instanceBadge
-      ? [instanceBadge(avatar.instanceBadge, badgePaint.fill)]
+      ? [badgeShadow.layer, instanceBadge(avatar.instanceBadge, badgePaint.fill)]
       : [],
     glasses: [],
   };
@@ -90,22 +99,6 @@ export function composeSvg(avatar: NormalizedAvatar): SvgNode {
         fill:
           avatar.background.mode === 'gradient' ? `url(#${backgroundId})` : avatar.background.color,
       },
-    });
-  if (avatar.face.glasses === 'round')
-    layers.glasses.push({
-      tag: 'g',
-      attributes: { fill: 'none', stroke: '#292a29', 'stroke-width': 3 },
-      children: [
-        { tag: 'circle', attributes: { cx: 94, cy: 185, r: 24 } },
-        { tag: 'circle', attributes: { cx: 162, cy: 185, r: 24 } },
-        {
-          tag: 'path',
-          attributes: {
-            d: 'M118 183Q128 178 138 183M70 181L49 172M186 181L207 172',
-            'stroke-linecap': 'round',
-          },
-        },
-      ],
     });
   return {
     tag: 'svg',

@@ -1,6 +1,6 @@
 import type { Catalog } from '@bot-avatar/core';
 export const catalog = {
-  version: '1.4.2',
+  version: '1.5.1',
   styleId: 'flat-2d',
   assets: [
     {
@@ -425,6 +425,7 @@ export const catalog = {
     skin: '#faf5ee',
     ink: '#171918',
     cream: '#f6f3ee',
+    slate: '#687d8b',
     sky: '#c7e5ee',
     cyan: '#87d8e2',
     yellow: '#ffd16e',
@@ -451,14 +452,14 @@ export const catalog = {
     'hair-wave': 'hair-crop-back',
   },
   faces: ['face-round'],
-  glasses: ['none', 'round'],
+  glasses: ['none'],
   instanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
   defaults: {
     hairColor: 'purple',
     iconColor: 'ink',
     face: 'face-round',
     glasses: 'none',
-    background: 'cream',
+    background: 'slate',
     gradientEnd: 'sky',
   },
   roles: {

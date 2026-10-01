@@ -1,6 +1,7 @@
 export type SvgNode = {
   readonly tag:
     | 'svg'
+    | 'image'
     | 'g'
     | 'rect'
     | 'path'

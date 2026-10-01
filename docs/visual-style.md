@@ -36,8 +36,12 @@ reviewed visual baseline is approved.
   badge uses a white disc, a colored rim, and an independently colored icon (black
   by default). It overlaps the face
   without obscuring the eyes.
-- Default to a transparent background and no glasses. Background and glasses
-  overrides remain available but are not the reference's default presentation.
+- Default to a transparent background. Solid and gradient backgrounds start from
+  a muted slate (#687d8b) to keep the cream face silhouette visible. Glasses are
+  not supported by this style.
+- Keep the instance badge compact and slightly inset: center (210, 210), radius 27.
+  Add only a light contact shadow on the face. Support two-letter monograms and
+  imported raster logos with an automatically selected foreground-color rim.
 
 Compare matching samples at matching scales: purple beanie with code/terminal,
 lime cap with flask/search, and charcoal cap with shield/server. Inspect cap

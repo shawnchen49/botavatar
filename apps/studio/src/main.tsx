@@ -8,7 +8,6 @@ type Style = {
   sizes: (64 | 128 | 256 | 512)[];
   backgrounds: ('transparent' | 'solid' | 'gradient')[];
   hair: string[];
-  glasses: string[];
   colors: Record<string, string>;
   instanceBadges: string[];
 };
@@ -23,7 +22,7 @@ function initialRequest(): { request: AvatarRequest; error: string } {
   try {
     const value = new URLSearchParams(location.hash.slice(1)).get('request');
     if (!value) return { request: defaultRequest, error: '' };
-    if (value.length > 8192) throw new Error();
+    if (value.length > 110000) throw new Error();
     const parsed: unknown = JSON.parse(value);
     // Full domain validation stays at the API boundary; guard the UI's structure here.
     if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) throw new Error();
@@ -57,7 +56,7 @@ function initialRequest(): { request: AvatarRequest; error: string } {
       for (const [key, fields] of [
         ['hair', ['style', 'color']],
         ['face', ['shape', 'glasses']],
-        ['instanceBadge', ['icon', 'color', 'iconColor', 'label', 'position']],
+        ['instanceBadge', ['icon', 'color', 'iconColor', 'label', 'position', 'image']],
       ] as const) {
         const nested = value[key];
         if (nested !== undefined && (!record(nested) || !strings(nested, [...fields])))
@@ -111,9 +110,7 @@ function App() {
   }, []);
   useEffect(() => {
     const controller = new AbortController();
-    let objectUrl = '';
     setBusy(true);
-    setPreview('');
     const timer = setTimeout(() => {
       fetch('/v1/avatar', {
         method: 'POST',
@@ -128,12 +125,14 @@ function App() {
           }
           const blob = await response.blob();
           if (controller.signal.aborted) return;
-          objectUrl = URL.createObjectURL(blob);
-          setPreview(objectUrl);
+          setPreview(URL.createObjectURL(blob));
           setError('');
         })
         .catch((e) => {
-          if (!controller.signal.aborted) setError(String(e));
+          if (!controller.signal.aborted) {
+            setPreview('');
+            setError(String(e));
+          }
         })
         .finally(() => {
           if (!controller.signal.aborted) setBusy(false);
@@ -142,10 +141,16 @@ function App() {
     return () => {
       clearTimeout(timer);
       controller.abort();
-      if (objectUrl) URL.revokeObjectURL(objectUrl);
     };
   }, [request]);
+  useEffect(
+    () => () => {
+      if (preview) URL.revokeObjectURL(preview);
+    },
+    [preview],
+  );
   function change(patch: Partial<AvatarRequest>) {
+    setBusy(true);
     setLinkError('');
     setNotice('');
     setRequest((current) => ({ ...current, ...patch }));
@@ -187,11 +192,7 @@ function App() {
       </header>
       <div className="intro">
         <p className="eyebrow">SAME SPECIES. DIFFERENT SUPERPOWERS.</p>
-        <h1>
-          A face for
-          <br />
-          every bot.
-        </h1>
+        <h1>A face for every bot.</h1>
         <p>Pick an identity. Make it yours. Keep it across every state.</p>
       </div>
       <div className="workspace">
@@ -199,10 +200,10 @@ function App() {
           <div className="preview-top">
             <span>{template?.role ?? request.templateId}</span>
             <span>
-              {request.size ?? 256} × {request.size ?? 256}
+              Export · {request.size ?? 256} × {request.size ?? 256}
             </span>
           </div>
-          <div className="avatar-stage">
+          <div className="avatar-stage" aria-busy={busy}>
             {preview && <img src={preview} alt="Avatar preview" />}
             {busy && <span className="loading">Rendering…</span>}
           </div>
@@ -219,7 +220,7 @@ function App() {
           </div>
         </section>
         <section className="controls" aria-label="Avatar settings">
-          <h2>Your bot, in detail.</h2>
+          <h2>Make it yours.</h2>
           <label>
             Template
             <select
@@ -227,7 +228,7 @@ function App() {
               onChange={(e) =>
                 change({
                   templateId: e.target.value,
-                  instance: { seed: instance.seed ?? 'bot-avatar-v1' },
+                  instance,
                 })
               }
             >
@@ -237,14 +238,6 @@ function App() {
                 </option>
               ))}
             </select>
-          </label>
-          <label>
-            Seed
-            <input
-              value={typeof instance.seed === 'string' ? instance.seed : ''}
-              maxLength={128}
-              onChange={(e) => change({ instance: { ...instance, seed: e.target.value } })}
-            />
           </label>
           <div className="field-pair">
             <label>
@@ -284,33 +277,41 @@ function App() {
               </select>
             </label>
           </div>
-          <label>
-            Glasses
-            <select
-              value={instance.face?.glasses ?? 'none'}
-              onChange={(e) =>
-                change({
-                  instance: { ...instance, face: { ...instance.face, glasses: e.target.value } },
-                })
-              }
-            >
-              {style?.glasses.map((g) => (
-                <option key={g}>{g}</option>
-              ))}
-            </select>
-          </label>
+          <details className="advanced">
+            <summary>Advanced · seed</summary>
+            <label>
+              Seed
+              <input
+                value={typeof instance.seed === 'string' ? instance.seed : ''}
+                maxLength={128}
+                onChange={(e) => change({ instance: { ...instance, seed: e.target.value } })}
+              />
+            </label>
+          </details>
+          <h3>Badge</h3>
           <label>
             Instance badge
             <select
-              value={instance.instanceBadge?.icon ?? ''}
+              value={
+                instance.instanceBadge?.image
+                  ? 'custom'
+                  : instance.instanceBadge?.label !== undefined
+                    ? 'letters'
+                    : (instance.instanceBadge?.icon ?? '')
+              }
               onChange={(e) => {
                 const next = { ...instance };
-                if (e.target.value) next.instanceBadge = { icon: e.target.value, color: 'teal' };
+                if (e.target.value === 'letters')
+                  next.instanceBadge = { icon: 'dot', color: 'teal', label: 'LV' };
+                else if (e.target.value)
+                  next.instanceBadge = { icon: e.target.value, color: 'teal' };
                 else delete next.instanceBadge;
                 change({ instance: next });
               }}
             >
               <option value="">None</option>
+              <option value="letters">Letters</option>
+              {instance.instanceBadge?.image && <option value="custom">Imported image</option>}
               {template?.allowedInstanceBadges.map((b) => (
                 <option key={b}>{b}</option>
               ))}
@@ -318,6 +319,23 @@ function App() {
           </label>
           {instance.instanceBadge && (
             <>
+              {instance.instanceBadge.label !== undefined && (
+                <label>
+                  Badge label
+                  <input
+                    value={instance.instanceBadge.label ?? ''}
+                    onChange={(e) => {
+                      if (instance.instanceBadge) {
+                        const badge = { ...instance.instanceBadge };
+                        badge.label = e.target.value;
+                        change({ instance: { ...instance, instanceBadge: badge } });
+                      }
+                    }}
+                    maxLength={3}
+                    placeholder="Two letters, e.g. LV"
+                  />
+                </label>
+              )}
               <div className="field-pair">
                 <label>
                   Badge color
@@ -333,48 +351,44 @@ function App() {
                         });
                     }}
                   >
+                    {instance.instanceBadge.color.startsWith('#') && (
+                      <option value={instance.instanceBadge.color}>
+                        Image color ({instance.instanceBadge.color})
+                      </option>
+                    )}
                     {Object.keys(style?.colors ?? {}).map((c) => (
                       <option key={c}>{c}</option>
                     ))}
                   </select>
                 </label>
-                <label>
-                  Icon color
-                  <select
-                    value={instance.instanceBadge.iconColor ?? 'ink'}
-                    onChange={(e) => {
-                      if (instance.instanceBadge)
-                        change({
-                          instance: {
-                            ...instance,
-                            instanceBadge: { ...instance.instanceBadge, iconColor: e.target.value },
-                          },
-                        });
-                    }}
-                  >
-                    {Object.keys(style?.colors ?? {}).map((c) => (
-                      <option key={c}>{c}</option>
-                    ))}
-                  </select>
-                </label>
+                {!instance.instanceBadge.image && (
+                  <label>
+                    Icon color
+                    <select
+                      value={instance.instanceBadge.iconColor ?? 'ink'}
+                      onChange={(e) => {
+                        if (instance.instanceBadge)
+                          change({
+                            instance: {
+                              ...instance,
+                              instanceBadge: {
+                                ...instance.instanceBadge,
+                                iconColor: e.target.value,
+                              },
+                            },
+                          });
+                      }}
+                    >
+                      {Object.keys(style?.colors ?? {}).map((c) => (
+                        <option key={c}>{c}</option>
+                      ))}
+                    </select>
+                  </label>
+                )}
               </div>
-              <label>
-                Badge label
-                <input
-                  value={instance.instanceBadge.label ?? ''}
-                  onChange={(e) => {
-                    if (instance.instanceBadge) {
-                      const badge = { ...instance.instanceBadge };
-                      if (e.target.value) badge.label = e.target.value;
-                      else delete badge.label;
-                      change({ instance: { ...instance, instanceBadge: badge } });
-                    }
-                  }}
-                  placeholder="Up to 3 characters"
-                />
-              </label>
             </>
           )}
+          <h3>Export</h3>
           <div className="field-pair">
             <label>
               Size
@@ -389,20 +403,23 @@ function App() {
                 ))}
               </select>
             </label>
-            <label>
-              Background
-              <select
-                value={request.background ?? 'transparent'}
-                onChange={(e) =>
-                  change({ background: e.target.value as 'transparent' | 'solid' | 'gradient' })
-                }
-              >
-                {style?.backgrounds.map((b) => (
-                  <option key={b}>{b}</option>
-                ))}
-              </select>
-            </label>
           </div>
+          <fieldset className="background-options">
+            <legend>Background</legend>
+            <div className="option-buttons">
+              {style?.backgrounds.map((background) => (
+                <button
+                  key={background}
+                  type="button"
+                  aria-pressed={(request.background ?? 'transparent') === background}
+                  onClick={() => change({ background })}
+                >
+                  <span className={`background-swatch ${background}`} />
+                  {background.charAt(0).toUpperCase() + background.slice(1)}
+                </button>
+              ))}
+            </div>
+          </fieldset>
           <div className="actions">
             <button disabled={busy || !preview} onClick={() => void download('svg')}>
               Export SVG

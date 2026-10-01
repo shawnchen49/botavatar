@@ -3,7 +3,7 @@
   "instance": {
     "seed": "stage-2",
     "face": {
-      "glasses": "round"
+      "glasses": "none"
     },
     "instanceBadge": {
       "icon": "check",

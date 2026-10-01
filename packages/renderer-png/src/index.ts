@@ -1,6 +1,6 @@
 import { Resvg } from '@resvg/resvg-js';
 
-export const PNG_RENDERER_VERSION = '0.2.0-resvg-2.6.2';
+export const PNG_RENDERER_VERSION = '0.3.0-resvg-2.6.2';
 export class PngRenderError extends Error {
   constructor(message: string, options?: ErrorOptions) {
     super(message, options);
@@ -13,8 +13,15 @@ export function renderPng(svg: string, size: number): Uint8Array {
   if (![64, 128, 256, 512].includes(size)) throw new PngRenderError('Unsupported PNG size.');
   if (typeof svg !== 'string' || !svg.startsWith('<svg ') || svg.length > 1_000_000)
     throw new PngRenderError('Expected a complete generated SVG under 1 MB.');
+  // Only the exact bounded embedded-PNG element emitted by our renderer is allowed.
+  const withoutEmbeddedImages = svg.replace(
+    /<image href="data:image\/png;base64,iVBORw0KGgo[A-Za-z0-9+/]{1,99970}={0,2}" x="191" y="191" width="38" height="38" preserveAspectRatio="xMidYMid meet"\/>/gu,
+    '',
+  );
   if (
-    /<(?:image|use|script|foreignObject)\b|(?:href|xlink:href)\s*=|<!DOCTYPE|<!ENTITY/iu.test(svg)
+    /<(?:image|use|script|foreignObject)\b|(?:href|xlink:href)\s*=|<!DOCTYPE|<!ENTITY/iu.test(
+      withoutEmbeddedImages,
+    )
   )
     throw new PngRenderError('External resources and active SVG are unsupported.');
   try {

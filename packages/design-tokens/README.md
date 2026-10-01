@@ -2,8 +2,8 @@
 
 The current profile exports `catalog`, a versioned manifest with twenty template
 identities, role defaults, three hairstyles, one face, six hat silhouettes, and
-nineteen hat emblems. Optional round glasses and dot/check/terminal/search/server
-instance badges remain available. Manifest `1.4.2` combines the selected cream-face
+nineteen hat emblems. Dot/check/terminal/search/server instance badges remain available. Glasses are
+unsupported in this profile. Manifest `1.5.1` combines the selected cream-face
 direction with the user's newer hat-diversity reference.
 
 `flat2dHatMounts` and `flat2dBadgeTreatments` provide style-specific placement and
