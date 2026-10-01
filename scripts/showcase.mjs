@@ -9,7 +9,7 @@ const approved = JSON.parse(
   await readFile(new URL('../tests/snapshots/approved.json', import.meta.url), 'utf8'),
 );
 let html =
-  '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Bot Avatar · Export review</title><style>body{background:#161a14;color:#e8eddf;font:15px system-ui;margin:32px}section{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}figure{margin:0;text-align:center}img{max-width:100%;height:auto}h1{font-size:36px}a{color:#c8e68a}.sizes{display:flex;align-items:end;flex-wrap:wrap;gap:20px}</style><h1>Twenty identities. Ready to export.</h1><p>Approved SVG identities and PNG conversions · manifest ' +
+  '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Bot Avatar · Export review</title><style>body{background:#161a14;color:#e8eddf;font:15px system-ui;margin:32px}section{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}figure{margin:0;text-align:center}img{max-width:100%;height:auto}h1{font-size:36px}a{color:#c8e68a}.sizes{display:flex;align-items:end;flex-wrap:wrap;gap:20px}</style><h1>Twenty identities. Ready to export.</h1><p>Proposed SVG identities and PNG conversions · manifest ' +
   catalog.version +
   '</p><section>';
 for (const [index, item] of approved.items.slice(0, 20).entries()) {

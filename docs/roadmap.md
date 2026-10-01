@@ -78,3 +78,29 @@ Implemented: solid avatar fills, thin hat seams, fixed template emblem colors, a
 five curated hair colors per template. See [the review](reviews/fine-line.md) and
 ADR 0007. Review generated samples
 before updating approved visual snapshots.
+
+## Occupational hat collection — 2026-10-01
+
+Implemented for review: redraw all six original hats, introduce six occupational
+silhouettes, fit open-visored hair, and curate twenty role/emblem/color identities.
+See [the collection review](reviews/hat-collection.md). Next stage: user visual
+review at native sizes, followed by explicitly approved snapshot updates.
+
+Browser review follow-up (manifest 1.8.1): strengthen structure lines, reshape the
+bucket brim, mirror baseball-cap geometry, fill pilot goggles, and close the low
+sports crown. These proposals remain pending visual approval.
+
+## Restore 1.4.2 and expand additively — 2026-10-01
+
+The user rejected the later redraws in favor of the approved control group.
+Manifest 1.9.0 restores all twenty original identities and adds three independent
+hat variants. See [the restoration review](reviews/approved-hat-expansion.md) and
+ADR 0009. The preceding Fine Line and occupational replacement stages are
+superseded. Next: review the three additions against the original visual family.
+
+## Soft Layered 2D accessories — 2026-10-01
+
+Manifest 1.9.1 / renderer 0.12.0 implements independent pilot strap, frame, and
+lens assets, with local hat-clipped contact shadows. Original 1.4.2 identities
+remain unchanged. See [the review](reviews/soft-layered-accessories.md). Next:
+review this accessory depth before extending raised treatments to other hats.

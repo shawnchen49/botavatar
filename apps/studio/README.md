@@ -30,4 +30,4 @@ SVG/PNG exports, and share-link settings; no external image URL is fetched.
 Seed settings are collapsed by default. Background choices have color swatches,
 and the desktop preview stays in view while scrolling. Template changes preserve
 compatible hair choices and instance badges; incompatible hair overrides reset
-to the new template defaults. Hair colors come from each template palette. Solid and gradient backgrounds use a contrasting slate base.
+to the new template defaults. Hair colors come from each template palette. Solid and gradient background defaults follow the active catalog.

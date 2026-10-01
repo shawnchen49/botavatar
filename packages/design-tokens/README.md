@@ -1,10 +1,10 @@
 # Design data and catalog
 
-The current profile exports `catalog`, a versioned manifest with twenty template
-identities, role defaults, three hairstyles, one face, six hat silhouettes, and
-nineteen hat emblems. Dot/check/terminal/search/server instance badges remain available. Glasses are
-unsupported in this profile. Manifest `1.7.0` combines the selected cream-face
-direction with the user's newer hat-diversity reference.
+The current profile exports `catalog`, a versioned manifest with 23 template
+choices, three hairstyles, one face, nine hat silhouettes, and nineteen hat
+emblems. Manifest 1.9.1 preserves the twenty approved 1.4.2 identities and adds
+three separate templates: `docs-editor`, `security-officer`, and `deploy-aviator`.
+Existing role aliases continue to select the original identities.
 
 `flat2dHatMounts` and `flat2dBadgeTreatments` provide style-specific placement and
 presentation data. The SVG renderer applies them without changing identity or
@@ -23,8 +23,14 @@ change once this initial review is accepted.
 hairstyle. The bucket fit tucks sweep hair beneath its brim without adding a new
 instance choice or affecting other hats.
 
-Role colors use yellow for the Build hardhat, paper ivory for Docs, and navy for
-Security. Template IDs and role aliases remain stable.
+Original template colors and same-hue hair defaults match 1.4.2. The five-color
+palettes include those original defaults. New hats use the approved rendering
+language without replacing the original role identities.
 
 `hat.badgeColor` fixes each emblem color as part of template identity.
 `allowedHairColors` contains five curated alternatives including the default.
+
+`flat2dHatAccessories` declares the fixed ordered parts and contact-shadow fitting
+for physical hat accessories. The pilot strap, frame, and lenses are registered
+project-owned SVG assets. They remain template identity, with no new instance
+selection or renderer randomness.

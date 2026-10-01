@@ -1,8 +1,29 @@
 import type { Catalog } from '@bot-avatar/core';
 export const catalog = {
-  version: '1.7.0',
+  version: '1.9.1',
   styleId: 'flat-2d',
   assets: [
+    {
+      id: 'hat-pilot-strap',
+      source: 'assets/parts/flat-2d/hats/pilot-strap.svg',
+      creator: 'Bot Avatar project; layered aviator accessory',
+      permission: 'project-owned',
+      anchor: [128, 106],
+    },
+    {
+      id: 'hat-pilot-frame',
+      source: 'assets/parts/flat-2d/hats/pilot-frame.svg',
+      creator: 'Bot Avatar project; layered aviator accessory',
+      permission: 'project-owned',
+      anchor: [128, 106],
+    },
+    {
+      id: 'hat-pilot-lenses',
+      source: 'assets/parts/flat-2d/hats/pilot-lenses.svg',
+      creator: 'Bot Avatar project; layered aviator accessory',
+      permission: 'project-owned',
+      anchor: [128, 106],
+    },
     {
       id: 'hair-sweep-bucket-back',
       source: 'assets/parts/flat-2d/hair/sweep-bucket-back.svg',
@@ -409,6 +430,27 @@ export const catalog = {
         licensePath: 'assets/icons/lucide/LICENSE',
       },
     },
+    {
+      id: 'hat-flatcap',
+      source: 'assets/parts/flat-2d/hats/flatcap.svg',
+      creator: 'Bot Avatar project; occupational Fine Line collection',
+      permission: 'project-owned',
+      anchor: [128, 64],
+    },
+    {
+      id: 'hat-patrol',
+      source: 'assets/parts/flat-2d/hats/patrol.svg',
+      creator: 'Bot Avatar project; occupational Fine Line collection',
+      permission: 'project-owned',
+      anchor: [128, 64],
+    },
+    {
+      id: 'hat-pilot',
+      source: 'assets/parts/flat-2d/hats/pilot.svg',
+      creator: 'Bot Avatar project; occupational Fine Line collection',
+      permission: 'project-owned',
+      anchor: [128, 64],
+    },
   ],
   colors: {
     cocoa: '#654638',
@@ -449,6 +491,7 @@ export const catalog = {
     'data-cyan': '#72d4e3',
     sand: '#ebd099',
     'support-green': '#9fd38b',
+    'emblem-ivory': '#f8f5ed',
   },
   hair: ['hair-sweep', 'hair-crop', 'hair-wave'],
   hairBack: {
@@ -464,7 +507,7 @@ export const catalog = {
     iconColor: 'ink',
     face: 'face-round',
     glasses: 'none',
-    background: 'slate',
+    background: 'cream',
     gradientEnd: 'sky',
   },
   roles: {
@@ -504,10 +547,10 @@ export const catalog = {
         badgeColor: 'ink',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'plum',
-      allowedHairColors: ['cocoa', 'plum', 'navy', 'charcoal', 'teal'],
+      defaultHairColor: 'purple',
       allowedHair: ['hair-sweep', 'hair-crop'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['purple', 'cocoa', 'plum', 'navy', 'charcoal'],
     },
     {
       id: 'research',
@@ -520,10 +563,10 @@ export const catalog = {
         badgeColor: 'ink',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'navy',
-      allowedHairColors: ['cocoa', 'plum', 'navy', 'charcoal', 'teal'],
+      defaultHairColor: 'cyan',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['cyan', 'silver', 'sand', 'mint', 'coral'],
     },
     {
       id: 'docs',
@@ -531,15 +574,15 @@ export const catalog = {
       styleId: 'flat-2d',
       hat: {
         type: 'hat-cap',
-        color: 'ivory',
+        color: 'yellow',
         badge: 'badge-document',
         badgeColor: 'ink',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'cocoa',
-      allowedHairColors: ['cocoa', 'plum', 'navy', 'charcoal', 'teal'],
+      defaultHairColor: 'yellow',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['yellow', 'cocoa', 'plum', 'navy', 'charcoal'],
     },
     {
       id: 'git',
@@ -552,10 +595,10 @@ export const catalog = {
         badgeColor: 'white',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'cocoa',
-      allowedHairColors: ['cocoa', 'plum', 'navy', 'charcoal', 'teal'],
+      defaultHairColor: 'salmon',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['salmon', 'cocoa', 'plum', 'navy', 'charcoal'],
     },
     {
       id: 'review',
@@ -568,10 +611,10 @@ export const catalog = {
         badgeColor: 'ink',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'cocoa',
-      allowedHairColors: ['cocoa', 'plum', 'navy', 'charcoal', 'teal'],
+      defaultHairColor: 'review-green',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['review-green', 'cocoa', 'plum', 'navy', 'charcoal'],
     },
     {
       id: 'shell',
@@ -584,10 +627,10 @@ export const catalog = {
         badgeColor: 'white',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'sand',
-      allowedHairColors: ['silver', 'sand', 'mint', 'coral', 'cyan'],
+      defaultHairColor: 'charcoal',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['charcoal', 'silver', 'sand', 'mint', 'coral'],
     },
     {
       id: 'build',
@@ -595,15 +638,15 @@ export const catalog = {
       styleId: 'flat-2d',
       hat: {
         type: 'hat-hardhat',
-        color: 'yellow',
+        color: 'build-blue',
         badge: 'badge-gear',
         badgeColor: 'ink',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'copper',
-      allowedHairColors: ['copper', 'cocoa', 'plum', 'navy', 'charcoal'],
+      defaultHairColor: 'build-blue',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['build-blue', 'copper', 'cocoa', 'plum', 'navy'],
     },
     {
       id: 'debug',
@@ -616,10 +659,10 @@ export const catalog = {
         badgeColor: 'ink',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'plum',
-      allowedHairColors: ['cocoa', 'plum', 'navy', 'charcoal', 'teal'],
+      defaultHairColor: 'debug-pink',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['debug-pink', 'cocoa', 'plum', 'navy', 'charcoal'],
     },
     {
       id: 'printer',
@@ -632,10 +675,10 @@ export const catalog = {
         badgeColor: 'ink',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'cocoa',
-      allowedHairColors: ['cocoa', 'plum', 'navy', 'charcoal', 'teal'],
+      defaultHairColor: 'orange',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['orange', 'cocoa', 'plum', 'navy', 'charcoal'],
     },
     {
       id: 'network',
@@ -648,10 +691,10 @@ export const catalog = {
         badgeColor: 'white',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'cocoa',
-      allowedHairColors: ['cocoa', 'plum', 'navy', 'charcoal', 'teal'],
+      defaultHairColor: 'network-blue',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['network-blue', 'cocoa', 'plum', 'navy', 'charcoal'],
     },
     {
       id: 'ai',
@@ -664,10 +707,10 @@ export const catalog = {
         badgeColor: 'ink',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'cocoa',
-      allowedHairColors: ['cocoa', 'plum', 'navy', 'charcoal', 'teal'],
+      defaultHairColor: 'ai-pink',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['ai-pink', 'cocoa', 'plum', 'navy', 'charcoal'],
     },
     {
       id: 'general',
@@ -680,10 +723,10 @@ export const catalog = {
         badgeColor: 'ink',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'cocoa',
-      allowedHairColors: ['cocoa', 'plum', 'navy', 'charcoal', 'teal'],
+      defaultHairColor: 'ivory',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['ivory', 'cocoa', 'plum', 'navy', 'charcoal'],
     },
     {
       id: 'builder',
@@ -696,10 +739,10 @@ export const catalog = {
         badgeColor: 'ink',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'cocoa',
-      allowedHairColors: ['cocoa', 'plum', 'navy', 'charcoal', 'purple'],
+      defaultHairColor: 'lime',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['lime', 'cocoa', 'plum', 'navy', 'purple'],
     },
     {
       id: 'deploy',
@@ -712,10 +755,10 @@ export const catalog = {
         badgeColor: 'ink',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'cocoa',
-      allowedHairColors: ['cocoa', 'plum', 'navy', 'charcoal', 'teal'],
+      defaultHairColor: 'aqua',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['aqua', 'cocoa', 'plum', 'navy', 'charcoal'],
     },
     {
       id: 'monitor',
@@ -728,10 +771,10 @@ export const catalog = {
         badgeColor: 'ink',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'silver',
-      allowedHairColors: ['silver', 'sand', 'mint', 'coral', 'cyan'],
+      defaultHairColor: 'monitor-blue',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['monitor-blue', 'silver', 'sand', 'mint', 'coral'],
     },
     {
       id: 'caretaker',
@@ -739,15 +782,15 @@ export const catalog = {
       styleId: 'flat-2d',
       hat: {
         type: 'hat-cap',
-        color: 'navy',
+        color: 'charcoal',
         badge: 'badge-shield',
-        badgeColor: 'cream',
+        badgeColor: 'emblem-ivory',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'silver',
-      allowedHairColors: ['silver', 'sand', 'mint', 'coral', 'cyan'],
+      defaultHairColor: 'charcoal',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['charcoal', 'silver', 'sand', 'mint', 'coral'],
     },
     {
       id: 'design',
@@ -760,10 +803,10 @@ export const catalog = {
         badgeColor: 'ink',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'cocoa',
-      allowedHairColors: ['cocoa', 'plum', 'navy', 'charcoal', 'teal'],
+      defaultHairColor: 'design-salmon',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['design-salmon', 'cocoa', 'plum', 'navy', 'charcoal'],
     },
     {
       id: 'data',
@@ -776,10 +819,10 @@ export const catalog = {
         badgeColor: 'ink',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'navy',
-      allowedHairColors: ['cocoa', 'plum', 'navy', 'charcoal', 'teal'],
+      defaultHairColor: 'data-cyan',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['data-cyan', 'cocoa', 'plum', 'navy', 'charcoal'],
     },
     {
       id: 'search',
@@ -792,10 +835,10 @@ export const catalog = {
         badgeColor: 'ink',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'cocoa',
-      allowedHairColors: ['cocoa', 'plum', 'navy', 'charcoal', 'teal'],
+      defaultHairColor: 'sand',
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['sand', 'cocoa', 'plum', 'navy', 'charcoal'],
     },
     {
       id: 'support',
@@ -808,8 +851,56 @@ export const catalog = {
         badgeColor: 'ink',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'cocoa',
-      allowedHairColors: ['cocoa', 'plum', 'navy', 'charcoal', 'teal'],
+      defaultHairColor: 'support-green',
+      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+      allowedHairColors: ['support-green', 'cocoa', 'plum', 'navy', 'charcoal'],
+    },
+    {
+      id: 'docs-editor',
+      role: 'docs',
+      styleId: 'flat-2d',
+      hat: {
+        type: 'hat-flatcap',
+        color: 'ivory',
+        badge: 'badge-document',
+        badgeColor: 'ink',
+      },
+      defaultPalette: 'skin',
+      defaultHairColor: 'ivory',
+      allowedHairColors: ['ivory', 'cocoa', 'plum', 'silver', 'teal'],
+      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+    },
+    {
+      id: 'security-officer',
+      role: 'security',
+      styleId: 'flat-2d',
+      hat: {
+        type: 'hat-patrol',
+        color: 'navy',
+        badge: 'badge-shield',
+        badgeColor: 'yellow',
+      },
+      defaultPalette: 'skin',
+      defaultHairColor: 'navy',
+      allowedHairColors: ['navy', 'cocoa', 'plum', 'silver', 'teal'],
+      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
+    },
+    {
+      id: 'deploy-aviator',
+      role: 'deploy',
+      styleId: 'flat-2d',
+      hat: {
+        type: 'hat-pilot',
+        color: 'orange',
+        badge: 'badge-rocket',
+        badgeColor: 'ink',
+      },
+      defaultPalette: 'skin',
+      defaultHairColor: 'orange',
+      allowedHairColors: ['orange', 'cocoa', 'plum', 'silver', 'teal'],
       allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
     },
@@ -822,7 +913,6 @@ export const catalog = {
     server: 'icon-server',
   },
 } as const satisfies Catalog;
-
 export const flat2dHatMounts = {
   'hat-cap': {
     x: 128,
@@ -860,8 +950,25 @@ export const flat2dHatMounts = {
     scale: 0.83,
     rotation: 0,
   },
+  'hat-flatcap': {
+    x: 130,
+    y: 71,
+    scale: 0.74,
+    rotation: -8,
+  },
+  'hat-patrol': {
+    x: 128,
+    y: 68,
+    scale: 0.79,
+    rotation: 0,
+  },
+  'hat-pilot': {
+    x: 128,
+    y: 64,
+    scale: 0.85,
+    rotation: 0,
+  },
 } as const;
-
 export const flat2dBadgeTreatments = {
   'badge-code': {
     backing: 'none',
@@ -978,12 +1085,34 @@ export const flat2dBadgeTreatments = {
     offsetY: 0,
   },
 } as const;
-
-// Fitting preserves the selected hairstyle while tucking its sides under the brim.
 export const flat2dHairFits: Readonly<
   Record<string, Readonly<Record<string, { readonly front: string; readonly back: string }>>>
 > = {
   'hat-bucket': {
-    'hair-sweep': { front: 'hair-sweep-bucket', back: 'hair-sweep-bucket-back' },
+    'hair-sweep': {
+      front: 'hair-sweep-bucket',
+      back: 'hair-sweep-bucket-back',
+    },
   },
+};
+
+// Accessories are fixed parts of the hat, not instance choices.
+export const flat2dHatAccessories: Readonly<
+  Record<
+    string,
+    readonly {
+      readonly asset: string;
+      readonly shadow: {
+        readonly blur: number;
+        readonly offset: number;
+        readonly opacity: number;
+      } | null;
+    }[]
+  >
+> = {
+  'hat-pilot': [
+    { asset: 'hat-pilot-strap', shadow: { blur: 0.6, offset: 0.6, opacity: 0.1 } },
+    { asset: 'hat-pilot-frame', shadow: { blur: 1.1, offset: 1.6, opacity: 0.2 } },
+    { asset: 'hat-pilot-lenses', shadow: null },
+  ],
 };

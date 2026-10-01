@@ -19,9 +19,9 @@ const fixture = JSON.parse(
 const generate = (input) => generateAvatar(input, catalog, svgRenderer);
 describe('deterministic generation contract', () => {
   it.each([
-    ['build', 'hat-hardhat', 'yellow'],
-    ['docs', 'hat-cap', 'ivory'],
-    ['caretaker', 'hat-cap', 'navy'],
+    ['build', 'hat-hardhat', 'build-blue'],
+    ['docs', 'hat-cap', 'yellow'],
+    ['caretaker', 'hat-cap', 'charcoal'],
   ])(
     'keeps the %s occupational hat across states and hair overrides',
     (templateId, type, color) => {
@@ -187,7 +187,7 @@ describe('deterministic generation contract', () => {
   });
   it('resolves template hair colors without overriding explicit instance choices', () => {
     expect(normalizeAvatar({ templateId: 'builder' }, catalog).hair.color).toBe(
-      catalog.colors.cocoa,
+      catalog.colors.lime,
     );
     expect(
       normalizeAvatar({ templateId: 'builder', instance: { hair: { color: 'purple' } } }, catalog)
@@ -195,7 +195,7 @@ describe('deterministic generation contract', () => {
     ).toBe(catalog.colors.purple);
     expect(() => validateCatalog({ ...catalog, hairBack: {} })).toThrow(AvatarError);
   });
-  it('embeds every paint resource without material texture', () => {
+  it('embeds every paint resource with the approved material treatment', () => {
     for (const template of catalog.templates) {
       const { svg } = generate({
         templateId: template.id,
@@ -204,7 +204,8 @@ describe('deterministic generation contract', () => {
       });
       const ids = new Set([...svg.matchAll(/ id="([^"]+)"/gu)].map((match) => match[1]));
       for (const match of svg.matchAll(/url\(#([^)]*)\)/gu)) expect(ids.has(match[1])).toBe(true);
-      expect(svg).not.toContain('feTurbulence');
+      expect(svg).toContain('feTurbulence');
+      expect(svg).toContain('seed="17"');
       expect(svg).not.toMatch(/<image|docs\/draft|data:image/gu);
     }
   });
@@ -414,12 +415,12 @@ describe('CLI and portable distribution', () => {
   });
 });
 
-describe('template hair palettes and flat rendering', () => {
+describe('template hair palettes and restored rendering', () => {
   it('accepts all curated colors without changing template identity across states', () => {
     for (const template of catalog.templates) {
       const baseline = generate({ templateId: template.id });
       expect(template.allowedHairColors).toHaveLength(5);
-      expect(template.allowedHairColors).not.toContain(template.hat.color);
+      expect(template.allowedHairColors).toContain(template.defaultHairColor);
       for (const color of template.allowedHairColors) {
         for (const state of ['idle', 'working', 'waiting', 'success', 'error', 'offline']) {
           const result = generate({
@@ -429,13 +430,15 @@ describe('template hair palettes and flat rendering', () => {
           });
           expect(result.avatar.hat).toEqual(baseline.avatar.hat);
           expect(result.avatar.hair.color).toBe(catalog.colors[color]);
-          expect(result.svg).not.toMatch(
-            /linearGradient|feGaussianBlur|feTurbulence|contact-shadow/,
-          );
+          expect(result.svg).toContain('linearGradient');
+          expect(result.svg).toContain('contact-shadow');
         }
       }
+      const excluded = Object.keys(catalog.colors).find(
+        (color) => !template.allowedHairColors.includes(color),
+      );
       expect(() =>
-        generate({ templateId: template.id, instance: { hair: { color: template.hat.color } } }),
+        generate({ templateId: template.id, instance: { hair: { color: excluded } } }),
       ).toThrow(AvatarError);
     }
   });
@@ -445,7 +448,7 @@ describe('template hair palettes and flat rendering', () => {
       { allowedHairColors: [] },
       { allowedHairColors: ['missing'] },
       { allowedHairColors: ['cocoa', 'cocoa'] },
-      { defaultHairColor: 'purple' },
+      { defaultHairColor: 'missing' },
       { hat: { ...template.hat, badgeColor: 'missing' } },
     ])
       expect(() =>

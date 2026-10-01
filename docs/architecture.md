@@ -86,7 +86,7 @@ Design-token manifests associate stable IDs with assets, anchors, capabilities,
 versions, and provenance. `scripts/compile-assets.mjs` validates the restricted source format and embeds
 assets in the SVG package before type checking and building. Generated modules are ignored.
 
-The current catalog contains six hats, three hairstyles, twenty template identities,
+The current catalog contains nine hats, three hairstyles, 23 template choices,
 nineteen hat emblem mappings, six state expressions, and five instance icon aliases. Every asset
 must have traceable licensing. Exploratory raster images are not production parts.
 The style interface permits future profiles without introducing a 3D package now.
@@ -111,5 +111,10 @@ identity. HTTP ETags hash actual output bytes. Batch input is limited to 100 req
 
 ADR 0006 records resvg conversion, HTTP caching, and the chosen local/offline delivery channel. Packages remain private / UNLICENSED. Public licensing and publication are deferred until explicitly requested. PNG and Studio appearance remain reviewable separately from the approved SVG baseline.
 
-[ADR 0007](decisions/0007-template-hair-palettes.md) defines curated hair palettes
-and fixed template emblem colors for the Fine Line profile.
+[ADR 0009](decisions/0009-approved-visual-restoration.md) restores the 1.4.2
+visual family and adds three separate occupational variants. Curated palettes
+and fixed emblem colors remain; original same-hue hair defaults are restored.
+
+[ADR 0010](decisions/0010-soft-layered-accessories.md) defines local physical
+accessory layering within the existing `flat-2d` renderer. Pilot goggles cast
+receiver-clipped contact shadows on their hat without changing Core composition.

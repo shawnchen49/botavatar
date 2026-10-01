@@ -1,55 +1,48 @@
-# Flat 2D visual direction
+# Soft Layered 2D visual direction
 
-The user selected the v0.3 sample sheet for faces and expressions, then supplied
-a twenty-role reference for hat diversity and more natural emblem integration. The local reference
-is not a repository dependency. This brief governs the current profile until a
-reviewed visual baseline is approved.
+The user chose to return to the approved manifest 1.4.2 appearance after reviewing
+and rejecting the later hat collection. The 1.4.2 snapshots and source commit
+`fecfa50` are the visual source of truth. The Fine Line and occupational redraws
+in manifests 1.6–1.8.1 are superseded, not approved alternatives.
 
-- Use an oversized rounded hat occupying approximately the upper half
-  of the avatar. Supported silhouettes include beanie, cap, beret, hardhat, bucket
-  hat, and deerstalker. The beanie has a wide folded band, low-contrast ribs, and a dark
-  curved lower seam. The cap has a rounded crown, subtle panel seams, and a curved brim.
-  The Debug bucket hat has a softly tapered crown and a flared brim with a raised
-  center arc, lowered side tips, and a restrained dark underside seam. The newer
-  Debug close-up refines this to a wide smooth brim, a narrow dark inner lip,
-  rounded side hair tucked behind the brim, and broad angled fringe sections.
-- Use a wide cream face with soft cheeks and a nearly flat rounded lower edge.
-  Do not introduce ears, a nose, a mouth, or heavy face outlines.
-- Place two black vertical capsule eyes on fixed anchors. Working eyes are focused,
-  waiting eyes are short horizontal marks, success eyes are upward arches, and
-  error eyes are crosses. Offline is a muted extension of the reference.
-- Give hair rounded volume behind the face and a distinct front fringe. Template
-  defaults coordinate hair and hat colors; explicit hair colors use the template palette.
-- Use solid fills for the face, hair, hat, and eyes. No material grain, gradients,
-  blur, hat-to-hair shadow, or fringe-to-face shadow. Hat seams are thin tonal lines.
-- Use yellow for the Build hardhat, paper ivory for Docs, and navy for Security.
-  Hat silhouette, color, emblem, and emblem color are fixed template identity.
-- Give each template five curated hair colors with distinguishable lightness from
-  its hat; the default is included. Same-hue combinations are allowed when clear
-  at 64 pixels. Do not offer the unrestricted global palette for hair.
-- Let hat emblems follow their surface. Use direct print for standalone symbols,
-  existing background-free glyphs for code and data, and dark plaques for shell and Git.
-  Use licensed existing SVG icons for both hat and instance badges; never redraw
-  their paths. Preserve transparent negative space and recolor through `currentColor`.
-  The current user-selected library is Lucide, with rounded 2.6-unit strokes;
-  these are library icons rather than exact glyphs extracted from the reference.
-  Scale and rotate symbols for the particular hat rather than applying one central
-  black tile to every shape. The bottom-right instance
-  badge uses a white disc, a colored rim, and an independently colored icon (black
-  by default). It overlaps the face
-  without obscuring the eyes.
-- Default to a transparent background. Solid and gradient backgrounds start from
-  a muted slate (#687d8b) to keep the cream face silhouette visible. Glasses are
-  not supported by this style.
-- Keep the instance badge compact and slightly inset: center (210, 210), radius 27.
-  Add only a light contact shadow on the face. Support two-letter monograms and
-  imported raster logos with an automatically selected foreground-color rim.
+- Preserve the twenty original template IDs, role defaults, hat silhouettes,
+  emblem placements, hair defaults, colors, face geometry, and six expressions.
+- Keep the oversized rounded hats, cream mouthless face, capsule eyes, and original
+  front/back hair fitting. Same-color hat and hair combinations are intentional.
+- Restore the original soft paint, seeded faint material treatment, receiver-clipped
+  fringe and hat contact shadows, and broad translucent brim seams. Preserve the
+  original six SVG source hats byte-for-byte instead of redrawing them again.
+- Keep existing Lucide emblem paths intact. New hats use explicit fitted mounts,
+  licensed emblems, and the same rendering treatment as the approved family.
+- Add hats through separate optional templates, leaving original role defaults
+  unchanged. Start with three additions: an ivory editorial flatcap, a navy
+  security patrol cap, and an orange aviator cap with filled goggles.
+- Use the current curated five-color hair palettes, including every restored
+  original default. Template emblem color remains fixed across instance changes.
+- Retain the later compact instance badges, independent icon/rim colors, monograms,
+  embedded image support, and the decision to remove glasses. These application
+  capabilities are outside the hat restoration; five badge snapshots still differ.
 
-Compare matching samples at matching scales: purple beanie with code/terminal,
-lime cap with flask/search, and charcoal cap with shield/server. Inspect cap
-curvature, hat-badge size/placement, fringe silhouette, eye proportions, face base,
-and badge overlap individually. Also inspect 64, 128, 256, and 512 pixel output.
+Manifest 1.9.1 / SVG renderer 0.12.0 records this restoration and additive catalog.
+`pnpm showcase:hats` generates the original twenty, the three additions, matching
+approved/restored comparisons, four native output sizes, all hairstyles, and six
+states. The twenty original identities and six state SVGs match the approved
+snapshots exactly. Generated previews remain ignored; new variants require visual
+review before becoming approved baselines.
 
-Current implementation is an SVG reconstruction under review. Byte determinism and
-behavior tests do not establish aesthetic or pixel-level equivalence to the raster
-reference. No snapshot is approved by this document.
+## Soft Layered 2D
+
+The user approved the direction of simple 2D silhouettes with restrained contact
+shadows. Keep `flat-2d` as the technical style ID; this is a refinement of the
+approved family, not a second style or a full 3D treatment.
+
+Separate tangible accessories from the hat surface. The pilot cap now composes
+its crown, printed emblem, strap, raised goggle frame, and recessed lenses as
+ordered pieces. The strap casts a faint 0.6-unit contact shadow; the frame uses
+1.1-unit blur and 1.6-unit offset at 20% opacity. Both shadows are clipped to the
+hat. The lenses use a narrow muted upper inset instead of another exterior shadow.
+
+Printed emblems receive no new shadow. Do not turn every line, icon, or color
+region into a floating component. Keep lighting downward and local: shorter,
+lighter shadows for pieces closer to their receiver. Preserve recognizable solid
+shapes at 64 pixels, even when tiny shadows become unobtrusive.
