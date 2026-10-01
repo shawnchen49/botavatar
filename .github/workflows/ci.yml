@@ -3,6 +3,7 @@ name: CI
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -19,3 +20,15 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm test:e2e
+      - run: node scripts/package-local.mjs
+      - run: node scripts/verify-local.mjs
+      - name: Archive local distribution
+        if: github.event_name == 'workflow_dispatch'
+        run: tar -czf output/bot-avatar-linux-x64.tar.gz -C output bot-avatar-linux-x64
+      - uses: actions/upload-artifact@v4
+        if: github.event_name == 'workflow_dispatch'
+        with:
+          name: bot-avatar-linux-x64
+          path: output/bot-avatar-linux-x64.tar.gz

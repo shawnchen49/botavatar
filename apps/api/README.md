@@ -1,13 +1,19 @@
 # HTTP application
 
-Status: workspace scaffold; HTTP endpoints arrive in Stage 4.
+`createApp({ instances?, logger? })` returns a testable Fastify application without
+listening. The process entrypoint serves Studio and binds to `127.0.0.1:3000`.
+Set `PORT` to change the port. `BOT_AVATAR_INSTANCES` may point to a JSON object
+mapping stable IDs to requests; input is validated at startup and remains read-only.
 
-Own Fastify assembly, transport mapping, limits, instance lookup, caching, and
-logging. Keep a testable application factory separate from process startup.
-Delegate generation to shared packages; never duplicate selection or drawing rules.
+- `GET /health`: liveness.
+- `GET /v1/templates`, `/v1/styles`, `/v1/states`: catalog and control metadata.
+- `POST /v1/avatar`: request JSON to SVG or PNG bytes; format defaults to SVG.
+- `POST /v1/avatar/batch`: array of 1–100 requests to ordered base64 entries.
+- `GET /v1/avatar/:id.svg` or `.png`: configured instance, optional `state`, `size`,
+  and `background` query overrides. Unknown IDs return 404; invalid input returns
+  400; oversized bodies return 413. Body limit is 1 MiB.
 
-Known instances initially use a read-only configuration repository. No database,
-instance mutation endpoint, or listening server is included in the scaffold.
-
-See [architecture](../../docs/architecture.md) and
-[directory structure](../../docs/directory-structure.md) for the shared contract.
+GET responses use content SHA-256 ETags, conditional 304 responses, and private
+revalidation. POST responses are no-store. Internal failures expose no stack traces.
+There is no instance mutation endpoint or public-hosting authentication layer.
+Run `pnpm build && pnpm start` at the repository root. See ADR 0006.

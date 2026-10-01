@@ -16,5 +16,8 @@
   "scripts": {
     "build": "tsc -b",
     "typecheck": "tsc -b"
+  },
+  "dependencies": {
+    "@resvg/resvg-js": "2.6.2"
   }
 }

@@ -1,7 +1,6 @@
 # Stage 2 review
 
-Status: implemented and locally verified; ready for review. Visual design is not
-an approved baseline yet.
+Status: implemented, locally verified, and visually approved by the user on 2026-10-01. The 31 approved preview SVGs are preserved under `tests/snapshots/`. Historical revision notes below describe the review process before approval.
 
 ## Changes
 

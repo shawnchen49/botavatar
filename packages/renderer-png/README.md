@@ -1,10 +1,12 @@
 # PNG conversion adapter
 
-Status: workspace scaffold; a conversion backend will be selected in Stage 3.
+`renderPng(svg, size)` converts application-generated SVG with pinned resvg 2.6.2
+and returns PNG bytes. Supported square sizes are 64, 128, 256, and 512 pixels.
+`PngRenderError` identifies invalid adapter inputs and conversion failures.
+`PNG_RENDERER_VERSION` records the adapter/backend version for export manifests.
 
-Accept complete SVG and explicit output options. Own the platform-specific raster
-converter, size handling, and transparency. Do not import Core or SVG composition
-logic, and do not select parts or resolve templates.
-
-See [architecture](../../docs/architecture.md) and
-[directory structure](../../docs/directory-structure.md) for the shared contract.
+This is not an arbitrary SVG upload service. External images, references, and active
+markup are rejected. Core and catalog remain independent of the native backend.
+The adapter preserves alpha, including the corners of rounded solid backgrounds.
+Labels use installed system fonts; raster text may differ between machines.
+Native binaries must match the target OS and CPU. See ADR 0006.

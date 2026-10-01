@@ -5,10 +5,12 @@ instances express individual variation, and states communicate runtime activity.
 
 ## Status
 
-Stage 2 implements deterministic SVG generation and a working JSON-file CLI.
-The current catalog has twenty template identities, six hat silhouettes, and six runtime states. PNG,
-the HTTP API, and Studio remain deferred. See the [Stage 2 review](docs/reviews/stage-2.md)
-and [review stages](docs/roadmap.md).
+SVG and PNG generation, single/batch CLI export, a local Fastify API, and React
+Studio are implemented. The catalog has twenty identities, six hat silhouettes,
+and six runtime states. Stage 2 visuals were approved on 2026-10-01.
+See [review stages](docs/roadmap.md) and [local/offline delivery](docs/local-distribution.md).
+
+Run `pnpm build && pnpm start` and open `http://127.0.0.1:3000` for Studio.
 
 ## Development
 

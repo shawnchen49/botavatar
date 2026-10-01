@@ -22,3 +22,5 @@ test-results/
 .DS_Store
 .idea/
 .vscode/
+
+/apps/studio/web/

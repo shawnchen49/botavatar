@@ -1,7 +1,6 @@
 # Repository directory structure
 
-Status: approved layout, established incrementally. Stage 2 adds the first generator to the existing workspaces,
-quality checks, and documentation. Feature directories appear
+Status: the seven workspaces implement SVG/PNG generation, CLI, API, and Studio. Feature directories appear
 when their implementation arrives; empty future directories are not committed.
 
 ## Current structure
@@ -72,8 +71,9 @@ BotAvatar/
 
 Each workspace contains `README.md`, `package.json`, `tsconfig.json`, and
 `src/index.ts`. Core, design tokens, SVG rendering, and CLI expose working generation capabilities.
-API, Studio, and PNG remain scaffolds. Browser and application-specific
-build configuration will arrive with the corresponding implementation.
+API and PNG expose runtime entrypoints. Studio uses `src/main.tsx` and Vite, with
+ignored output under `web/`. `scripts/showcase.mjs`, `scripts/package-local.mjs`, and
+`scripts/verify-local.mjs` provide visual review and offline delivery checks.
 
 Local `docs/draft/` content is ignored and not part of this maintained tree.
 
@@ -125,8 +125,7 @@ packages/renderer-png/src/
 ```
 
 The current asset pipeline is `scripts/compile-assets.mjs`, documented in
-`docs/asset-authoring.md`. Add separate compiler modules and a showcase script
-when the expanded Stage 3 catalog needs them. Place fixed requests in `tests/fixtures/`,
+`docs/asset-authoring.md`. Use `pnpm showcase` for the current export review. Place fixed requests in `tests/fixtures/`,
 reviewed SVG/PNG baselines in `tests/snapshots/`, visual checks in `tests/visual/`,
 and browser flows in `tests/e2e/`. Unit tests remain beside the implementation.
 

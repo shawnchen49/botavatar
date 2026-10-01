@@ -20,7 +20,7 @@ policy before proceeding to the first generator implementation.
 
 ## Stage 2 First deterministic SVG
 
-Status: implemented and locally verified; visual review pending. See the
+Status: implemented, locally verified, and visually approved on 2026-10-01. See the
 [Stage 2 review](reviews/stage-2.md).
 
 - Define the versioned asset manifest, runtime schemas, normalized contract, and seed policy.
@@ -31,6 +31,8 @@ Status: implemented and locally verified; visual review pending. See the
 
 ## Stage 3 Catalog and export
 
+Status: implemented and locally verified; PNG showcase ready for review. See [Stages 3–5 review](reviews/stages-3-5.md).
+
 - Expand hats, hairstyles, palettes, hat badges, instance badges, and state expressions.
 - Select the PNG backend and add batch generation with an output manifest.
 - Generate a 5 by 4 showcase and review 64, 128, 256, and 512 pixel output.
@@ -38,12 +40,16 @@ Status: implemented and locally verified; visual review pending. See the
 
 ## Stage 4 API and Studio
 
+Status: implemented and locally verified; Studio ready for review. See [Stages 3–5 review](reviews/stages-3-5.md).
+
 - Add Fastify routing, request limits, instance lookup, cache identity, and metadata.
 - Add React/Vite Studio for selection, preview, URL sharing, and SVG/PNG export.
 - Verify CLI/API output equivalence and selected UI flows with Playwright.
 
 ## Stage 5 Release preparation
 
-- Select a license and distribution channel.
+Status: implemented for the user-selected local/offline channel. Packages remain private / UNLICENSED; public licensing, publishing, containers, and deployment are not selected. See [local delivery](local-distribution.md).
+
+- Record licensing status and the selected distribution channel.
 - Validate asset provenance, offline package behavior, and release contents.
 - Add release automation and a container only for the selected delivery path.

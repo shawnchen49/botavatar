@@ -1,4 +1,6 @@
 # Instance examples
 
-Add the reviewer kernel, security, and docs instances when their template and badge
-assets exist. Instances share one template and vary only permitted individual traits.
+`local.json` maps known IDs to immutable avatar requests. Set
+`BOT_AVATAR_INSTANCES=examples/instances/local.json` before `pnpm start`, then use
+`/v1/avatar/assistant.svg` or `/v1/avatar/debugger.png?state=working`.
+The configuration is validated at startup; no mutation endpoint is exposed.

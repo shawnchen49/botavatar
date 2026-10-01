@@ -1,6 +1,6 @@
 # Bot Avatar architecture
 
-Status: Stage 2 SVG runtime implemented; reference-led visual revision is pending review.
+Status: Stage 2 visuals approved on 2026-10-01. SVG/PNG, batch CLI, local API, Studio, and offline delivery are implemented; see ADR 0006.
 
 ## Product scope
 
@@ -92,9 +92,9 @@ nineteen hat emblem mappings, six state expressions, and five instance icon alia
 must have traceable licensing. Exploratory raster images are not production parts.
 The style interface permits future profiles without introducing a 3D package now.
 
-## API and cache plan
+## API and cache
 
-The future HTTP application exposes:
+The HTTP application exposes:
 
 - `GET /v1/avatar/{instanceId}.svg` and `.png` for known instances.
 - `POST /v1/avatar` and `POST /v1/avatar/batch` for supplied requests.
@@ -106,13 +106,8 @@ persistence and instance mutation endpoints are not part of the foundation.
 
 Resource identity includes normalized configuration, output size, background,
 format, and Core, renderer, and manifest versions. API caching and ETags reuse that
-identity. Hashing, serialization, and batch limits will be finalized with their
-implementations. CLI and API must produce identical SVG for identical effective input.
+identity. HTTP ETags hash actual output bytes. Batch input is limited to 100 requests and HTTP bodies to 1 MiB. CLI and API must produce identical SVG for identical effective input.
 
 ## Deferred decisions
 
-The PNG conversion backend, open-source license, publication channel, HTTP ETag
-hashing, and visual approval remain open. The Stage 2 asset schema and seed policy
-are recorded in ADR 0002. Packages are private;
-no release or deployment workflow exists yet. Record each consequential choice in
-an ADR as implementation provides evidence.
+ADR 0006 records resvg conversion, HTTP caching, and the chosen local/offline delivery channel. Packages remain private / UNLICENSED. Public licensing and publication are deferred until explicitly requested. PNG and Studio appearance remain reviewable separately from the approved SVG baseline.

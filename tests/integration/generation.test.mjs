@@ -80,7 +80,7 @@ describe('deterministic generation contract', () => {
     { ...fixture, size: 0 },
     { ...fixture, size: 257 },
     { ...fixture, size: NaN },
-    { ...fixture, format: 'png' },
+    { ...fixture, format: 'jpeg' },
     { ...fixture, instance: { templateId: 'builder' } },
     { ...fixture, instance: { hat: { color: 'teal' } } },
     { ...fixture, instance: { seed: '' } },
@@ -358,14 +358,13 @@ describe('CLI and portable distribution', () => {
       rmSync(directory, { recursive: true, force: true });
     }
   });
-  it('runs from copied distribution files with no source tree or assets', () => {
+  it('runs SVG libraries from copied distribution files with no source tree or assets', () => {
     const directory = mkdtempSync(join(tmpdir(), 'bot-avatar-portable-'));
     try {
       for (const [name, source] of [
         ['core', 'packages/core'],
         ['design-tokens', 'packages/design-tokens'],
         ['renderer-svg', 'packages/renderer-svg'],
-        ['cli', 'apps/cli'],
       ]) {
         const destination = join(directory, 'node_modules', '@bot-avatar', name);
         mkdirSync(destination, { recursive: true });
@@ -376,7 +375,11 @@ describe('CLI and portable distribution', () => {
       writeFileSync(input, JSON.stringify(fixture));
       const output = execFileSync(
         process.execPath,
-        [join(directory, 'node_modules/@bot-avatar/cli/dist/main.js'), '--request', input],
+        [
+          '--input-type=module',
+          '-e',
+          `import {generateAvatar} from '@bot-avatar/core'; import {catalog} from '@bot-avatar/design-tokens'; import {svgRenderer} from '@bot-avatar/renderer-svg'; process.stdout.write(generateAvatar(${JSON.stringify(fixture)},catalog,svgRenderer).svg);`,
+        ],
         { cwd: directory, encoding: 'utf8' },
       );
       expect(output).toBe(generate(fixture).svg);

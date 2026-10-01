@@ -2,7 +2,7 @@ import type { Catalog } from './catalog.js';
 import { validateCatalog } from './catalog.js';
 import { AvatarError } from './errors.js';
 import { parseAvatarRequest } from './schema/request.js';
-export const CORE_VERSION = '0.2.2';
+export const CORE_VERSION = '0.3.0';
 // FNV-1a over UTF-16 code units, with independent field namespaces.
 export function seedIndex(seed: string, field: string, count: number): number {
   if (!Number.isInteger(count) || count < 1)
@@ -19,8 +19,6 @@ export function normalizeAvatar(input: unknown, catalog: Catalog) {
   if (!template) throw new AvatarError('UNKNOWN_CHOICE', 'Unknown template.');
   if (request.styleId !== undefined && request.styleId !== template.styleId)
     throw new AvatarError('UNKNOWN_CHOICE', 'Style conflicts with template.');
-  if (request.format === 'png')
-    throw new AvatarError('UNSUPPORTED_FORMAT', 'PNG is not implemented in Stage 2.');
   const select = (value: string, allowed: readonly string[], field: string): string => {
     if (!allowed.includes(value))
       throw new AvatarError('UNKNOWN_CHOICE', `Unknown ${field}: ${value}.`);
@@ -86,7 +84,7 @@ export function normalizeAvatar(input: unknown, catalog: Catalog) {
         : null,
     state: request.state ?? 'idle',
     size: request.size ?? 256,
-    format: 'svg' as const,
+    format: request.format ?? 'svg',
     background: {
       mode: request.background ?? 'transparent',
       color: color(catalog.defaults.background),

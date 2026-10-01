@@ -1,0 +1,10 @@
+[
+  { "templateId": "assistant", "instance": { "seed": "team-bot" }, "format": "svg", "size": 256 },
+  {
+    "templateId": "debug",
+    "instance": { "seed": "team-bot" },
+    "state": "working",
+    "format": "png",
+    "size": 128
+  }
+]

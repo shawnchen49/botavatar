@@ -1,0 +1,7 @@
+{
+  "assistant": {
+    "templateId": "assistant",
+    "instance": { "id": "assistant", "seed": "team-assistant" }
+  },
+  "debugger": { "templateId": "debug", "instance": { "id": "debugger", "seed": "team-debugger" } }
+}

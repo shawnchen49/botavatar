@@ -1,0 +1,462 @@
+{
+  "approvedOn": "2026-10-01",
+  "source": "User-approved Stage 2 preview",
+  "manifestVersion": "1.4.2",
+  "rendererVersion": "0.6.2",
+  "items": [
+    {
+      "file": "01.svg",
+      "label": "Coder",
+      "sha256": "ad7b414a992a535ea0fab1d5ccad6d1041d7fe23a7ecd70e8bf1894a81dace41",
+      "request": {
+        "templateId": "assistant",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "02.svg",
+      "label": "Research",
+      "sha256": "57ef72cdf54f2e348d73b71b266ed470273c8ab0eef18456b14831a7f23b3a7c",
+      "request": {
+        "templateId": "research",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-sweep"
+          }
+        }
+      }
+    },
+    {
+      "file": "03.svg",
+      "label": "Docs",
+      "sha256": "c668492443a7b206804847f5282149b367d8f921eda72ebaab52e17da42f38b7",
+      "request": {
+        "templateId": "docs",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "04.svg",
+      "label": "Git",
+      "sha256": "0822f3d93cc3dfca82be6a490a152d5121d1236580e56c86de637a9410779bb8",
+      "request": {
+        "templateId": "git",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-sweep"
+          }
+        }
+      }
+    },
+    {
+      "file": "05.svg",
+      "label": "Review",
+      "sha256": "572848b32bd91dde96fbccf1b42632eec9e90ea4983ab54d6a76d983a2e37d82",
+      "request": {
+        "templateId": "review",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-wave"
+          }
+        }
+      }
+    },
+    {
+      "file": "06.svg",
+      "label": "Shell",
+      "sha256": "e758e2873e7d80b5ebdb2dfabb604168f1b63979d4ca74eccf54595e8d59492d",
+      "request": {
+        "templateId": "shell",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "07.svg",
+      "label": "Build",
+      "sha256": "c22cd797cb1b6ffc3eaecdafc3e47b06f6af46e54346f5d502665512165a6224",
+      "request": {
+        "templateId": "build",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-sweep"
+          }
+        }
+      }
+    },
+    {
+      "file": "08.svg",
+      "label": "Debug",
+      "sha256": "893c7929c6b780602d98b1780992d69ceb6d2bdbc2443eed892910ab35406dd7",
+      "request": {
+        "templateId": "debug",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-sweep"
+          }
+        }
+      }
+    },
+    {
+      "file": "09.svg",
+      "label": "Printer",
+      "sha256": "a20fa8b449f3c543ec78e0266ec40d4233818ede181141ff400be0b5da898c53",
+      "request": {
+        "templateId": "printer",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-sweep"
+          }
+        }
+      }
+    },
+    {
+      "file": "10.svg",
+      "label": "Network",
+      "sha256": "c7144dc24a46a902bc48d0c213eb3992e1e3130280faa050146882097d710bdf",
+      "request": {
+        "templateId": "network",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-sweep"
+          }
+        }
+      }
+    },
+    {
+      "file": "11.svg",
+      "label": "AI",
+      "sha256": "57f6b03db14f1d9c768b425d17b2dba6e34a23e6f1f6c2948a0ec6734dc2bbeb",
+      "request": {
+        "templateId": "ai",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-sweep"
+          }
+        }
+      }
+    },
+    {
+      "file": "12.svg",
+      "label": "General",
+      "sha256": "f9d47cbb28d46bdad587ff8be48f0083249153aaaa991f659b6de1dc570c0ae3",
+      "request": {
+        "templateId": "general",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-wave"
+          }
+        }
+      }
+    },
+    {
+      "file": "13.svg",
+      "label": "Test",
+      "sha256": "d08ca335d6f2f06cd52ea08a019be77edb43e3cb7615e9b9df821ea44357e8c4",
+      "request": {
+        "templateId": "builder",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-wave"
+          }
+        }
+      }
+    },
+    {
+      "file": "14.svg",
+      "label": "Deploy",
+      "sha256": "59034a3df32ec0d8781e6169cb4110462c3c713ea5d46125f0f7d549c38a09d8",
+      "request": {
+        "templateId": "deploy",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-sweep"
+          }
+        }
+      }
+    },
+    {
+      "file": "15.svg",
+      "label": "Monitor",
+      "sha256": "b438027c62a0fdca46afb0f8ea80f214630019f12ea3b9eaa5bd43c5c75e2989",
+      "request": {
+        "templateId": "monitor",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-sweep"
+          }
+        }
+      }
+    },
+    {
+      "file": "16.svg",
+      "label": "Security",
+      "sha256": "d2210ddb33d745907a6d220869b749595337b43b50b45ecf7e8e849cabf0e01b",
+      "request": {
+        "templateId": "caretaker",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "17.svg",
+      "label": "Design",
+      "sha256": "7576900bb48a5e56ff2b31302d7f4ec6211d5b3614f7c0d9d1145a624436a155",
+      "request": {
+        "templateId": "design",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-sweep"
+          }
+        }
+      }
+    },
+    {
+      "file": "18.svg",
+      "label": "Data",
+      "sha256": "7569e726404f8ed6b907ad725f74078c36608b999376cf9177304053a5ee2352",
+      "request": {
+        "templateId": "data",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "19.svg",
+      "label": "Search",
+      "sha256": "4eba69fc82d7f0b87d808a303cd509ee167cac5d214538bc9598ac94e6eecaa8",
+      "request": {
+        "templateId": "search",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-sweep"
+          }
+        }
+      }
+    },
+    {
+      "file": "20.svg",
+      "label": "Support",
+      "sha256": "0561b4f02ae31e0d491af960945c8fb2f36524c811c71493b4f044728721ca24",
+      "request": {
+        "templateId": "support",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-wave"
+          }
+        }
+      }
+    },
+    {
+      "file": "21.svg",
+      "label": "dot",
+      "sha256": "3ccd709b58746a07c96f405bc348937999d46e11b627ace4f9c550edf4028069",
+      "request": {
+        "templateId": "assistant",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          },
+          "instanceBadge": {
+            "icon": "dot",
+            "color": "purple",
+            "iconColor": "ink"
+          }
+        }
+      }
+    },
+    {
+      "file": "22.svg",
+      "label": "check",
+      "sha256": "f4be24e64a3493e1e1b9995e6bc04e6bead1364cd77e7aef05a3ecbb76bc4ad2",
+      "request": {
+        "templateId": "assistant",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          },
+          "instanceBadge": {
+            "icon": "check",
+            "color": "purple",
+            "iconColor": "purple"
+          }
+        }
+      }
+    },
+    {
+      "file": "23.svg",
+      "label": "terminal",
+      "sha256": "792e3272dc9abf150859c31a976013dce5d01225aef64682691bdb4ecfd83af4",
+      "request": {
+        "templateId": "assistant",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          },
+          "instanceBadge": {
+            "icon": "terminal",
+            "color": "purple",
+            "iconColor": "teal"
+          }
+        }
+      }
+    },
+    {
+      "file": "24.svg",
+      "label": "search",
+      "sha256": "41610fbaad54a4f8c1eea069202438b79c5104b6ddb41d23d9200d44d65b1a75",
+      "request": {
+        "templateId": "assistant",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          },
+          "instanceBadge": {
+            "icon": "search",
+            "color": "purple",
+            "iconColor": "coral"
+          }
+        }
+      }
+    },
+    {
+      "file": "25.svg",
+      "label": "server",
+      "sha256": "ec03a838db1a504a9cf817b3090aa0e67398a735bfd484936d0ae7f4c04c04db",
+      "request": {
+        "templateId": "assistant",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          },
+          "instanceBadge": {
+            "icon": "server",
+            "color": "purple",
+            "iconColor": "blue"
+          }
+        }
+      }
+    },
+    {
+      "file": "26.svg",
+      "label": "idle",
+      "sha256": "ad7b414a992a535ea0fab1d5ccad6d1041d7fe23a7ecd70e8bf1894a81dace41",
+      "request": {
+        "templateId": "assistant",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "27.svg",
+      "label": "working",
+      "sha256": "441df006fade8978a8b9e746d3c939c9bde114ae0af374593f430c8c9a5cec1e",
+      "request": {
+        "templateId": "assistant",
+        "state": "working",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "28.svg",
+      "label": "waiting",
+      "sha256": "b2a574be886c0b91b35795bf734861fd3e64e188c557ce14bbc8a63239bdef5e",
+      "request": {
+        "templateId": "assistant",
+        "state": "waiting",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "29.svg",
+      "label": "success",
+      "sha256": "b1a5ca696a9d6654d33f7c3a7b2f79611b7cd43e0ff262c34116c07ab3fc6d18",
+      "request": {
+        "templateId": "assistant",
+        "state": "success",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "30.svg",
+      "label": "error",
+      "sha256": "cf28becd71bee24ab823cffbca3d0dc842f54f40156c1870498c5d65f872cf09",
+      "request": {
+        "templateId": "assistant",
+        "state": "error",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "31.svg",
+      "label": "offline",
+      "sha256": "aea5527539eae7bcc034b3d29615bf5a215774af383aa56338d480cf3f627988",
+      "request": {
+        "templateId": "assistant",
+        "state": "offline",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -12,3 +12,6 @@ packages/renderer-svg/src/generated/
 # Preserve upstream icon source bytes and license notices.
 
 assets/icons/lucide/
+
+apps/studio/web/
+tests/snapshots/*.svg

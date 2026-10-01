@@ -17,3 +17,4 @@ export { CORE_VERSION, seedIndex, normalizeAvatar, generateAvatar } from './norm
 export type { NormalizedAvatar, AvatarRenderer } from './normalize.js';
 export { composeAvatar } from './composition.js';
 export type { AvatarLayer } from './composition.js';
+export { MAX_BATCH_SIZE, parseAvatarBatch } from './batch.js';
