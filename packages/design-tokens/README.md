@@ -2,9 +2,9 @@
 
 The current profile exports `catalog`, a versioned manifest with 24 template
 choices, three hairstyles, one face, nine hat silhouettes, and nineteen hat
-emblems. Manifest 1.9.1 preserves the twenty approved 1.4.2 identities and adds
+emblems. Manifest 1.9.1 preserved the twenty approved 1.4.2 identities and added
 three separate templates: `docs-editor`, `security-officer`, and `deploy-aviator`.
-Existing role aliases continue to select the original identities.
+Role defaults selected those original identities.
 
 `flat2dHatMounts` and `flat2dBadgeTreatments` provide style-specific placement and
 presentation data. The SVG renderer applies them without changing identity or
@@ -56,3 +56,14 @@ Monitor keeps its blue surface with a white emblem. Dark surfaces use light
 emblems. All existing hair palettes, defaults, hat geometry, template IDs, and
 role aliases remain unchanged. Every emblem is checked for at least 3:1 contrast
 against its actual backing, including the Git and terminal plaques.
+
+Manifest 1.9.6 renames the three default templates whose ids disagreed with their
+roles. Preferred ids are `coder` (purple beanie, `badge-code`), `test` (flask
+badge), and `security` (charcoal cap, `badge-shield`). `security-officer` stays
+the patrol-cap variant. Legacy request ids `assistant`, `builder`, and `caretaker`
+remain role-map aliases and normalize to those preferred ids. Hat geometry,
+colors, and hair palettes are unchanged.
+
+`research` still shares `badge-sparkle` with `ai`. The vendored emblem set has no
+academic glyph such as a book or graduation cap, and `badge-document` already
+belongs to docs, so the sparkle badge stays.

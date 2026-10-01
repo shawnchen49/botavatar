@@ -12,8 +12,15 @@ type Style = {
   colors: Record<string, string>;
   instanceBadges: string[];
 };
+function templateLabel(id: string): string {
+  if (id === 'ai') return 'AI';
+  const words = id.split('-');
+  return words
+    .map((word, index) => (index === 0 ? word.charAt(0).toUpperCase() + word.slice(1) : word))
+    .join(' ');
+}
 const defaultRequest: AvatarRequest = {
-  templateId: 'assistant',
+  templateId: 'coder',
   instance: { seed: 'bot-avatar-v1' },
   size: 256,
   state: 'idle',
@@ -91,7 +98,7 @@ function App() {
   useEffect(() => {
     let active = true;
     Promise.all([
-      json<{ templates: BotTemplate[] }>('/v1/templates'),
+      json<{ templates: BotTemplate[]; roles: Record<string, string> }>('/v1/templates'),
       json<{ styles: Style[] }>('/v1/styles'),
       json<{ states: BotState[] }>('/v1/states'),
     ])
@@ -100,6 +107,13 @@ function App() {
           setTemplates(a.templates);
           setStyle(b.styles[0]);
           setStates(c.states);
+          setRequest((current) => {
+            if (a.templates.some((item) => item.id === current.templateId)) return current;
+            const preferred = a.roles[current.templateId];
+            if (preferred && a.templates.some((item) => item.id === preferred))
+              return { ...current, templateId: preferred };
+            return current;
+          });
         }
       })
       .catch((e) => {
@@ -194,7 +208,7 @@ function App() {
       <div className="workspace">
         <section className="preview-panel" aria-label="Avatar preview">
           <div className="preview-top">
-            <span>{template?.role ?? request.templateId}</span>
+            <span>{templateLabel(template?.id ?? request.templateId)}</span>
             <span>
               Export · {request.size ?? 256} × {request.size ?? 256}
             </span>
@@ -264,7 +278,7 @@ function App() {
             >
               {templates.map((t) => (
                 <option key={t.id} value={t.id}>
-                  {t.id}
+                  {templateLabel(t.id)}
                 </option>
               ))}
             </select>

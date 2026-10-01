@@ -1,6 +1,7 @@
 # 0004 Hat diversity and integrated emblems
 
-Status: implemented for visual review.
+Status: implemented for visual review. The request ids preserved below were later
+renamed to their role names; see [ADR 0011](0011-template-id-semantics.md).
 
 ## Context
 

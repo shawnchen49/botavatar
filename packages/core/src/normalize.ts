@@ -12,10 +12,20 @@ export function seedIndex(seed: string, field: string, count: number): number {
     hash = Math.imul(hash ^ char.charCodeAt(0), 16777619) >>> 0;
   return hash % count;
 }
+function resolveTemplate(catalog: Catalog, templateId: string) {
+  const direct = catalog.templates.find((item) => item.id === templateId);
+  if (direct) return direct;
+  // One hop only. Role values are template ids, including legacy request ids.
+  const preferred = Object.hasOwn(catalog.roles, templateId)
+    ? catalog.roles[templateId]
+    : undefined;
+  if (!preferred) return undefined;
+  return catalog.templates.find((item) => item.id === preferred);
+}
 export function normalizeAvatar(input: unknown, catalog: Catalog) {
   const request = parseAvatarRequest(input);
   validateCatalog(catalog);
-  const template = catalog.templates.find((item) => item.id === request.templateId);
+  const template = resolveTemplate(catalog, request.templateId);
   if (!template) throw new AvatarError('UNKNOWN_CHOICE', 'Unknown template.');
   if (request.styleId !== undefined && request.styleId !== template.styleId)
     throw new AvatarError('UNKNOWN_CHOICE', 'Style conflicts with template.');

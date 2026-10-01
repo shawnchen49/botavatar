@@ -17,13 +17,13 @@ SVG is the primary format. PNG is available at 64, 128, 256, and 512 pixels. The
 
 ## Gallery
 
-These are 256-pixel PNG files exported by this repo's CLI from catalog manifest 1.9.5, with a transparent background. One picture for each hat silhouette. Coder uses `hair-crop`; the others use `hair-sweep`. All of them are `idle`.
+These are 256-pixel PNG files exported by this repo's CLI from catalog manifest 1.9.6, with a transparent background. One picture for each hat silhouette. Coder uses `hair-crop`; the others use `hair-sweep`. All of them are `idle`. The 1.9.6 id rename does not change these pixels.
 
 <table>
   <tr>
     <td align="center">
       <img src="docs/images/coder.png" alt="Coder bot wearing a purple beanie, idle" width="148" height="148"><br>
-      <sub><b>Coder</b><br>beanie · <code>assistant</code></sub>
+      <sub><b>Coder</b><br>beanie · <code>coder</code></sub>
     </td>
     <td align="center">
       <img src="docs/images/research.png" alt="Research bot wearing a navy beret, idle" width="148" height="148"><br>
@@ -66,7 +66,7 @@ These are 256-pixel PNG files exported by this repo's CLI from catalog manifest 
 
 ### Same bot, six states
 
-Coder (`assistant`, `hair-crop`) keeps the same hat and hair. Only `state` changes.
+Coder (`coder`, `hair-crop`) keeps the same hat and hair. Only `state` changes.
 
 <table>
   <tr>
@@ -109,14 +109,14 @@ Use Node.js 22.14 or later in the 22.x line, or Node.js 24.x, and pnpm 11.25.0. 
 pnpm install --frozen-lockfile
 pnpm build
 mkdir -p output
-pnpm avatar --request examples/requests/assistant.json --output output/avatar.svg
+pnpm avatar --request examples/requests/coder.json --output output/avatar.svg
 ```
 
 <p>
-  <img src="docs/images/coder-terminal.png" alt="Coder bot with a purple terminal instance badge, from examples/requests/assistant.json" width="180" height="180">
+  <img src="docs/images/coder-terminal.png" alt="Coder bot with a purple terminal instance badge, from examples/requests/coder.json" width="180" height="180">
 </p>
 
-[`examples/requests/assistant.json`](examples/requests/assistant.json) is that Coder avatar: seed `stage-2`, crop hair, a purple terminal badge, and a transparent background. Omit `--output` to print SVG on stdout. The CLI leaves existing files untouched.
+[`examples/requests/coder.json`](examples/requests/coder.json) is that Coder avatar: seed `stage-2`, crop hair, a purple terminal badge, and a transparent background. Omit `--output` to print SVG on stdout. The CLI leaves existing files untouched.
 
 For PNG, set `"format": "png"` in the request. The filename does not select the format. Batch input is a JSON array of 1–100 requests, up to 1 MiB. The output directory must be new; when generation succeeds it contains numbered files and a `manifest.json`.
 
@@ -150,13 +150,15 @@ Build once before `pnpm avatar` or `pnpm start`. In pipelines, run `node apps/cl
 
 ## Catalog
 
-Manifest **1.9.5** in `packages/design-tokens` is the current `flat-2d` catalog: three public hairstyles (`hair-sweep`, `hair-crop`, `hair-wave`) and the six states above.
+Manifest **1.9.6** in `packages/design-tokens` is the current `flat-2d` catalog: three public hairstyles (`hair-sweep`, `hair-crop`, `hair-wave`) and the six states above.
 
-Twenty original templates, with the role alias in parentheses when it differs from the id:
+Twenty original templates. The public id is the role name:
 
-`assistant` (coder), `research`, `docs`, `git`, `review`, `shell`, `build`, `debug`, `printer`, `network`, `ai`, `general`, `builder` (test), `deploy`, `monitor`, `caretaker` (security), `design`, `data`, `search`, `support`.
+`coder`, `research`, `docs`, `git`, `review`, `shell`, `build`, `debug`, `printer`, `network`, `ai`, `general`, `test`, `deploy`, `monitor`, `security`, `design`, `data`, `search`, `support`.
 
-Four optional templates reuse a role with another hat or palette: `docs-editor`, `security-officer`, `deploy-aviator`, and `build-red`.
+Legacy request ids still resolve: `assistant` selects `coder`, `builder` selects `test`, and `caretaker` selects `security`. Optional templates keep a role-modifier id: `docs-editor`, `security-officer`, `deploy-aviator`, and `build-red`.
+
+`research` and `ai` both wear `badge-sparkle`. The catalog has no separate academic emblem, so research keeps that badge.
 
 A role name resolves to one default template. Instance badge aliases are `dot`, `check`, `terminal`, `search`, and `server`. Colors are catalog token ids. Unknown fields and unsupported choices fail validation. Request details are in the [CLI guide](apps/cli/README.md).
 
@@ -190,7 +192,7 @@ State changes keep template and instance identity. CLI and API return the same S
 - [Local and offline use](docs/local-distribution.md)
 - [Directory structure](docs/directory-structure.md) and [coding standards](docs/coding-standards.md)
 - [CLI](apps/cli/README.md), [API](apps/api/README.md), and [Studio](apps/studio/README.md)
-- [Request example](examples/requests/assistant.json), [batch example](examples/requests/batch.json), and [instance map](examples/instances/local.json)
+- [Request example](examples/requests/coder.json), [batch example](examples/requests/batch.json), and [instance map](examples/instances/local.json)
 - [Contributing](CONTRIBUTING.md) and [agent instructions](AGENTS.md)
 - [Asset notices](assets/LICENSES.md)
 

@@ -10,7 +10,7 @@ import { catalog } from '../../packages/design-tokens/dist/index.js';
 import { svgRenderer } from '../../packages/renderer-svg/dist/index.js';
 import { renderPng } from '../../packages/renderer-png/dist/index.js';
 import { createApp } from '../../apps/api/dist/index.js';
-const request = { templateId: 'assistant', instance: { seed: 'fixed' } };
+const request = { templateId: 'coder', instance: { seed: 'fixed' } };
 const generate = (input) => generateAvatar(input, catalog, svgRenderer);
 const cli = resolve('apps/cli/dist/main.js');
 

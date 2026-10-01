@@ -4,6 +4,8 @@ test('preview, state, shared URL and both export formats', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
+  await expect(page.getByRole('combobox', { name: 'Template', exact: true })).toHaveValue('coder');
+  await expect(page.getByRole('region', { name: 'Avatar preview' })).toContainText('Coder');
   await expect(page.getByRole('button', { name: 'Export SVG', exact: true })).toBeEnabled();
   await page.getByRole('combobox', { name: 'Template', exact: true }).selectOption('debug');
   await page.getByRole('button', { name: 'working', exact: true }).click();
@@ -45,6 +47,22 @@ test('invalid input clears stale preview and can recover', async ({ page }) => {
   await expect(page.getByRole('alert')).toBeVisible();
   await expect(page.getByRole('button', { name: 'Export SVG', exact: true })).toBeDisabled();
   await page.getByLabel('Seed', { exact: true }).fill('recovered');
+  await expect(page.getByRole('button', { name: 'Export SVG', exact: true })).toBeEnabled();
+});
+
+test('legacy template ids select the preferred role template', async ({ page }) => {
+  await page.goto(
+    '/#request=' +
+      encodeURIComponent(JSON.stringify({ templateId: 'caretaker', instance: { seed: 'alias' } })),
+  );
+  await expect(page.getByRole('combobox', { name: 'Template', exact: true })).toHaveValue(
+    'security',
+  );
+  await expect(page.getByRole('region', { name: 'Avatar preview' })).toContainText('Security');
+  await expect(page.locator('option[value="security-officer"]')).toHaveText('Security officer');
+  await expect(page.locator('option[value="security"]')).toHaveText('Security');
+  await expect(page.locator('option[value="coder"]')).toHaveText('Coder');
+  await expect(page.locator('option[value="test"]')).toHaveText('Test');
   await expect(page.getByRole('button', { name: 'Export SVG', exact: true })).toBeEnabled();
 });
 
@@ -141,7 +159,7 @@ test('template changes retain compatible hair and reset incompatible choices', a
   await template.selectOption('build');
   await open();
   await expect(menu.getByRole('radio', { name: 'plum', exact: true })).toBeChecked();
-  await template.selectOption('caretaker');
+  await template.selectOption('security');
   await open();
   await expect(menu.getByRole('radio', { name: 'Template default' })).toBeChecked();
   await expect(menu.getByRole('radio', { name: 'navy', exact: true })).toHaveCount(0);
