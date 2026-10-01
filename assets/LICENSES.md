@@ -1,8 +1,8 @@
 # Asset provenance
 
-Face, hair, and hat SVG geometry is authored for this private project. Its catalog
-entries carry `project-owned` permission records. Reference raster images are not
-embedded or used by the build. No public license for project-owned work is selected.
+Face, hair, and hat SVG geometry is authored for this project and released under
+the repository [MIT License](../LICENSE). Its catalog entries carry `project-owned`
+permission records. Reference raster images are not embedded or used by the build.
 
 Hat emblems and instance badge icons use 22 unmodified SVG files from
 [lucide-static 1.49.0](https://github.com/lucide-icons/lucide), under the

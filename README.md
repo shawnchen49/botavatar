@@ -53,6 +53,5 @@ are excluded from version control and are not needed to build or understand the 
 
 ## Licensing
 
-No open-source license has been selected. Packages are private and marked
-`UNLICENSED`; this is not a license grant. Asset provenance is tracked separately
-in [assets/LICENSES.md](assets/LICENSES.md). Publishing is deferred.
+Released under the [MIT License](LICENSE). Asset provenance and third-party icon
+notices are tracked separately in [assets/LICENSES.md](assets/LICENSES.md).
