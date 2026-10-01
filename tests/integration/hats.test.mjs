@@ -28,7 +28,7 @@ describe('occupational hat output', () => {
       }
     },
   );
-  it('keeps added occupational emblems legible against their fixed surfaces', () => {
+  it('keeps every occupational emblem legible against its fixed surface', () => {
     const luminance = (hex) => {
       const channels = [1, 3, 5]
         .map((offset) => parseInt(hex.slice(offset, offset + 2), 16) / 255)
@@ -37,7 +37,7 @@ describe('occupational hat output', () => {
         );
       return channels[0] * 0.2126 + channels[1] * 0.7152 + channels[2] * 0.0722;
     };
-    for (const template of catalog.templates.filter((template) => template.id.includes('-'))) {
+    for (const template of catalog.templates) {
       const backing = ['badge-git', 'badge-terminal'].includes(template.hat.badge)
         ? catalog.colors.ink
         : catalog.colors[template.hat.color];
@@ -145,5 +145,28 @@ describe('soft layered hat accessories', () => {
     expect(changed).toBeGreaterThan(100);
     const belowFrame = (123 * 256 + 98) * 4;
     expect(shaded.data[belowFrame]).toBeLessThan(unshaded.data[belowFrame]);
+  });
+});
+
+describe('occupational hardhat palettes', () => {
+  it('offers yellow and red hardhats with stable identity across all states', () => {
+    const hats = catalog.templates.filter((template) => template.hat.type === 'hat-hardhat');
+    expect(hats.map((template) => template.hat.color).sort()).toEqual([
+      'safety-red',
+      'safety-yellow',
+    ]);
+    expect(catalog.roles.build).toBe('build');
+    for (const template of hats) {
+      let identity;
+      for (const state of ['idle', 'working', 'waiting', 'success', 'error', 'offline']) {
+        const request = { templateId: template.id, instance: { seed: 'hardhat-review' }, state };
+        const result = generateAvatar(request, catalog, svgRenderer);
+        expect(generateAvatar(request, catalog, svgRenderer).svg).toBe(result.svg);
+        expect(result.svg).toContain(catalog.colors[template.hat.color]);
+        expect(result.svg).toContain(catalog.colors[template.hat.badgeColor]);
+        if (identity) expect(result.avatar.hat).toEqual(identity);
+        else identity = result.avatar.hat;
+      }
+    }
   });
 });

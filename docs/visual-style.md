@@ -46,3 +46,35 @@ Printed emblems receive no new shadow. Do not turn every line, icon, or color
 region into a floating component. Keep lighting downward and local: shorter,
 lighter shadows for pieces closer to their receiver. Preserve recognizable solid
 shapes at 64 pixels, even when tiny shadows become unobtrusive.
+
+## Occupational hardhat colors
+
+Manifest 1.9.4 follows the user's request for familiar occupational colors:
+`build` uses engineering yellow with a dark gear, and optional `build-red` uses
+red with a white gear. This replaces the restored blue hardhat palette only;
+existing silhouettes, hair defaults, and material treatment remain. These colors
+are visual associations, not a standardized safety-role classification.
+
+## Remaining occupational palettes
+
+Manifest 1.9.5 applies the requested palette review to the rest of the catalog.
+These are art-direction choices rather than real-world uniform requirements:
+
+- Research: navy beret with an ivory emblem for a quieter academic association.
+- Docs: ivory cap with dark ink, echoing paper rather than construction yellow.
+- Debug: olive bucket hat with a white bug, suggesting field troubleshooting.
+- Printer: charcoal cap with a white printer, echoing ink and workshop equipment.
+- Network: deeper uniform blue with white Wi-Fi for clearer small-size contrast.
+- Deploy: navy cap with a white rocket for an operations/uniform association.
+- Monitor: retain the blue cap and reverse the pulse to white for contrast.
+- Design: charcoal beret with an ivory nib, echoing a traditional artist's beret.
+- Docs editor: warm taupe flatcap with dark ink, suggesting woven cloth.
+- Aviator: leather-brown flight cap with an ivory rocket and existing goggles.
+
+Retain yellow/red hardhats, the sand detective hat, navy/gold patrol hat,
+charcoal security and shell caps, and the green review/test/support identities.
+Coder, AI, data, Git, and general-purpose hats retain their expressive palettes;
+these software roles do not need invented uniform color rules. Hat geometry,
+accessory construction, hair defaults and choices, role aliases, and state
+behavior remain intact. The palette changes supersede the restored hat colors
+for these ten templates only and await visual approval before snapshot updates.

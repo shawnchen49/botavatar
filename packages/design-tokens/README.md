@@ -1,6 +1,6 @@
 # Design data and catalog
 
-The current profile exports `catalog`, a versioned manifest with 23 template
+The current profile exports `catalog`, a versioned manifest with 24 template
 choices, three hairstyles, one face, nine hat silhouettes, and nineteen hat
 emblems. Manifest 1.9.1 preserves the twenty approved 1.4.2 identities and adds
 three separate templates: `docs-editor`, `security-officer`, and `deploy-aviator`.
@@ -42,3 +42,17 @@ start from the same slate token and retain the sky endpoint.
 Manifest 1.9.3 extends each existing hair palette with nine reusable accent
 colors, deduplicating existing entries. Original defaults and the order of
 existing choices remain intact; each template now offers 11–14 colors.
+
+Manifest 1.9.4 changes the default `build` hardhat to `safety-yellow` and adds
+`build-red` with a white gear emblem on `safety-red`. Both retain the existing
+build hair defaults and palettes. Dedicated hat tokens avoid recoloring hair or
+other templates. This user-requested palette refinement supersedes the restored
+blue hardhat color; geometry and role aliases remain unchanged.
+
+Manifest 1.9.5 extends the occupational palette review to ten existing templates:
+research uses navy, docs ivory, debug olive, printer charcoal, network uniform
+blue, deploy navy, design charcoal, editorial taupe, and aviator leather brown.
+Monitor keeps its blue surface with a white emblem. Dark surfaces use light
+emblems. All existing hair palettes, defaults, hat geometry, template IDs, and
+role aliases remain unchanged. Every emblem is checked for at least 3:1 contrast
+against its actual backing, including the Git and terminal plaques.

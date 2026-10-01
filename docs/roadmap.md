@@ -119,3 +119,34 @@ Studio review follow-up: remove the introductory slogan, restore export actions
 to the right column bottom, and show named circular swatches in a dropdown.
 Manifest 1.9.3 expands hair palettes to 11–14 colors while retaining defaults.
 Next: review the expanded palette and right-side export placement.
+
+## Occupational hardhat palettes — 2026-10-01
+
+Manifest 1.9.4 changes the build hardhat from blue to engineering yellow and adds
+an optional red hardhat with a white emblem. Dedicated color tokens leave hair
+and other identities unchanged. The catalog now contains 24 templates.
+Next: review both hardhats at four sizes and six states in the generated hat
+showcase before approving any replacement of the existing build snapshot.
+
+Verification: asset compilation, formatting, lint, type checking, and builds pass.
+`pnpm check` reports 122 passing tests and 11 approved-snapshot mismatches: the
+new Build color difference plus the ten previously documented badge/expression
+differences. No approved snapshots were replaced. Both hardhat palettes were
+visually inspected at 64, 128, 256, and 512 pixels and across all six states.
+
+## Remaining occupational palette review — 2026-10-01
+
+Manifest 1.9.5 refines ten existing identities after the user's request to review
+all remaining hats together. The visual-style guide records the per-role choices
+and retained palettes. Emblem contrast now covers the entire catalog, while
+hat silhouettes, hair defaults, role aliases, and all 24 template IDs remain.
+Next: review the full catalog, especially the leather aviator, taupe editor,
+olive debug hat, and light emblems, before approving changed visual baselines.
+
+Verification: all ten revised identities were inspected at 64, 128, 256, and
+512 pixels and in six states. Asset compilation, format, lint, type checking,
+production builds, and whole-catalog emblem contrast pass. `pnpm check` reports
+114 passing tests and 19 approved-snapshot mismatches: nine original catalog
+identities with proposed palette changes (including the yellow hardhat), plus
+the ten existing badge/expression differences. The two optional editorial and
+aviator templates have no approved snapshots. Existing baselines remain intact.

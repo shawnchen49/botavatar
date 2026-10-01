@@ -19,8 +19,8 @@ const fixture = JSON.parse(
 const generate = (input) => generateAvatar(input, catalog, svgRenderer);
 describe('deterministic generation contract', () => {
   it.each([
-    ['build', 'hat-hardhat', 'build-blue'],
-    ['docs', 'hat-cap', 'yellow'],
+    ['build', 'hat-hardhat', 'safety-yellow'],
+    ['docs', 'hat-cap', 'ivory'],
     ['caretaker', 'hat-cap', 'charcoal'],
   ])(
     'keeps the %s occupational hat across states and hair overrides',
