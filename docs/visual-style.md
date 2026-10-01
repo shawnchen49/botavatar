@@ -1,5 +1,11 @@
 # Soft Layered 2D visual direction
 
+This document describes the current `flat-2d` profile only. Soft Layered 2D is
+its visual language, not a restriction on the product's future styles. Other
+profiles may define their own geometry, materials, layers, and asset pipelines;
+see the multi-style readiness section in `architecture.md` for the implemented
+extension points and the application work still required.
+
 The user chose to return to the approved manifest 1.4.2 appearance after reviewing
 and rejecting the later hat collection. The 1.4.2 snapshots and source commit
 `fecfa50` are the visual source of truth. The Fine Line and occupational redraws

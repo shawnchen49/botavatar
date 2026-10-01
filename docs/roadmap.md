@@ -150,3 +150,24 @@ production builds, and whole-catalog emblem contrast pass. `pnpm check` reports
 identities with proposed palette changes (including the yellow hardhat), plus
 the ten existing badge/expression differences. The two optional editorial and
 aviator templates have no approved snapshots. Existing baselines remain intact.
+
+## Skill consolidation and style boundary audit — 2026-10-01
+
+The existing `add-avatar-asset` skill now includes the practiced hat workflow:
+occupational palettes, independent color tokens, emblem contrast, physical
+accessory layering, manifest compatibility, and before/after visual review.
+No overlapping hat-only skill is needed.
+
+The architecture document now distinguishes reusable injection/identity contracts
+from working multi-style application support. Soft Layered 2D remains the only
+implemented profile, identified by `flat-2d`. The next style stage requires a
+real second profile plus catalog/renderer routing, style-aware application
+controls and asset compilation, and end-to-end validation; it is not implemented
+by this documentation and skill update.
+
+Verification: `/v1/styles` exposes only `flat-2d`; a matching style request returns
+200 and a conflicting style returns 400. `pnpm check` remains at 114 passing
+checks and the same 19 pending visual-baseline mismatches from the palette stage.
+No runtime or visual behavior changed in this audit. Independent skill structure
+and reference checks pass; the bundled Python skill validator could not run
+because its PyYAML dependency is unavailable.

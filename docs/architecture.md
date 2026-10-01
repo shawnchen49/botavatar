@@ -89,7 +89,50 @@ assets in the SVG package before type checking and building. Generated modules a
 The current catalog contains nine hats, three hairstyles, 24 template choices,
 nineteen hat emblem mappings, six state expressions, and five instance icon aliases. Every asset
 must have traceable licensing. Exploratory raster images are not production parts.
-The style interface permits future profiles without introducing a 3D package now.
+Catalog and renderer injection provide extension points for future profiles;
+the shipped applications currently run a single profile.
+
+### Multi-style readiness
+
+The product is intended to support multiple visual styles. Its current visual
+language is **Soft Layered 2D**, implemented under the stable `flat-2d` ID.
+Shallow accessory shadows refine that profile; they do not make it a second
+style or a general 3D renderer. Occupational colors and additional hats are
+template changes within the same profile.
+
+Core already separates template identity, instance variation, and runtime state.
+`generateAvatar` receives a catalog and renderer, requests and templates carry
+style IDs, mismatched request/template styles fail, and resource identity includes
+the normalized style and manifest/renderer versions. These are reusable extension
+points, not evidence that two styles can currently run side by side.
+
+The remaining single-profile constraints are concrete:
+
+- `Catalog.styleId` is typed as the literal `flat-2d`; normalized output inherits it.
+- The SVG renderer accepts only `flat-2d` and its supported manifest, imports
+  `flat2d*` fitting/presentation data, and uses embedded assets from one catalog.
+- API and CLI directly assemble that catalog and renderer. `/v1/styles` returns
+  one entry, and Studio currently uses the first entry's capabilities and colors.
+- The asset compiler builds one catalog into one SVG package. Core composition
+  assumes hat/hair/face/badge layers, and the generation contract returns SVG
+  with a PNG conversion adapter. Arbitrary scene graphs or native 3D outputs
+  are not covered by that contract.
+
+When a second style is commissioned, implement and verify the full path together:
+generalize the style contract, define an explicit catalog/renderer binding per
+style, and select it in application orchestration before generation. Keep geometry,
+palette, materials, fitting, and accessory rules inside the selected profile.
+Specify template-ID uniqueness or style-qualified lookup before allowing catalogs
+to share IDs. Expose actual per-style capabilities to Studio and route API/CLI
+requests consistently, rejecting unknown or conflicting choices without fallback.
+Extend asset compilation and dependency policy for the real second implementation.
+
+Completion requires two real styles exercised end to end: deterministic generation,
+state-preserving identity, correct catalog/renderer pairing, isolated resource
+keys, invalid-style rejection, and API/CLI/Studio selection and export. Preserve
+the current profile's approved visuals. Generalizing a string type or registering
+a placeholder renderer alone is not multi-style support. A style outside the
+current SVG/avatar-layer contract needs an ADR before extending those boundaries.
 
 ## API and cache
 
