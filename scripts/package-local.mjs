@@ -16,18 +16,13 @@ import { createHash } from 'node:crypto';
 const target = resolve(process.argv[2] ?? `output/bot-avatar-${process.platform}-${process.arch}`);
 mkdirSync(target);
 mkdirSync(join(target, 'apps'));
+// Legacy deploy re-resolves workspace importers. A frozen install fills the
+// package store without registry packuments, so --offline cannot resolve root
+// devDependencies such as globals. Tarballs still come from the local store.
 for (const name of ['api', 'cli'])
   execFileSync(
     'pnpm',
-    [
-      '--filter',
-      `@bot-avatar/${name}`,
-      'deploy',
-      '--legacy',
-      '--prod',
-      '--offline',
-      join(target, 'apps', name),
-    ],
+    ['--filter', `@bot-avatar/${name}`, 'deploy', '--legacy', '--prod', join(target, 'apps', name)],
     { stdio: 'inherit' },
   );
 // Legacy deploy hoists a self-link to the source checkout. Relocate that one link.
