@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/branding/bot-avatar-logo.png" alt="Bot Avatar logo" width="640">
+</p>
+
 # Bot Avatar
 
 A deterministic, composable avatar system for bots. Templates identify bot types,
