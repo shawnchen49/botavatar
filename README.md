@@ -5,9 +5,10 @@ instances express individual variation, and states communicate runtime activity.
 
 ## Status
 
-Stage 1 establishes the workspace, domain input types, architecture, and development
-checks. Avatar generation, the CLI, the HTTP API, and Studio are not implemented yet.
-See the [Stage 1 review](docs/reviews/stage-1.md) and [review stages](docs/roadmap.md).
+Stage 2 implements deterministic SVG generation and a working JSON-file CLI.
+The current catalog has twenty template identities, six hat silhouettes, and six runtime states. PNG,
+the HTTP API, and Studio remain deferred. See the [Stage 2 review](docs/reviews/stage-2.md)
+and [review stages](docs/roadmap.md).
 
 ## Development
 
@@ -21,9 +22,20 @@ pnpm check
 ```
 
 `pnpm check` validates workspace manifests, formatting, lint rules, TypeScript
-project builds, and tests. `pnpm format` applies formatting. Tests currently verify
-architectural guardrails, not avatar output. Type checking uses project-reference
+project builds, and tests. `pnpm format` applies formatting. Tests verify
+architectural guardrails, deterministic output, validation, CLI behavior, and portability. Type checking uses project-reference
 builds and emits ignored `dist/` artifacts; `pnpm build` uses the same build graph.
+
+## Generate an avatar
+
+```sh
+pnpm build
+mkdir -p output
+pnpm avatar --request examples/requests/assistant.json --output output/avatar.svg
+```
+
+Omit `--output` for stdout. Existing files are not overwritten. See the
+[CLI guide](apps/cli/README.md) and [request example](examples/requests/assistant.json).
 
 ## Repository guide
 

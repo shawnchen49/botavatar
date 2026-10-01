@@ -14,10 +14,12 @@
     "format:check": "prettier . --check",
     "lint": "eslint . --max-warnings 0",
     "check:workspace": "node scripts/check-workspace.mjs",
-    "typecheck": "tsc -b --pretty false",
-    "build": "tsc -b --pretty false",
-    "test": "vitest run",
-    "check": "pnpm check:workspace && pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build"
+    "typecheck": "pnpm assets:build && tsc -b --pretty false",
+    "build": "pnpm assets:build && tsc -b --pretty false",
+    "test": "pnpm build && vitest run",
+    "check": "pnpm check:workspace && pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build",
+    "assets:build": "tsc -b packages/core packages/design-tokens --pretty false && node scripts/compile-assets.mjs",
+    "avatar": "node apps/cli/dist/main.js"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

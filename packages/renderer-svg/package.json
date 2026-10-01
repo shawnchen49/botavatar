@@ -14,8 +14,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc -b",
-    "typecheck": "tsc -b"
+    "build": "pnpm --workspace-root assets:build && tsc -b",
+    "typecheck": "pnpm --workspace-root assets:build && tsc -b"
   },
   "dependencies": {
     "@bot-avatar/core": "workspace:*",

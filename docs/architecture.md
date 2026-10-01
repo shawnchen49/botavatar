@@ -1,6 +1,6 @@
 # Bot Avatar architecture
 
-Status: foundation accepted; runtime implementation proceeds through review stages.
+Status: Stage 2 SVG runtime implemented; reference-led visual revision is pending review.
 
 ## Product scope
 
@@ -22,6 +22,10 @@ SVG uploads, animation, and 3D styles are outside the first release.
   bottom-right badge. It never changes the template's hat identity.
 - **BotState** selects `idle`, `working`, `waiting`, `success`, `error`, or `offline`
   eye and facial feedback. It never rerolls instance choices.
+
+The current `flat-2d` profile follows the [visual brief](visual-style.md): oversized
+hats, colored hair, a cream mouthless face, and capsule eyes. Only one style is
+currently implemented. Other aesthetics can use separate style IDs and renderers.
 
 Use one default face for the initial visual baseline. A second face is an explicit
 alternate asset, not a random identity change. Glasses use closed frames with fixed
@@ -46,9 +50,10 @@ Application input
 
 Value precedence is explicit request, permitted deterministic seed selection,
 template default, then style default. Normalization must retain every effective
-rendering input, including glasses, badge color and label, and background options.
-Seed defaults, selection algorithm, runtime schemas, and the complete normalized
-contract will be specified with the first generator implementation.
+rendering input, including glasses, badge rim color, icon color, resolved icon asset, label, and
+background options.
+[ADR 0002](decisions/0002-deterministic-svg.md) specifies seed defaults, field-based
+selection, runtime schemas, the normalized contract, and internal resource keys.
 
 Layer order is background, back hair, ears/sides, face, front hair, hat, brim,
 eyes/state, instance badge, then foreground details. Layout anchors belong to the
@@ -74,13 +79,16 @@ deep package imports, and reverse application dependencies are forbidden.
 
 ## Assets and styles
 
-Production SVG sources live in `assets/parts/flat-2d/` and `assets/badges/`.
+Production body SVG sources live in `assets/parts/flat-2d/`; existing licensed icons
+live in `assets/icons/lucide/`. Hat and instance badge mappings reuse these icons.
+Upstream paths stay intact; the style adapts color and fitting transforms only.
+[ADR 0005](decisions/0005-existing-icons.md) records the source and notice policy.
 Design-token manifests associate stable IDs with assets, anchors, capabilities,
-versions, and provenance. A future asset compiler embeds approved assets in the
-SVG package before type checking and building. Generated modules are ignored.
+versions, and provenance. `scripts/compile-assets.mjs` validates the restricted source format and embeds
+assets in the SVG package before type checking and building. Generated modules are ignored.
 
-The expanded catalog targets four hats, three hairstyles, six palettes, twelve
-hat badges, six state expressions, and six instance-badge examples. Every asset
+The current catalog contains six hats, three hairstyles, twenty template identities,
+nineteen hat emblem mappings, six state expressions, and five instance icon aliases. Every asset
 must have traceable licensing. Exploratory raster images are not production parts.
 The style interface permits future profiles without introducing a 3D package now.
 
@@ -103,7 +111,8 @@ implementations. CLI and API must produce identical SVG for identical effective 
 
 ## Deferred decisions
 
-The PNG conversion backend, open-source license, publication channel, exact seed
-default, asset schema, and final SVG geometry remain open. Packages are private;
+The PNG conversion backend, open-source license, publication channel, HTTP ETag
+hashing, and visual approval remain open. The Stage 2 asset schema and seed policy
+are recorded in ADR 0002. Packages are private;
 no release or deployment workflow exists yet. Record each consequential choice in
 an ADR as implementation provides evidence.

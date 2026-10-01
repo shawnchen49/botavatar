@@ -8,3 +8,7 @@ output/
 playwright-report/
 test-results/
 packages/renderer-svg/src/generated/
+
+# Preserve upstream icon source bytes and license notices.
+
+assets/icons/lucide/

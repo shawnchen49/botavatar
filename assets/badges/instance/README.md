@@ -1,4 +1,7 @@
 # Instance badges
 
-Instance-level overlay icons belong here. The renderer places the icon in a circular
-bottom-right badge; the icon itself does not redefine the hat or template identity.
+Instance-level icons use `catalog.instanceBadgeAssets` to resolve semantic names
+to existing licensed SVGs in `assets/icons/lucide/`. Do not draw icon paths here.
+The renderer places the supplied glyph in a circular bottom-right frame. Request
+`color` controls the rim and `iconColor` independently controls the glyph; neither
+changes template identity. Explicit short labels remain a text alternative.

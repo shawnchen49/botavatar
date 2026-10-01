@@ -20,6 +20,9 @@ policy before proceeding to the first generator implementation.
 
 ## Stage 2 First deterministic SVG
 
+Status: implemented and locally verified; visual review pending. See the
+[Stage 2 review](reviews/stage-2.md).
+
 - Define the versioned asset manifest, runtime schemas, normalized contract, and seed policy.
 - Add one face, one hat, three hat badges, and the initial state/instance overlays.
 - Implement asset validation and embedding, seeded normalization, SVG IR, and flat-2d rendering.

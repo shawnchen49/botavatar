@@ -1,7 +1,7 @@
 # Repository directory structure
 
-Status: approved layout, established incrementally. Stage 1 creates the workspaces,
-public input types, quality checks, and documentation. Feature directories appear
+Status: approved layout, established incrementally. Stage 2 adds the first generator to the existing workspaces,
+quality checks, and documentation. Feature directories appear
 when their implementation arrives; empty future directories are not committed.
 
 ## Current structure
@@ -18,7 +18,12 @@ BotAvatar/
 ├── packages/
 │   ├── core/
 │   │   └── src/
-│   │       ├── index.ts          # Public type exports
+│   │       ├── index.ts          # Public domain exports
+│   │       ├── schema/request.ts # Runtime schema and inferred input types
+│   │       ├── normalize.ts      # Seed, defaults, identity, generation
+│   │       ├── composition.ts    # Semantic layer order
+│   │       ├── catalog.ts        # Catalog contracts and validation
+│   │       ├── errors.ts         # Typed domain failures
 │   │       └── model/avatar.ts   # Template, instance, state, request
 │   ├── design-tokens/            # Tokens, templates, catalog data
 │   ├── renderer-svg/             # SVG IR and flat-2d rendering
@@ -33,10 +38,12 @@ BotAvatar/
 │   ├── requests/
 │   └── instances/
 ├── scripts/
+│   ├── compile-assets.mjs        # Validate and embed source SVG
 │   ├── workspace-policy.mjs      # Allowed dependency graph
 │   ├── check-workspace.mjs       # Manifest validation
 │   └── eslint-boundaries.mjs     # Public import and platform boundaries
 ├── tests/integration/
+│   ├── generation.test.mjs       # SVG, CLI, assets, portability
 │   └── workspace.test.mjs        # Positive and negative guardrail tests
 ├── docs/
 │   ├── architecture.md
@@ -64,13 +71,13 @@ BotAvatar/
 ```
 
 Each workspace contains `README.md`, `package.json`, `tsconfig.json`, and
-`src/index.ts`. Except for the Core input types, source entrypoints are intentionally
-empty scaffolds and expose no runtime capabilities. Browser and application-specific
+`src/index.ts`. Core, design tokens, SVG rendering, and CLI expose working generation capabilities.
+API, Studio, and PNG remain scaffolds. Browser and application-specific
 build configuration will arrive with the corresponding implementation.
 
 Local `docs/draft/` content is ignored and not part of this maintained tree.
 
-## Feature placement
+## Planned feature placement as modules grow
 
 ```text
 apps/cli/src/
@@ -117,9 +124,9 @@ packages/renderer-png/src/
 └── convert.ts                   # Converter and output options
 ```
 
-The asset pipeline will add `scripts/build-assets.ts`, `scripts/validate-catalog.ts`,
-and `scripts/generate-showcase.ts`. Add `docs/asset-authoring.md` alongside a working
-pipeline, with real manifest examples. Place fixed requests in `tests/fixtures/`,
+The current asset pipeline is `scripts/compile-assets.mjs`, documented in
+`docs/asset-authoring.md`. Add separate compiler modules and a showcase script
+when the expanded Stage 3 catalog needs them. Place fixed requests in `tests/fixtures/`,
 reviewed SVG/PNG baselines in `tests/snapshots/`, visual checks in `tests/visual/`,
 and browser flows in `tests/e2e/`. Unit tests remain beside the implementation.
 

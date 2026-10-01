@@ -1,0 +1,14 @@
+{
+  "templateId": "assistant",
+  "instance": {
+    "seed": "stage-2",
+    "instanceBadge": {
+      "icon": "terminal",
+      "color": "purple"
+    },
+    "hair": {
+      "style": "hair-crop"
+    }
+  },
+  "background": "transparent"
+}

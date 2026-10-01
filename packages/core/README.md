@@ -1,15 +1,17 @@
 # Core domain
 
-Status: public immutable request and identity types are implemented. Runtime
-validation, normalization, seeded selection, and generation arrive in Stage 2.
+Stage 2 implements request schemas, inferred immutable types, catalog validation,
+seeded normalization, semantic layer ordering, typed failures, and generation with
+an injected catalog and renderer. Core has no platform dependencies.
 
-Own domain invariants and semantic composition. Accept catalog and renderer
-implementations through explicit contracts; never import concrete adapters.
-No Node, DOM, network, clock, logging, or unseeded randomness belongs here.
+Use `parseAvatarRequest` at input boundaries or `generateAvatar` for the complete
+pipeline. `normalizeAvatar` resolves every rendering value without mutation.
+`composeAvatar` defines semantic ordering; geometry belongs to the adapter.
+`AvatarError.code` identifies expected failures for transport mapping.
 
-`src/model/avatar.ts` separates template identity, instance overrides, and state.
-Export supported types through `src/index.ts`. Runtime schemas must become the
-source of truth for inferred input types when they are added.
+The catalog is trusted typed application configuration and is checked for internal
+consistency. It is not an untrusted catalog-upload API. Renderers consume normalized
+values; external callers should enter through `generateAvatar`.
 
-See [architecture](../../docs/architecture.md) and
-[directory structure](../../docs/directory-structure.md) for the shared contract.
+See [ADR 0002](../../docs/decisions/0002-deterministic-svg.md) for seed, precedence,
+validation, and resource identity contracts.

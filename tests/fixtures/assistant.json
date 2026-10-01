@@ -1,0 +1,14 @@
+{
+  "templateId": "assistant",
+  "instance": {
+    "seed": "stage-2",
+    "face": {
+      "glasses": "round"
+    },
+    "instanceBadge": {
+      "icon": "check",
+      "color": "teal"
+    }
+  },
+  "background": "solid"
+}

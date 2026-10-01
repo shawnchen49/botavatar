@@ -1,12 +1,17 @@
 # Command-line application
 
-Status: workspace scaffold; the first generation command arrives in Stage 2.
+Stage 2 assembles Core, the bundled catalog, and SVG rendering. Build at the root,
+then run:
 
-Own argument parsing, library assembly, local file output, and exit codes. Delegate
-validation and generation rules to the shared packages. Batch output manifests
-belong in this application, not in Core.
+```sh
+pnpm build
+pnpm avatar --request examples/requests/assistant.json --output output/avatar.svg
+```
 
-No command or executable is advertised until an actual CLI entrypoint exists.
+Create the destination directory first. Omit `--output` to write SVG to stdout.
+For machine pipelines, invoke `node apps/cli/dist/main.js` directly. `--help`
+prints usage. Unknown or duplicate flags and invalid requests fail with code 2;
+I/O failures use code 1. Existing files are never overwritten. Success uses code 0.
 
-See [architecture](../../docs/architecture.md) and
-[directory structure](../../docs/directory-structure.md) for the shared contract.
+`src/index.ts` exports `runCli`; `src/main.ts` is the process entrypoint.
+PNG, batch generation, HTTP, and interactive UI are outside this stage.
