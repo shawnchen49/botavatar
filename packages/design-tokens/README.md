@@ -67,3 +67,10 @@ colors, and hair palettes are unchanged.
 `research` still shares `badge-sparkle` with `ai`. The vendored emblem set has no
 academic glyph such as a book or graduation cap, and `badge-document` already
 belongs to docs, so the sparkle badge stays.
+
+Manifest 1.12.0 adds a side part and removes the straight-fringe crop from the
+public catalog. The proposed spikes and curls were also removed after visual
+review, leaving sweep, wave, and side part available to every template. Coder
+now pairs its existing beanie and code identity with a charcoal surface, cyan
+emblem, cocoa hair, and seeded side-part default instead of the previous purple
+beanie, purple hair, and crop fringe.

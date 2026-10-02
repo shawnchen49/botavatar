@@ -8,12 +8,24 @@ await mkdir(directory, { recursive: true });
 const approved = JSON.parse(
   await readFile(new URL('../tests/snapshots/approved.json', import.meta.url), 'utf8'),
 );
+function currentRequest(request) {
+  const template = catalog.templates.find((item) => item.id === request.templateId);
+  const hair = request.instance?.hair;
+  if (!template || !hair?.style || template.allowedHair.includes(hair.style)) return request;
+  return {
+    ...request,
+    instance: {
+      ...request.instance,
+      ...(hair.color ? { hair: { color: hair.color } } : { hair: undefined }),
+    },
+  };
+}
 let html =
   '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Bot Avatar · Export review</title><style>body{background:#161a14;color:#e8eddf;font:15px system-ui;margin:32px}section{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}figure{margin:0;text-align:center}img{max-width:100%;height:auto}h1{font-size:36px}a{color:#c8e68a}.sizes{display:flex;align-items:end;flex-wrap:wrap;gap:20px}</style><h1>Twenty identities. Ready to export.</h1><p>Proposed SVG identities and PNG conversions · manifest ' +
   catalog.version +
   '</p><section>';
 for (const [index, item] of approved.items.slice(0, 20).entries()) {
-  const result = generateAvatar(item.request, catalog, svgRenderer);
+  const result = generateAvatar(currentRequest(item.request), catalog, svgRenderer);
   const name = String(index + 1).padStart(2, '0');
   await writeFile(new URL(`${name}.svg`, directory), result.svg);
   await writeFile(new URL(`${name}.png`, directory), renderPng(result.svg, 256));

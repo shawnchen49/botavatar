@@ -88,6 +88,21 @@ templates only. Those palette changes, the compact badges, and the centered
 expressions are part of the regression SVGs. Manifest 1.9.6 later changes only
 the title text for renamed template ids.
 
+## Expanded hair and coder direction
+
+Manifest 1.12.0 removes the straight-fringe crop and retains the new side part
+alongside sweep and wave. Proposed spikes and compact curls did not pass visual
+review and are not catalog choices. The three retained styles stay within the
+same oversized, rounded Soft Layered 2D silhouette language and remain explicit
+instance choices rather than renderer-selected decoration.
+
+Coder keeps the recognizable beanie and code emblem but replaces the saturated
+purple-on-purple pairing with a charcoal knit, cyan emblem, cocoa hair, and a
+side-part seeded default. This is a catalog palette and candidate update,
+not a new uniform rule for software roles. Existing explicit hairstyle and color
+overrides for the three retained styles remain valid. `hair-crop`, `hair-spikes`,
+and `hair-curls` are rejected.
+
 ## Template ids
 
 Manifest 1.9.6 names each default template after its role: `coder`, `test`, and

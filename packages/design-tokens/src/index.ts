@@ -1,6 +1,7 @@
 import type { Catalog } from '@bot-avatar/core';
+const flat2dHair = ['hair-sweep', 'hair-wave', 'hair-side-part'] as const;
 export const catalog = {
-  version: '1.9.6',
+  version: '1.12.0',
   styleId: 'flat-2d',
   assets: [
     {
@@ -48,13 +49,6 @@ export const catalog = {
     {
       id: 'hair-sweep',
       source: 'assets/parts/flat-2d/hair/sweep.svg',
-      creator: 'Bot Avatar project; SVG redrawn from user-provided v0.3 visual direction',
-      permission: 'project-owned',
-      anchor: [128, 128],
-    },
-    {
-      id: 'hair-crop',
-      source: 'assets/parts/flat-2d/hair/crop.svg',
       creator: 'Bot Avatar project; SVG redrawn from user-provided v0.3 visual direction',
       permission: 'project-owned',
       anchor: [128, 128],
@@ -119,6 +113,13 @@ export const catalog = {
       id: 'hair-wave',
       source: 'assets/parts/flat-2d/hair/wave.svg',
       creator: 'Bot Avatar project; SVG redrawn from user-provided hat diversity reference',
+      permission: 'project-owned',
+      anchor: [128, 128],
+    },
+    {
+      id: 'hair-side-part',
+      source: 'assets/parts/flat-2d/hair/side-part.svg',
+      creator: 'Bot Avatar project; side-part hairstyle for the Soft Layered 2D profile',
       permission: 'project-owned',
       anchor: [128, 128],
     },
@@ -499,11 +500,11 @@ export const catalog = {
     'support-green': '#9fd38b',
     'emblem-ivory': '#f8f5ed',
   },
-  hair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+  hair: flat2dHair,
   hairBack: {
     'hair-sweep': 'hair-sweep-back',
-    'hair-crop': 'hair-crop-back',
     'hair-wave': 'hair-crop-back',
+    'hair-side-part': 'hair-crop-back',
   },
   faces: ['face-round'],
   glasses: ['none'],
@@ -549,13 +550,13 @@ export const catalog = {
       styleId: 'flat-2d',
       hat: {
         type: 'hat-beanie',
-        color: 'purple',
+        color: 'charcoal',
         badge: 'badge-code',
-        badgeColor: 'ink',
+        badgeColor: 'cyan',
       },
       defaultPalette: 'skin',
-      defaultHairColor: 'purple',
-      allowedHair: ['hair-sweep', 'hair-crop'],
+      defaultHairColor: 'cocoa',
+      allowedHair: ['hair-sweep', 'hair-side-part', 'hair-wave'],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'purple',
@@ -585,7 +586,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'cyan',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'cyan',
@@ -613,7 +614,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'yellow',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'yellow',
@@ -644,7 +645,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'salmon',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'salmon',
@@ -675,7 +676,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'review-green',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'review-green',
@@ -706,7 +707,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'charcoal',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'charcoal',
@@ -734,7 +735,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'build-blue',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'build-blue',
@@ -764,7 +765,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'debug-pink',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'debug-pink',
@@ -795,7 +796,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'orange',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'orange',
@@ -826,7 +827,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'network-blue',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'network-blue',
@@ -857,7 +858,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'ai-pink',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'ai-pink',
@@ -888,7 +889,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'ivory',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'ivory',
@@ -919,7 +920,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'lime',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'lime',
@@ -949,7 +950,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'aqua',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'aqua',
@@ -980,7 +981,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'monitor-blue',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'monitor-blue',
@@ -1008,7 +1009,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'charcoal',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'charcoal',
@@ -1036,7 +1037,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'design-salmon',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'design-salmon',
@@ -1067,7 +1068,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'data-cyan',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'data-cyan',
@@ -1098,7 +1099,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'sand',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'sand',
@@ -1129,7 +1130,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'support-green',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'support-green',
@@ -1174,7 +1175,7 @@ export const catalog = {
         'coral',
         'purple',
       ],
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
     },
     {
@@ -1203,7 +1204,7 @@ export const catalog = {
         'coral',
         'purple',
       ],
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
     },
     {
@@ -1232,7 +1233,7 @@ export const catalog = {
         'coral',
         'purple',
       ],
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
     },
     {
@@ -1247,7 +1248,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'build-blue',
-      allowedHair: ['hair-sweep', 'hair-crop', 'hair-wave'],
+      allowedHair: flat2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'build-blue',

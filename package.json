@@ -25,6 +25,7 @@
     "test:e2e": "playwright test",
     "showcase": "pnpm build && node scripts/showcase.mjs",
     "showcase:hats": "pnpm build && node scripts/hat-review.mjs",
+    "showcase:hair": "pnpm build && node scripts/hair-review.mjs",
     "release:local": "pnpm check && pnpm test:e2e && node scripts/package-local.mjs && node scripts/verify-local.mjs"
   },
   "devDependencies": {

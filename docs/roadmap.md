@@ -189,3 +189,23 @@ Verification: alias requests match preferred-id output, variant ids stay
 distinct, and regression SVGs differ only by the title text for the renamed
 templates. Next: a separate academic emblem for research, only if a fitting
 badge is added through the asset pipeline.
+
+## Flat 2D hair expansion and coder refinement — 2026-10-02
+
+Manifest 1.12.0 adds a side part, retains sweep and wave, and removes the
+straight-fringe crop. Proposed spikes and curls did not pass visual review and
+were removed. All 24 templates expose the three remaining choices. Coder keeps its
+beanie and code identity but now uses charcoal knit, a cyan emblem, cocoa hair,
+and the side-part seeded default instead of purple-on-purple crop fringe.
+See [the visual review](reviews/flat-2d-hair-and-coder.md).
+
+Next: inspect `output/hair-review/index.html` at all four native sizes, all six
+states, and every hat silhouette, then explicitly approve any changed visual
+baselines.
+
+Verification: asset compilation, formatting, lint, type checking, builds, the
+whole-catalog 3:1 emblem contrast check, and 121 behavior tests pass. The 16
+remaining failures are intentionally unchanged approved requests that still
+select the removed `hair-crop`: five catalog identities, five coder instance
+badges, and six coder states. The general, hat, and dedicated hair showcases were
+generated; approved baselines were not replaced.

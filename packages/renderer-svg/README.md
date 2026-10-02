@@ -23,7 +23,7 @@ and a subtle contact shadow clipped to the face. Labels use larger monogram
 lettering; embedded PNG imports fit inside the disc without tinting their colors.
 
 The later instance-badge behavior remains intact. Regression baselines in
-`tests/snapshots/` match this renderer and manifest 1.9.6, including the compact
+`tests/snapshots/` match this renderer and approved manifest 1.9.6, including the compact
 badges. Manifest 1.9.6 only changes which template id the SVG title records.
 New hats use the same painter and receiver-clipped shadows, with no
 separate rendering mode or random choices.
@@ -37,3 +37,8 @@ Renderer 0.13.0 centers every expression on the approved idle eye positions
 (95.5, 185) and (163.5, 185). Non-idle geometry uses local coordinates so
 expression changes do not move the eyes. The five non-idle state baselines
 record that centering. Manifest 1.9.2 changes the default background to slate.
+
+The same renderer accepts manifest 1.12.0, which adds the catalog-authored side
+part, removes the straight-fringe front, and revises coder design tokens. The
+proposed spikes and curls were removed after visual review. Rendering logic and
+renderer version are unchanged; the retained geometry is compiled from assets.

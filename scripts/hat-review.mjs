@@ -30,20 +30,38 @@ function place(target, bytes, column, row, size) {
 async function saveSheet(name, png) {
   await writeFile(new URL(name, directory), PNG.sync.write(png));
 }
+function currentRequest(template, request) {
+  const hair = request.instance?.hair;
+  if (!hair?.style || template.allowedHair.includes(hair.style)) return request;
+  return {
+    ...request,
+    instance: {
+      ...request.instance,
+      ...(hair.color ? { hair: { color: hair.color } } : { hair: undefined }),
+    },
+  };
+}
 const overview = sheet(5, Math.ceil(catalog.templates.length / 5), 256);
 const restored = sheet(5, 4, 256);
 const additions = sheet(catalog.templates.length - 20, 1, 256);
 const before = sheet(5, 4, 256);
 const expressions = sheet(6, catalog.templates.length, 128);
-const hair = sheet(3, catalog.templates.length, 128);
-let html = `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Occupational hats · Visual review</title><style>body{margin:32px;background:#e8edf0;color:#202d39;font:15px system-ui}h1{font-size:40px;margin-bottom:8px}h2{margin-top:40px}p{max-width:780px;line-height:1.6}.grid{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:16px}.card{background:#687d8b;border-radius:18px;padding:12px;text-align:center;color:white}.card img{width:100%;max-width:256px}.sizes,.states{display:flex;align-items:end;gap:12px;flex-wrap:wrap}.sample{background:#687d8b;border-radius:16px}figure{margin:0}figcaption{padding:8px 0}summary{cursor:pointer;padding:16px 0;font-weight:600}a{color:inherit}.compare{display:grid;grid-template-columns:1fr 1fr;gap:20px}.compare img{width:100%;background:#687d8b;border-radius:16px}@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.compare{grid-template-columns:1fr}}</style><h1>Occupational colors. Familiar silhouettes.</h1><p>Original silhouettes, hair defaults, soft paint, and hat-to-hair shadows remain. Occupational palettes use yellow/red hardhats, navy work caps, an olive field hat, a charcoal design beret, a taupe editorial cap, and a leather-brown aviator. Manifest ${catalog.version} · renderer ${svgRenderer.version}. Instance badge improvements remain available.</p><h2>Soft Layered 2D · aviator detail</h2><p>A close-fitting strap, raised frames with a small contact shadow, and softly inset lenses.</p><img class="sample" src="deploy-aviator.svg" width="256" height="256" alt="Aviator cap with layered goggles"><h2>Original twenty · current palette</h2><div class="grid">`;
+const hair = sheet(
+  Math.max(...catalog.templates.map((template) => template.allowedHair.length)),
+  catalog.templates.length,
+  128,
+);
+let html = `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Occupational hats · Visual review</title><style>body{margin:32px;background:#e8edf0;color:#202d39;font:15px system-ui}h1{font-size:40px;margin-bottom:8px}h2{margin-top:40px}p{max-width:780px;line-height:1.6}.grid{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:16px}.card{background:#687d8b;border-radius:18px;padding:12px;text-align:center;color:white}.card img{width:100%;max-width:256px}.sizes,.states{display:flex;align-items:end;gap:12px;flex-wrap:wrap}.sample{background:#687d8b;border-radius:16px}figure{margin:0}figcaption{padding:8px 0}summary{cursor:pointer;padding:16px 0;font-weight:600}a{color:inherit}.compare{display:grid;grid-template-columns:1fr 1fr;gap:20px}.compare img{width:100%;background:#687d8b;border-radius:16px}@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.compare{grid-template-columns:1fr}}</style><h1>Reviewed hair. A quieter coder.</h1><p>${catalog.hair.length} retained hairstyles fit the Soft Layered 2D catalog. Coder uses a charcoal beanie, cyan code emblem, and dark side-part default instead of the previous purple-on-purple pairing. Manifest ${catalog.version} · renderer ${svgRenderer.version}. Instance badge improvements remain available.</p><h2>Soft Layered 2D · aviator detail</h2><p>A close-fitting strap, raised frames with a small contact shadow, and softly inset lenses.</p><img class="sample" src="deploy-aviator.svg" width="256" height="256" alt="Aviator cap with layered goggles"><h2>Original twenty · current palette</h2><div class="grid">`;
 let details = '';
 for (const [index, template] of catalog.templates.entries()) {
   const previous = approved.items.find((item) => item.request.templateId === template.id);
-  const request = previous?.request ?? {
-    templateId: template.id,
-    instance: { hair: { style: 'hair-sweep' } },
-  };
+  const request = currentRequest(
+    template,
+    previous?.request ?? {
+      templateId: template.id,
+      instance: { hair: { style: 'hair-sweep' } },
+    },
+  );
   if (index === 20)
     html +=
       '</div><h2>Optional occupational variants</h2><div class="grid" style="grid-template-columns:repeat(4,1fr)">';
@@ -98,6 +116,6 @@ await saveSheet('additions.png', additions);
 await saveSheet('approved-before.png', before);
 await saveSheet('states.png', expressions);
 await saveSheet('hair.png', hair);
-html += `</div><h2>Approved 1.4.2 / proposed colors</h2><p>Matching requests and hairstyles. The occupational colors are proposed changes to the approved catalog. The red hardhat is a separate template choice; role aliases remain unchanged. Approved snapshots have not been replaced.</p><div class="compare"><figure><img src="approved-before.png" alt="Previously approved catalog"><figcaption>Approved manifest ${approved.manifestVersion}</figcaption></figure><figure><img src="restored.png" alt="Restored original catalog"><figcaption>Proposed manifest ${catalog.version}</figcaption></figure></div><h2>Inspect each identity</h2>${details}</html>`;
+html += `</div><h2>Approved / proposed catalog</h2><p>Matching requests expose the new hairstyle candidates and the revised coder palette. Role aliases and hat silhouettes remain unchanged. Approved snapshots have not been replaced.</p><div class="compare"><figure><img src="approved-before.png" alt="Previously approved catalog"><figcaption>Approved manifest ${approved.manifestVersion}</figcaption></figure><figure><img src="restored.png" alt="Proposed catalog"><figcaption>Proposed manifest ${catalog.version}</figcaption></figure></div><h2>Inspect each identity</h2>${details}</html>`;
 await writeFile(new URL('index.html', directory), html);
 console.log('Hat review generated at output/hat-collection/index.html');
