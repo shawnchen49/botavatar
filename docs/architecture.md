@@ -17,7 +17,9 @@ SVG uploads, animation, and 3D styles are outside the first release.
 
 - **BotTemplate** identifies a type through a hat shape, color token, and hat badge.
   The tuple `styleId + hat.type + hat.color + hat.badge + hat.badgeColor` is unique within a manifest
-  version. A role is a semantic alias with an explicit default template.
+  version. A role is a semantic alias with an explicit default template. The default
+  template id matches that role (`coder`, `test`, `security`). Optional variants keep
+  role-modifier ids (`docs-editor`, `security-officer`, `deploy-aviator`, `build-red`).
 - **BotInstance** selects hair style and a template-approved hair color and a circular
   bottom-right badge. It never changes the template's hat identity.
 - **BotState** selects `idle`, `working`, `waiting`, `success`, `error`, or `offline`
@@ -31,9 +33,13 @@ Use one default face for the initial visual baseline. A second face is an explic
 alternate asset, not a random identity change. The current style does not support glasses; explicit non-none values fail validation.
 
 Public input types live in `packages/core/src/model/avatar.ts`. The request owns
-`templateId`; instance overrides cannot supply a conflicting template ID. Badge
-position defaults to bottom-right at normalization. An explicitly mismatched
-request `styleId` must fail instead of silently changing template identity.
+`templateId`; instance overrides cannot supply a conflicting template ID. A
+template id is used directly. A role key that is not itself a template id,
+including the legacy ids `assistant`, `builder`, and `caretaker`, selects that
+role's default template. Normalization stores the preferred id, so the legacy
+request and the preferred request share one identity. Badge position defaults to
+bottom-right at normalization. An explicitly mismatched request `styleId` must
+fail instead of silently changing template identity.
 
 ## Generation pipeline
 

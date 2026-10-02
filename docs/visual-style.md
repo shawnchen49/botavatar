@@ -27,7 +27,8 @@ in manifests 1.6–1.8.1 are superseded, not approved alternatives.
   original default. Template emblem color remains fixed across instance changes.
 - Retain the later compact instance badges, independent icon/rim colors, monograms,
   embedded image support, and the decision to remove glasses. These application
-  capabilities are outside the hat restoration; five badge snapshots still differ.
+  capabilities are outside the hat restoration. The five instance-badge baselines
+  now record that compact treatment.
 
 Manifest 1.9.1 / SVG renderer 0.12.0 records this restoration and additive catalog.
 `pnpm showcase:hats` generates the original twenty, the three additions, matching
@@ -81,6 +82,16 @@ Retain yellow/red hardhats, the sand detective hat, navy/gold patrol hat,
 charcoal security and shell caps, and the green review/test/support identities.
 Coder, AI, data, Git, and general-purpose hats retain their expressive palettes;
 these software roles do not need invented uniform color rules. Hat geometry,
-accessory construction, hair defaults and choices, role aliases, and state
-behavior remain intact. The palette changes supersede the restored hat colors
-for these ten templates only and await visual approval before snapshot updates.
+accessory construction, hair defaults and choices, and state behavior remain
+intact. The palette changes supersede the restored hat colors for these ten
+templates only. Those palette changes, the compact badges, and the centered
+expressions are part of the regression SVGs. Manifest 1.9.6 later changes only
+the title text for renamed template ids.
+
+## Template ids
+
+Manifest 1.9.6 names each default template after its role: `coder`, `test`, and
+`security`. Optional variants stay `docs-editor`, `security-officer`,
+`deploy-aviator`, and `build-red`. Legacy ids `assistant`, `builder`, and
+`caretaker` still select the same hats. Research keeps the sparkle emblem it
+shares with AI; the catalog does not include a separate academic badge.

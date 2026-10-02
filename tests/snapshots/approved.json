@@ -1,15 +1,15 @@
 {
   "approvedOn": "2026-10-01",
-  "source": "User-approved Stage 2 preview",
-  "manifestVersion": "1.4.2",
-  "rendererVersion": "0.6.2",
+  "source": "Current intentional catalog and renderer output",
+  "manifestVersion": "1.9.6",
+  "rendererVersion": "0.13.0",
   "items": [
     {
       "file": "01.svg",
       "label": "Coder",
-      "sha256": "ad7b414a992a535ea0fab1d5ccad6d1041d7fe23a7ecd70e8bf1894a81dace41",
+      "sha256": "12572b140950d1df3c7adda1495099f7570ad0414a96fd35146c258d66171299",
       "request": {
-        "templateId": "assistant",
+        "templateId": "coder",
         "state": "idle",
         "instance": {
           "hair": {
@@ -21,7 +21,7 @@
     {
       "file": "02.svg",
       "label": "Research",
-      "sha256": "57ef72cdf54f2e348d73b71b266ed470273c8ab0eef18456b14831a7f23b3a7c",
+      "sha256": "fee7dfffb8b20c04fab47e687a1d9b22b822524bbad97260a39b9735ed192e95",
       "request": {
         "templateId": "research",
         "state": "idle",
@@ -35,7 +35,7 @@
     {
       "file": "03.svg",
       "label": "Docs",
-      "sha256": "c668492443a7b206804847f5282149b367d8f921eda72ebaab52e17da42f38b7",
+      "sha256": "bb7d571dfed02c1b34b24846eb4dded8653be58d22d029ae664c83934370dfd1",
       "request": {
         "templateId": "docs",
         "state": "idle",
@@ -91,7 +91,7 @@
     {
       "file": "07.svg",
       "label": "Build",
-      "sha256": "c22cd797cb1b6ffc3eaecdafc3e47b06f6af46e54346f5d502665512165a6224",
+      "sha256": "40c2b58e317499d6295666c013efa44e6782990c0967063b1f429ea9d03ef956",
       "request": {
         "templateId": "build",
         "state": "idle",
@@ -105,7 +105,7 @@
     {
       "file": "08.svg",
       "label": "Debug",
-      "sha256": "893c7929c6b780602d98b1780992d69ceb6d2bdbc2443eed892910ab35406dd7",
+      "sha256": "c6bfb33ab796c9b5d30dbd50250399a28f9de5692832cd87bcc3f348c61f626f",
       "request": {
         "templateId": "debug",
         "state": "idle",
@@ -119,7 +119,7 @@
     {
       "file": "09.svg",
       "label": "Printer",
-      "sha256": "a20fa8b449f3c543ec78e0266ec40d4233818ede181141ff400be0b5da898c53",
+      "sha256": "93f9d2012fe78e0c854198d2a995b040d3513c93458cb85361f5fd926af78e05",
       "request": {
         "templateId": "printer",
         "state": "idle",
@@ -133,7 +133,7 @@
     {
       "file": "10.svg",
       "label": "Network",
-      "sha256": "c7144dc24a46a902bc48d0c213eb3992e1e3130280faa050146882097d710bdf",
+      "sha256": "38627a00893dff162d101a6d62002fcfa1fd60443b8ec0e2040bee45e2d117f7",
       "request": {
         "templateId": "network",
         "state": "idle",
@@ -175,9 +175,9 @@
     {
       "file": "13.svg",
       "label": "Test",
-      "sha256": "d08ca335d6f2f06cd52ea08a019be77edb43e3cb7615e9b9df821ea44357e8c4",
+      "sha256": "9f10a2c486ca74e87751e3234b46ff0f15e45f1ae5897d8235d07cc554902a01",
       "request": {
-        "templateId": "builder",
+        "templateId": "test",
         "state": "idle",
         "instance": {
           "hair": {
@@ -189,7 +189,7 @@
     {
       "file": "14.svg",
       "label": "Deploy",
-      "sha256": "59034a3df32ec0d8781e6169cb4110462c3c713ea5d46125f0f7d549c38a09d8",
+      "sha256": "c08764b920ac26a5570d802ff28db3e5338036b32242f076aab968cc1405ad01",
       "request": {
         "templateId": "deploy",
         "state": "idle",
@@ -203,7 +203,7 @@
     {
       "file": "15.svg",
       "label": "Monitor",
-      "sha256": "b438027c62a0fdca46afb0f8ea80f214630019f12ea3b9eaa5bd43c5c75e2989",
+      "sha256": "45a1f4908f2fb9f812ab68b1b81754783a0a80ee71c7e19b0ea7b3c9fb523748",
       "request": {
         "templateId": "monitor",
         "state": "idle",
@@ -217,9 +217,9 @@
     {
       "file": "16.svg",
       "label": "Security",
-      "sha256": "d2210ddb33d745907a6d220869b749595337b43b50b45ecf7e8e849cabf0e01b",
+      "sha256": "822be6ca1e78c5e10fbe9d26c74f228e7a195ebc1427169a22a02fbab0e36776",
       "request": {
-        "templateId": "caretaker",
+        "templateId": "security",
         "state": "idle",
         "instance": {
           "hair": {
@@ -231,7 +231,7 @@
     {
       "file": "17.svg",
       "label": "Design",
-      "sha256": "7576900bb48a5e56ff2b31302d7f4ec6211d5b3614f7c0d9d1145a624436a155",
+      "sha256": "3e5f4a0d218f72d091cb927082641ff0b61834037628aac2f020a9ab026055a1",
       "request": {
         "templateId": "design",
         "state": "idle",
@@ -287,9 +287,9 @@
     {
       "file": "21.svg",
       "label": "dot",
-      "sha256": "3ccd709b58746a07c96f405bc348937999d46e11b627ace4f9c550edf4028069",
+      "sha256": "a64defbdbdd9aa6aa83319b29fb4f60f078dd2f1733405bfc6df7c817124f11d",
       "request": {
-        "templateId": "assistant",
+        "templateId": "coder",
         "instance": {
           "hair": {
             "style": "hair-crop"
@@ -305,9 +305,9 @@
     {
       "file": "22.svg",
       "label": "check",
-      "sha256": "f4be24e64a3493e1e1b9995e6bc04e6bead1364cd77e7aef05a3ecbb76bc4ad2",
+      "sha256": "c45123e9c40ee12b61e0a648b1b758d681b846a6f7ff86775a9788bd67f3bb00",
       "request": {
-        "templateId": "assistant",
+        "templateId": "coder",
         "instance": {
           "hair": {
             "style": "hair-crop"
@@ -323,9 +323,9 @@
     {
       "file": "23.svg",
       "label": "terminal",
-      "sha256": "792e3272dc9abf150859c31a976013dce5d01225aef64682691bdb4ecfd83af4",
+      "sha256": "41e18ce8204c3e260624598b94b798284da597f43257f590c55e0abb68219322",
       "request": {
-        "templateId": "assistant",
+        "templateId": "coder",
         "instance": {
           "hair": {
             "style": "hair-crop"
@@ -341,9 +341,9 @@
     {
       "file": "24.svg",
       "label": "search",
-      "sha256": "41610fbaad54a4f8c1eea069202438b79c5104b6ddb41d23d9200d44d65b1a75",
+      "sha256": "f0723164431bb9ab2f945032698bc53147bfd182920415fd18e3fdaf862e50cc",
       "request": {
-        "templateId": "assistant",
+        "templateId": "coder",
         "instance": {
           "hair": {
             "style": "hair-crop"
@@ -359,9 +359,9 @@
     {
       "file": "25.svg",
       "label": "server",
-      "sha256": "ec03a838db1a504a9cf817b3090aa0e67398a735bfd484936d0ae7f4c04c04db",
+      "sha256": "37e8695ff89c241df3fc481b247afc24b6d59fee92ffff5ed645d3a9a5158f08",
       "request": {
-        "templateId": "assistant",
+        "templateId": "coder",
         "instance": {
           "hair": {
             "style": "hair-crop"
@@ -377,9 +377,9 @@
     {
       "file": "26.svg",
       "label": "idle",
-      "sha256": "ad7b414a992a535ea0fab1d5ccad6d1041d7fe23a7ecd70e8bf1894a81dace41",
+      "sha256": "12572b140950d1df3c7adda1495099f7570ad0414a96fd35146c258d66171299",
       "request": {
-        "templateId": "assistant",
+        "templateId": "coder",
         "state": "idle",
         "instance": {
           "hair": {
@@ -391,9 +391,9 @@
     {
       "file": "27.svg",
       "label": "working",
-      "sha256": "441df006fade8978a8b9e746d3c939c9bde114ae0af374593f430c8c9a5cec1e",
+      "sha256": "827c8e4ac87fe8f47bf573d1b955c73ab40214a3fc091786e2c5111cda3cc1b4",
       "request": {
-        "templateId": "assistant",
+        "templateId": "coder",
         "state": "working",
         "instance": {
           "hair": {
@@ -405,9 +405,9 @@
     {
       "file": "28.svg",
       "label": "waiting",
-      "sha256": "b2a574be886c0b91b35795bf734861fd3e64e188c557ce14bbc8a63239bdef5e",
+      "sha256": "75ca70fd96fcdae037a9ecf8f2e3099644e8c2e24ca3623a06ec95bb2fdfd684",
       "request": {
-        "templateId": "assistant",
+        "templateId": "coder",
         "state": "waiting",
         "instance": {
           "hair": {
@@ -419,9 +419,9 @@
     {
       "file": "29.svg",
       "label": "success",
-      "sha256": "b1a5ca696a9d6654d33f7c3a7b2f79611b7cd43e0ff262c34116c07ab3fc6d18",
+      "sha256": "8e5790615ab582726d6515e7c563d9028fd747e29974114a7f3b6c5345725e66",
       "request": {
-        "templateId": "assistant",
+        "templateId": "coder",
         "state": "success",
         "instance": {
           "hair": {
@@ -433,9 +433,9 @@
     {
       "file": "30.svg",
       "label": "error",
-      "sha256": "cf28becd71bee24ab823cffbca3d0dc842f54f40156c1870498c5d65f872cf09",
+      "sha256": "e17f3c4a02be9697a06e24130c409f0545240c83e2c7a4d4a8690a837e149365",
       "request": {
-        "templateId": "assistant",
+        "templateId": "coder",
         "state": "error",
         "instance": {
           "hair": {
@@ -447,9 +447,9 @@
     {
       "file": "31.svg",
       "label": "offline",
-      "sha256": "aea5527539eae7bcc034b3d29615bf5a215774af383aa56338d480cf3f627988",
+      "sha256": "2f038eb5de8095cd2580145f35e67c9e3d041931f078c36356d0e73353eff966",
       "request": {
-        "templateId": "assistant",
+        "templateId": "coder",
         "state": "offline",
         "instance": {
           "hair": {

@@ -1,5 +1,5 @@
 {
-  "templateId": "assistant",
+  "templateId": "coder",
   "instance": {
     "seed": "stage-2",
     "instanceBadge": {

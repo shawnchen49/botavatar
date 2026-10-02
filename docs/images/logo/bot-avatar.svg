@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" fill="none">
+  <defs>
+    <radialGradient id="beanie" cx="40%" cy="26%" r="76%">
+      <stop offset="0%" stop-color="#d7c0f8"/>
+      <stop offset="42%" stop-color="#a57ce3"/>
+      <stop offset="78%" stop-color="#875ed2"/>
+      <stop offset="100%" stop-color="#6b46b6"/>
+    </radialGradient>
+    <linearGradient id="brim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c9adf3"/>
+      <stop offset="22%" stop-color="#986ddd"/>
+      <stop offset="62%" stop-color="#8158cd"/>
+      <stop offset="100%" stop-color="#6842b0"/>
+    </linearGradient>
+    <radialGradient id="hair" cx="50%" cy="20%" r="80%">
+      <stop offset="0%" stop-color="#9670dc"/>
+      <stop offset="60%" stop-color="#7a52c8"/>
+      <stop offset="100%" stop-color="#5e3caa"/>
+    </radialGradient>
+    <radialGradient id="face" cx="50%" cy="36%" r="70%">
+      <stop offset="0%" stop-color="#fbf7f1"/>
+      <stop offset="72%" stop-color="#f3eee4"/>
+      <stop offset="100%" stop-color="#e6d9c8"/>
+    </radialGradient>
+    <linearGradient id="neck" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9670dc"/>
+      <stop offset="100%" stop-color="#6a46b4"/>
+    </linearGradient>
+    <linearGradient id="badge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7a52d0"/>
+      <stop offset="100%" stop-color="#4e329e"/>
+    </linearGradient>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#4a2c86" flood-opacity="0.22"/>
+    </filter>
+    <clipPath id="aboveBrim">
+      <rect x="60" y="20" width="680" height="292"/>
+    </clipPath>
+  </defs>
+
+  <ellipse cx="400" cy="636" rx="118" ry="52" fill="url(#neck)"/>
+
+  <g fill="url(#hair)">
+    <path d="M248 318
+      C198 336 162 392 176 448
+      C186 488 214 506 236 488
+      C214 520 206 562 236 586
+      C260 606 286 586 292 556
+      C300 590 332 612 360 598
+      C378 588 380 560 372 540
+      L372 470
+      C390 488 410 488 428 470
+      L428 540
+      C420 562 424 592 446 604
+      C476 620 508 594 512 558
+      C522 590 552 610 578 588
+      C604 566 596 520 572 496
+      C596 512 630 492 636 450
+      C644 396 610 338 558 318
+      C500 276 300 278 248 318Z"/>
+    <path d="M214 390
+      C184 418 176 470 198 508
+      C216 538 246 526 248 494
+      C250 456 240 418 214 390Z"/>
+    <path d="M586 388
+      C618 416 626 470 602 508
+      C584 538 554 524 552 492
+      C550 454 560 416 586 388Z"/>
+  </g>
+
+  <circle cx="400" cy="468" r="172" fill="url(#face)"/>
+
+  <path
+    fill="#7b54cc"
+    d="M258 336
+      C286 372 314 348 340 376
+      C362 350 388 380 414 354
+      C438 382 466 352 494 374
+      C518 348 540 364 552 334
+      C520 308 280 306 258 336Z"
+  />
+
+  <path fill="#6a46b6" d="M232 392 C204 418 198 468 220 498 C238 520 258 504 256 474 C254 442 248 412 232 392Z"/>
+  <path fill="#8d64d8" d="M220 430 C198 452 196 496 220 516 C238 530 254 512 250 486 C246 460 236 444 220 430Z"/>
+  <path fill="#6a46b6" d="M568 390 C598 416 606 468 582 498 C564 520 542 504 544 472 C546 440 552 410 568 390Z"/>
+  <path fill="#8d64d8" d="M582 428 C606 450 608 496 582 516 C564 530 546 512 550 486 C554 458 566 442 582 428Z"/>
+
+  <rect x="328" y="418" width="44" height="104" rx="22" fill="#1b1830"/>
+  <rect x="428" y="418" width="44" height="104" rx="22" fill="#1b1830"/>
+
+  <g clip-path="url(#aboveBrim)">
+    <ellipse cx="400" cy="286" rx="206" ry="188" fill="url(#beanie)"/>
+  </g>
+  <ellipse cx="338" cy="168" rx="72" ry="32" fill="#ffffff" opacity="0.3"/>
+
+  <path
+    fill="url(#brim)"
+    d="M188 300
+      C188 258 246 232 400 232
+      C554 232 612 258 612 300
+      C612 342 558 368 400 368
+      C242 368 188 342 188 300Z"
+  />
+  <path
+    fill="#4e328c"
+    opacity="0.28"
+    d="M214 328
+      C250 356 320 370 400 370
+      C480 370 550 356 586 328
+      C548 348 480 358 400 358
+      C320 358 252 348 214 328Z"
+  />
+  <path
+    fill="#ffffff"
+    opacity="0.2"
+    d="M236 278
+      C286 260 342 254 400 254
+      C458 254 514 260 564 278
+      C514 268 458 264 400 264
+      C342 264 286 268 236 278Z"
+  />
+
+  <g filter="url(#softShadow)" transform="translate(498 156)">
+    <rect width="124" height="112" rx="30" fill="url(#badge)"/>
+    <path d="M30 30 L60 52 L30 74" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M70 70 H102" stroke="#ffffff" stroke-width="11" stroke-linecap="round"/>
+  </g>
+</svg>

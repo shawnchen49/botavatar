@@ -98,7 +98,11 @@ export function validateCatalog(catalog: Catalog): void {
   }
   for (const id of [...catalog.hair, ...catalog.faces])
     if (!assets.has(id)) invalid('Missing part asset.');
-  for (const id of Object.values(catalog.roles)) if (!ids.has(id)) invalid('Unknown role default.');
+  for (const [alias, id] of Object.entries(catalog.roles)) {
+    if (!ids.has(id)) invalid('Unknown role default.');
+    // A role key that is also a template id must name that template, so variants stay addressable.
+    if (ids.has(alias) && alias !== id) invalid('Role alias conflicts with a template id.');
+  }
   if (
     !catalog.faces.includes(catalog.defaults.face) ||
     !catalog.glasses.includes(catalog.defaults.glasses)

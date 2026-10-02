@@ -89,7 +89,7 @@ try {
   const png = await fetch(`${base}/v1/avatar`, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ templateId: 'assistant', format: 'png' }),
+    body: JSON.stringify({ templateId: 'coder', format: 'png' }),
   });
   assert.equal(png.status, 200);
   assert.equal(
