@@ -199,13 +199,12 @@ beanie and code identity but now uses charcoal knit, a cyan emblem, cocoa hair,
 and the side-part seeded default instead of purple-on-purple crop fringe.
 See [the visual review](reviews/flat-2d-hair-and-coder.md).
 
-Next: inspect `output/hair-review/index.html` at all four native sizes, all six
-states, and every hat silhouette, then explicitly approve any changed visual
-baselines.
+Next: inspect the focused `output/asset-review/review.png` contact sheet, iterate
+on rejected candidates, then explicitly approve any changed visual baselines.
 
 Verification: asset compilation, formatting, lint, type checking, builds, the
 whole-catalog 3:1 emblem contrast check, and 121 behavior tests pass. The 16
 remaining failures are intentionally unchanged approved requests that still
 select the removed `hair-crop`: five catalog identities, five coder instance
-badges, and six coder states. The general, hat, and dedicated hair showcases were
-generated; approved baselines were not replaced.
+badges, and six coder states. Focused review samples were generated; approved
+baselines were not replaced.

@@ -1,65 +1,68 @@
 ---
 name: add-avatar-asset
-description: Add or revise Bot Avatar hats, occupational palettes, layered accessories, other parts, or licensed icons through the catalog, asset compiler, and visual review pipeline. Use for asset and catalog work, not application UI, export features, or implementing a new rendering style.
+description: Add or revise Bot Avatar hair, hats, occupational palettes, layered accessories, other parts, or licensed icons through the catalog and asset compiler. Use for asset work, not application UI, export features, or a new rendering style.
 ---
 
-Read `docs/architecture.md`, `docs/asset-authoring.md`, `docs/visual-style.md`,
-and the relevant design-tokens and renderer READMEs before editing. Preserve
-template identity across runtime states.
+Keep the first iteration cheap and visual. Preserve template identity across
+runtime states and do not replace approved snapshots without explicit approval.
 
-## Scope and style
+## Load only what the change needs
 
-- Identify whether the request changes a palette, geometry, emblem, physical
-  accessory, or adds a template. A palette request alone does not call for new
-  silhouettes, changed hair defaults, or reassigned role aliases.
+- Inspect the current catalog entries and neighboring source assets first.
+- Read `docs/asset-authoring.md` for new SVG geometry or icons.
+- Read `docs/visual-style.md` for art-direction or palette decisions.
+- Read `docs/architecture.md` only for identity, manifest, renderer, or style
+  boundary changes. Read the nearest package README only when changing that
+  package's responsibility or contract.
+
+Do not preload every reference for a small palette or geometry edit.
+
+## Authoring invariants
+
 - The current implementation is Soft Layered 2D under the stable `flat-2d` ID.
-  Its paint, SVG vocabulary, hair fitting, and contact shadows are profile rules,
-  not requirements for every future style. A new rendering style needs a separate
-  architecture task; adding a hat does not implement multi-style routing.
-- Reuse existing hats when geometry already fits. Add optional variants when
-  requested; preserve existing IDs and role defaults unless changing them is
-  part of the user's request. Keep historical visual decisions in the docs,
-  rather than copying a fixed catalog or version into this skill.
+  A new style is a separate architecture task.
+- Keep template identity, instance variation, and runtime state separate.
+  Renderers never select random parts.
+- Author body geometry in the supported 256-unit SVG vocabulary and register
+  stable IDs, provenance, anchors, hair backs/fits, and accessories as needed.
+- Vendor licensed icons unchanged with pinned source, hash, and notice metadata.
+- Use dedicated hat tokens when a shared token would recolor hair or unrelated
+  templates. Hat emblems must retain at least 3:1 contrast on their real backing.
+- Follow ADR 0010 for physical accessory ordering and receiver-clipped shadows.
+- Bump the manifest for geometry, tokens, defaults, or candidate-order changes,
+  and update renderer compatibility. Bump the renderer version only when drawing
+  behavior changes.
 
-## Authoring
+## Review-first loop
 
-- Author current-profile body geometry in the supported 256-unit SVG vocabulary.
-  Register stable IDs, provenance, and anchors in the catalog. Update explicit
-  hat mounts, per-hairstyle fitting, and accessory data where needed.
-- For emblems and instance icons, vendor unmodified upstream Lucide files with
-  pinned URLs, hashes, and original notices. Reuse existing glyphs, adapting
-  color and placement rather than redrawing their paths.
-- Judge occupational colors from the silhouette, role, material, and emblem
-  together. Familiar colors are visual associations, not universal uniform
-  regulations; software roles need not have invented uniform rules.
-- Use dedicated hat tokens when changing a shared token would also recolor hair
-  or unrelated templates. Check the emblem against its actual backing, including
-  dark plaques. For this profile, maintain the catalog's 3:1 emblem contrast
-  check and inspect readability at 64 pixels.
-- Printed emblems stay on the surface. For tangible accessories, follow ADR 0010:
-  separate physical pieces, ordered layers, short receiver-clipped contact
-  shadows, and filled/recessed lenses. Keep these choices deterministic in
-  design data and rendering; never select random parts in a renderer.
-- Bump the manifest for geometry, tokens, defaults, or candidate order changes,
-  and update the renderer's supported manifest check. Bump the renderer version
-  when drawing behavior changes. Do not broaden version compatibility without
-  checking that the renderer can consume the new manifest.
+1. Make the smallest coherent catalog/source change.
+2. Run `pnpm assets:build`.
+3. Generate 2–6 representative PNGs with the deterministic helper, for example:
 
-## Verification and review
+   ```bash
+   pnpm review:assets -- --template coder --hair hair-side-part --size 64 --size 256
+   ```
 
-- Run `pnpm assets:build` and behavior tests for the changed contract: stable
-  identity across six states, deterministic output, valid catalog inputs,
-  emblem contrast, and accessory ordering/shadow confinement where applicable.
-- Run `pnpm showcase`; for hats, also run `pnpm showcase:hats`. Inspect affected
-  identities at native 64, 128, 256, and 512 pixel sizes, all six states, and
-  supported hairstyles. Check silhouette clearance, mounts, transparency,
-  accessory separation, and unintended changes to hair or other identities.
-- Compare before/after output using identical requests, seeds, and hairstyles.
-  Keep generated modules and previews out of Git. Update the review generator
-  if an addition makes its layout or explanatory text inaccurate.
-- Run `pnpm check`. Report passing checks and actual failures separately,
-  distinguishing new palette/geometry differences from already pending changes.
-  Existing `tests/snapshots/` files represent explicit user approval: propose
-  changed visuals before replacing them; never auto-accept a failed baseline.
-- Record the current stage and next visual review in `docs/roadmap.md`. Put
-  consequential architecture changes in an ADR, not in asset-specific rules.
+   Repeat `--template`, `--hair`, `--state`, or `--size` only when the comparison
+   needs it. The helper caps a review at eight samples and writes
+   `output/asset-review/review.png` plus a JSON request manifest.
+
+4. Show the contact sheet and stop for visual feedback.
+5. Iterate with another small sheet. Do not run `pnpm test`, `pnpm check`, the
+   full showcases, or generate HTML review galleries before visual approval
+   unless the user explicitly asks or a nonvisual contract risk requires it.
+
+After explicit visual approval, add or update behavior tests for the changed
+contract and run the narrowest relevant test command. Run `pnpm check` when
+handing off the completed stage, as required by repository policy. Run full
+showcases only when approving catalog-wide effects. Never auto-accept visual
+baselines.
+
+## Cost-aware task routing
+
+Work locally for small catalog edits and visual judgment. Following the repository
+delegation policy, use at most one low-cost, read-only worker only when it can
+independently inventory many affected IDs/files, collect licensing provenance, or
+triage a broad mechanical failure. Give it exact paths, acceptance criteria, a
+concise return format, and no permission to edit or delegate further. Do not
+delegate geometry, palette taste, or final visual approval.

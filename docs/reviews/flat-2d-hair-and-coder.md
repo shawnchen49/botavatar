@@ -10,7 +10,7 @@ purple hair, and crop fringe to a charcoal beanie, cyan emblem, cocoa hair, and
 side-part default. This aims for a quieter technical association without
 introducing a one-off hat or changing the coder role alias.
 
-Review `output/hair-review/index.html` for every hairstyle at 64, 128, 256, and
-512 pixels, across all six expressions and nine hat silhouettes. Compare the
-generated coder against the approved manifest 1.9.6 image. Approved snapshots
-remain untouched until the new direction is explicitly accepted.
+Use `pnpm review:assets` to generate a small contact sheet for the current
+decision, normally at 64 and 256 pixels. Expand to more states or templates only
+when a visible issue needs that comparison. Approved snapshots remain untouched
+until the new direction is explicitly accepted.
