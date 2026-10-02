@@ -5,7 +5,7 @@ import './style.css';
 import { ColorMenu } from './color-menu.js';
 
 type Style = {
-  id: 'flat-2d';
+  id: 'soft-layered-2d';
   sizes: (64 | 128 | 256 | 512)[];
   backgrounds: ('transparent' | 'solid' | 'gradient')[];
   hair: string[];

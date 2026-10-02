@@ -6,7 +6,7 @@ Status: Stage 2 visuals approved on 2026-10-01. SVG/PNG, batch CLI, local API, S
 
 Bot Avatar generates reproducible bot avatars from a seed, a template, instance
 overrides, and a runtime state. SVG is the primary format; PNG is an adapter output.
-The first style is `flat-2d`, with a fixed `0 0 256 256` viewBox and a stable face and
+The first style is `soft-layered-2d`, with a fixed `0 0 256 256` viewBox and a stable face and
 eye position. The system must support 64, 128, 256, and 512 pixel output.
 
 The first implementation targets one complete avatar through Core and CLI before
@@ -25,7 +25,7 @@ SVG uploads, animation, and 3D styles are outside the first release.
 - **BotState** selects `idle`, `working`, `waiting`, `success`, `error`, or `offline`
   eye and facial feedback. It never rerolls instance choices.
 
-The current `flat-2d` profile follows the [visual brief](visual-style.md): oversized
+The current `soft-layered-2d` profile follows the [visual brief](visual-style.md): oversized
 hats, colored hair, a cream mouthless face, and capsule eyes. Only one style is
 currently implemented. Other aesthetics can use separate style IDs and renderers.
 
@@ -38,8 +38,8 @@ template id is used directly. A role key that is not itself a template id,
 including the legacy ids `assistant`, `builder`, and `caretaker`, selects that
 role's default template. Normalization stores the preferred id, so the legacy
 request and the preferred request share one identity. Badge position defaults to
-bottom-right at normalization. An explicitly mismatched request `styleId` must
-fail instead of silently changing template identity.
+bottom-right at normalization. The legacy request style ID `flat-2d` normalizes to `soft-layered-2d`. Any other
+mismatched request `styleId` fails instead of changing template identity; see ADR 0012.
 
 ## Generation pipeline
 
@@ -48,7 +48,7 @@ Application input
   -> runtime validation
   -> deterministic normalization against a versioned catalog
   -> semantic composition
-  -> flat-2d SVG rendering
+  -> soft-layered-2d SVG rendering
   -> optional PNG conversion
   -> application output
 ```
@@ -84,7 +84,7 @@ deep package imports, and reverse application dependencies are forbidden.
 
 ## Assets and styles
 
-Production body SVG sources live in `assets/parts/flat-2d/`; existing licensed icons
+Production body SVG sources live in `assets/parts/soft-layered-2d/`; existing licensed icons
 live in `assets/icons/lucide/`. Hat and instance badge mappings reuse these icons.
 Upstream paths stay intact; the style adapts color and fitting transforms only.
 [ADR 0005](decisions/0005-existing-icons.md) records the source and notice policy.
@@ -101,7 +101,7 @@ the shipped applications currently run a single profile.
 ### Multi-style readiness
 
 The product is intended to support multiple visual styles. Its current visual
-language is **Soft Layered 2D**, implemented under the stable `flat-2d` ID.
+language is **Soft Layered 2D**, implemented under the stable `soft-layered-2d` ID.
 Shallow accessory shadows refine that profile; they do not make it a second
 style or a general 3D renderer. Occupational colors and additional hats are
 template changes within the same profile.
@@ -114,9 +114,9 @@ points, not evidence that two styles can currently run side by side.
 
 The remaining single-profile constraints are concrete:
 
-- `Catalog.styleId` is typed as the literal `flat-2d`; normalized output inherits it.
-- The SVG renderer accepts only `flat-2d` and its supported manifest, imports
-  `flat2d*` fitting/presentation data, and uses embedded assets from one catalog.
+- `Catalog.styleId` is typed as the literal `soft-layered-2d`; normalized output inherits it.
+- The SVG renderer accepts only `soft-layered-2d` and its supported manifest, imports
+  `softLayered2d*` fitting/presentation data, and uses embedded assets from one catalog.
 - API and CLI directly assemble that catalog and renderer. `/v1/styles` returns
   one entry, and Studio currently uses the first entry's capabilities and colors.
 - The asset compiler builds one catalog into one SVG package. Core composition
@@ -165,5 +165,5 @@ visual family and adds three separate occupational variants. Curated palettes
 and fixed emblem colors remain; original same-hue hair defaults are restored.
 
 [ADR 0010](decisions/0010-soft-layered-accessories.md) defines local physical
-accessory layering within the existing `flat-2d` renderer. Pilot goggles cast
+accessory layering within the existing `soft-layered-2d` renderer. Pilot goggles cast
 receiver-clipped contact shadows on their hat without changing Core composition.

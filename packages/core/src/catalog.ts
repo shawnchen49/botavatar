@@ -20,7 +20,7 @@ export type Asset = {
 );
 export type Catalog = {
   readonly version: string;
-  readonly styleId: 'flat-2d';
+  readonly styleId: 'soft-layered-2d';
   readonly assets: readonly Asset[];
   readonly templates: readonly BotTemplate[];
   readonly roles: Readonly<Record<string, string>>;

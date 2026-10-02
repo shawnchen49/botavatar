@@ -130,7 +130,9 @@ describe('soft layered hat accessories', () => {
     const shaded = PNG.sync.read(Buffer.from(renderPng(svg, 256)));
     const unshaded = PNG.sync.read(Buffer.from(renderPng(withoutAccessoryShadows, 256)));
     const receiver = PNG.sync.read(
-      Buffer.from(renderPng(readFileSync('assets/parts/flat-2d/hats/pilot.svg', 'utf8'), 256)),
+      Buffer.from(
+        renderPng(readFileSync('assets/parts/soft-layered-2d/hats/pilot.svg', 'utf8'), 256),
+      ),
     );
     let changed = 0;
     for (let offset = 0; offset < shaded.data.length; offset += 4) {

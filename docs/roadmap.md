@@ -208,3 +208,54 @@ remaining failures are intentionally unchanged approved requests that still
 select the removed `hair-crop`: five catalog identities, five coder instance
 badges, and six coder states. Focused review samples were generated; approved
 baselines were not replaced.
+
+## Style skills and canonical name — 2026-10-02
+
+Split asset delivery from visual judgment: `add-avatar-asset` is the workflow
+entrypoint; `bot-avatar-soft-layered-2d` provides the style contract with short
+hat and hair references. The visual brief now distinguishes current rules from
+superseded restoration details and pending previews.
+
+Manifest 1.13.0 names the profile `soft-layered-2d`, renames source directories
+and style-specific identifiers, and accepts explicit `flat-2d` requests as a
+legacy alias. Source geometry and renderer 0.13.0 drawing behavior are unchanged.
+See ADR 0012. This does not add a second style.
+
+Verification: workspace checks, formatting, lint, asset compilation, types, and
+production builds pass. `pnpm check` reports 123 passing tests and the same 16
+removed-`hair-crop` baseline failures. All 21 moved SVG sources match their
+previous bytes; approved snapshots remain untouched. Both skill entrypoints and
+local links were checked. The bundled skill validator could not run because
+system Python lacks PyYAML; this is not reported as a validator pass.
+
+Next: exercise the separated workflow on one requested hat or hairstyle and
+review its small contact sheet before expanding the catalog.
+
+## Curtain and soft-curl hair preview — 2026-10-02
+
+Manifest 1.14.0 adds `hair-curtain` and `hair-soft-curls`, including a dedicated
+curly back silhouette. Existing hairstyles remain available. The expanded
+candidate set can change seed-selected hair; explicit choices remain stable,
+and coder keeps its side-part selection for the default seed.
+
+Asset compilation and focused beanie/bucket previews at 64 and 256 pixels are
+ready. Approved snapshots are untouched. Next: user visual feedback on the
+small contact sheet before final validation and baseline decisions.
+
+## Layered and wispy fringe preview — 2026-10-02
+
+The user accepted the curtain and soft-curl additions. Manifest 1.15.0 adds
+`hair-layered-fringe` and `hair-wispy-fringe` with staggered broad locks and
+restrained internal separation lines. Both reuse the compact back silhouette.
+Coder retains its default-seed side part; explicit existing hair choices remain
+valid. Expanding the catalog can change other seeded selections.
+
+The focused sheet compares both candidates under beanie and bucket hats at 64
+and 256 pixels. Next: user visual feedback on these two new candidates. Existing
+approved snapshots remain unchanged; approval of the two preceding hairstyles
+does not select replacement requests for the removed-crop baselines.
+
+Verification: asset compilation, formatting, lint, types, and production build
+pass. The full check has 123 passing tests and the same 16 removed-crop baseline
+failures. Seed coverage now checks all seven choices, and state-invariance checks
+include both new candidates across all templates. No snapshots were replaced.

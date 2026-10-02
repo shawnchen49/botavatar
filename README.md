@@ -8,7 +8,7 @@
 
 Deterministic avatars for software bots. A **template** fixes the bot type, an **instance** adds hair and a personal badge, and a **state** shows what the bot is doing. The same request always produces the same SVG.
 
-SVG is the primary format. PNG is available at 64, 128, 256, and 512 pixels. The shipped style is `flat-2d` (Soft Layered 2D): oversized hats, colored hair, a cream mouthless face, and capsule eyes.
+SVG is the primary format. PNG is available at 64, 128, 256, and 512 pixels. The shipped style is `soft-layered-2d` (Soft Layered 2D): oversized hats, colored hair, a cream mouthless face, and capsule eyes.
 
 ## Gallery
 
@@ -145,7 +145,10 @@ Build once before `pnpm avatar` or `pnpm start`. In pipelines, run `node apps/cl
 
 ## Catalog
 
-Manifest **1.9.6** in `packages/design-tokens` is the current `flat-2d` catalog: three public hairstyles (`hair-sweep`, `hair-crop`, `hair-wave`) and the six states above.
+The canonical style ID is `soft-layered-2d`. Explicit `flat-2d` requests remain
+supported as a legacy alias and normalize to the canonical ID.
+
+Manifest **1.15.0** in `packages/design-tokens` is the current `soft-layered-2d` catalog: seven public hairstyles (`hair-sweep`, `hair-wave`, `hair-side-part`, `hair-curtain`, `hair-soft-curls`, `hair-layered-fringe`, `hair-wispy-fringe`; the last two are pending visual review) and the six states above.
 
 Twenty original templates. The public id is the role name:
 
@@ -164,7 +167,7 @@ request
   -> validate
   -> normalize against the versioned catalog
   -> compose layers
-  -> flat-2d SVG
+  -> soft-layered-2d SVG
   -> optional PNG
 ```
 
@@ -172,7 +175,7 @@ request
 | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | [`packages/core`](packages/core)                   | Contracts, validation, seeded defaults, and composition. No filesystem, network, process, DOM, or clock. |
 | [`packages/design-tokens`](packages/design-tokens) | Colors, templates, roles, and the catalog manifest.                                                      |
-| [`packages/renderer-svg`](packages/renderer-svg)   | `flat-2d` SVG from embedded assets.                                                                      |
+| [`packages/renderer-svg`](packages/renderer-svg)   | `soft-layered-2d` SVG from embedded assets.                                                              |
 | [`packages/renderer-png`](packages/renderer-png)   | SVG-to-PNG conversion.                                                                                   |
 | [`apps/cli`](apps/cli), [`apps/api`](apps/api)     | Files and HTTP.                                                                                          |
 | [`apps/studio`](apps/studio)                       | Browser controls. Preview and export go through the API.                                                 |

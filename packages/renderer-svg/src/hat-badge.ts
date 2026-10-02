@@ -1,18 +1,19 @@
 import { AvatarError } from '@bot-avatar/core';
 import type { NormalizedAvatar } from '@bot-avatar/core';
-import { flat2dBadgeTreatments, flat2dHatMounts } from '@bot-avatar/design-tokens';
+import { softLayered2dBadgeTreatments, softLayered2dHatMounts } from '@bot-avatar/design-tokens';
 import { part } from './assets.js';
 import type { SvgNode } from './svg.js';
 
 export function hatBadge(hat: NormalizedAvatar['hat'], outline: string): SvgNode {
   if (
-    !Object.hasOwn(flat2dHatMounts, hat.type) ||
-    !Object.hasOwn(flat2dBadgeTreatments, hat.badge)
+    !Object.hasOwn(softLayered2dHatMounts, hat.type) ||
+    !Object.hasOwn(softLayered2dBadgeTreatments, hat.badge)
   ) {
     throw new AvatarError('UNKNOWN_CHOICE', 'Unsupported hat badge mounting.');
   }
-  const mount = flat2dHatMounts[hat.type as keyof typeof flat2dHatMounts];
-  const treatment = flat2dBadgeTreatments[hat.badge as keyof typeof flat2dBadgeTreatments];
+  const mount = softLayered2dHatMounts[hat.type as keyof typeof softLayered2dHatMounts];
+  const treatment =
+    softLayered2dBadgeTreatments[hat.badge as keyof typeof softLayered2dBadgeTreatments];
   // The shell plaque sits in the front of the folded band, not on its side.
   const x = hat.type === 'hat-beanie' && hat.badge === 'badge-terminal' ? 128 : mount.x;
   const rotation = hat.type === 'hat-beanie' && hat.badge === 'badge-terminal' ? 0 : mount.rotation;

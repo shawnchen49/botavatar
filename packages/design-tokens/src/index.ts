@@ -1,124 +1,167 @@
 import type { Catalog } from '@bot-avatar/core';
-const flat2dHair = ['hair-sweep', 'hair-wave', 'hair-side-part'] as const;
+const softLayered2dHair = [
+  'hair-sweep',
+  'hair-wave',
+  'hair-side-part',
+  'hair-curtain',
+  'hair-soft-curls',
+  'hair-layered-fringe',
+  'hair-wispy-fringe',
+] as const;
 export const catalog = {
-  version: '1.12.0',
-  styleId: 'flat-2d',
+  version: '1.15.0',
+  styleId: 'soft-layered-2d',
   assets: [
     {
+      id: 'hair-layered-fringe',
+      source: 'assets/parts/soft-layered-2d/hair/layered-fringe.svg',
+      creator: 'Bot Avatar project; layered fringe exploration',
+      permission: 'project-owned',
+      anchor: [128, 128],
+    },
+    {
+      id: 'hair-wispy-fringe',
+      source: 'assets/parts/soft-layered-2d/hair/wispy-fringe.svg',
+      creator: 'Bot Avatar project; layered fringe exploration',
+      permission: 'project-owned',
+      anchor: [128, 128],
+    },
+    {
+      id: 'hair-curtain',
+      source: 'assets/parts/soft-layered-2d/hair/curtain.svg',
+      creator: 'Bot Avatar project; Soft Layered 2D hair exploration',
+      permission: 'project-owned',
+      anchor: [128, 128],
+    },
+    {
+      id: 'hair-soft-curls',
+      source: 'assets/parts/soft-layered-2d/hair/soft-curls.svg',
+      creator: 'Bot Avatar project; Soft Layered 2D hair exploration',
+      permission: 'project-owned',
+      anchor: [128, 128],
+    },
+    {
+      id: 'hair-soft-curls-back',
+      source: 'assets/parts/soft-layered-2d/hair/soft-curls-back.svg',
+      creator: 'Bot Avatar project; Soft Layered 2D hair exploration',
+      permission: 'project-owned',
+      anchor: [128, 128],
+    },
+    {
       id: 'hat-pilot-strap',
-      source: 'assets/parts/flat-2d/hats/pilot-strap.svg',
+      source: 'assets/parts/soft-layered-2d/hats/pilot-strap.svg',
       creator: 'Bot Avatar project; layered aviator accessory',
       permission: 'project-owned',
       anchor: [128, 106],
     },
     {
       id: 'hat-pilot-frame',
-      source: 'assets/parts/flat-2d/hats/pilot-frame.svg',
+      source: 'assets/parts/soft-layered-2d/hats/pilot-frame.svg',
       creator: 'Bot Avatar project; layered aviator accessory',
       permission: 'project-owned',
       anchor: [128, 106],
     },
     {
       id: 'hat-pilot-lenses',
-      source: 'assets/parts/flat-2d/hats/pilot-lenses.svg',
+      source: 'assets/parts/soft-layered-2d/hats/pilot-lenses.svg',
       creator: 'Bot Avatar project; layered aviator accessory',
       permission: 'project-owned',
       anchor: [128, 106],
     },
     {
       id: 'hair-sweep-bucket-back',
-      source: 'assets/parts/flat-2d/hair/sweep-bucket-back.svg',
+      source: 'assets/parts/soft-layered-2d/hair/sweep-bucket-back.svg',
       creator: 'Bot Avatar project; bucket-hat fit from user-provided close-up',
       permission: 'project-owned',
       anchor: [128, 128],
     },
     {
       id: 'hair-sweep-bucket',
-      source: 'assets/parts/flat-2d/hair/sweep-bucket.svg',
+      source: 'assets/parts/soft-layered-2d/hair/sweep-bucket.svg',
       creator: 'Bot Avatar project; bucket-hat fit from user-provided close-up',
       permission: 'project-owned',
       anchor: [128, 128],
     },
     {
       id: 'face-round',
-      source: 'assets/parts/flat-2d/faces/round.svg',
+      source: 'assets/parts/soft-layered-2d/faces/round.svg',
       creator: 'Bot Avatar project; SVG redrawn from user-provided v0.3 visual direction',
       permission: 'project-owned',
       anchor: [128, 128],
     },
     {
       id: 'hair-sweep',
-      source: 'assets/parts/flat-2d/hair/sweep.svg',
+      source: 'assets/parts/soft-layered-2d/hair/sweep.svg',
       creator: 'Bot Avatar project; SVG redrawn from user-provided v0.3 visual direction',
       permission: 'project-owned',
       anchor: [128, 128],
     },
     {
       id: 'hair-sweep-back',
-      source: 'assets/parts/flat-2d/hair/sweep-back.svg',
+      source: 'assets/parts/soft-layered-2d/hair/sweep-back.svg',
       creator: 'Bot Avatar project; SVG redrawn from user-provided v0.3 visual direction',
       permission: 'project-owned',
       anchor: [128, 128],
     },
     {
       id: 'hair-crop-back',
-      source: 'assets/parts/flat-2d/hair/crop-back.svg',
+      source: 'assets/parts/soft-layered-2d/hair/crop-back.svg',
       creator: 'Bot Avatar project; SVG redrawn from user-provided v0.3 visual direction',
       permission: 'project-owned',
       anchor: [128, 128],
     },
     {
       id: 'hat-cap',
-      source: 'assets/parts/flat-2d/hats/cap.svg',
+      source: 'assets/parts/soft-layered-2d/hats/cap.svg',
       creator: 'Bot Avatar project; SVG redrawn from user-provided hat diversity reference',
       permission: 'project-owned',
       anchor: [128, 64],
     },
     {
       id: 'hat-beanie',
-      source: 'assets/parts/flat-2d/hats/beanie.svg',
+      source: 'assets/parts/soft-layered-2d/hats/beanie.svg',
       creator: 'Bot Avatar project; SVG redrawn from user-provided hat diversity reference',
       permission: 'project-owned',
       anchor: [128, 64],
     },
     {
       id: 'hat-beret',
-      source: 'assets/parts/flat-2d/hats/beret.svg',
+      source: 'assets/parts/soft-layered-2d/hats/beret.svg',
       creator: 'Bot Avatar project; SVG redrawn from user-provided hat diversity reference',
       permission: 'project-owned',
       anchor: [128, 64],
     },
     {
       id: 'hat-hardhat',
-      source: 'assets/parts/flat-2d/hats/hardhat.svg',
+      source: 'assets/parts/soft-layered-2d/hats/hardhat.svg',
       creator: 'Bot Avatar project; SVG redrawn from user-provided hat diversity reference',
       permission: 'project-owned',
       anchor: [128, 64],
     },
     {
       id: 'hat-bucket',
-      source: 'assets/parts/flat-2d/hats/bucket.svg',
+      source: 'assets/parts/soft-layered-2d/hats/bucket.svg',
       creator: 'Bot Avatar project; SVG redrawn from user-provided hat diversity reference',
       permission: 'project-owned',
       anchor: [128, 64],
     },
     {
       id: 'hat-deerstalker',
-      source: 'assets/parts/flat-2d/hats/deerstalker.svg',
+      source: 'assets/parts/soft-layered-2d/hats/deerstalker.svg',
       creator: 'Bot Avatar project; SVG redrawn from user-provided hat diversity reference',
       permission: 'project-owned',
       anchor: [128, 64],
     },
     {
       id: 'hair-wave',
-      source: 'assets/parts/flat-2d/hair/wave.svg',
+      source: 'assets/parts/soft-layered-2d/hair/wave.svg',
       creator: 'Bot Avatar project; SVG redrawn from user-provided hat diversity reference',
       permission: 'project-owned',
       anchor: [128, 128],
     },
     {
       id: 'hair-side-part',
-      source: 'assets/parts/flat-2d/hair/side-part.svg',
+      source: 'assets/parts/soft-layered-2d/hair/side-part.svg',
       creator: 'Bot Avatar project; side-part hairstyle for the Soft Layered 2D profile',
       permission: 'project-owned',
       anchor: [128, 128],
@@ -433,21 +476,21 @@ export const catalog = {
     },
     {
       id: 'hat-flatcap',
-      source: 'assets/parts/flat-2d/hats/flatcap.svg',
+      source: 'assets/parts/soft-layered-2d/hats/flatcap.svg',
       creator: 'Bot Avatar project; occupational Fine Line collection',
       permission: 'project-owned',
       anchor: [128, 64],
     },
     {
       id: 'hat-patrol',
-      source: 'assets/parts/flat-2d/hats/patrol.svg',
+      source: 'assets/parts/soft-layered-2d/hats/patrol.svg',
       creator: 'Bot Avatar project; occupational Fine Line collection',
       permission: 'project-owned',
       anchor: [128, 64],
     },
     {
       id: 'hat-pilot',
-      source: 'assets/parts/flat-2d/hats/pilot.svg',
+      source: 'assets/parts/soft-layered-2d/hats/pilot.svg',
       creator: 'Bot Avatar project; occupational Fine Line collection',
       permission: 'project-owned',
       anchor: [128, 64],
@@ -500,11 +543,15 @@ export const catalog = {
     'support-green': '#9fd38b',
     'emblem-ivory': '#f8f5ed',
   },
-  hair: flat2dHair,
+  hair: softLayered2dHair,
   hairBack: {
     'hair-sweep': 'hair-sweep-back',
     'hair-wave': 'hair-crop-back',
     'hair-side-part': 'hair-crop-back',
+    'hair-curtain': 'hair-crop-back',
+    'hair-soft-curls': 'hair-soft-curls-back',
+    'hair-layered-fringe': 'hair-crop-back',
+    'hair-wispy-fringe': 'hair-crop-back',
   },
   faces: ['face-round'],
   glasses: ['none'],
@@ -547,7 +594,7 @@ export const catalog = {
     {
       id: 'coder',
       role: 'coder',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-beanie',
         color: 'charcoal',
@@ -556,7 +603,15 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'cocoa',
-      allowedHair: ['hair-sweep', 'hair-side-part', 'hair-wave'],
+      allowedHair: [
+        'hair-sweep',
+        'hair-curtain',
+        'hair-side-part',
+        'hair-wave',
+        'hair-soft-curls',
+        'hair-layered-fringe',
+        'hair-wispy-fringe',
+      ],
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'purple',
@@ -577,7 +632,7 @@ export const catalog = {
     {
       id: 'research',
       role: 'research',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-beret',
         color: 'navy',
@@ -586,7 +641,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'cyan',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'cyan',
@@ -605,7 +660,7 @@ export const catalog = {
     {
       id: 'docs',
       role: 'docs',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-cap',
         color: 'ivory',
@@ -614,7 +669,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'yellow',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'yellow',
@@ -636,7 +691,7 @@ export const catalog = {
     {
       id: 'git',
       role: 'git',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-cap',
         color: 'salmon',
@@ -645,7 +700,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'salmon',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'salmon',
@@ -667,7 +722,7 @@ export const catalog = {
     {
       id: 'review',
       role: 'review',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-cap',
         color: 'review-green',
@@ -676,7 +731,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'review-green',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'review-green',
@@ -698,7 +753,7 @@ export const catalog = {
     {
       id: 'shell',
       role: 'shell',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-beanie',
         color: 'charcoal',
@@ -707,7 +762,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'charcoal',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'charcoal',
@@ -726,7 +781,7 @@ export const catalog = {
     {
       id: 'build',
       role: 'build',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-hardhat',
         color: 'safety-yellow',
@@ -735,7 +790,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'build-blue',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'build-blue',
@@ -756,7 +811,7 @@ export const catalog = {
     {
       id: 'debug',
       role: 'debug',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-bucket',
         color: 'field-olive',
@@ -765,7 +820,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'debug-pink',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'debug-pink',
@@ -787,7 +842,7 @@ export const catalog = {
     {
       id: 'printer',
       role: 'printer',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-cap',
         color: 'charcoal',
@@ -796,7 +851,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'orange',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'orange',
@@ -818,7 +873,7 @@ export const catalog = {
     {
       id: 'network',
       role: 'network',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-cap',
         color: 'uniform-blue',
@@ -827,7 +882,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'network-blue',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'network-blue',
@@ -849,7 +904,7 @@ export const catalog = {
     {
       id: 'ai',
       role: 'ai',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-beret',
         color: 'ai-pink',
@@ -858,7 +913,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'ai-pink',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'ai-pink',
@@ -880,7 +935,7 @@ export const catalog = {
     {
       id: 'general',
       role: 'general',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-cap',
         color: 'ivory',
@@ -889,7 +944,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'ivory',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'ivory',
@@ -911,7 +966,7 @@ export const catalog = {
     {
       id: 'test',
       role: 'test',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-cap',
         color: 'lime',
@@ -920,7 +975,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'lime',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'lime',
@@ -941,7 +996,7 @@ export const catalog = {
     {
       id: 'deploy',
       role: 'deploy',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-cap',
         color: 'navy',
@@ -950,7 +1005,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'aqua',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'aqua',
@@ -972,7 +1027,7 @@ export const catalog = {
     {
       id: 'monitor',
       role: 'monitor',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-cap',
         color: 'monitor-blue',
@@ -981,7 +1036,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'monitor-blue',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'monitor-blue',
@@ -1000,7 +1055,7 @@ export const catalog = {
     {
       id: 'security',
       role: 'security',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-cap',
         color: 'charcoal',
@@ -1009,7 +1064,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'charcoal',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'charcoal',
@@ -1028,7 +1083,7 @@ export const catalog = {
     {
       id: 'design',
       role: 'design',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-beret',
         color: 'charcoal',
@@ -1037,7 +1092,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'design-salmon',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'design-salmon',
@@ -1059,7 +1114,7 @@ export const catalog = {
     {
       id: 'data',
       role: 'data',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-beanie',
         color: 'data-cyan',
@@ -1068,7 +1123,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'data-cyan',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'data-cyan',
@@ -1090,7 +1145,7 @@ export const catalog = {
     {
       id: 'search',
       role: 'search',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-deerstalker',
         color: 'sand',
@@ -1099,7 +1154,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'sand',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'sand',
@@ -1121,7 +1176,7 @@ export const catalog = {
     {
       id: 'support',
       role: 'support',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-cap',
         color: 'support-green',
@@ -1130,7 +1185,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'support-green',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'support-green',
@@ -1152,7 +1207,7 @@ export const catalog = {
     {
       id: 'docs-editor',
       role: 'docs',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-flatcap',
         color: 'tweed-taupe',
@@ -1175,13 +1230,13 @@ export const catalog = {
         'coral',
         'purple',
       ],
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
     },
     {
       id: 'security-officer',
       role: 'security',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-patrol',
         color: 'navy',
@@ -1204,13 +1259,13 @@ export const catalog = {
         'coral',
         'purple',
       ],
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
     },
     {
       id: 'deploy-aviator',
       role: 'deploy',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-pilot',
         color: 'aviator-leather',
@@ -1233,13 +1288,13 @@ export const catalog = {
         'coral',
         'purple',
       ],
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
     },
     {
       id: 'build-red',
       role: 'build',
-      styleId: 'flat-2d',
+      styleId: 'soft-layered-2d',
       hat: {
         type: 'hat-hardhat',
         color: 'safety-red',
@@ -1248,7 +1303,7 @@ export const catalog = {
       },
       defaultPalette: 'skin',
       defaultHairColor: 'build-blue',
-      allowedHair: flat2dHair,
+      allowedHair: softLayered2dHair,
       allowedInstanceBadges: ['dot', 'check', 'terminal', 'search', 'server'],
       allowedHairColors: [
         'build-blue',
@@ -1275,7 +1330,7 @@ export const catalog = {
     server: 'icon-server',
   },
 } as const satisfies Catalog;
-export const flat2dHatMounts = {
+export const softLayered2dHatMounts = {
   'hat-cap': {
     x: 128,
     y: 66,
@@ -1331,7 +1386,7 @@ export const flat2dHatMounts = {
     rotation: 0,
   },
 } as const;
-export const flat2dBadgeTreatments = {
+export const softLayered2dBadgeTreatments = {
   'badge-code': {
     backing: 'none',
     size: 56,
@@ -1447,7 +1502,7 @@ export const flat2dBadgeTreatments = {
     offsetY: 0,
   },
 } as const;
-export const flat2dHairFits: Readonly<
+export const softLayered2dHairFits: Readonly<
   Record<string, Readonly<Record<string, { readonly front: string; readonly back: string }>>>
 > = {
   'hat-bucket': {
@@ -1459,7 +1514,7 @@ export const flat2dHairFits: Readonly<
 };
 
 // Accessories are fixed parts of the hat, not instance choices.
-export const flat2dHatAccessories: Readonly<
+export const softLayered2dHatAccessories: Readonly<
   Record<
     string,
     readonly {

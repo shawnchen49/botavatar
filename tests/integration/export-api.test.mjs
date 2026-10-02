@@ -94,6 +94,7 @@ describe('HTTP boundary', () => {
     try {
       for (const path of ['/health', '/v1/templates', '/v1/styles', '/v1/states'])
         expect((await app.inject({ url: path })).statusCode).toBe(200);
+      expect((await app.inject({ url: '/v1/styles' })).json().styles[0].id).toBe('soft-layered-2d');
       for (const format of ['svg', 'png']) {
         const input = { ...request, format };
         const response = await app.inject({ method: 'POST', url: '/v1/avatar', payload: input });

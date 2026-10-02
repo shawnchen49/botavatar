@@ -54,7 +54,7 @@ describe('deterministic generation contract', () => {
     ).toEqual(first);
     expect(fixture).toEqual(original);
     expect(first.avatar.hair).toMatchObject({
-      style: 'hair-side-part',
+      style: 'hair-curtain',
       back: 'hair-crop-back',
     });
   });
@@ -67,6 +67,15 @@ describe('deterministic generation contract', () => {
       outputs.add(result.svg);
     }
     expect(outputs.size).toBe(6);
+  });
+  it('normalizes the legacy style alias to the canonical identity', () => {
+    const canonical = generate({ ...fixture, styleId: 'soft-layered-2d' });
+    const legacy = generate({ ...fixture, styleId: 'flat-2d' });
+    expect(legacy).toEqual(canonical);
+    expect(canonical.avatar.styleId).toBe('soft-layered-2d');
+  });
+  it('rejects unknown style IDs', () => {
+    expect(() => generate({ ...fixture, styleId: 'unknown-style' })).toThrow(AvatarError);
   });
   it('retains explicit overrides and rejects unsupported values', () => {
     const result = generate({
@@ -177,7 +186,7 @@ describe('deterministic generation contract', () => {
         normalizeAvatar({ templateId: 'coder', instance: { seed: String(seed) } }, catalog).hair
           .style,
       );
-    expect(styles.size).toBe(3);
+    expect(styles).toEqual(new Set(catalog.hair));
     expect(normalizeAvatar({ templateId: 'coder' }, catalog).seed).toBe('bot-avatar-v1');
   });
   it('keeps non-expression layers identical when changing state', () => {
@@ -444,8 +453,16 @@ describe('CLI and portable distribution', () => {
 });
 
 describe('template hair palettes and restored rendering', () => {
-  it('offers every flat-2d hairstyle without changing identity across states', () => {
-    expect(catalog.hair).toEqual(['hair-sweep', 'hair-wave', 'hair-side-part']);
+  it('offers every soft-layered-2d hairstyle without changing identity across states', () => {
+    expect(catalog.hair).toEqual([
+      'hair-sweep',
+      'hair-wave',
+      'hair-side-part',
+      'hair-curtain',
+      'hair-soft-curls',
+      'hair-layered-fringe',
+      'hair-wispy-fringe',
+    ]);
     for (const template of catalog.templates) {
       expect(new Set(template.allowedHair)).toEqual(new Set(catalog.hair));
       const baseline = generate({ templateId: template.id }).avatar;

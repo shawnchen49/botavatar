@@ -25,10 +25,10 @@ BotAvatar/
 │   │       ├── errors.ts         # Typed domain failures
 │   │       └── model/avatar.ts   # Template, instance, state, request
 │   ├── design-tokens/            # Tokens, templates, catalog data
-│   ├── renderer-svg/             # SVG IR and flat-2d rendering
+│   ├── renderer-svg/             # SVG IR and soft-layered-2d rendering
 │   └── renderer-png/             # SVG-to-PNG adapter
 ├── assets/
-│   ├── parts/flat-2d/            # Production source parts
+│   ├── parts/soft-layered-2d/            # Production source parts
 │   ├── badges/
 │   │   ├── hat/                  # Template identity
 │   │   └── instance/             # Individual overlay identity
@@ -112,12 +112,12 @@ packages/design-tokens/src/
 ├── tokens/                       # Color, stroke, dimensions, spacing
 ├── templates/                    # Templates and role defaults
 ├── manifests/                    # Asset IDs, versions, provenance
-└── styles/flat-2d/               # Style tokens and capabilities
+└── styles/soft-layered-2d/               # Style tokens and capabilities
 
 packages/renderer-svg/src/
 ├── ir/                          # SVG nodes, attributes, layers
 ├── serialize/                   # Stable escaping and SVG output
-├── styles/flat-2d/               # Anchors, layout, states, overlays
+├── styles/soft-layered-2d/               # Anchors, layout, states, overlays
 └── generated/                   # Ignored compiled asset modules
 
 packages/renderer-png/src/

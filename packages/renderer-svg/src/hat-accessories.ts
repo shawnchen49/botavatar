@@ -1,4 +1,4 @@
-import { flat2dHatAccessories } from '@bot-avatar/design-tokens';
+import { softLayered2dHatAccessories } from '@bot-avatar/design-tokens';
 import { part } from './assets.js';
 import { contactShadow } from './contact-shadow.js';
 import type { SvgNode } from './svg.js';
@@ -10,7 +10,7 @@ export function hatAccessories(hatType: string): {
 } {
   const definitions: SvgNode[] = [];
   const layers: SvgNode[] = [];
-  for (const { asset, shadow } of flat2dHatAccessories[hatType] ?? []) {
+  for (const { asset, shadow } of softLayered2dHatAccessories[hatType] ?? []) {
     const piece = part(asset, '#000000');
     if (shadow) {
       const contact = contactShadow(

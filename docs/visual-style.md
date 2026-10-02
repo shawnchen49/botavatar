@@ -1,112 +1,62 @@
 # Soft Layered 2D visual direction
 
-This document describes the current `flat-2d` profile only. Soft Layered 2D is
-its visual language, not a restriction on the product's future styles. Other
-profiles may define their own geometry, materials, layers, and asset pipelines;
-see the multi-style readiness section in `architecture.md` for the implemented
-extension points and the application work still required.
+The current profile is `soft-layered-2d`; `flat-2d` is a legacy request alias.
+This is a naming change, not a second rendering style. See
+[ADR 0012](decisions/0012-soft-layered-style-identity.md).
 
-The user chose to return to the approved manifest 1.4.2 appearance after reviewing
-and rejecting the later hat collection. The 1.4.2 snapshots and source commit
-`fecfa50` are the visual source of truth. The Fine Line and occupational redraws
-in manifests 1.6–1.8.1 are superseded, not approved alternatives.
+## Visual contract
 
-- Preserve the twenty original template IDs, role defaults, hat silhouettes,
-  emblem placements, hair defaults, colors, face geometry, and six expressions.
-- Keep the oversized rounded hats, cream mouthless face, capsule eyes, and original
-  front/back hair fitting. Same-color hat and hair combinations are intentional.
-- Restore the original soft paint, seeded faint material treatment, receiver-clipped
-  fringe and hat contact shadows, and broad translucent brim seams. Preserve the
-  original six SVG source hats byte-for-byte instead of redrawing them again.
-- Keep existing Lucide emblem paths intact. New hats use explicit fitted mounts,
-  licensed emblems, and the same rendering treatment as the approved family.
-- Add hats through separate optional templates, leaving original role defaults
-  unchanged. Start with three additions: an ivory editorial flatcap, a navy
-  security patrol cap, and an orange aviator cap with filled goggles.
-- Use the current curated five-color hair palettes, including every restored
-  original default. Template emblem color remains fixed across instance changes.
-- Retain the later compact instance badges, independent icon/rim colors, monograms,
-  embedded image support, and the decision to remove glasses. These application
-  capabilities are outside the hat restoration. The five instance-badge baselines
-  now record that compact treatment.
+Keep a front-facing, centered, head-only bot with an oversized rounded hat,
+cream face, and capsule eyes. No mouth, nose, eyebrows, or glasses. Preserve
+face proportions and eye anchors when authoring hats or hair. Asymmetric bangs
+and brims are compatible with this frontal composition.
 
-Manifest 1.9.1 / SVG renderer 0.12.0 records this restoration and additive catalog.
-`pnpm showcase:hats` generates the original twenty, the three additions, matching
-approved/restored comparisons, four native output sizes, all hairstyles, and six
-states. The twenty original identities and six state SVGs match the approved
-snapshots exactly. Generated previews remain ignored; new variants require visual
-review before becoming approved baselines.
+Use broad clean shapes and readable silhouettes. Reuse the existing soft paint,
+faint seeded material, and receiver-clipped contact shadows; do not reinterpret
+this family as strict flat fills or glossy 3D. Physical hat accessories may have
+local depth under [ADR 0010](decisions/0010-soft-layered-accessories.md).
+Printed emblems remain surface graphics, with at least 3:1 backing contrast.
 
-## Soft Layered 2D
+The 2D prompt-library reference contributes simplicity, consistent proportions,
+and small-size readability. Its strict flat rendering, charcoal background,
+pastel-only direction, and optional glasses do not override this repository's
+choices. No external prompt file is required to build or author assets.
 
-The user approved the direction of simple 2D silhouettes with restrained contact
-shadows. Keep `flat-2d` as the technical style ID; this is a refinement of the
-approved family, not a second style or a full 3D treatment.
+## Current choices and references
 
-Separate tangible accessories from the hat surface. The pilot cap now composes
-its crown, printed emblem, strap, raised goggle frame, and recessed lenses as
-ordered pieces. The strap casts a faint 0.6-unit contact shadow; the frame uses
-1.1-unit blur and 1.6-unit offset at 20% opacity. Both shadows are clipped to the
-hat. The lenses use a narrow muted upper inset instead of another exterior shadow.
+The catalog in `packages/design-tokens/src/index.ts` owns current palettes,
+defaults, allowed hair, and fitted mounts. Source geometry lives under
+`assets/parts/soft-layered-2d/`. Do not duplicate its values in skills.
 
-Printed emblems receive no new shadow. Do not turn every line, icon, or color
-region into a floating component. Keep lighting downward and local: shorter,
-lighter shadows for pieces closer to their receiver. Preserve recognizable solid
-shapes at 64 pixels, even when tiny shadows become unobtrusive.
+- Hats express template identity through shape, palette, and fixed licensed emblem.
+  Add optional templates unless changing an existing identity is requested.
+- Hair is an instance choice: sweep, wave, side part, curtain, and soft curls are retained options.
+  Layered and wispy fringe are additional candidates pending visual review.
+  Use their front/back mappings and explicit hat fits. Coder uses a charcoal
+  beanie, cyan emblem, cocoa hair, and a side-part seeded default.
+- Occupational palettes and expanded hair choices supersede the restoration's
+  original colors and five-color limit. Tonal hat/hair combinations remain valid;
+  contrast between them is not mandatory.
+- Backgrounds and compact instance badges retain their existing configurable
+  behavior. Runtime states preserve hat, hair, and instance identity.
 
-## Occupational hardhat colors
+## Approval boundaries
 
-Manifest 1.9.4 follows the user's request for familiar occupational colors:
-`build` uses engineering yellow with a dark gear, and optional `build-red` uses
-red with a white gear. This replaces the restored blue hardhat palette only;
-existing silhouettes, hair defaults, and material treatment remain. These colors
-are visual associations, not a standardized safety-role classification.
+The approved 1.4.2 family established the silhouette and material language;
+[ADR 0009](decisions/0009-approved-visual-restoration.md) explains its restoration.
+The later Fine Line and occupational replacement redraws were superseded.
+Subsequent palette, badge, expression, and template-id changes are recorded in
+`tests/snapshots/README.md` and the review history, not frozen to 1.4.2 values.
 
-## Remaining occupational palettes
+Curtain and soft-curl hair were accepted on 2026-10-02. The newest layered and
+wispy fringe candidates remain pending visual review. Sixteen approved
+requests still select removed `hair-crop`; do not rewrite them automatically.
+Rejected spikes and curls describe specific past implementations, not a permanent
+ban on short or curly hair. Generated previews are not approved references.
 
-Manifest 1.9.5 applies the requested palette review to the rest of the catalog.
-These are art-direction choices rather than real-world uniform requirements:
+## Authoring entrypoints
 
-- Research: navy beret with an ivory emblem for a quieter academic association.
-- Docs: ivory cap with dark ink, echoing paper rather than construction yellow.
-- Debug: olive bucket hat with a white bug, suggesting field troubleshooting.
-- Printer: charcoal cap with a white printer, echoing ink and workshop equipment.
-- Network: deeper uniform blue with white Wi-Fi for clearer small-size contrast.
-- Deploy: navy cap with a white rocket for an operations/uniform association.
-- Monitor: retain the blue cap and reverse the pulse to white for contrast.
-- Design: charcoal beret with an ivory nib, echoing a traditional artist's beret.
-- Docs editor: warm taupe flatcap with dark ink, suggesting woven cloth.
-- Aviator: leather-brown flight cap with an ivory rocket and existing goggles.
-
-Retain yellow/red hardhats, the sand detective hat, navy/gold patrol hat,
-charcoal security and shell caps, and the green review/test/support identities.
-Coder, AI, data, Git, and general-purpose hats retain their expressive palettes;
-these software roles do not need invented uniform color rules. Hat geometry,
-accessory construction, hair defaults and choices, and state behavior remain
-intact. The palette changes supersede the restored hat colors for these ten
-templates only. Those palette changes, the compact badges, and the centered
-expressions are part of the regression SVGs. Manifest 1.9.6 later changes only
-the title text for renamed template ids.
-
-## Expanded hair and coder direction
-
-Manifest 1.12.0 removes the straight-fringe crop and retains the new side part
-alongside sweep and wave. Proposed spikes and compact curls did not pass visual
-review and are not catalog choices. The three retained styles stay within the
-same oversized, rounded Soft Layered 2D silhouette language and remain explicit
-instance choices rather than renderer-selected decoration.
-
-Coder keeps the recognizable beanie and code emblem but replaces the saturated
-purple-on-purple pairing with a charcoal knit, cyan emblem, cocoa hair, and a
-side-part seeded default. This is a catalog palette and candidate update,
-not a new uniform rule for software roles. Existing explicit hairstyle and color
-overrides for the three retained styles remain valid. `hair-crop`, `hair-spikes`,
-and `hair-curls` are rejected.
-
-## Template ids
-
-Manifest 1.9.6 names each default template after its role: `coder`, `test`, and
-`security`. Optional variants stay `docs-editor`, `security-officer`,
-`deploy-aviator`, and `build-red`. Legacy ids `assistant`, `builder`, and
-`caretaker` still select the same hats. Research keeps the sparkle emblem it
-shares with AI; the catalog does not include a separate academic badge.
+Use [the asset workflow](../.agents/skills/add-avatar-asset/SKILL.md) for delivery
+and [the style skill](../.agents/skills/bot-avatar-soft-layered-2d/SKILL.md) for
+visual decisions. Load only the hat or hair reference needed for the task.
+Compare a small controlled sample at 64 and 256 pixels before expanding it.

@@ -3,6 +3,8 @@ import { validateCatalog } from './catalog.js';
 import { AvatarError } from './errors.js';
 import { parseAvatarRequest } from './schema/request.js';
 export const CORE_VERSION = '0.5.0';
+const STYLE_ID = 'soft-layered-2d' as const;
+const LEGACY_STYLE_ID = 'flat-2d' as const;
 // FNV-1a over UTF-16 code units, with independent field namespaces.
 export function seedIndex(seed: string, field: string, count: number): number {
   if (!Number.isInteger(count) || count < 1)
@@ -27,7 +29,8 @@ export function normalizeAvatar(input: unknown, catalog: Catalog) {
   validateCatalog(catalog);
   const template = resolveTemplate(catalog, request.templateId);
   if (!template) throw new AvatarError('UNKNOWN_CHOICE', 'Unknown template.');
-  if (request.styleId !== undefined && request.styleId !== template.styleId)
+  const requestedStyleId = request.styleId === LEGACY_STYLE_ID ? STYLE_ID : request.styleId;
+  if (requestedStyleId !== undefined && requestedStyleId !== template.styleId)
     throw new AvatarError('UNKNOWN_CHOICE', 'Style conflicts with template.');
   const select = (value: string, allowed: readonly string[], field: string): string => {
     if (!allowed.includes(value))

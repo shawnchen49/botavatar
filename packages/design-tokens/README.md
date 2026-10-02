@@ -1,12 +1,12 @@
 # Design data and catalog
 
 The current profile exports `catalog`, a versioned manifest with 24 template
-choices, three hairstyles, one face, nine hat silhouettes, and nineteen hat
+choices, seven hairstyles, one face, nine hat silhouettes, and nineteen hat
 emblems. Manifest 1.9.1 preserved the twenty approved 1.4.2 identities and added
 three separate templates: `docs-editor`, `security-officer`, and `deploy-aviator`.
 Role defaults selected those original identities.
 
-`flat2dHatMounts` and `flat2dBadgeTreatments` provide style-specific placement and
+`softLayered2dHatMounts` and `softLayered2dBadgeTreatments` provide style-specific placement and
 presentation data. The SVG renderer applies them without changing identity or
 selecting parts. Hair styles reference front and back assets; template hair-color
 defaults can be overridden within their five-color palettes.
@@ -19,7 +19,7 @@ lives in `assets/`; renderer-only frames are code-native geometry.
 Changing geometry, tokens, defaults, or candidate order requires a manifest version
 change once this initial review is accepted.
 
-`flat2dHairFits` provides explicit hat-specific front/back geometry for an existing
+`softLayered2dHairFits` provides explicit hat-specific front/back geometry for an existing
 hairstyle. The bucket fit tucks sweep hair beneath its brim without adding a new
 instance choice or affecting other hats.
 
@@ -30,7 +30,7 @@ language without replacing the original role identities.
 `hat.badgeColor` fixes each emblem color as part of template identity.
 `allowedHairColors` contains five curated alternatives including the default.
 
-`flat2dHatAccessories` declares the fixed ordered parts and contact-shadow fitting
+`softLayered2dHatAccessories` declares the fixed ordered parts and contact-shadow fitting
 for physical hat accessories. The pilot strap, frame, and lenses are registered
 project-owned SVG assets. They remain template identity, with no new instance
 selection or renderer randomness.
@@ -74,3 +74,17 @@ review, leaving sweep, wave, and side part available to every template. Coder
 now pairs its existing beanie and code identity with a charcoal surface, cyan
 emblem, cocoa hair, and seeded side-part default instead of the previous purple
 beanie, purple hair, and crop fringe.
+
+Manifest 1.13.0 renames the profile to `soft-layered-2d` and moves its source
+assets to the matching directory. Geometry and drawing remain unchanged.
+Legacy `flat-2d` requests normalize to the canonical style before rendering.
+
+Manifest 1.14.0 adds curtain bangs and soft curls for visual review. Soft curls
+have a dedicated back silhouette. Explicit existing hair choices remain valid;
+expanding the candidate set can change seeded selections. Coder retains the
+side-part selection for the default seed.
+
+The user accepted curtain and soft-curl hair on 2026-10-02. Manifest 1.15.0
+adds layered and wispy fringe candidates for review. Coder still selects side
+part with the default seed; other seed-selected choices may change with the
+expanded candidate set.

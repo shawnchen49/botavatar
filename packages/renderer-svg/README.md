@@ -38,7 +38,17 @@ Renderer 0.13.0 centers every expression on the approved idle eye positions
 expression changes do not move the eyes. The five non-idle state baselines
 record that centering. Manifest 1.9.2 changes the default background to slate.
 
-The same renderer accepts manifest 1.12.0, which adds the catalog-authored side
+The same renderer accepted manifest 1.12.0, which adds the catalog-authored side
 part, removes the straight-fringe front, and revises coder design tokens. The
 proposed spikes and curls were removed after visual review. Rendering logic and
 renderer version are unchanged; the retained geometry is compiled from assets.
+
+Manifest 1.13.0 renames the profile to `soft-layered-2d` and moves its source
+assets to the matching directory. Geometry and drawing remain unchanged.
+Legacy `flat-2d` requests normalize to the canonical style before rendering.
+
+Renderer 0.13.0 accepts manifest 1.14.0 for the curtain and soft-curl hair review.
+Drawing behavior is unchanged.
+
+The renderer now accepts manifest 1.15.0 for layered and wispy fringe previews.
+Renderer behavior and version remain unchanged.
