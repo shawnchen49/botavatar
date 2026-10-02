@@ -148,7 +148,7 @@ Build once before `pnpm avatar` or `pnpm start`. In pipelines, run `node apps/cl
 The canonical style ID is `soft-layered-2d`. Explicit `flat-2d` requests remain
 supported as a legacy alias and normalize to the canonical ID.
 
-Manifest **1.15.0** in `packages/design-tokens` is the current `soft-layered-2d` catalog: seven public hairstyles (`hair-sweep`, `hair-wave`, `hair-side-part`, `hair-curtain`, `hair-soft-curls`, `hair-layered-fringe`, `hair-wispy-fringe`; the last two are pending visual review) and the six states above.
+Manifest **1.15.0** in `packages/design-tokens` is the current `soft-layered-2d` catalog: seven public hairstyles (`hair-sweep`, `hair-wave`, `hair-side-part`, `hair-curtain`, `hair-soft-curls`, `hair-layered-fringe`, `hair-wispy-fringe`) and the six states above.
 
 Twenty original templates. The public id is the role name:
 

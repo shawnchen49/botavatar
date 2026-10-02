@@ -259,3 +259,35 @@ Verification: asset compilation, formatting, lint, types, and production build
 pass. The full check has 123 passing tests and the same 16 removed-crop baseline
 failures. Seed coverage now checks all seven choices, and state-invariance checks
 include both new candidates across all templates. No snapshots were replaced.
+
+## Four hairstyle approvals — 2026-10-02
+
+The user approved curtain, soft curls, layered fringe, and wispy fringe.
+Eight new regression SVGs preserve the reviewed beanie and bucket combinations
+at 256 pixels. The seven-style catalog remains manifest 1.15.0; this records
+approval without changing runtime behavior. Original baselines are unchanged.
+
+The old removed-crop requests remain a separate migration decision. Approval of
+these four additions does not choose replacements for sixteen historical
+identity, badge, and state requests. Next: select and review those replacement
+requests when the baseline migration is requested.
+
+Verification: workspace policy, formatting, lint, types, and production build
+pass. `pnpm check` reports 131 passing tests, including all eight new baselines,
+and the same sixteen removed-crop failures. Original baseline files and requests
+match HEAD; all 39 recorded SHA-256 hashes match their SVGs.
+
+## Retired-crop baseline migration — 2026-10-02
+
+After approving the four additions, the user requested repair of the failing
+checks. All sixteen active requests for removed `hair-crop` now explicitly select
+approved `hair-curtain`. Role, badge, and state settings are unchanged. Historical
+SVGs, hashes, and requests are retained in `tests/snapshots/historical/hair-crop/`.
+Other baseline entries are untouched. Regression assertions now also verify each
+active snapshot's recorded SHA-256. No tests are skipped and removed hair stays
+invalid. Runtime code, catalog, and renderer versions do not change.
+
+Verification: `pnpm check` passes, including all 147 tests and the final production
+build. All 39 active and 16 historical hashes match. Archived SVGs match their
+original Git bytes, and only the hair-style field changed in migrated requests.
+The focused migration preview was inspected across all sixteen cases.

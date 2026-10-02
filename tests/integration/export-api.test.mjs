@@ -21,6 +21,7 @@ describe('approved visual baseline', () => {
   for (const item of manifest.items.filter((item) => item.request))
     it(`preserves approved ${item.label}`, () => {
       const approved = readFileSync(new URL(`../snapshots/${item.file}`, import.meta.url), 'utf8');
+      expect(createHash('sha256').update(approved).digest('hex')).toBe(item.sha256);
       expect(generate(item.request).svg.trim()).toBe(approved.trim());
     });
 });

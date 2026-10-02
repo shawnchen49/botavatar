@@ -88,3 +88,6 @@ The user accepted curtain and soft-curl hair on 2026-10-02. Manifest 1.15.0
 adds layered and wispy fringe candidates for review. Coder still selects side
 part with the default seed; other seed-selected choices may change with the
 expanded candidate set.
+
+All four added hairstyles were visually approved on 2026-10-02. Eight focused
+regression baselines preserve their reviewed beanie and bucket combinations.

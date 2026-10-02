@@ -7,16 +7,20 @@
     {
       "file": "01.svg",
       "label": "Coder",
-      "sha256": "12572b140950d1df3c7adda1495099f7570ad0414a96fd35146c258d66171299",
+      "sha256": "05693e0b98ef6d9d87d2042b851e4ae815bfc5cb90f18fd06a4a927347e761e0",
       "request": {
         "templateId": "coder",
         "state": "idle",
         "instance": {
           "hair": {
-            "style": "hair-crop"
+            "style": "hair-curtain"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "migratedFrom": "historical/hair-crop/01.svg"
     },
     {
       "file": "02.svg",
@@ -35,16 +39,20 @@
     {
       "file": "03.svg",
       "label": "Docs",
-      "sha256": "bb7d571dfed02c1b34b24846eb4dded8653be58d22d029ae664c83934370dfd1",
+      "sha256": "eb35d56138ff5949b3ed41bed5f15017db9dbee0b47c2a56bbee7115795fc1ba",
       "request": {
         "templateId": "docs",
         "state": "idle",
         "instance": {
           "hair": {
-            "style": "hair-crop"
+            "style": "hair-curtain"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "migratedFrom": "historical/hair-crop/03.svg"
     },
     {
       "file": "04.svg",
@@ -77,16 +85,20 @@
     {
       "file": "06.svg",
       "label": "Shell",
-      "sha256": "e758e2873e7d80b5ebdb2dfabb604168f1b63979d4ca74eccf54595e8d59492d",
+      "sha256": "78cd4c5546cb076bfd6134a76a5b36fe0183311792d0ab8a1f5b99fc64db0d06",
       "request": {
         "templateId": "shell",
         "state": "idle",
         "instance": {
           "hair": {
-            "style": "hair-crop"
+            "style": "hair-curtain"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "migratedFrom": "historical/hair-crop/06.svg"
     },
     {
       "file": "07.svg",
@@ -217,16 +229,20 @@
     {
       "file": "16.svg",
       "label": "Security",
-      "sha256": "822be6ca1e78c5e10fbe9d26c74f228e7a195ebc1427169a22a02fbab0e36776",
+      "sha256": "6d677d29298528af7e842a7462c55638f044883cbbf4dfdf33db763e2dca6a03",
       "request": {
         "templateId": "security",
         "state": "idle",
         "instance": {
           "hair": {
-            "style": "hair-crop"
+            "style": "hair-curtain"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "migratedFrom": "historical/hair-crop/16.svg"
     },
     {
       "file": "17.svg",
@@ -245,16 +261,20 @@
     {
       "file": "18.svg",
       "label": "Data",
-      "sha256": "7569e726404f8ed6b907ad725f74078c36608b999376cf9177304053a5ee2352",
+      "sha256": "2cc5e8c181e9a25a4b854a187b33266cf7d14994b89aca349ffa3d1ab587ef40",
       "request": {
         "templateId": "data",
         "state": "idle",
         "instance": {
           "hair": {
-            "style": "hair-crop"
+            "style": "hair-curtain"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "migratedFrom": "historical/hair-crop/18.svg"
     },
     {
       "file": "19.svg",
@@ -287,12 +307,12 @@
     {
       "file": "21.svg",
       "label": "dot",
-      "sha256": "a64defbdbdd9aa6aa83319b29fb4f60f078dd2f1733405bfc6df7c817124f11d",
+      "sha256": "d02393110b2eed76d476e929717b243a87e221aa7c540327b37e7f4f2e2cf469",
       "request": {
         "templateId": "coder",
         "instance": {
           "hair": {
-            "style": "hair-crop"
+            "style": "hair-curtain"
           },
           "instanceBadge": {
             "icon": "dot",
@@ -300,17 +320,21 @@
             "iconColor": "ink"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "migratedFrom": "historical/hair-crop/21.svg"
     },
     {
       "file": "22.svg",
       "label": "check",
-      "sha256": "c45123e9c40ee12b61e0a648b1b758d681b846a6f7ff86775a9788bd67f3bb00",
+      "sha256": "ee4a30b22a4a615f51474430041b5764d69c03aefd4b1d04b42dfbdbe4481c70",
       "request": {
         "templateId": "coder",
         "instance": {
           "hair": {
-            "style": "hair-crop"
+            "style": "hair-curtain"
           },
           "instanceBadge": {
             "icon": "check",
@@ -318,17 +342,21 @@
             "iconColor": "purple"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "migratedFrom": "historical/hair-crop/22.svg"
     },
     {
       "file": "23.svg",
       "label": "terminal",
-      "sha256": "41e18ce8204c3e260624598b94b798284da597f43257f590c55e0abb68219322",
+      "sha256": "4d9bcc0c1c54d258f689c117f65c292007c72dcf07c57d9389eb011ea4e3755f",
       "request": {
         "templateId": "coder",
         "instance": {
           "hair": {
-            "style": "hair-crop"
+            "style": "hair-curtain"
           },
           "instanceBadge": {
             "icon": "terminal",
@@ -336,17 +364,21 @@
             "iconColor": "teal"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "migratedFrom": "historical/hair-crop/23.svg"
     },
     {
       "file": "24.svg",
       "label": "search",
-      "sha256": "f0723164431bb9ab2f945032698bc53147bfd182920415fd18e3fdaf862e50cc",
+      "sha256": "537b4970a2c28b680f6c512845bdec591716b5eaa35fa6848510fc296a976bf2",
       "request": {
         "templateId": "coder",
         "instance": {
           "hair": {
-            "style": "hair-crop"
+            "style": "hair-curtain"
           },
           "instanceBadge": {
             "icon": "search",
@@ -354,17 +386,21 @@
             "iconColor": "coral"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "migratedFrom": "historical/hair-crop/24.svg"
     },
     {
       "file": "25.svg",
       "label": "server",
-      "sha256": "37e8695ff89c241df3fc481b247afc24b6d59fee92ffff5ed645d3a9a5158f08",
+      "sha256": "b8e670b21811d10e207ab4b04c58056e799b1d39ad2f94efbd847238fffc3ea3",
       "request": {
         "templateId": "coder",
         "instance": {
           "hair": {
-            "style": "hair-crop"
+            "style": "hair-curtain"
           },
           "instanceBadge": {
             "icon": "server",
@@ -372,88 +408,268 @@
             "iconColor": "blue"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "migratedFrom": "historical/hair-crop/25.svg"
     },
     {
       "file": "26.svg",
       "label": "idle",
-      "sha256": "12572b140950d1df3c7adda1495099f7570ad0414a96fd35146c258d66171299",
+      "sha256": "05693e0b98ef6d9d87d2042b851e4ae815bfc5cb90f18fd06a4a927347e761e0",
       "request": {
         "templateId": "coder",
         "state": "idle",
         "instance": {
           "hair": {
-            "style": "hair-crop"
+            "style": "hair-curtain"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "migratedFrom": "historical/hair-crop/26.svg"
     },
     {
       "file": "27.svg",
       "label": "working",
-      "sha256": "827c8e4ac87fe8f47bf573d1b955c73ab40214a3fc091786e2c5111cda3cc1b4",
+      "sha256": "1041e7c6b933f75f9ebf480ddb163aae298883562cf0e9e8977c431c2a5d8a96",
       "request": {
         "templateId": "coder",
         "state": "working",
         "instance": {
           "hair": {
-            "style": "hair-crop"
+            "style": "hair-curtain"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "migratedFrom": "historical/hair-crop/27.svg"
     },
     {
       "file": "28.svg",
       "label": "waiting",
-      "sha256": "75ca70fd96fcdae037a9ecf8f2e3099644e8c2e24ca3623a06ec95bb2fdfd684",
+      "sha256": "57df1390104e7e3a7f1c1073823f7e58f478e5a7c9bee9142f18787352a65f62",
       "request": {
         "templateId": "coder",
         "state": "waiting",
         "instance": {
           "hair": {
-            "style": "hair-crop"
+            "style": "hair-curtain"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "migratedFrom": "historical/hair-crop/28.svg"
     },
     {
       "file": "29.svg",
       "label": "success",
-      "sha256": "8e5790615ab582726d6515e7c563d9028fd747e29974114a7f3b6c5345725e66",
+      "sha256": "6f73d916fa3308e590a2b816143631f63de9cf615bc20fbe13dd7128bc4cc842",
       "request": {
         "templateId": "coder",
         "state": "success",
         "instance": {
           "hair": {
-            "style": "hair-crop"
+            "style": "hair-curtain"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "migratedFrom": "historical/hair-crop/29.svg"
     },
     {
       "file": "30.svg",
       "label": "error",
-      "sha256": "e17f3c4a02be9697a06e24130c409f0545240c83e2c7a4d4a8690a837e149365",
+      "sha256": "febd4dc1c1b2cfbfc2cc04bee61c6431a9e9e7bd5a1e58f95aabcc9ef847e200",
       "request": {
         "templateId": "coder",
         "state": "error",
         "instance": {
           "hair": {
-            "style": "hair-crop"
+            "style": "hair-curtain"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "migratedFrom": "historical/hair-crop/30.svg"
     },
     {
       "file": "31.svg",
       "label": "offline",
-      "sha256": "2f038eb5de8095cd2580145f35e67c9e3d041931f078c36356d0e73353eff966",
+      "sha256": "0b718e84143bedd722d3a8b654e3171ab715a341883c45bd2e0a69c29137e57f",
       "request": {
         "templateId": "coder",
         "state": "offline",
         "instance": {
           "hair": {
-            "style": "hair-crop"
+            "style": "hair-curtain"
+          }
+        }
+      },
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "migratedFrom": "historical/hair-crop/31.svg"
+    },
+    {
+      "file": "coder-hair-curtain.svg",
+      "label": "coder hair-curtain",
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "d85319ed6bc0b3406c73aa2c7d6349dc5014d2287d229759469368b6b32eaea6",
+      "request": {
+        "templateId": "coder",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": {
+          "hair": {
+            "style": "hair-curtain"
+          }
+        }
+      }
+    },
+    {
+      "file": "coder-hair-soft-curls.svg",
+      "label": "coder hair-soft-curls",
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "fb079d932d21c0a78c1cc6762daeaa326593bf087c3f7789dae415e0b1f87f56",
+      "request": {
+        "templateId": "coder",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": {
+          "hair": {
+            "style": "hair-soft-curls"
+          }
+        }
+      }
+    },
+    {
+      "file": "coder-hair-layered-fringe.svg",
+      "label": "coder hair-layered-fringe",
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "a92f064b8884d2b4ec84a26d3e305d2a26319901d02c8fdb631fabbe4127183c",
+      "request": {
+        "templateId": "coder",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": {
+          "hair": {
+            "style": "hair-layered-fringe"
+          }
+        }
+      }
+    },
+    {
+      "file": "coder-hair-wispy-fringe.svg",
+      "label": "coder hair-wispy-fringe",
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "4d49c2abfb76d9f978a7d7f136adfe66b81e7e2a49aad8f1ac13b529d781c60f",
+      "request": {
+        "templateId": "coder",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": {
+          "hair": {
+            "style": "hair-wispy-fringe"
+          }
+        }
+      }
+    },
+    {
+      "file": "debug-hair-curtain.svg",
+      "label": "debug hair-curtain",
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "a26e1f2b116f267d36dad4bffca07bc5a84fd9c50e3032da3319508bdffb8d8c",
+      "request": {
+        "templateId": "debug",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": {
+          "hair": {
+            "style": "hair-curtain"
+          }
+        }
+      }
+    },
+    {
+      "file": "debug-hair-soft-curls.svg",
+      "label": "debug hair-soft-curls",
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "10db3e3f83ba7f5073aee0914f5bd4f35d2ca4808098bbaf9764243df54543c3",
+      "request": {
+        "templateId": "debug",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": {
+          "hair": {
+            "style": "hair-soft-curls"
+          }
+        }
+      }
+    },
+    {
+      "file": "debug-hair-layered-fringe.svg",
+      "label": "debug hair-layered-fringe",
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "e9ee21d4350c374446a0614c2eb1c0540a275ca4791b0178d2f2c05a8f81aa1d",
+      "request": {
+        "templateId": "debug",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": {
+          "hair": {
+            "style": "hair-layered-fringe"
+          }
+        }
+      }
+    },
+    {
+      "file": "debug-hair-wispy-fringe.svg",
+      "label": "debug hair-wispy-fringe",
+      "approvedOn": "2026-10-02",
+      "manifestVersion": "1.15.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "5a08c3dc49d1733cff20f79f3457654fd7044fb37aa4bded9e6468f0f1da9996",
+      "request": {
+        "templateId": "debug",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": {
+          "hair": {
+            "style": "hair-wispy-fringe"
           }
         }
       }

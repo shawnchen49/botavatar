@@ -1,0 +1,252 @@
+{
+  "approvedOn": "2026-10-01",
+  "source": "Current intentional catalog and renderer output",
+  "manifestVersion": "1.9.6",
+  "rendererVersion": "0.13.0",
+  "items": [
+    {
+      "file": "01.svg",
+      "label": "Coder",
+      "sha256": "12572b140950d1df3c7adda1495099f7570ad0414a96fd35146c258d66171299",
+      "request": {
+        "templateId": "coder",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "03.svg",
+      "label": "Docs",
+      "sha256": "bb7d571dfed02c1b34b24846eb4dded8653be58d22d029ae664c83934370dfd1",
+      "request": {
+        "templateId": "docs",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "06.svg",
+      "label": "Shell",
+      "sha256": "e758e2873e7d80b5ebdb2dfabb604168f1b63979d4ca74eccf54595e8d59492d",
+      "request": {
+        "templateId": "shell",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "16.svg",
+      "label": "Security",
+      "sha256": "822be6ca1e78c5e10fbe9d26c74f228e7a195ebc1427169a22a02fbab0e36776",
+      "request": {
+        "templateId": "security",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "18.svg",
+      "label": "Data",
+      "sha256": "7569e726404f8ed6b907ad725f74078c36608b999376cf9177304053a5ee2352",
+      "request": {
+        "templateId": "data",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "21.svg",
+      "label": "dot",
+      "sha256": "a64defbdbdd9aa6aa83319b29fb4f60f078dd2f1733405bfc6df7c817124f11d",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          },
+          "instanceBadge": {
+            "icon": "dot",
+            "color": "purple",
+            "iconColor": "ink"
+          }
+        }
+      }
+    },
+    {
+      "file": "22.svg",
+      "label": "check",
+      "sha256": "c45123e9c40ee12b61e0a648b1b758d681b846a6f7ff86775a9788bd67f3bb00",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          },
+          "instanceBadge": {
+            "icon": "check",
+            "color": "purple",
+            "iconColor": "purple"
+          }
+        }
+      }
+    },
+    {
+      "file": "23.svg",
+      "label": "terminal",
+      "sha256": "41e18ce8204c3e260624598b94b798284da597f43257f590c55e0abb68219322",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          },
+          "instanceBadge": {
+            "icon": "terminal",
+            "color": "purple",
+            "iconColor": "teal"
+          }
+        }
+      }
+    },
+    {
+      "file": "24.svg",
+      "label": "search",
+      "sha256": "f0723164431bb9ab2f945032698bc53147bfd182920415fd18e3fdaf862e50cc",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          },
+          "instanceBadge": {
+            "icon": "search",
+            "color": "purple",
+            "iconColor": "coral"
+          }
+        }
+      }
+    },
+    {
+      "file": "25.svg",
+      "label": "server",
+      "sha256": "37e8695ff89c241df3fc481b247afc24b6d59fee92ffff5ed645d3a9a5158f08",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          },
+          "instanceBadge": {
+            "icon": "server",
+            "color": "purple",
+            "iconColor": "blue"
+          }
+        }
+      }
+    },
+    {
+      "file": "26.svg",
+      "label": "idle",
+      "sha256": "12572b140950d1df3c7adda1495099f7570ad0414a96fd35146c258d66171299",
+      "request": {
+        "templateId": "coder",
+        "state": "idle",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "27.svg",
+      "label": "working",
+      "sha256": "827c8e4ac87fe8f47bf573d1b955c73ab40214a3fc091786e2c5111cda3cc1b4",
+      "request": {
+        "templateId": "coder",
+        "state": "working",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "28.svg",
+      "label": "waiting",
+      "sha256": "75ca70fd96fcdae037a9ecf8f2e3099644e8c2e24ca3623a06ec95bb2fdfd684",
+      "request": {
+        "templateId": "coder",
+        "state": "waiting",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "29.svg",
+      "label": "success",
+      "sha256": "8e5790615ab582726d6515e7c563d9028fd747e29974114a7f3b6c5345725e66",
+      "request": {
+        "templateId": "coder",
+        "state": "success",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "30.svg",
+      "label": "error",
+      "sha256": "e17f3c4a02be9697a06e24130c409f0545240c83e2c7a4d4a8690a837e149365",
+      "request": {
+        "templateId": "coder",
+        "state": "error",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    },
+    {
+      "file": "31.svg",
+      "label": "offline",
+      "sha256": "2f038eb5de8095cd2580145f35e67c9e3d041931f078c36356d0e73353eff966",
+      "request": {
+        "templateId": "coder",
+        "state": "offline",
+        "instance": {
+          "hair": {
+            "style": "hair-crop"
+          }
+        }
+      }
+    }
+  ]
+}

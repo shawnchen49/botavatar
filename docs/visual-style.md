@@ -31,7 +31,7 @@ defaults, allowed hair, and fitted mounts. Source geometry lives under
 - Hats express template identity through shape, palette, and fixed licensed emblem.
   Add optional templates unless changing an existing identity is requested.
 - Hair is an instance choice: sweep, wave, side part, curtain, and soft curls are retained options.
-  Layered and wispy fringe are additional candidates pending visual review.
+  Layered and wispy fringe are also approved additions.
   Use their front/back mappings and explicit hat fits. Coder uses a charcoal
   beanie, cyan emblem, cocoa hair, and a side-part seeded default.
 - Occupational palettes and expanded hair choices supersede the restoration's
@@ -48,9 +48,11 @@ The later Fine Line and occupational replacement redraws were superseded.
 Subsequent palette, badge, expression, and template-id changes are recorded in
 `tests/snapshots/README.md` and the review history, not frozen to 1.4.2 values.
 
-Curtain and soft-curl hair were accepted on 2026-10-02. The newest layered and
-wispy fringe candidates remain pending visual review. Sixteen approved
-requests still select removed `hair-crop`; do not rewrite them automatically.
+Curtain, soft-curl, layered-fringe, and wispy-fringe hair were approved on
+2026-10-02. Eight new baselines record the reviewed beanie and bucket combinations. The
+subsequent requested failure repair migrated sixteen retired-crop requests to
+approved curtain hair, preserving their original SVGs and requests in the
+historical snapshot directory.
 Rejected spikes and curls describe specific past implementations, not a permanent
 ban on short or curly hair. Generated previews are not approved references.
 

@@ -52,3 +52,6 @@ Drawing behavior is unchanged.
 
 The renderer now accepts manifest 1.15.0 for layered and wispy fringe previews.
 Renderer behavior and version remain unchanged.
+
+All four added hairstyles were visually approved on 2026-10-02. Eight focused
+regression baselines preserve their reviewed beanie and bucket combinations.
