@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/branding/bot-avatar-logo.png" alt="Bot Avatar logo" width="640">
+  <img src="assets/branding/bot-avatar-logo-readme.png" alt="Bot Avatar logo" width="320">
 </p>
 
 # Bot Avatar
@@ -94,7 +94,7 @@ Coder (`coder`, `hair-crop`) keeps the same hat and hair. Only `state` changes.
   </tr>
 </table>
 
-The mark above the title is the project logo (`assets/branding/bot-avatar-logo.png`). Avatar previews in [`docs/images/`](docs/images) are committed README images. Review exports under `output/` stay untracked. Regression SVGs live in [`tests/snapshots/`](tests/snapshots).
+The mark above the title is the half-size README logo (`assets/branding/bot-avatar-logo-readme.png`, 836×470). The full branding mark stays at `assets/branding/bot-avatar-logo.png` (1672×941). Avatar previews in [`docs/images/`](docs/images) are committed README images. Review exports under `output/` stay untracked. Regression SVGs live in [`tests/snapshots/`](tests/snapshots).
 
 ## Quick start
 
