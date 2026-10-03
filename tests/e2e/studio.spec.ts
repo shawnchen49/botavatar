@@ -78,6 +78,21 @@ test('malformed shared configuration reports an error without crashing', async (
   expect(errors).toEqual([]);
 });
 
+test('incomplete shared badges recover without crashing the editor', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  for (const instanceBadge of [{}, { icon: 'dot' }, { color: 'teal' }]) {
+    await page.goto(
+      '/#request=' +
+        encodeURIComponent(JSON.stringify({ templateId: 'coder', instance: { instanceBadge } })),
+    );
+    await page.reload();
+    await expect(page.getByRole('alert')).toContainText('shared link is invalid');
+    await expect(page.getByRole('button', { name: 'Export SVG', exact: true })).toBeEnabled();
+  }
+  expect(errors).toEqual([]);
+});
+
 test('hides import controls while preserving existing image badges and exports', async ({
   page,
 }) => {

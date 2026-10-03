@@ -14,6 +14,10 @@ local Studio and should use the hash on their local server address. Links do not
 upload or persist avatars. Invalid requests display errors and disable export.
 Preview cancellation prevents obsolete responses from replacing newer settings.
 
+`shared-request.ts` checks share-link structure before React consumes it, including
+required badge fields. Semantic validation remains at the API boundary. Malformed
+structure loads default settings with a visible error instead of crashing the editor.
+
 `pnpm test:e2e` covers state changes, configuration, URL reload, SVG/PNG downloads,
 invalid-input recovery, and a mobile viewport. Install Playwright Chromium first;
 `PLAYWRIGHT_CHANNEL=chrome` uses installed Chrome instead.

@@ -24,8 +24,9 @@ choices. No external prompt file is required to build or author assets.
 
 ## Current choices and references
 
-The catalog in `packages/design-tokens/src/index.ts` owns current palettes,
-defaults, allowed hair, and fitted mounts. Source geometry lives under
+The design-tokens package exports its catalog through `src/index.ts`; `catalog.ts`
+assembles palettes and defaults, `templates.ts` owns allowed instance choices, and
+`presentation.ts` owns fitted mounts. Source geometry lives under
 `assets/parts/soft-layered-2d/`. Do not duplicate its values in skills.
 
 - Hats express template identity through shape, palette, and fixed licensed emblem.
@@ -63,6 +64,12 @@ Wolf-cut and feather-flip hair were approved on 2026-10-03; six 256-pixel
 cocoa-colored idle baselines record the coder, debug, and docs combinations.
 Rejected spikes and curls describe specific past implementations, not a permanent
 ban on short or curly hair. Generated previews are not approved references.
+
+The final retained hat revision is manifest 1.19.6. On 2026-10-04 the user
+requested synchronization for submission after selecting the earlier bucket
+inside rim and stopping visual iteration. The cap/bucket baselines now match
+that retained version, and a focused backward-cap baseline records the larger,
+bill-free design. The rejected 1.19.7 curled return is not the current asset.
 
 ## Authoring entrypoints
 

@@ -31,8 +31,7 @@ export function createApp(
       return [id, parsed] as const;
     }),
   );
-  function render(input: unknown) {
-    const result = generateAvatar(input, catalog, svgRenderer);
+  function encode(result: ReturnType<typeof generateAvatar>) {
     const data =
       result.avatar.format === 'png'
         ? Buffer.from(renderPng(result.svg, result.avatar.size))
@@ -48,7 +47,7 @@ export function createApp(
     };
   }
   app.setErrorHandler((error, _request, reply) => {
-    if (error instanceof AvatarError)
+    if (error instanceof AvatarError && error.code !== 'INVALID_CATALOG')
       return reply.code(400).send({ code: error.code, message: error.message });
     const statusCode =
       error instanceof Error && 'statusCode' in error ? error.statusCode : undefined;
@@ -88,7 +87,7 @@ export function createApp(
     states: ['idle', 'working', 'waiting', 'success', 'error', 'offline'],
   }));
   app.post('/v1/avatar', async (request, reply) => {
-    const result = render(request.body);
+    const result = encode(generateAvatar(request.body, catalog, svgRenderer));
     return reply
       .header('Cache-Control', 'no-store')
       .header('ETag', result.etag)
@@ -99,14 +98,14 @@ export function createApp(
     reply.header('Cache-Control', 'no-store');
     const requests = parseAvatarBatch(request.body);
     // Validate every request before doing expensive rasterization.
-    for (const input of requests) generateAvatar(input, catalog, svgRenderer);
+    const generated = requests.map((input) => generateAvatar(input, catalog, svgRenderer));
     return {
       schemaVersion: 1,
-      entries: requests.map((input, index) => {
-        const result = render(input);
+      entries: generated.map((avatar, index) => {
+        const result = encode(avatar);
         return {
           file: `${String(index + 1).padStart(3, '0')}.${result.format}`,
-          request: input,
+          request: requests[index],
           resourceKey: result.resourceKey,
           etag: result.etag,
           encoding: 'base64',
@@ -130,7 +129,7 @@ export function createApp(
         ...(request.query.size === undefined ? {} : { size: Number(request.query.size) }),
         format: request.params.format,
       };
-      const result = render(input);
+      const result = encode(generateAvatar(input, catalog, svgRenderer));
       reply
         .header('ETag', result.etag)
         .header('Cache-Control', 'private, no-cache')

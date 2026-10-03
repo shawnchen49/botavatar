@@ -14,7 +14,7 @@ SVG is the primary format. PNG is available at 64, 128, 256, and 512 pixels. The
 
 <!-- readme:gallery:start -->
 
-256-pixel PNG examples from catalog **1.18.0**, rendered with a transparent background. Each role below uses an explicit hairstyle from the current catalog.
+256-pixel PNG examples from catalog **1.19.6**, rendered with a transparent background. Each role below uses an explicit hairstyle from the current catalog.
 
 <table>
   <tr>
@@ -137,7 +137,7 @@ supported as a legacy alias and normalize to the canonical ID.
 
 <!-- readme:catalog:start -->
 
-Manifest **1.18.0** in `packages/design-tokens` is the current `soft-layered-2d` catalog: 24 templates, 12 hairstyles (`hair-sweep`, `hair-wave`, `hair-side-part`, `hair-curtain`, `hair-soft-curls`, `hair-layered-fringe`, `hair-wispy-fringe`, `hair-rounded-bob`, `hair-wolf-cut`, `hair-feather-flip`, `hair-hime-cut`, `hair-sculpted-waves`), and 6 states.
+Manifest **1.19.6** in `packages/design-tokens` is the current `soft-layered-2d` catalog: 25 templates, 12 hairstyles (`hair-sweep`, `hair-wave`, `hair-side-part`, `hair-curtain`, `hair-soft-curls`, `hair-layered-fringe`, `hair-wispy-fringe`, `hair-rounded-bob`, `hair-wolf-cut`, `hair-feather-flip`, `hair-hime-cut`, `hair-sculpted-waves`), and 6 states.
 
 <!-- readme:catalog:end -->
 

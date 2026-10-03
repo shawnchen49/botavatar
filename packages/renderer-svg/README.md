@@ -64,3 +64,34 @@ The existing painter and contact shadows render both paired assets unchanged.
 
 Renderer 0.13.0 accepts manifest 1.18.0 for hime-cut and sculpted-wave previews.
 Drawing behavior and materials remain unchanged.
+
+Renderer 0.13.0 accepts manifest 1.19.0 for the six-hat construction review.
+Only compiled asset geometry and catalog mounts change; the painter, material,
+and contact-shadow implementation remain unchanged. The backward cap uses the
+existing asset and badge pipeline.
+
+Renderer 0.13.0 accepts manifest 1.19.1 for the frontal cap and aligned backward
+strap revision. Drawing behavior is unchanged.
+
+Renderer 0.13.0 accepts manifest 1.19.2 for the bucket reference and cap-detail
+revision. The existing material and drawing implementation are unchanged.
+
+Renderer 0.13.0 accepts manifest 1.19.3 for the larger backward cap and structured
+bucket brim. Source geometry supplies the underside shading; drawing behavior
+and the existing material implementation remain unchanged.
+
+Renderer 0.13.0 accepts manifest 1.19.4 for the bill-free backward cap and rigid
+bucket brim. Rendering logic and materials remain unchanged.
+
+Renderer 0.13.0 accepts manifest 1.19.5 for the corrected downward-flared bucket
+reference. Geometry changes only; drawing behavior is unchanged.
+
+Renderer 0.13.0 accepts manifest 1.19.6 for the lifted bucket brim and occluded
+inner-rim returns. The source paths use the existing painter unchanged.
+
+Renderer 0.13.0 accepts manifest 1.19.7 for the bucket return detail. The existing
+source-paint pipeline renders the layered inner shade and return unchanged.
+
+The user rejected the 1.19.7 detail and selected the preceding version. Runtime
+manifest compatibility and geometry are restored to 1.19.6; further hat
+iteration is paused at the user's request.

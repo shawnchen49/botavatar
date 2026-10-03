@@ -389,3 +389,171 @@ Next: visual feedback on these two candidates before recording their baselines.
 Verification: `pnpm check` passes with all 173 tests and the production build.
 All 48 approved snapshots reproduce; all-template/state coverage includes both
 new hairstyles, and their front/back pairing and coder default are verified.
+
+## Architecture maintenance — 2026-10-03
+
+Reviewed the existing dependency direction and retained the seven workspaces and
+their public contracts. Design-token data now has separate internal files for
+assets, templates, ordered hair choices, catalog assembly, and presentation.
+All public exported values and their serialization order are unchanged.
+
+API batches reuse generated SVGs while retaining validation before rasterization.
+Invalid catalog configuration returns a generic HTTP 500 instead of a client 400.
+Studio share-link parsing has an explicit input and rejects incomplete badges
+before they can crash the editor. See [the architecture maintenance review](reviews/architecture-maintenance.md)
+for findings, tradeoffs, and remaining work.
+
+Verification: `pnpm check` passes with 176 tests and production builds;
+`PLAYWRIGHT_CHANNEL=chrome pnpm test:e2e` passes all 8 browser tests. All 48
+approved snapshots reproduce. No visual baseline or asset data was changed.
+
+Next: isolate Studio catalog-load errors from preview state and test asynchronous
+failure/recovery behavior. Multi-style generalization remains tied to a real
+second style, as specified in the architecture document.
+
+## Reference-inspired hat construction — 2026-10-03
+
+Manifest 1.19.0 refines five existing hat silhouettes and adds an optional
+`git-backward` template for the sixth requested type. It translates fitted
+crowns, distinct brims, knit cuffs, and workwear structure from the supplied
+reference into frontal Soft Layered 2D. Existing palettes, face geometry, hair
+choices, and renderer behavior remain unchanged. See the
+[construction review](reviews/hat-construction.md).
+
+Compact and feather-flip fits were inspected at 64 and 256 pixels. Workspace,
+formatting, lint, types, and production build pass. `pnpm check` reports 126
+passing tests and 51 failures: 44 changed approved SVG snapshots and seven stale
+README example checks. No approved baselines or README images were overwritten.
+Next: user visual review, then explicitly approved snapshot and example updates.
+
+## Hat review follow-up — 2026-10-03
+
+The user approved beanie, hardhat, and officer hats. Their approval refreshes 22
+existing baselines and adds a focused officer baseline while preserving all
+other baseline files and requests. Manifest 1.19.1 centers the baseball cap and
+aligns the backward cap strap with its lower edge. The rejected bucket awaits a
+different reference image that the user will provide. See the
+[review follow-up](reviews/hat-construction.md#user-review-and-frontal-corrections).
+
+Verification: workspace, formatting, lint, type checks, and build pass.
+`pnpm check` reports 150 passed and 29 remaining visual reference failures
+(22 cap/bucket snapshots and seven README checks). All 49 stored snapshot
+hashes verify. Next: inspect the two corrected caps and redraw the bucket after
+receiving its reference; refresh remaining references only after approval.
+
+## Bucket reference and cap detail revision — 2026-10-03
+
+Manifest 1.19.2 incorporates the newly supplied second-row Debug bucket reference.
+The bucket has a continuous arched brim and matching crown seam. The baseball
+button uses the crown fill, and the backward bill meets the hat opening without
+a downward step. The three previously approved hats and their baselines are
+unchanged. Focused cocoa-haired previews cover side-part and feather-flip hair
+at 64 and 256 pixels in `output/hat-reference-review/`.
+
+Verification: asset compilation, workspace, formatting, lint, types, and build
+pass. `pnpm check` reports 150 passing tests and the same 29 reference failures:
+22 unapproved cap/bucket snapshots and seven README checks. The frontal cap
+silhouette regression still passes. Next: visual review of these three revisions.
+
+## Fuller backward cap and flared bucket brim — 2026-10-04
+
+Manifest 1.19.3 widens the backward crown and lowers its opening for more coverage
+above the bangs, preserving the strap and bill construction. Its emblem follows
+the crown. The bucket receives a wider lifted brim with a separate shaded
+underside and rounded outer returns, following the user's close-up reference.
+The approved beanie, hardhat, and officer designs remain unchanged.
+
+Both candidates were inspected with side-part and feather-flip hair at 64 and
+256 pixels. See `output/hat-fit-review/compare.png`. Asset compilation, workspace,
+format, lint, types, and build pass. `pnpm check` reports 150 passing tests and
+the same 29 pending cap/bucket snapshot and README reference differences.
+Next: review the revised fit and underside before updating visual baselines.
+
+## Bill-free backward cap and rigid bucket ring — 2026-10-04
+
+Manifest 1.19.4 removes the backward cap's side bill while preserving the larger
+fit, rear opening, and adjustment strap. The bucket brim changes to an elliptical
+projecting surface with raised tips and a shaded underside, independent of the
+bangs' contour. The user requested stiffness similar to a cowboy brim while
+retaining the bucket crown. See `output/hat-rigid-brim-review/compare.png`.
+
+Side-part and feather-flip fits were inspected at 64 and 256 pixels. Compilation,
+workspace, formatting, lint, types, and build pass. `pnpm check` reports 150
+passing tests and the same 29 pending visual reference failures. Previously
+approved hats and their baselines remain unchanged. Next: review these two
+candidates before updating their visual references.
+
+## Downward bucket reference correction — 2026-10-04
+
+Manifest 1.19.5 supersedes the raised elliptical brim after the user clarified
+the supplied screenshot. The wider rounded crown sits over a descending,
+outward-flared brim. Its side tips are lower than the thin central front lip,
+with visible inside shade concentrated at the ends. Backward-cap and other hat
+geometry is unchanged. Focused side-part and feather-flip previews at 64 and
+256 pixels are in `output/hat-draped-review/`.
+
+Compilation, workspace, formatting, lint, types, and build pass. `pnpm check`
+reports 149 passed and 30 failures: the same 29 pending reference differences
+and one 15-second expression-alignment timeout. That unchanged expression file
+passes both tests on isolated retry in 9.46 seconds. No tests or timeouts were
+modified. Next: review the corrected downward brim before accepting baselines.
+
+## Raised front brim and visible inner returns — 2026-10-04
+
+Manifest 1.19.6 raises the bucket brim four source units. Two small shaded curved
+returns sit behind the front brim and remain partly visible at the sides,
+matching the user's close-up occlusion reference. The crown, downward flare,
+and other hats remain unchanged. Side-part and feather-flip fits were inspected
+at 64 and 256 pixels; a four-times SVG view of the left return is provided in
+`output/hat-inner-rim-review/inner-rim-detail.png`.
+
+Compilation, workspace, formatting, lint, types, and build pass. `pnpm check`
+reports 150 passed and the same 29 pending visual reference differences, with
+no timeout in this run. No approved baseline changed. Next: visual feedback on
+the raised lip and partially hidden inside rim.
+
+## Refined curved inside rim — 2026-10-04
+
+Manifest 1.19.7 separates the bucket's partially occluded side return into a
+recessed dark surface and a thinner lighter curved edge. The front lip stroke
+is reduced while the lifted brim, crown, and other hats stay unchanged. Matched
+four-times details in `output/hat-curled-rim-review/detail-compare.png` show the
+previous uniform shade and revised return. Both retained hair fits were inspected
+at 64 and 256 pixels.
+
+Compilation, workspace, formatting, lint, types, and build pass. `pnpm check`
+reports 150 passed and the same 29 pending visual reference differences. No
+approved baseline changed. Next: visual feedback on the refined inner-rim detail.
+
+## Restore selected inner-rim version and stop — 2026-10-04
+
+The user rejected 1.19.7 and selected the preceding left-hand comparison.
+Restore exact 1.19.6 bucket geometry and manifest compatibility. Both the
+side-part and feather-flip rendered SVGs reproduce the saved 1.19.6 previews
+byte-for-byte. The shared review image is restored to that version. Further
+hat iteration is stopped as requested; other hats and baselines are unchanged.
+
+Compilation, workspace, formatting, lint, types, and build pass. The full check
+reports 149 passed and 30 failures: 29 previously documented visual references
+and the unchanged expression test exceeding its existing 15-second timeout.
+No additional visual or test changes were made as part of this rollback.
+
+## Synchronize retained visuals for submission — 2026-10-04
+
+The user authorized synchronization of the final retained hat designs. Twenty-two
+existing cap/bucket snapshots now match manifest 1.19.6 with unchanged requests,
+and one backward-cap snapshot records the reviewed bill-free cocoa side-part
+variant. All 50 active snapshots have verified hashes and reproduce current
+output. README examples, manifest metadata, and the Studio capture are refreshed.
+
+Expression-alignment coverage is split by output size into four test cases.
+Each retains all six states, both eyes, the half-pixel tolerance, and a 15-second
+limit. Production rendering and the retained hat designs are unchanged.
+
+Final verification: `pnpm check` passes with all 183 tests and the final
+production build. `PLAYWRIGHT_CHANNEL=chrome pnpm test:e2e` passes all eight
+browser tests. Existing snapshot requests are preserved, all 50 active hashes
+and generated SVGs match, and refreshed README/Studio images were inspected.
+The retained hat design is ready for submission; further visual iteration stays
+paused. Include the new source modules, backward-cap asset, and snapshot files
+alongside the tracked changes when preparing the commit.

@@ -1,7 +1,18 @@
 # Design data and catalog
 
-The current profile exports `catalog`, a versioned manifest with 24 template
-choices, twelve hairstyles, one face, nine hat silhouettes, and nineteen hat
+The public entrypoint remains `src/index.ts`. Internal data is organized by responsibility:
+
+- `catalog.ts` assembles the manifest, colors, defaults, capabilities, and role aliases.
+- `assets.ts` records resource identity and provenance.
+- `templates.ts` defines template identities and their allowed instance choices.
+- `hair.ts` preserves the ordered shared hair candidates used by seeded selection.
+- `presentation.ts` contains style-specific mounts, badge treatments, fits, and accessories.
+
+Import the package entrypoint from other workspaces. Moving these declarations does
+not change their values, order, public exports, or manifest version.
+
+The current profile exports `catalog`, a versioned manifest with 25 template
+choices, twelve hairstyles, one face, ten hat silhouettes, and nineteen hat
 emblems. Manifest 1.9.1 preserved the twenty approved 1.4.2 identities and added
 three separate templates: `docs-editor`, `security-officer`, and `deploy-aviator`.
 Role defaults selected those original identities.
@@ -107,3 +118,49 @@ Wolf cut and feather flip were approved on 2026-10-03. Manifest 1.18.0 adds
 The hime cut contrasts cheek-length panels with a longer back; sculpted waves
 use broad S-shaped sides. Coder retains its seeded side-part default. Other
 seed-selected hair may change; explicit selections and palettes stay intact.
+
+Manifest 1.19.0 proposes construction refinements for beanie, cap, bucket,
+hardhat, and patrol assets and introduces optional `git-backward` with a
+separate `hat-cap-backward` asset. Role defaults, hair candidates, and palettes
+are unchanged. Fitted emblem mounts follow the revised panels. Visual approval
+and baseline refresh are pending; see the [hat construction review](../../docs/reviews/hat-construction.md).
+
+Manifest 1.19.1 centers the baseball cap's crown and visor and joins the backward
+cap's adjustment strap to its continuous lower edge. Beanie, hardhat, and officer
+geometry from 1.19.0 is approved. Bucket refinement awaits the user's replacement
+reference; the two revised cap candidates remain under review.
+
+Manifest 1.19.2 redraws the bucket using the supplied frontal Debug-hat reference,
+colors the baseball button with the crown fill, and raises the backward bill to
+meet the lower edge. These three candidates remain under visual review.
+
+Manifest 1.19.3 enlarges the backward cap and lowers its opening while preserving
+the reviewed strap and bill structure. Its emblem mount follows the crown.
+The bucket brim flares outward over a separately shaded underside. Both fit
+revisions remain under visual review.
+
+Manifest 1.19.4 removes the backward cap's side bill while retaining its larger
+fit, opening, and adjustment strap. The bucket uses a stiff elliptical brim
+with raised outer tips and a shaded lower rim instead of following the bangs.
+Both candidates remain pending visual review.
+
+Manifest 1.19.5 corrects the bucket interpretation using the supplied close-up:
+a wider rounded crown, a downward-flared brim, a thin arched front lip, and
+exposed dark underside pockets at the low side tips. The upturned elliptical
+brim from 1.19.4 is superseded. Other hats are unchanged.
+
+Manifest 1.19.6 raises the bucket's front brim four source units and replaces
+the continuous underside with two small curved returns partially hidden behind
+the front brim. Other hats and the bucket crown remain unchanged.
+
+Manifest 1.19.7 refines the bucket's exposed inside returns: a recessed dark
+surface sits behind a narrow, lighter curved return, both partly hidden by the
+front brim. The lip stroke is thinner. The crown and brim height are unchanged.
+
+The user rejected the 1.19.7 detail and selected the preceding version. Runtime
+manifest compatibility and geometry are restored to 1.19.6; further hat
+iteration is paused at the user's request.
+
+The user subsequently authorized submission synchronization for retained
+manifest 1.19.6. All 50 active visual baselines and the maintained README
+examples now match that version; further design iteration remains paused.

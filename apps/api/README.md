@@ -17,3 +17,8 @@ GET responses use content SHA-256 ETags, conditional 304 responses, and private
 revalidation. POST responses are no-store. Internal failures expose no stack traces.
 There is no instance mutation endpoint or public-hosting authentication layer.
 Run `pnpm build && pnpm start` at the repository root. See ADR 0006.
+
+Batch generation retains each generated SVG through encoding, validating every
+item before any PNG conversion. Each item is generated once. Invalid catalog
+configuration is a server failure (500 with a generic message), while invalid
+request choices remain client failures (400).

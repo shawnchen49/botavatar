@@ -1,14 +1,15 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { readFileSync, mkdtempSync, writeFileSync, existsSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { PNG } from 'pngjs';
-import { generateAvatar, parseAvatarBatch } from '../../packages/core/dist/index.js';
+import { AvatarError, generateAvatar, parseAvatarBatch } from '../../packages/core/dist/index.js';
 import { catalog } from '../../packages/design-tokens/dist/index.js';
 import { svgRenderer } from '../../packages/renderer-svg/dist/index.js';
 import { renderPng } from '../../packages/renderer-png/dist/index.js';
+import * as pngRenderer from '../../packages/renderer-png/dist/index.js';
 import { createApp } from '../../apps/api/dist/index.js';
 const request = { templateId: 'coder', instance: { seed: 'fixed' } };
 const generate = (input) => generateAvatar(input, catalog, svgRenderer);
@@ -90,6 +91,65 @@ describe('batch CLI', () => {
   });
 });
 describe('HTTP boundary', () => {
+  it('reports invalid server configuration as an internal failure without leaking details', async () => {
+    const app = createApp();
+    const render = vi.spyOn(svgRenderer, 'render').mockImplementation(() => {
+      throw new AvatarError('INVALID_CATALOG', 'Private catalog configuration details.');
+    });
+    try {
+      const response = await app.inject({ method: 'POST', url: '/v1/avatar', payload: request });
+      expect(response.statusCode).toBe(500);
+      expect(response.json()).toEqual({
+        code: 'INTERNAL_ERROR',
+        message: 'Avatar generation failed.',
+      });
+    } finally {
+      render.mockRestore();
+      await app.close();
+    }
+  });
+  it('generates each batch item once and preserves ordered single-request representations', async () => {
+    const app = createApp();
+    const inputs = [request, { ...request, format: 'png', state: 'working', size: 64 }];
+    const singles = await Promise.all(
+      inputs.map((payload) => app.inject({ method: 'POST', url: '/v1/avatar', payload })),
+    );
+    const render = vi.spyOn(svgRenderer, 'render');
+    try {
+      const response = await app.inject({
+        method: 'POST',
+        url: '/v1/avatar/batch',
+        payload: inputs,
+      });
+      expect(response.statusCode).toBe(200);
+      expect(render).toHaveBeenCalledTimes(inputs.length);
+      for (const [index, entry] of response.json().entries.entries()) {
+        expect(entry.request).toEqual(inputs[index]);
+        expect(Buffer.from(entry.data, 'base64')).toEqual(singles[index].rawPayload);
+        expect(entry.etag).toBe(singles[index].headers.etag);
+      }
+    } finally {
+      render.mockRestore();
+      await app.close();
+    }
+  });
+  it('rejects a semantically invalid batch before rasterizing any item', async () => {
+    const app = createApp();
+    const rasterize = vi.spyOn(pngRenderer, 'renderPng');
+    try {
+      const response = await app.inject({
+        method: 'POST',
+        url: '/v1/avatar/batch',
+        payload: [{ ...request, format: 'png' }, { templateId: 'missing' }],
+      });
+      expect(response.statusCode).toBe(400);
+      expect(response.json().code).toBe('UNKNOWN_CHOICE');
+      expect(rasterize).not.toHaveBeenCalled();
+    } finally {
+      rasterize.mockRestore();
+      await app.close();
+    }
+  });
   it('matches CLI bytes, supports metadata, and maps input errors', async () => {
     const app = createApp();
     try {

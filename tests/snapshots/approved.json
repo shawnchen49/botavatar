@@ -7,7 +7,7 @@
     {
       "file": "01.svg",
       "label": "Coder",
-      "sha256": "05693e0b98ef6d9d87d2042b851e4ae815bfc5cb90f18fd06a4a927347e761e0",
+      "sha256": "a82f5b61b2a4e33ec2e7e10eab6dd3f452b77cc42794ce1dbbb524c85f320413",
       "request": {
         "templateId": "coder",
         "state": "idle",
@@ -17,8 +17,8 @@
           }
         }
       },
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
       "migratedFrom": "historical/hair-crop/01.svg"
     },
@@ -39,7 +39,7 @@
     {
       "file": "03.svg",
       "label": "Docs",
-      "sha256": "eb35d56138ff5949b3ed41bed5f15017db9dbee0b47c2a56bbee7115795fc1ba",
+      "sha256": "becb5e5064b8a474509d0583c0e909e8ead8cff2c83f8bd8e31733b343936bb0",
       "request": {
         "templateId": "docs",
         "state": "idle",
@@ -49,15 +49,15 @@
           }
         }
       },
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
       "rendererVersion": "0.13.0",
       "migratedFrom": "historical/hair-crop/03.svg"
     },
     {
       "file": "04.svg",
       "label": "Git",
-      "sha256": "0822f3d93cc3dfca82be6a490a152d5121d1236580e56c86de637a9410779bb8",
+      "sha256": "83307144202a98f3953f9d80caa629d0016d6594cac0bf9af24edf96603f00d1",
       "request": {
         "templateId": "git",
         "state": "idle",
@@ -66,12 +66,15 @@
             "style": "hair-sweep"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
+      "rendererVersion": "0.13.0"
     },
     {
       "file": "05.svg",
       "label": "Review",
-      "sha256": "572848b32bd91dde96fbccf1b42632eec9e90ea4983ab54d6a76d983a2e37d82",
+      "sha256": "46c768055e8aad7d1a6f4ab710f22794fd5953f3ed67c154166b34dc3f08fd77",
       "request": {
         "templateId": "review",
         "state": "idle",
@@ -80,12 +83,15 @@
             "style": "hair-wave"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
+      "rendererVersion": "0.13.0"
     },
     {
       "file": "06.svg",
       "label": "Shell",
-      "sha256": "78cd4c5546cb076bfd6134a76a5b36fe0183311792d0ab8a1f5b99fc64db0d06",
+      "sha256": "519e7776fa72ac809c3e801e7a9fd604c1884b578630df4a3d4c12177586a9cc",
       "request": {
         "templateId": "shell",
         "state": "idle",
@@ -95,15 +101,15 @@
           }
         }
       },
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
       "migratedFrom": "historical/hair-crop/06.svg"
     },
     {
       "file": "07.svg",
       "label": "Build",
-      "sha256": "40c2b58e317499d6295666c013efa44e6782990c0967063b1f429ea9d03ef956",
+      "sha256": "f5cacf9013da500e2d36a91b5f27426b96d41969bfa65ed563876ed5ddb22ccf",
       "request": {
         "templateId": "build",
         "state": "idle",
@@ -112,12 +118,15 @@
             "style": "hair-sweep"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
+      "rendererVersion": "0.13.0"
     },
     {
       "file": "08.svg",
       "label": "Debug",
-      "sha256": "c6bfb33ab796c9b5d30dbd50250399a28f9de5692832cd87bcc3f348c61f626f",
+      "sha256": "28b76fd476c22a0b18ee52f9c8bf1919e29279ad89112f8969d5ba2e2048563f",
       "request": {
         "templateId": "debug",
         "state": "idle",
@@ -126,12 +135,15 @@
             "style": "hair-sweep"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
+      "rendererVersion": "0.13.0"
     },
     {
       "file": "09.svg",
       "label": "Printer",
-      "sha256": "93f9d2012fe78e0c854198d2a995b040d3513c93458cb85361f5fd926af78e05",
+      "sha256": "71f756595ddccc842c84ce6d1807e7024d602efa863eabb1c1d8ce5d36c9c6a9",
       "request": {
         "templateId": "printer",
         "state": "idle",
@@ -140,12 +152,15 @@
             "style": "hair-sweep"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
+      "rendererVersion": "0.13.0"
     },
     {
       "file": "10.svg",
       "label": "Network",
-      "sha256": "38627a00893dff162d101a6d62002fcfa1fd60443b8ec0e2040bee45e2d117f7",
+      "sha256": "17b2426dfb25ef206003049f87adfec46941af015878e47d52409126c4534333",
       "request": {
         "templateId": "network",
         "state": "idle",
@@ -154,7 +169,10 @@
             "style": "hair-sweep"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
+      "rendererVersion": "0.13.0"
     },
     {
       "file": "11.svg",
@@ -173,7 +191,7 @@
     {
       "file": "12.svg",
       "label": "General",
-      "sha256": "f9d47cbb28d46bdad587ff8be48f0083249153aaaa991f659b6de1dc570c0ae3",
+      "sha256": "875dd427401c5c988a2ca1f9b21dd2ac23a1a3f49bd48c6a844f2704cf97e530",
       "request": {
         "templateId": "general",
         "state": "idle",
@@ -182,12 +200,15 @@
             "style": "hair-wave"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
+      "rendererVersion": "0.13.0"
     },
     {
       "file": "13.svg",
       "label": "Test",
-      "sha256": "9f10a2c486ca74e87751e3234b46ff0f15e45f1ae5897d8235d07cc554902a01",
+      "sha256": "7f730340f8e13c34c55f861bf0616a7c8bb801a080fdf9b051c57238a13ce2ce",
       "request": {
         "templateId": "test",
         "state": "idle",
@@ -196,12 +217,15 @@
             "style": "hair-wave"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
+      "rendererVersion": "0.13.0"
     },
     {
       "file": "14.svg",
       "label": "Deploy",
-      "sha256": "c08764b920ac26a5570d802ff28db3e5338036b32242f076aab968cc1405ad01",
+      "sha256": "5c8930d35e904257368531f0ea986f0d6f098e5086412a2128603b4b02d322af",
       "request": {
         "templateId": "deploy",
         "state": "idle",
@@ -210,12 +234,15 @@
             "style": "hair-sweep"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
+      "rendererVersion": "0.13.0"
     },
     {
       "file": "15.svg",
       "label": "Monitor",
-      "sha256": "45a1f4908f2fb9f812ab68b1b81754783a0a80ee71c7e19b0ea7b3c9fb523748",
+      "sha256": "69a23155880b2a5cb83d0fc6c0e56d1787bef47d50bfe32ef26e2f5893073aa0",
       "request": {
         "templateId": "monitor",
         "state": "idle",
@@ -224,12 +251,15 @@
             "style": "hair-sweep"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
+      "rendererVersion": "0.13.0"
     },
     {
       "file": "16.svg",
       "label": "Security",
-      "sha256": "6d677d29298528af7e842a7462c55638f044883cbbf4dfdf33db763e2dca6a03",
+      "sha256": "a157432bb6b309e2cd094fe65d9ac50cc2a62f9d0888635c806793c88d7a1a24",
       "request": {
         "templateId": "security",
         "state": "idle",
@@ -239,8 +269,8 @@
           }
         }
       },
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
       "rendererVersion": "0.13.0",
       "migratedFrom": "historical/hair-crop/16.svg"
     },
@@ -261,7 +291,7 @@
     {
       "file": "18.svg",
       "label": "Data",
-      "sha256": "2cc5e8c181e9a25a4b854a187b33266cf7d14994b89aca349ffa3d1ab587ef40",
+      "sha256": "a0441483af11f2782f27a18506d56cc21e7a77b7c160cd8f3b3f3b8767fef038",
       "request": {
         "templateId": "data",
         "state": "idle",
@@ -271,8 +301,8 @@
           }
         }
       },
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
       "migratedFrom": "historical/hair-crop/18.svg"
     },
@@ -293,7 +323,7 @@
     {
       "file": "20.svg",
       "label": "Support",
-      "sha256": "0561b4f02ae31e0d491af960945c8fb2f36524c811c71493b4f044728721ca24",
+      "sha256": "07d6f54af1de7c14c0ef53ac31af23c33c59465aee25dae70548bfd162cf4e85",
       "request": {
         "templateId": "support",
         "state": "idle",
@@ -302,12 +332,15 @@
             "style": "hair-wave"
           }
         }
-      }
+      },
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
+      "rendererVersion": "0.13.0"
     },
     {
       "file": "21.svg",
       "label": "dot",
-      "sha256": "d02393110b2eed76d476e929717b243a87e221aa7c540327b37e7f4f2e2cf469",
+      "sha256": "e89c9f364513c50f0bdbd958e9f8b74b51275da202f49343e944046b5fb3f18c",
       "request": {
         "templateId": "coder",
         "instance": {
@@ -321,15 +354,15 @@
           }
         }
       },
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
       "migratedFrom": "historical/hair-crop/21.svg"
     },
     {
       "file": "22.svg",
       "label": "check",
-      "sha256": "ee4a30b22a4a615f51474430041b5764d69c03aefd4b1d04b42dfbdbe4481c70",
+      "sha256": "a09817ce3b9461c7877b8b95515a15b216b71a0a8f06fd261bcddcdc8a25c6bd",
       "request": {
         "templateId": "coder",
         "instance": {
@@ -343,15 +376,15 @@
           }
         }
       },
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
       "migratedFrom": "historical/hair-crop/22.svg"
     },
     {
       "file": "23.svg",
       "label": "terminal",
-      "sha256": "4d9bcc0c1c54d258f689c117f65c292007c72dcf07c57d9389eb011ea4e3755f",
+      "sha256": "e22bf9b86a4fb0ca16ace31cf01c419a66f6a513d5e4de424c47a61efb2a281b",
       "request": {
         "templateId": "coder",
         "instance": {
@@ -365,15 +398,15 @@
           }
         }
       },
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
       "migratedFrom": "historical/hair-crop/23.svg"
     },
     {
       "file": "24.svg",
       "label": "search",
-      "sha256": "537b4970a2c28b680f6c512845bdec591716b5eaa35fa6848510fc296a976bf2",
+      "sha256": "5064c56909f92b155101bda6463ad8f6df87e8a5e3d23852dd7c23ad6039c101",
       "request": {
         "templateId": "coder",
         "instance": {
@@ -387,15 +420,15 @@
           }
         }
       },
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
       "migratedFrom": "historical/hair-crop/24.svg"
     },
     {
       "file": "25.svg",
       "label": "server",
-      "sha256": "b8e670b21811d10e207ab4b04c58056e799b1d39ad2f94efbd847238fffc3ea3",
+      "sha256": "9b599b97af65fe7750d21649af7f1acd0b63378a037750d66aa99f05f0d649f1",
       "request": {
         "templateId": "coder",
         "instance": {
@@ -409,15 +442,15 @@
           }
         }
       },
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
       "migratedFrom": "historical/hair-crop/25.svg"
     },
     {
       "file": "26.svg",
       "label": "idle",
-      "sha256": "05693e0b98ef6d9d87d2042b851e4ae815bfc5cb90f18fd06a4a927347e761e0",
+      "sha256": "a82f5b61b2a4e33ec2e7e10eab6dd3f452b77cc42794ce1dbbb524c85f320413",
       "request": {
         "templateId": "coder",
         "state": "idle",
@@ -427,15 +460,15 @@
           }
         }
       },
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
       "migratedFrom": "historical/hair-crop/26.svg"
     },
     {
       "file": "27.svg",
       "label": "working",
-      "sha256": "1041e7c6b933f75f9ebf480ddb163aae298883562cf0e9e8977c431c2a5d8a96",
+      "sha256": "f44e94ff7f78e5f61810c8a54286d733a9f9474a9acdf60ce52dc18bf1285b3e",
       "request": {
         "templateId": "coder",
         "state": "working",
@@ -445,15 +478,15 @@
           }
         }
       },
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
       "migratedFrom": "historical/hair-crop/27.svg"
     },
     {
       "file": "28.svg",
       "label": "waiting",
-      "sha256": "57df1390104e7e3a7f1c1073823f7e58f478e5a7c9bee9142f18787352a65f62",
+      "sha256": "b02a4b871a362f2a379b0bda6c6f7d089b9bd5482ea1ba2f9b9bf8cf04ab035f",
       "request": {
         "templateId": "coder",
         "state": "waiting",
@@ -463,15 +496,15 @@
           }
         }
       },
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
       "migratedFrom": "historical/hair-crop/28.svg"
     },
     {
       "file": "29.svg",
       "label": "success",
-      "sha256": "6f73d916fa3308e590a2b816143631f63de9cf615bc20fbe13dd7128bc4cc842",
+      "sha256": "c6bfe0b647f4a9d2a47ec2b402efab496d9c75c95494ed1fdd6e6ae0157c8c71",
       "request": {
         "templateId": "coder",
         "state": "success",
@@ -481,15 +514,15 @@
           }
         }
       },
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
       "migratedFrom": "historical/hair-crop/29.svg"
     },
     {
       "file": "30.svg",
       "label": "error",
-      "sha256": "febd4dc1c1b2cfbfc2cc04bee61c6431a9e9e7bd5a1e58f95aabcc9ef847e200",
+      "sha256": "9265e795704914ddad724e54f0c205424812719c3a431a17d8aea568cd04fd89",
       "request": {
         "templateId": "coder",
         "state": "error",
@@ -499,15 +532,15 @@
           }
         }
       },
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
       "migratedFrom": "historical/hair-crop/30.svg"
     },
     {
       "file": "31.svg",
       "label": "offline",
-      "sha256": "0b718e84143bedd722d3a8b654e3171ab715a341883c45bd2e0a69c29137e57f",
+      "sha256": "68850921140541a2b11274e0f2b50e335b5e299f5f006d2dc6706e177e1a0bfc",
       "request": {
         "templateId": "coder",
         "state": "offline",
@@ -517,18 +550,18 @@
           }
         }
       },
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
       "migratedFrom": "historical/hair-crop/31.svg"
     },
     {
       "file": "coder-hair-curtain.svg",
       "label": "coder hair-curtain",
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
-      "sha256": "d85319ed6bc0b3406c73aa2c7d6349dc5014d2287d229759469368b6b32eaea6",
+      "sha256": "fb01ede9a08a01eb3934eee41c4ca32d56e0ddb62906092f81ceeeb699868447",
       "request": {
         "templateId": "coder",
         "state": "idle",
@@ -544,10 +577,10 @@
     {
       "file": "coder-hair-soft-curls.svg",
       "label": "coder hair-soft-curls",
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
-      "sha256": "fb079d932d21c0a78c1cc6762daeaa326593bf087c3f7789dae415e0b1f87f56",
+      "sha256": "5234dd545c08a1232d1594f8591c7c81b93f000d303b23bf30787abbf8b51b2d",
       "request": {
         "templateId": "coder",
         "state": "idle",
@@ -563,10 +596,10 @@
     {
       "file": "coder-hair-layered-fringe.svg",
       "label": "coder hair-layered-fringe",
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
-      "sha256": "a92f064b8884d2b4ec84a26d3e305d2a26319901d02c8fdb631fabbe4127183c",
+      "sha256": "24f76351c80bf002b93b9ea7a4eacf9495f0945a17ef7dd634bd0e943d34a91e",
       "request": {
         "templateId": "coder",
         "state": "idle",
@@ -582,10 +615,10 @@
     {
       "file": "coder-hair-wispy-fringe.svg",
       "label": "coder hair-wispy-fringe",
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
-      "sha256": "4d49c2abfb76d9f978a7d7f136adfe66b81e7e2a49aad8f1ac13b529d781c60f",
+      "sha256": "ff76e1d380419003682e4024ad3cc0a25d902e37098b0b32aa410667761c276e",
       "request": {
         "templateId": "coder",
         "state": "idle",
@@ -601,10 +634,10 @@
     {
       "file": "debug-hair-curtain.svg",
       "label": "debug hair-curtain",
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
       "rendererVersion": "0.13.0",
-      "sha256": "a26e1f2b116f267d36dad4bffca07bc5a84fd9c50e3032da3319508bdffb8d8c",
+      "sha256": "56b5659603a40b075d1c330a7a911d205f7efd873770ceaa714557c3e6fcf047",
       "request": {
         "templateId": "debug",
         "state": "idle",
@@ -620,10 +653,10 @@
     {
       "file": "debug-hair-soft-curls.svg",
       "label": "debug hair-soft-curls",
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
       "rendererVersion": "0.13.0",
-      "sha256": "10db3e3f83ba7f5073aee0914f5bd4f35d2ca4808098bbaf9764243df54543c3",
+      "sha256": "29d784241e61dafacc0ad67e8320dc296b7df62df09d9b858b93fe074a19de23",
       "request": {
         "templateId": "debug",
         "state": "idle",
@@ -639,10 +672,10 @@
     {
       "file": "debug-hair-layered-fringe.svg",
       "label": "debug hair-layered-fringe",
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
       "rendererVersion": "0.13.0",
-      "sha256": "e9ee21d4350c374446a0614c2eb1c0540a275ca4791b0178d2f2c05a8f81aa1d",
+      "sha256": "e64dc5fb016ae1d746699a9e559444a2792b53353d9f4c745c6b199f6c1d1c97",
       "request": {
         "templateId": "debug",
         "state": "idle",
@@ -658,10 +691,10 @@
     {
       "file": "debug-hair-wispy-fringe.svg",
       "label": "debug hair-wispy-fringe",
-      "approvedOn": "2026-10-02",
-      "manifestVersion": "1.15.0",
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
       "rendererVersion": "0.13.0",
-      "sha256": "5a08c3dc49d1733cff20f79f3457654fd7044fb37aa4bded9e6468f0f1da9996",
+      "sha256": "bdf617ed304c5d185765c2f6ee0ca67b761f19448c41d441edb8a7d0707dfb5e",
       "request": {
         "templateId": "debug",
         "state": "idle",
@@ -678,9 +711,9 @@
       "file": "coder-hair-rounded-bob.svg",
       "label": "coder hair-rounded-bob",
       "approvedOn": "2026-10-03",
-      "manifestVersion": "1.16.0",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
-      "sha256": "67383de1aa8ef3b152ec61a967c2839d0b62c7dabf0fad8b402317c18c027133",
+      "sha256": "43efd5f93bc96eb3f7bdace37fec9bd5ee1a21a433d963ca00fa6d6cc9b306f6",
       "request": {
         "templateId": "coder",
         "state": "idle",
@@ -697,10 +730,10 @@
     {
       "file": "debug-hair-rounded-bob.svg",
       "label": "debug hair-rounded-bob",
-      "approvedOn": "2026-10-03",
-      "manifestVersion": "1.16.0",
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
       "rendererVersion": "0.13.0",
-      "sha256": "5620696e5c67d0dd18a24c9cc49ffcd1e765fb359464d20b4bf834c9636daee4",
+      "sha256": "319f2356d766f4a3142960ccd0a7b779ad24f5f6ea7881819dc9ee57ee401e42",
       "request": {
         "templateId": "debug",
         "state": "idle",
@@ -717,10 +750,10 @@
     {
       "file": "docs-hair-rounded-bob.svg",
       "label": "docs hair-rounded-bob",
-      "approvedOn": "2026-10-03",
-      "manifestVersion": "1.16.0",
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
       "rendererVersion": "0.13.0",
-      "sha256": "3b3aee6234eb5537fd9a6711076d94e03bb603189dddafa3052b1c77a40f6347",
+      "sha256": "7278e42240fb975986af1b01f45925b59c7554fd152c37a90076bb9d40e5520c",
       "request": {
         "templateId": "docs",
         "state": "idle",
@@ -738,90 +771,160 @@
       "file": "coder-hair-wolf-cut.svg",
       "label": "coder hair-wolf-cut",
       "approvedOn": "2026-10-03",
-      "manifestVersion": "1.17.0",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
-      "sha256": "d00da899790f29f2a6895130820ea339505a0c30fda7b6dcea7b7c1d6520b5f5",
+      "sha256": "ed8b236c6d36d3786bfb89284bc2ce3ffbcf32436b06a04fd79af5f1c5fb51c7",
       "request": {
         "templateId": "coder",
         "state": "idle",
         "size": 256,
         "background": "solid",
-        "instance": { "hair": { "style": "hair-wolf-cut", "color": "cocoa" } }
+        "instance": {
+          "hair": {
+            "style": "hair-wolf-cut",
+            "color": "cocoa"
+          }
+        }
       }
     },
     {
       "file": "debug-hair-wolf-cut.svg",
       "label": "debug hair-wolf-cut",
-      "approvedOn": "2026-10-03",
-      "manifestVersion": "1.17.0",
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
       "rendererVersion": "0.13.0",
-      "sha256": "295dae150a8ed87b1cd6f43cd0659f13c3654c7c0f0c9db3e758e711edf175b0",
+      "sha256": "a983b6e9bcadc94cae2bb03e3ee4777116538201700a6c43f76844c6988ea6e1",
       "request": {
         "templateId": "debug",
         "state": "idle",
         "size": 256,
         "background": "solid",
-        "instance": { "hair": { "style": "hair-wolf-cut", "color": "cocoa" } }
+        "instance": {
+          "hair": {
+            "style": "hair-wolf-cut",
+            "color": "cocoa"
+          }
+        }
       }
     },
     {
       "file": "docs-hair-wolf-cut.svg",
       "label": "docs hair-wolf-cut",
-      "approvedOn": "2026-10-03",
-      "manifestVersion": "1.17.0",
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
       "rendererVersion": "0.13.0",
-      "sha256": "dce98dab3cee77f5954502688c95c40cf940296477398589319d815ded473e36",
+      "sha256": "0b8fc90156b375befcaf11fc568964be23df366546751901375986f4d820811e",
       "request": {
         "templateId": "docs",
         "state": "idle",
         "size": 256,
         "background": "solid",
-        "instance": { "hair": { "style": "hair-wolf-cut", "color": "cocoa" } }
+        "instance": {
+          "hair": {
+            "style": "hair-wolf-cut",
+            "color": "cocoa"
+          }
+        }
       }
     },
     {
       "file": "coder-hair-feather-flip.svg",
       "label": "coder hair-feather-flip",
       "approvedOn": "2026-10-03",
-      "manifestVersion": "1.17.0",
+      "manifestVersion": "1.19.0",
       "rendererVersion": "0.13.0",
-      "sha256": "596a14a1fe373fcbfc0feee4f1005bc6d5eefc320ee8e57b3d4edc04c891adcf",
+      "sha256": "76fc5917415e59e93c88cd2a46c920b29238cdaf4acf158ff401060ebf64ffdd",
       "request": {
         "templateId": "coder",
         "state": "idle",
         "size": 256,
         "background": "solid",
-        "instance": { "hair": { "style": "hair-feather-flip", "color": "cocoa" } }
+        "instance": {
+          "hair": {
+            "style": "hair-feather-flip",
+            "color": "cocoa"
+          }
+        }
       }
     },
     {
       "file": "debug-hair-feather-flip.svg",
       "label": "debug hair-feather-flip",
-      "approvedOn": "2026-10-03",
-      "manifestVersion": "1.17.0",
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
       "rendererVersion": "0.13.0",
-      "sha256": "964d31a1f7809d6c3f74dcb9402ee36c79dbfd977b3f8c759612e4bf81d5571c",
+      "sha256": "e3e3a34d54ebbca7b307000ca4949cd8fcc0c7cc21ef404b0bfa4b070992bae5",
       "request": {
         "templateId": "debug",
         "state": "idle",
         "size": 256,
         "background": "solid",
-        "instance": { "hair": { "style": "hair-feather-flip", "color": "cocoa" } }
+        "instance": {
+          "hair": {
+            "style": "hair-feather-flip",
+            "color": "cocoa"
+          }
+        }
       }
     },
     {
       "file": "docs-hair-feather-flip.svg",
       "label": "docs hair-feather-flip",
-      "approvedOn": "2026-10-03",
-      "manifestVersion": "1.17.0",
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
       "rendererVersion": "0.13.0",
-      "sha256": "3a4f36b9570565544c3e5b13310870881fdec150ffc933032fc0a8495379b093",
+      "sha256": "39598675ae65ac3e4f32e4583324dfd30c0e7220e9e3b5e0ec1c23d7e2e4ea80",
       "request": {
         "templateId": "docs",
         "state": "idle",
         "size": 256,
         "background": "solid",
-        "instance": { "hair": { "style": "hair-feather-flip", "color": "cocoa" } }
+        "instance": {
+          "hair": {
+            "style": "hair-feather-flip",
+            "color": "cocoa"
+          }
+        }
+      }
+    },
+    {
+      "file": "security-officer-hat-construction.svg",
+      "label": "security-officer approved hat construction",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.19.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "c87ec74e5b8ff9f275a4f07de6e22720b424f8183c9b5df32ba39001926b66ba",
+      "request": {
+        "templateId": "security-officer",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": {
+          "hair": {
+            "style": "hair-side-part",
+            "color": "cocoa"
+          }
+        }
+      }
+    },
+    {
+      "file": "git-backward-hair-side-part.svg",
+      "label": "git-backward hair-side-part",
+      "approvedOn": "2026-10-04",
+      "manifestVersion": "1.19.6",
+      "rendererVersion": "0.13.0",
+      "sha256": "0cdc82abd01f85ea744347608b252c6f60ead02e87aedc70592384f3492415d1",
+      "request": {
+        "templateId": "git-backward",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": {
+          "hair": {
+            "style": "hair-side-part",
+            "color": "cocoa"
+          }
+        }
       }
     }
   ]

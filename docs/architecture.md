@@ -92,7 +92,7 @@ Design-token manifests associate stable IDs with assets, anchors, capabilities,
 versions, and provenance. `scripts/compile-assets.mjs` validates the restricted source format and embeds
 assets in the SVG package before type checking and building. Generated modules are ignored.
 
-The current catalog contains nine hats, three hairstyles, 24 template choices,
+The current catalog contains nine hats, twelve hairstyles, 24 template choices,
 nineteen hat emblem mappings, six state expressions, and five instance icon aliases. Every asset
 must have traceable licensing. Exploratory raster images are not production parts.
 Catalog and renderer injection provide extension points for future profiles;

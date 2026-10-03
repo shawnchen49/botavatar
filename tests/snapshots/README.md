@@ -1,6 +1,6 @@
 # Visual regression SVGs
 
-These 42 SVGs are the regression baselines: twenty identities, five instance icons, six runtime states, and eleven approved hair combinations. `approved.json` records their SHA-256 hashes and the explicit requests that regenerate them. It contains no draft image or external runtime dependency.
+These 50 SVGs are the regression baselines: twenty identities, five instance icons, six runtime states, and nineteen approved hair and hat combinations. `approved.json` records their SHA-256 hashes and the explicit requests that regenerate them. It contains no draft image or external runtime dependency.
 
 The set began as the user-approved Stage 2 preview from 2026-10-01 (manifest 1.4.2, renderer 0.6.2). Nineteen files were refreshed for catalog manifest 1.9.5 and SVG renderer 0.13.0: occupational palette changes, compact instance badges, and expression geometry centered on the idle eye positions. Manifest 1.9.6 then updates the Coder, Test, and Security requests to `coder`, `test`, and `security`, and the SVG titles that record those ids. The pictures are otherwise unchanged.
 
@@ -31,3 +31,13 @@ The user approved wolf-cut and feather-flip hair on 2026-10-03. Six additional
 256-pixel SVGs record cocoa-colored idle coder, debug, and docs combinations on
 solid backgrounds. Each entry records manifest 1.17.0, renderer 0.13.0,
 approval date, request, and hash.
+
+The user approved the current beanie, hardhat, and patrol hat candidates on
+2026-10-03. Active baselines using those hat types were refreshed from the
+current renderer output; cap, bucket, and backward-cap candidates remain
+excluded.
+
+This authorized sync refreshes 22 existing cap and bucket cases without changing
+their requests and adds the reviewed cocoa side-part backward-cap sample. Per-item
+metadata records manifest 1.19.6 and renderer 0.13.0. Existing beanie and hardhat
+baselines remain unchanged.

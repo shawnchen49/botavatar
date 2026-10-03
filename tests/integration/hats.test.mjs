@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
 import { PNG } from 'pngjs';
 import { generateAvatar } from '../../packages/core/dist/index.js';
 import { catalog } from '../../packages/design-tokens/dist/index.js';
@@ -78,6 +79,7 @@ describe('additions to the approved visual family', () => {
   it('adds optional hats without replacing the approved role defaults', () => {
     for (const [role, original, addition] of [
       ['docs', 'docs', 'docs-editor'],
+      ['git', 'git', 'git-backward'],
       ['security', 'security', 'security-officer'],
       ['deploy', 'deploy', 'deploy-aviator'],
     ]) {
@@ -171,6 +173,23 @@ describe('occupational hardhat palettes', () => {
         expect(result.svg).toContain(catalog.colors[template.hat.badgeColor]);
         if (identity) expect(result.avatar.hat).toEqual(identity);
         else identity = result.avatar.hat;
+      }
+    }
+  });
+});
+
+describe('frontal baseball cap', () => {
+  it('keeps the crown and projecting brim silhouette mirror-symmetric', () => {
+    const source = readFileSync('assets/parts/soft-layered-2d/hats/cap.svg', 'utf8');
+    for (const size of [64, 256]) {
+      const png = PNG.sync.read(Buffer.from(renderPng(source, size)));
+      for (let y = 0; y < size; y++) {
+        const occupied = Array.from({ length: size }, (_, x) => x).filter(
+          (x) => png.data[(y * size + x) * 4 + 3] >= 128,
+        );
+        if (!occupied.length) continue;
+        // Opposite curve directions may differ by one antialiased boundary pixel.
+        expect(Math.abs(occupied[0] + occupied.at(-1) - (size - 1))).toBeLessThanOrEqual(1);
       }
     }
   });

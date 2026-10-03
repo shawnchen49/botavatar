@@ -5,8 +5,9 @@ import { catalog } from '../../packages/design-tokens/dist/index.js';
 import { svgRenderer } from '../../packages/renderer-svg/dist/index.js';
 import { renderPng } from '../../packages/renderer-png/dist/index.js';
 
-it('keeps the visible eye bounds centered across all six states and output sizes', () => {
-  for (const size of [64, 128, 256, 512]) {
+it.each([64, 128, 256, 512])(
+  'keeps the visible eye bounds centered across all six states at %ipx',
+  (size) => {
     const centers = [];
     for (const state of ['idle', 'working', 'waiting', 'success', 'error', 'offline']) {
       const { svg } = generateAvatar({ templateId: 'coder', state, size }, catalog, svgRenderer);
@@ -40,8 +41,9 @@ it('keeps the visible eye bounds centered across all six states and output sizes
       for (let eye = 0; eye < 2; eye++)
         for (let axis = 0; axis < 2; axis++)
           expect(Math.abs(eyes[eye][axis] - centers[0][eye][axis])).toBeLessThanOrEqual(0.5);
-  }
-}, 15000);
+  },
+  15000,
+);
 
 it('gives the default solid background visible contrast against the face', () => {
   const { avatar, svg } = generateAvatar(

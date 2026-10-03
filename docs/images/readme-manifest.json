@@ -1,5 +1,5 @@
 {
-  "manifestVersion": "1.18.0",
+  "manifestVersion": "1.19.6",
   "rendererVersion": "0.13.0",
   "entries": [
     {
@@ -16,7 +16,7 @@
         "size": 256,
         "format": "svg"
       },
-      "sha256": "1f60f81ad8c96882aeeeb66644933fa16bc2b9dc3a7f5b0e4981fab6c46a000e"
+      "sha256": "bb9f0cf7b86d37f42286acf827b5257e4d8e356bc16ec3919c9d2f2871172196"
     },
     {
       "file": "research.png",
@@ -48,7 +48,7 @@
         "size": 256,
         "format": "svg"
       },
-      "sha256": "fa3a8c902484e628f97644bfca77ab6d8263244579b4e25a6b709c83f5633acb"
+      "sha256": "ae5607ff9e579e394f6bb00cf0a3728dd3e03383f82b33d08446870e3d25e5b5"
     },
     {
       "file": "build.png",
@@ -64,7 +64,7 @@
         "size": 256,
         "format": "svg"
       },
-      "sha256": "f513e64a891c65fe42dd2c23a528ba5a7ae6dc6f9b469eec62ee63611a172588"
+      "sha256": "58f3ff1bb7e3718375216cb185c9c9039fe07dbeaaa65dd81b1483313beefd44"
     },
     {
       "file": "debug.png",
@@ -80,7 +80,7 @@
         "size": 256,
         "format": "svg"
       },
-      "sha256": "adeb78beb9168fb5f167307a210c922327b8caf30c53584d73c73843d9a4d749"
+      "sha256": "a1f4f0ab21b3d3190a2bfedfb93bf47ca199a347f9c6471da7a4ba691dc856cb"
     },
     {
       "file": "search.png",
@@ -128,7 +128,7 @@
         "size": 256,
         "format": "svg"
       },
-      "sha256": "5aa0a0b60765ead9acceb5bdd6d21b72978283c6a188114f983989097c9406a8"
+      "sha256": "55b232d41d533edcc0abcf2dc5a957e4891ace6a3cc6e0a2f225bb5e8fa0be2d"
     },
     {
       "file": "deploy-aviator.png",
@@ -164,7 +164,7 @@
         "size": 256,
         "format": "svg"
       },
-      "sha256": "d829b5ed88c61d6ed8aac6299ab5143f5bda585d34980c8efb7bff302c69d408"
+      "sha256": "23ed8cd49ac8ff4a9ec512fe1f4aa128595e86f5d8993ccc1a95c86d23d7810e"
     }
   ]
 }
