@@ -1,8 +1,8 @@
 # Request examples
 
-`coder.json` is a runnable request using a fixed seed, straight fringe, a
-bottom-right terminal badge, and a transparent background. The purple beanie and
-coordinated hair color come from the `coder` template.
+`coder.json` is a runnable request using a fixed seed, side-part hair, a
+bottom-right terminal badge, and a transparent background. The charcoal beanie and
+cocoa hair color come from the `coder` template.
 
 ```sh
 pnpm build

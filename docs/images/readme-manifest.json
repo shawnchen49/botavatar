@@ -1,0 +1,378 @@
+{
+  "manifestVersion": "1.15.0",
+  "rendererVersion": "0.13.0",
+  "entries": [
+    {
+      "file": "coder.png",
+      "request": {
+        "background": "transparent",
+        "state": "idle",
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-side-part"
+          }
+        },
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "1f60f81ad8c96882aeeeb66644933fa16bc2b9dc3a7f5b0e4981fab6c46a000e"
+    },
+    {
+      "file": "research.png",
+      "request": {
+        "background": "transparent",
+        "state": "idle",
+        "templateId": "research",
+        "instance": {
+          "hair": {
+            "style": "hair-curtain"
+          }
+        },
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "eed673cfc3f9ca45339c6bdec71bb73e942ba3a19586e20222828360e53d2ed9"
+    },
+    {
+      "file": "git.png",
+      "request": {
+        "background": "transparent",
+        "state": "idle",
+        "templateId": "git",
+        "instance": {
+          "hair": {
+            "style": "hair-wispy-fringe"
+          }
+        },
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "fa3a8c902484e628f97644bfca77ab6d8263244579b4e25a6b709c83f5633acb"
+    },
+    {
+      "file": "build.png",
+      "request": {
+        "background": "transparent",
+        "state": "idle",
+        "templateId": "build",
+        "instance": {
+          "hair": {
+            "style": "hair-soft-curls"
+          }
+        },
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "f513e64a891c65fe42dd2c23a528ba5a7ae6dc6f9b469eec62ee63611a172588"
+    },
+    {
+      "file": "debug.png",
+      "request": {
+        "background": "transparent",
+        "state": "idle",
+        "templateId": "debug",
+        "instance": {
+          "hair": {
+            "style": "hair-layered-fringe"
+          }
+        },
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "adeb78beb9168fb5f167307a210c922327b8caf30c53584d73c73843d9a4d749"
+    },
+    {
+      "file": "search.png",
+      "request": {
+        "background": "transparent",
+        "state": "idle",
+        "templateId": "search",
+        "instance": {
+          "hair": {
+            "style": "hair-sweep"
+          }
+        },
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "2b000da488396096550c9f8a4e3e63417fe42c26410518cf88e176e8798e639b"
+    },
+    {
+      "file": "docs-editor.png",
+      "request": {
+        "background": "transparent",
+        "state": "idle",
+        "templateId": "docs-editor",
+        "instance": {
+          "hair": {
+            "style": "hair-curtain"
+          }
+        },
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "667bf1c5a97ace6c8e2de4538620e0a991d4f348ffc2b6af1bb7d29383e20873"
+    },
+    {
+      "file": "security-officer.png",
+      "request": {
+        "background": "transparent",
+        "state": "idle",
+        "templateId": "security-officer",
+        "instance": {
+          "hair": {
+            "style": "hair-wave"
+          }
+        },
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "5aa0a0b60765ead9acceb5bdd6d21b72978283c6a188114f983989097c9406a8"
+    },
+    {
+      "file": "deploy-aviator.png",
+      "request": {
+        "background": "transparent",
+        "state": "idle",
+        "templateId": "deploy-aviator",
+        "instance": {
+          "hair": {
+            "style": "hair-layered-fringe"
+          }
+        },
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "3d2db492ad68db9041cadda229b979dbe090436ebbee79c8a7cc274ce02ce8c2"
+    },
+    {
+      "file": "hair-sweep.png",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-sweep"
+          }
+        },
+        "background": "transparent",
+        "state": "idle",
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "4255ca6baeb1f73001a2d6894487dab42651cf0366dc3e0a76f613af80575504"
+    },
+    {
+      "file": "hair-wave.png",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-wave"
+          }
+        },
+        "background": "transparent",
+        "state": "idle",
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "b2bd9712652a2fb164eafc74925908b7ed266853df7d8943d564461577adb84b"
+    },
+    {
+      "file": "hair-side-part.png",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-side-part"
+          }
+        },
+        "background": "transparent",
+        "state": "idle",
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "1f60f81ad8c96882aeeeb66644933fa16bc2b9dc3a7f5b0e4981fab6c46a000e"
+    },
+    {
+      "file": "hair-curtain.png",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-curtain"
+          }
+        },
+        "background": "transparent",
+        "state": "idle",
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "42737dab909c650114159dfe494824c0feec7af70bce0e63db603ded608a65f7"
+    },
+    {
+      "file": "hair-soft-curls.png",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-soft-curls"
+          }
+        },
+        "background": "transparent",
+        "state": "idle",
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "757a4dc0527c1e26b5308e1b4c73843d5938e890483730bbf20633851dbc06b0"
+    },
+    {
+      "file": "hair-layered-fringe.png",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-layered-fringe"
+          }
+        },
+        "background": "transparent",
+        "state": "idle",
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "cc017b005987b8f2d93e4b2d28a76668096c29af347bb0d31f6ff4b151df416f"
+    },
+    {
+      "file": "hair-wispy-fringe.png",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-wispy-fringe"
+          }
+        },
+        "background": "transparent",
+        "state": "idle",
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "fdbcef5494cd726d6230eca71f916fd25fa42f3b0b084f466100529635f54dea"
+    },
+    {
+      "file": "state-idle.png",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-side-part"
+          }
+        },
+        "background": "transparent",
+        "state": "idle",
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "1f60f81ad8c96882aeeeb66644933fa16bc2b9dc3a7f5b0e4981fab6c46a000e"
+    },
+    {
+      "file": "state-working.png",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-side-part"
+          }
+        },
+        "background": "transparent",
+        "state": "working",
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "6613cf82f3e6415a7b7e599ff09dcfa7a93504c82e736b4a560cb00ef5dff0e1"
+    },
+    {
+      "file": "state-waiting.png",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-side-part"
+          }
+        },
+        "background": "transparent",
+        "state": "waiting",
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "6ec3746a7f719d6c9d4b03c09087468025fd0ab7cbb9d2159165f17a6f857f8f"
+    },
+    {
+      "file": "state-success.png",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-side-part"
+          }
+        },
+        "background": "transparent",
+        "state": "success",
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "74603332f91056c87dd4880bf5725418f6095d262110275442998970e74ed8c1"
+    },
+    {
+      "file": "state-error.png",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-side-part"
+          }
+        },
+        "background": "transparent",
+        "state": "error",
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "45db3a6dc7e031e4273b227f2274ec611923392d4560970c831de86c25b9d9a9"
+    },
+    {
+      "file": "state-offline.png",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-side-part"
+          }
+        },
+        "background": "transparent",
+        "state": "offline",
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "83f8aeae1d6b252ee0f4ea7650c1c2e70513b78cee1b9f441ec35bf388ec1523"
+    },
+    {
+      "file": "coder-terminal.png",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "seed": "stage-2",
+          "instanceBadge": {
+            "icon": "terminal",
+            "color": "purple"
+          },
+          "hair": {
+            "style": "hair-side-part"
+          }
+        },
+        "background": "transparent",
+        "size": 256,
+        "format": "svg"
+      },
+      "sha256": "d829b5ed88c61d6ed8aac6299ab5143f5bda585d34980c8efb7bff302c69d408"
+    }
+  ]
+}

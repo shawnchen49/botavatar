@@ -1,0 +1,112 @@
+{
+  "gallery": [
+    {
+      "label": "Coder",
+      "hat": "beanie",
+      "request": {
+        "templateId": "coder",
+        "instance": {
+          "hair": {
+            "style": "hair-side-part"
+          }
+        }
+      }
+    },
+    {
+      "label": "Research",
+      "hat": "beret",
+      "request": {
+        "templateId": "research",
+        "instance": {
+          "hair": {
+            "style": "hair-curtain"
+          }
+        }
+      }
+    },
+    {
+      "label": "Git",
+      "hat": "cap",
+      "request": {
+        "templateId": "git",
+        "instance": {
+          "hair": {
+            "style": "hair-wispy-fringe"
+          }
+        }
+      }
+    },
+    {
+      "label": "Build",
+      "hat": "hard hat",
+      "request": {
+        "templateId": "build",
+        "instance": {
+          "hair": {
+            "style": "hair-soft-curls"
+          }
+        }
+      }
+    },
+    {
+      "label": "Debug",
+      "hat": "bucket",
+      "request": {
+        "templateId": "debug",
+        "instance": {
+          "hair": {
+            "style": "hair-layered-fringe"
+          }
+        }
+      }
+    },
+    {
+      "label": "Search",
+      "hat": "deerstalker",
+      "request": {
+        "templateId": "search",
+        "instance": {
+          "hair": {
+            "style": "hair-sweep"
+          }
+        }
+      }
+    },
+    {
+      "label": "Docs editor",
+      "hat": "flat cap",
+      "request": {
+        "templateId": "docs-editor",
+        "instance": {
+          "hair": {
+            "style": "hair-curtain"
+          }
+        }
+      }
+    },
+    {
+      "label": "Security officer",
+      "hat": "patrol cap",
+      "request": {
+        "templateId": "security-officer",
+        "instance": {
+          "hair": {
+            "style": "hair-wave"
+          }
+        }
+      }
+    },
+    {
+      "label": "Aviator",
+      "hat": "flight cap",
+      "request": {
+        "templateId": "deploy-aviator",
+        "instance": {
+          "hair": {
+            "style": "hair-layered-fringe"
+          }
+        }
+      }
+    }
+  ]
+}

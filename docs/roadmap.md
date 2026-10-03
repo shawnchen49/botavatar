@@ -291,3 +291,26 @@ Verification: `pnpm check` passes, including all 147 tests and the final product
 build. All 39 active and 16 historical hashes match. Archived SVGs match their
 original Git bytes, and only the hair-style field changed in migrated requests.
 The focused migration preview was inspected across all sixteen cases.
+
+## Repeatable README examples — 2026-10-03
+
+`pnpm docs:readme` builds the current project, renders the configured role gallery,
+all seven hairstyles, six states, and the runnable quick-start request, then
+captures Studio. `examples/readme.json` owns curated role choices; the catalog
+supplies versions and hair choices. The removed-crop quick-start request now
+uses side-part hair. Generated README sections are bounded by explicit markers.
+
+`docs/images/readme-manifest.json` records each avatar request and PNG hash.
+Integration tests detect stale versions, missing catalog choices, and images
+that differ from current renderer output. The refresh never changes approved
+visual baselines or branding. Browser capture uses Playwright Chromium or the
+explicit `PLAYWRIGHT_CHANNEL=chrome` option for installed Chrome.
+
+Two consecutive refreshes produced identical README, PNG, and manifest bytes.
+The hair sheet and actual Studio capture were inspected. Next: rerun the command
+when catalog or renderer changes, review the diff, and commit the refreshed docs.
+
+Verification: `pnpm check` passes with all 172 tests, including per-image
+README regeneration checks, and the final production build. Snapshot baselines
+remain untouched. The refresh was run twice with installed Chrome; all generated
+bytes were unchanged on the second run.

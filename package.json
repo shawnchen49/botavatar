@@ -26,7 +26,8 @@
     "showcase": "pnpm build && node scripts/showcase.mjs",
     "showcase:hats": "pnpm build && node scripts/hat-review.mjs",
     "review:assets": "pnpm assets:build && tsc -b packages/renderer-svg packages/renderer-png --pretty false && node scripts/asset-review.mjs",
-    "release:local": "pnpm check && pnpm test:e2e && node scripts/package-local.mjs && node scripts/verify-local.mjs"
+    "release:local": "pnpm check && pnpm test:e2e && node scripts/package-local.mjs && node scripts/verify-local.mjs",
+    "docs:readme": "pnpm build && node scripts/readme-examples.mjs"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

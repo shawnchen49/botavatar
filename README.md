@@ -12,87 +12,132 @@ SVG is the primary format. PNG is available at 64, 128, 256, and 512 pixels. The
 
 ## Gallery
 
-These are 256-pixel PNG files exported by this repo's CLI from catalog manifest 1.9.6, with a transparent background. One picture for each hat silhouette. Coder uses `hair-crop`; the others use `hair-sweep`. All of them are `idle`. The 1.9.6 id rename does not change these pixels.
+<!-- readme:gallery:start -->
+
+256-pixel PNG examples from catalog **1.15.0**, rendered with a transparent background. Each role below uses an explicit hairstyle from the current catalog.
 
 <table>
   <tr>
     <td align="center">
-      <img src="docs/images/coder.png" alt="Coder bot wearing a purple beanie, idle" width="148" height="148"><br>
+      <img src="docs/images/coder.png" alt="Coder" width="148" height="148"><br>
       <sub><b>Coder</b><br>beanie · <code>coder</code></sub>
     </td>
     <td align="center">
-      <img src="docs/images/research.png" alt="Research bot wearing a navy beret, idle" width="148" height="148"><br>
+      <img src="docs/images/research.png" alt="Research" width="148" height="148"><br>
       <sub><b>Research</b><br>beret · <code>research</code></sub>
     </td>
     <td align="center">
-      <img src="docs/images/git.png" alt="Git bot wearing a salmon cap, idle" width="148" height="148"><br>
+      <img src="docs/images/git.png" alt="Git" width="148" height="148"><br>
       <sub><b>Git</b><br>cap · <code>git</code></sub>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <img src="docs/images/build.png" alt="Build bot wearing a yellow hard hat, idle" width="148" height="148"><br>
+      <img src="docs/images/build.png" alt="Build" width="148" height="148"><br>
       <sub><b>Build</b><br>hard hat · <code>build</code></sub>
     </td>
     <td align="center">
-      <img src="docs/images/debug.png" alt="Debug bot wearing an olive bucket hat, idle" width="148" height="148"><br>
+      <img src="docs/images/debug.png" alt="Debug" width="148" height="148"><br>
       <sub><b>Debug</b><br>bucket · <code>debug</code></sub>
     </td>
     <td align="center">
-      <img src="docs/images/search.png" alt="Search bot wearing a sand deerstalker, idle" width="148" height="148"><br>
+      <img src="docs/images/search.png" alt="Search" width="148" height="148"><br>
       <sub><b>Search</b><br>deerstalker · <code>search</code></sub>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <img src="docs/images/docs-editor.png" alt="Docs editor bot wearing a taupe flat cap, idle" width="148" height="148"><br>
+      <img src="docs/images/docs-editor.png" alt="Docs editor" width="148" height="148"><br>
       <sub><b>Docs editor</b><br>flat cap · <code>docs-editor</code></sub>
     </td>
     <td align="center">
-      <img src="docs/images/security-officer.png" alt="Security officer bot wearing a navy patrol cap, idle" width="148" height="148"><br>
+      <img src="docs/images/security-officer.png" alt="Security officer" width="148" height="148"><br>
       <sub><b>Security officer</b><br>patrol cap · <code>security-officer</code></sub>
     </td>
     <td align="center">
-      <img src="docs/images/aviator.png" alt="Aviator bot wearing a brown flight cap with goggles, idle" width="148" height="148"><br>
+      <img src="docs/images/deploy-aviator.png" alt="Aviator" width="148" height="148"><br>
       <sub><b>Aviator</b><br>flight cap · <code>deploy-aviator</code></sub>
+    </td>
+  </tr>
+</table>
+
+### Hairstyles
+
+All 7 hairstyles on the same Coder, with the same hat, hair color, and idle state.
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="docs/images/hair-sweep.png" alt="sweep" width="148" height="148"><br>
+      <sub><b>sweep</b><br><code>hair-sweep</code></sub>
+    </td>
+    <td align="center">
+      <img src="docs/images/hair-wave.png" alt="wave" width="148" height="148"><br>
+      <sub><b>wave</b><br><code>hair-wave</code></sub>
+    </td>
+    <td align="center">
+      <img src="docs/images/hair-side-part.png" alt="side part" width="148" height="148"><br>
+      <sub><b>side part</b><br><code>hair-side-part</code></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="docs/images/hair-curtain.png" alt="curtain" width="148" height="148"><br>
+      <sub><b>curtain</b><br><code>hair-curtain</code></sub>
+    </td>
+    <td align="center">
+      <img src="docs/images/hair-soft-curls.png" alt="soft curls" width="148" height="148"><br>
+      <sub><b>soft curls</b><br><code>hair-soft-curls</code></sub>
+    </td>
+    <td align="center">
+      <img src="docs/images/hair-layered-fringe.png" alt="layered fringe" width="148" height="148"><br>
+      <sub><b>layered fringe</b><br><code>hair-layered-fringe</code></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="docs/images/hair-wispy-fringe.png" alt="wispy fringe" width="148" height="148"><br>
+      <sub><b>wispy fringe</b><br><code>hair-wispy-fringe</code></sub>
     </td>
   </tr>
 </table>
 
 ### Same bot, six states
 
-Coder (`coder`, `hair-crop`) keeps the same hat and hair. Only `state` changes.
+Coder keeps the same hat and `hair-side-part` hair. Only `state` changes.
 
 <table>
   <tr>
     <td align="center">
-      <img src="docs/images/coder.png" alt="Coder bot in the idle state" width="120" height="120"><br>
-      <sub><code>idle</code></sub>
+      <img src="docs/images/state-idle.png" alt="idle" width="120" height="120"><br>
+      <sub><b>idle</b><br><code>idle</code></sub>
     </td>
     <td align="center">
-      <img src="docs/images/state-working.png" alt="Coder bot in the working state" width="120" height="120"><br>
-      <sub><code>working</code></sub>
+      <img src="docs/images/state-working.png" alt="working" width="120" height="120"><br>
+      <sub><b>working</b><br><code>working</code></sub>
     </td>
     <td align="center">
-      <img src="docs/images/state-waiting.png" alt="Coder bot in the waiting state" width="120" height="120"><br>
-      <sub><code>waiting</code></sub>
+      <img src="docs/images/state-waiting.png" alt="waiting" width="120" height="120"><br>
+      <sub><b>waiting</b><br><code>waiting</code></sub>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <img src="docs/images/state-success.png" alt="Coder bot in the success state" width="120" height="120"><br>
-      <sub><code>success</code></sub>
+      <img src="docs/images/state-success.png" alt="success" width="120" height="120"><br>
+      <sub><b>success</b><br><code>success</code></sub>
     </td>
     <td align="center">
-      <img src="docs/images/state-error.png" alt="Coder bot in the error state" width="120" height="120"><br>
-      <sub><code>error</code></sub>
+      <img src="docs/images/state-error.png" alt="error" width="120" height="120"><br>
+      <sub><b>error</b><br><code>error</code></sub>
     </td>
     <td align="center">
-      <img src="docs/images/state-offline.png" alt="Coder bot in the offline state" width="120" height="120"><br>
-      <sub><code>offline</code></sub>
+      <img src="docs/images/state-offline.png" alt="offline" width="120" height="120"><br>
+      <sub><b>offline</b><br><code>offline</code></sub>
     </td>
   </tr>
 </table>
+
+<!-- readme:gallery:end -->
 
 The mark above the title is the half-size README logo (`assets/branding/bot-avatar-logo-readme.png`, 836×470). The full branding mark stays at `assets/branding/bot-avatar-logo.png` (1672×941). Avatar previews in [`docs/images/`](docs/images) are committed README images. Review exports under `output/` stay untracked. Regression SVGs live in [`tests/snapshots/`](tests/snapshots).
 
@@ -111,7 +156,11 @@ pnpm avatar --request examples/requests/coder.json --output output/avatar.svg
   <img src="docs/images/coder-terminal.png" alt="Coder bot with a purple terminal instance badge, from examples/requests/coder.json" width="180" height="180">
 </p>
 
-[`examples/requests/coder.json`](examples/requests/coder.json) is that Coder avatar: seed `stage-2`, crop hair, a purple terminal badge, and a transparent background. Omit `--output` to print SVG on stdout. The CLI leaves existing files untouched.
+<!-- readme:quick-start:start -->
+
+The image above is generated directly from [`examples/requests/coder.json`](examples/requests/coder.json): template `coder`, hair `hair-side-part`, and a `terminal` instance badge. Omit `--output` to print SVG on stdout. The CLI leaves existing files untouched.
+
+<!-- readme:quick-start:end -->
 
 For PNG, set `"format": "png"` in the request. The filename does not select the format. Batch input is a JSON array of 1–100 requests, up to 1 MiB. The output directory must be new; when generation succeeds it contains numbered files and a `manifest.json`.
 
@@ -135,6 +184,7 @@ That is the default Studio screen: the avatar preview and state controls on the 
 
 | Command              | Purpose                                                                       |
 | -------------------- | ----------------------------------------------------------------------------- |
+| `pnpm docs:readme`   | Refresh README examples, catalog summary, and Studio screenshot               |
 | `pnpm check`         | Workspace policy, formatting, lint, TypeScript, tests, and a production build |
 | `pnpm format`        | Apply Prettier                                                                |
 | `pnpm avatar --help` | Print CLI usage                                                               |
@@ -143,12 +193,30 @@ That is the default Studio screen: the avatar preview and state controls on the 
 
 Build once before `pnpm avatar` or `pnpm start`. In pipelines, run `node apps/cli/dist/main.js` so package-manager logs stay off stdout. Unknown flags and invalid input exit 2. I/O and conversion errors exit 1.
 
+### Refresh the examples
+
+Run `pnpm docs:readme` after catalog or rendering changes. It builds the project,
+regenerates the role gallery from [`examples/readme.json`](examples/readme.json),
+shows every catalog hairstyle, updates all six states and the quick-start image,
+and captures the current Studio. README version text comes from the catalog.
+The browser step requires Playwright Chromium (`pnpm exec playwright install chromium`).
+To use installed Google Chrome instead, run `PLAYWRIGHT_CHANNEL=chrome pnpm docs:readme`.
+
+To change the featured roles or hair choices, edit `examples/readme.json`; the
+quick-start image reads `examples/requests/coder.json` directly. Only marked README
+sections and generated example images are rewritten. Review the resulting diff
+before committing. This command does not update approved visual test baselines.
+
 ## Catalog
 
 The canonical style ID is `soft-layered-2d`. Explicit `flat-2d` requests remain
 supported as a legacy alias and normalize to the canonical ID.
 
-Manifest **1.15.0** in `packages/design-tokens` is the current `soft-layered-2d` catalog: seven public hairstyles (`hair-sweep`, `hair-wave`, `hair-side-part`, `hair-curtain`, `hair-soft-curls`, `hair-layered-fringe`, `hair-wispy-fringe`) and the six states above.
+<!-- readme:catalog:start -->
+
+Manifest **1.15.0** in `packages/design-tokens` is the current `soft-layered-2d` catalog: 24 templates, 7 hairstyles (`hair-sweep`, `hair-wave`, `hair-side-part`, `hair-curtain`, `hair-soft-curls`, `hair-layered-fringe`, `hair-wispy-fringe`), and 6 states.
+
+<!-- readme:catalog:end -->
 
 Twenty original templates. The public id is the role name:
 
