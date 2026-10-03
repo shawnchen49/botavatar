@@ -54,9 +54,21 @@ describe('deterministic generation contract', () => {
     ).toEqual(first);
     expect(fixture).toEqual(original);
     expect(first.avatar.hair).toMatchObject({
-      style: 'hair-curtain',
-      back: 'hair-crop-back',
+      style: 'hair-hime-cut',
+      back: 'hair-hime-cut-back',
     });
+  });
+  it.each([
+    'hair-rounded-bob',
+    'hair-wolf-cut',
+    'hair-feather-flip',
+    'hair-hime-cut',
+    'hair-sculpted-waves',
+  ])('keeps the coder default and resolves the %s front/back pair', (style) => {
+    expect(generate({ templateId: 'coder' }).avatar.hair.style).toBe('hair-side-part');
+    expect(
+      generate({ templateId: 'coder', instance: { hair: { style } } }).avatar.hair,
+    ).toMatchObject({ style, back: `${style}-back` });
   });
   it('preserves identity and instance selections across all states', () => {
     const outputs = new Set();
@@ -462,6 +474,11 @@ describe('template hair palettes and restored rendering', () => {
       'hair-soft-curls',
       'hair-layered-fringe',
       'hair-wispy-fringe',
+      'hair-rounded-bob',
+      'hair-wolf-cut',
+      'hair-feather-flip',
+      'hair-hime-cut',
+      'hair-sculpted-waves',
     ]);
     for (const template of catalog.templates) {
       expect(new Set(template.allowedHair)).toEqual(new Set(catalog.hair));

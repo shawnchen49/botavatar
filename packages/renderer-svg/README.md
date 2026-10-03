@@ -55,3 +55,12 @@ Renderer behavior and version remain unchanged.
 
 All four added hairstyles were visually approved on 2026-10-02. Eight focused
 regression baselines preserve their reviewed beanie and bucket combinations.
+
+Renderer 0.13.0 accepts manifest 1.16.0 for the rounded-bob hair preview.
+Drawing behavior and approved visual baselines remain unchanged.
+
+Renderer 0.13.0 accepts manifest 1.17.0 for wolf-cut and feather-flip previews.
+The existing painter and contact shadows render both paired assets unchanged.
+
+Renderer 0.13.0 accepts manifest 1.18.0 for hime-cut and sculpted-wave previews.
+Drawing behavior and materials remain unchanged.

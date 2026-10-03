@@ -32,6 +32,10 @@ defaults, allowed hair, and fitted mounts. Source geometry lives under
   Add optional templates unless changing an existing identity is requested.
 - Hair is an instance choice: sweep, wave, side part, curtain, and soft curls are retained options.
   Layered and wispy fringe are also approved additions.
+  Rounded-bob hair was approved on 2026-10-03 for cocoa-colored coder, debug,
+  and docs samples.
+  Wolf-cut and feather-flip hair were approved on 2026-10-03 for cocoa-colored
+  coder, debug, and docs samples.
   Use their front/back mappings and explicit hat fits. Coder uses a charcoal
   beanie, cyan emblem, cocoa hair, and a side-part seeded default.
 - Occupational palettes and expanded hair choices supersede the restoration's
@@ -53,6 +57,10 @@ Curtain, soft-curl, layered-fringe, and wispy-fringe hair were approved on
 subsequent requested failure repair migrated sixteen retired-crop requests to
 approved curtain hair, preserving their original SVGs and requests in the
 historical snapshot directory.
+Rounded-bob hair was approved on 2026-10-03; three 256-pixel cocoa-colored idle
+baselines record the coder, debug, and docs combinations.
+Wolf-cut and feather-flip hair were approved on 2026-10-03; six 256-pixel
+cocoa-colored idle baselines record the coder, debug, and docs combinations.
 Rejected spikes and curls describe specific past implementations, not a permanent
 ban on short or curly hair. Generated previews are not approved references.
 

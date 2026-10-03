@@ -673,6 +673,156 @@
           }
         }
       }
+    },
+    {
+      "file": "coder-hair-rounded-bob.svg",
+      "label": "coder hair-rounded-bob",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.16.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "67383de1aa8ef3b152ec61a967c2839d0b62c7dabf0fad8b402317c18c027133",
+      "request": {
+        "templateId": "coder",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": {
+          "hair": {
+            "style": "hair-rounded-bob",
+            "color": "cocoa"
+          }
+        }
+      }
+    },
+    {
+      "file": "debug-hair-rounded-bob.svg",
+      "label": "debug hair-rounded-bob",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.16.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "5620696e5c67d0dd18a24c9cc49ffcd1e765fb359464d20b4bf834c9636daee4",
+      "request": {
+        "templateId": "debug",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": {
+          "hair": {
+            "style": "hair-rounded-bob",
+            "color": "cocoa"
+          }
+        }
+      }
+    },
+    {
+      "file": "docs-hair-rounded-bob.svg",
+      "label": "docs hair-rounded-bob",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.16.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "3b3aee6234eb5537fd9a6711076d94e03bb603189dddafa3052b1c77a40f6347",
+      "request": {
+        "templateId": "docs",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": {
+          "hair": {
+            "style": "hair-rounded-bob",
+            "color": "cocoa"
+          }
+        }
+      }
+    },
+    {
+      "file": "coder-hair-wolf-cut.svg",
+      "label": "coder hair-wolf-cut",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.17.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "d00da899790f29f2a6895130820ea339505a0c30fda7b6dcea7b7c1d6520b5f5",
+      "request": {
+        "templateId": "coder",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": { "hair": { "style": "hair-wolf-cut", "color": "cocoa" } }
+      }
+    },
+    {
+      "file": "debug-hair-wolf-cut.svg",
+      "label": "debug hair-wolf-cut",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.17.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "295dae150a8ed87b1cd6f43cd0659f13c3654c7c0f0c9db3e758e711edf175b0",
+      "request": {
+        "templateId": "debug",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": { "hair": { "style": "hair-wolf-cut", "color": "cocoa" } }
+      }
+    },
+    {
+      "file": "docs-hair-wolf-cut.svg",
+      "label": "docs hair-wolf-cut",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.17.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "dce98dab3cee77f5954502688c95c40cf940296477398589319d815ded473e36",
+      "request": {
+        "templateId": "docs",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": { "hair": { "style": "hair-wolf-cut", "color": "cocoa" } }
+      }
+    },
+    {
+      "file": "coder-hair-feather-flip.svg",
+      "label": "coder hair-feather-flip",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.17.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "596a14a1fe373fcbfc0feee4f1005bc6d5eefc320ee8e57b3d4edc04c891adcf",
+      "request": {
+        "templateId": "coder",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": { "hair": { "style": "hair-feather-flip", "color": "cocoa" } }
+      }
+    },
+    {
+      "file": "debug-hair-feather-flip.svg",
+      "label": "debug hair-feather-flip",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.17.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "964d31a1f7809d6c3f74dcb9402ee36c79dbfd977b3f8c759612e4bf81d5571c",
+      "request": {
+        "templateId": "debug",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": { "hair": { "style": "hair-feather-flip", "color": "cocoa" } }
+      }
+    },
+    {
+      "file": "docs-hair-feather-flip.svg",
+      "label": "docs hair-feather-flip",
+      "approvedOn": "2026-10-03",
+      "manifestVersion": "1.17.0",
+      "rendererVersion": "0.13.0",
+      "sha256": "3a4f36b9570565544c3e5b13310870881fdec150ffc933032fc0a8495379b093",
+      "request": {
+        "templateId": "docs",
+        "state": "idle",
+        "size": 256,
+        "background": "solid",
+        "instance": { "hair": { "style": "hair-feather-flip", "color": "cocoa" } }
+      }
     }
   ]
 }

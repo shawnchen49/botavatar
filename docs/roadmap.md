@@ -322,3 +322,70 @@ The README refresh now generates only the curated role gallery, quick-start
 image, catalog summary, and Studio screenshot. Product hair and state support
 remain unchanged. Remove the unused comparison images and their manifest entries;
 retain generation checks for all remaining README examples.
+
+## Rounded bob hair preview — 2026-10-03
+
+Manifest 1.16.0 adds one rounded bob candidate with a dedicated back silhouette.
+The offset fringe and inward-rounded cheek-length ends distinguish it from the
+existing short fringes. Six focused cocoa-haired idle previews cover beanie,
+bucket, and cap fits at 64 and 256 pixels in `output/asset-review/review.png`.
+No hat-specific geometry is needed for these fits. Existing face, palettes,
+renderer behavior, and approved snapshots are unchanged.
+
+Coder retains its default seeded side part. Expanding the candidate set changes
+some other seeded selections; explicit hair selections remain stable. Catalog
+coverage exercises every hairstyle across every template and all six states.
+README version metadata is refreshed; its explicitly selected images are unchanged.
+
+Next review: obtain visual feedback on the bob before recording new approved
+baselines or expanding this direction into additional hairstyles.
+
+Verification: `pnpm check` passes with all 160 tests and the production build.
+The six preview images were inspected with matching hair color and idle state.
+
+## Layered hair continuation — 2026-10-03
+
+The user approved rounded bob and requested more elaborate, fashion-oriented
+hair. Three new bob baselines preserve the approved cocoa-haired beanie, bucket,
+and cap combinations. The existing 39 baselines remain unchanged.
+
+Manifest 1.17.0 adds wolf cut and feather flip as review candidates, each with
+paired front/back assets. Wolf cut combines broken fringe with graduated side
+layers; feather flip combines an offset swept fringe with curved outward ends.
+The existing face, palette, material, and renderer behavior remain unchanged.
+Coder retains its seeded side-part default; other seed-selected hair may change
+with ten candidates. Explicit choices remain stable.
+
+The focused review compares both new designs at 64 and 256 pixels with the same
+cocoa color, idle state, and beanie in `output/asset-review/review.png`. Separate
+bucket/cap checks are in `output/hair-hat-fits/review.png`; neither needs a custom
+fit. The approved bob comparison is in `output/hair-comparison/review.png`.
+Next: visual feedback on these two candidates before adding their baselines.
+
+Verification: `pnpm check` passes with 165 tests and the production build.
+All 42 approved snapshots reproduce; new hair is covered by the existing
+all-template, all-state determinism and identity checks plus front/back assertions.
+
+## Sculpted hair continuation — 2026-10-03
+
+The user approved wolf cut and feather flip and requested further additions.
+Six new approved baselines record their cocoa-haired coder, debug, and docs
+combinations. The previous 42 baseline files and entries remain unchanged.
+
+Manifest 1.18.0 adds hime cut and sculpted waves as review candidates, with
+separate front/back geometry. Hime cut uses a softly segmented straight fringe,
+cheek-length side panels, and a longer back. Sculpted waves use broad continuous
+S-shaped sides with curled ends. Both retain the existing face and material.
+
+The focused review shows both at 64 and 256 pixels with identical cocoa hair,
+idle state, and beanie in `output/asset-review/review.png`. Bucket and cap fits
+are recorded in `output/sculpted-hat-fits/review.png`; visual inspection found
+no need for hat-specific geometry. Coder keeps its default seeded side part;
+other seed-selected choices can change with twelve candidates. Explicit hair
+choices and existing palettes remain unchanged.
+
+Next: visual feedback on these two candidates before recording their baselines.
+
+Verification: `pnpm check` passes with all 173 tests and the production build.
+All 48 approved snapshots reproduce; all-template/state coverage includes both
+new hairstyles, and their front/back pairing and coder default are verified.

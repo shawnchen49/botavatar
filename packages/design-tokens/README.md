@@ -1,7 +1,7 @@
 # Design data and catalog
 
 The current profile exports `catalog`, a versioned manifest with 24 template
-choices, seven hairstyles, one face, nine hat silhouettes, and nineteen hat
+choices, twelve hairstyles, one face, nine hat silhouettes, and nineteen hat
 emblems. Manifest 1.9.1 preserved the twenty approved 1.4.2 identities and added
 three separate templates: `docs-editor`, `security-officer`, and `deploy-aviator`.
 Role defaults selected those original identities.
@@ -91,3 +91,19 @@ expanded candidate set.
 
 All four added hairstyles were visually approved on 2026-10-02. Eight focused
 regression baselines preserve their reviewed beanie and bucket combinations.
+
+Manifest 1.16.0 adds `hair-rounded-bob` and its dedicated back silhouette for
+visual review. The rounded ends frame the cheeks beneath both beanies and brims.
+Coder retains side part for the default seed; other seeded selections may change
+with the expanded candidate set. Existing explicit choices remain valid.
+
+Rounded bob was approved on 2026-10-03. Manifest 1.17.0 adds `hair-wolf-cut`
+and `hair-feather-flip` for review, each with dedicated front and back geometry.
+Coder keeps its default seeded side part; other seeded selections may change.
+Explicit hair selections and all existing palettes remain unchanged.
+
+Wolf cut and feather flip were approved on 2026-10-03. Manifest 1.18.0 adds
+`hair-hime-cut` and `hair-sculpted-waves` for review, each with paired geometry.
+The hime cut contrasts cheek-length panels with a longer back; sculpted waves
+use broad S-shaped sides. Coder retains its seeded side-part default. Other
+seed-selected hair may change; explicit selections and palettes stay intact.

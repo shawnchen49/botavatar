@@ -14,7 +14,7 @@ import type { SvgNode } from './svg.js';
 
 export const RENDERER_VERSION = '0.13.0';
 export function composeSvg(avatar: NormalizedAvatar): SvgNode {
-  if (avatar.styleId !== 'soft-layered-2d' || avatar.manifestVersion !== '1.15.0')
+  if (avatar.styleId !== 'soft-layered-2d' || avatar.manifestVersion !== '1.18.0')
     throw new AvatarError('UNKNOWN_CHOICE', 'Unsupported style or manifest version.');
   if (avatar.face.glasses !== 'none')
     throw new AvatarError('UNKNOWN_CHOICE', 'Unsupported renderer overlay.');
