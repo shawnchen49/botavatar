@@ -314,3 +314,11 @@ Verification: `pnpm check` passes with all 172 tests, including per-image
 README regeneration checks, and the final production build. Snapshot baselines
 remain untouched. The refresh was run twice with installed Chrome; all generated
 bytes were unchanged on the second run.
+
+## Compact README gallery — 2026-10-03
+
+Remove the dedicated hairstyle and state comparison sections as requested.
+The README refresh now generates only the curated role gallery, quick-start
+image, catalog summary, and Studio screenshot. Product hair and state support
+remain unchanged. Remove the unused comparison images and their manifest entries;
+retain generation checks for all remaining README examples.

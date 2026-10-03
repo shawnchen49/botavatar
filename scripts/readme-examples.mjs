@@ -22,7 +22,6 @@ const escape = (text) =>
     (character) =>
       ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character],
   );
-const name = (id) => id.replace(/^hair-/, '').replaceAll('-', ' ');
 
 function render(file, input) {
   if (!/^[a-z0-9-]+\.png$/.test(file) || images.has(file))
@@ -59,39 +58,11 @@ const roleCells = gallery.map(({ label, hat, request }) => ({
   title: label,
   caption: `${escape(hat)} · <code>${escape(request.templateId)}</code>`,
 }));
-const coder = gallery.find((item) => item.request.templateId === 'coder');
-if (!coder) throw new Error('Gallery must include coder for the hair and state comparisons.');
-const comparison = { ...coder.request, background: 'transparent', state: 'idle' };
-const hairCells = catalog.hair.map((style) => ({
-  file: render(`${style}.png`, {
-    ...comparison,
-    instance: { ...comparison.instance, hair: { ...comparison.instance?.hair, style } },
-  }),
-  title: name(style),
-  caption: `<code>${escape(style)}</code>`,
-}));
-const stateCells = states.map((state) => ({
-  file: render(`state-${state}.png`, { ...comparison, state }),
-  title: state,
-  caption: `<code>${escape(state)}</code>`,
-}));
 render('coder-terminal.png', quickStart);
 const sections = {
   gallery: `256-pixel PNG examples from catalog **${catalog.version}**, rendered with a transparent background. Each role below uses an explicit hairstyle from the current catalog.
 
-${table(roleCells)}
-
-### Hairstyles
-
-All ${catalog.hair.length} hairstyles on the same Coder, with the same hat, hair color, and idle state.
-
-${table(hairCells)}
-
-### Same bot, six states
-
-Coder keeps the same hat and \`${comparison.instance.hair.style}\` hair. Only \`state\` changes.
-
-${table(stateCells, 120)}`,
+${table(roleCells)}`,
   'quick-start': `The image above is generated directly from [\`examples/requests/coder.json\`](examples/requests/coder.json): template \`${quickStart.templateId}\`, hair \`${quickStart.instance.hair.style}\`, and a \`${quickStart.instance.instanceBadge.icon}\` instance badge. Omit \`--output\` to print SVG on stdout. The CLI leaves existing files untouched.`,
   catalog: `Manifest **${catalog.version}** in \`packages/design-tokens\` is the current \`${catalog.styleId}\` catalog: ${catalog.templates.length} templates, ${catalog.hair.length} hairstyles (${catalog.hair.map((id) => `\`${id}\``).join(', ')}), and ${states.length} states.`,
 };

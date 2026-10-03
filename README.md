@@ -61,82 +61,6 @@ SVG is the primary format. PNG is available at 64, 128, 256, and 512 pixels. The
   </tr>
 </table>
 
-### Hairstyles
-
-All 7 hairstyles on the same Coder, with the same hat, hair color, and idle state.
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="docs/images/hair-sweep.png" alt="sweep" width="148" height="148"><br>
-      <sub><b>sweep</b><br><code>hair-sweep</code></sub>
-    </td>
-    <td align="center">
-      <img src="docs/images/hair-wave.png" alt="wave" width="148" height="148"><br>
-      <sub><b>wave</b><br><code>hair-wave</code></sub>
-    </td>
-    <td align="center">
-      <img src="docs/images/hair-side-part.png" alt="side part" width="148" height="148"><br>
-      <sub><b>side part</b><br><code>hair-side-part</code></sub>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="docs/images/hair-curtain.png" alt="curtain" width="148" height="148"><br>
-      <sub><b>curtain</b><br><code>hair-curtain</code></sub>
-    </td>
-    <td align="center">
-      <img src="docs/images/hair-soft-curls.png" alt="soft curls" width="148" height="148"><br>
-      <sub><b>soft curls</b><br><code>hair-soft-curls</code></sub>
-    </td>
-    <td align="center">
-      <img src="docs/images/hair-layered-fringe.png" alt="layered fringe" width="148" height="148"><br>
-      <sub><b>layered fringe</b><br><code>hair-layered-fringe</code></sub>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="docs/images/hair-wispy-fringe.png" alt="wispy fringe" width="148" height="148"><br>
-      <sub><b>wispy fringe</b><br><code>hair-wispy-fringe</code></sub>
-    </td>
-  </tr>
-</table>
-
-### Same bot, six states
-
-Coder keeps the same hat and `hair-side-part` hair. Only `state` changes.
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="docs/images/state-idle.png" alt="idle" width="120" height="120"><br>
-      <sub><b>idle</b><br><code>idle</code></sub>
-    </td>
-    <td align="center">
-      <img src="docs/images/state-working.png" alt="working" width="120" height="120"><br>
-      <sub><b>working</b><br><code>working</code></sub>
-    </td>
-    <td align="center">
-      <img src="docs/images/state-waiting.png" alt="waiting" width="120" height="120"><br>
-      <sub><b>waiting</b><br><code>waiting</code></sub>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="docs/images/state-success.png" alt="success" width="120" height="120"><br>
-      <sub><b>success</b><br><code>success</code></sub>
-    </td>
-    <td align="center">
-      <img src="docs/images/state-error.png" alt="error" width="120" height="120"><br>
-      <sub><b>error</b><br><code>error</code></sub>
-    </td>
-    <td align="center">
-      <img src="docs/images/state-offline.png" alt="offline" width="120" height="120"><br>
-      <sub><b>offline</b><br><code>offline</code></sub>
-    </td>
-  </tr>
-</table>
-
 <!-- readme:gallery:end -->
 
 The mark above the title is the half-size README logo (`assets/branding/bot-avatar-logo-readme.png`, 836×470). The full branding mark stays at `assets/branding/bot-avatar-logo.png` (1672×941). Avatar previews in [`docs/images/`](docs/images) are committed README images. Review exports under `output/` stay untracked. Regression SVGs live in [`tests/snapshots/`](tests/snapshots).
@@ -197,8 +121,7 @@ Build once before `pnpm avatar` or `pnpm start`. In pipelines, run `node apps/cl
 
 Run `pnpm docs:readme` after catalog or rendering changes. It builds the project,
 regenerates the role gallery from [`examples/readme.json`](examples/readme.json),
-shows every catalog hairstyle, updates all six states and the quick-start image,
-and captures the current Studio. README version text comes from the catalog.
+updates the quick-start image, and captures the current Studio. README version text comes from the catalog.
 The browser step requires Playwright Chromium (`pnpm exec playwright install chromium`).
 To use installed Google Chrome instead, run `PLAYWRIGHT_CHANNEL=chrome pnpm docs:readme`.
 

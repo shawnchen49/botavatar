@@ -23,9 +23,8 @@ describe('maintained README examples', () => {
     expect(png.equals(Buffer.from(renderPng(result.svg, 256))), entry.file).toBe(true);
   });
 
-  it('covers the configured roles, all hairstyles, and the runnable quick start', () => {
+  it('covers the configured roles and the runnable quick start', () => {
     const files = new Set(manifest.entries.map((entry) => entry.file));
-    for (const style of catalog.hair) expect(files.has(`${style}.png`)).toBe(true);
     for (const { request } of readJson('examples/readme.json').gallery)
       expect(
         manifest.entries.find((entry) => entry.file === `${request.templateId}.png`).request,
