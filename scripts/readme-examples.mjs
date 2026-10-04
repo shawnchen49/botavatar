@@ -13,7 +13,6 @@ const root = new URL('../', import.meta.url);
 const readJson = async (path) => JSON.parse(await readFile(new URL(path, root), 'utf8'));
 const { gallery } = await readJson('examples/readme.json');
 const quickStart = await readJson('examples/requests/coder.json');
-const states = ['idle', 'working', 'waiting', 'success', 'error', 'offline'];
 const images = new Map();
 const entries = [];
 const escape = (text) =>
@@ -59,12 +58,11 @@ const roleCells = gallery.map(({ label, hat, request }) => ({
   caption: `${escape(hat)} · <code>${escape(request.templateId)}</code>`,
 }));
 render('coder-terminal.png', quickStart);
+// Public READMEs keep the gallery table only. Catalog versions and hairstyle
+// inventories stay in the design-tokens package, not in README.md.
 const sections = {
-  gallery: `256-pixel PNG examples from catalog **${catalog.version}**, rendered with a transparent background. Each role below uses an explicit hairstyle from the current catalog.
-
-${table(roleCells)}`,
+  gallery: table(roleCells),
   'quick-start': `The image above is generated directly from [\`examples/requests/coder.json\`](examples/requests/coder.json): template \`${quickStart.templateId}\`, hair \`${quickStart.instance.hair.style}\`, and a \`${quickStart.instance.instanceBadge.icon}\` instance badge. Omit \`--output\` to print SVG on stdout. The CLI leaves existing files untouched.`,
-  catalog: `Manifest **${catalog.version}** in \`packages/design-tokens\` is the current \`${catalog.styleId}\` catalog: ${catalog.templates.length} templates, ${catalog.hair.length} hairstyles (${catalog.hair.map((id) => `\`${id}\``).join(', ')}), and ${states.length} states.`,
 };
 let readme = await readFile(new URL('README.md', root), 'utf8');
 for (const [section, content] of Object.entries(sections)) {
