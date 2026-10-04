@@ -35,4 +35,16 @@ describe('maintained README examples', () => {
     const readme = readFileSync(new URL('README.md', root), 'utf8');
     for (const file of files) expect(readme).toContain(`docs/images/${file}`);
   });
+
+  it('keeps catalog inventories out of the public READMEs', () => {
+    const generator = readFileSync(new URL('scripts/readme-examples.mjs', root), 'utf8');
+    expect(generator).not.toContain('catalog.hair');
+    for (const name of ['README.md', 'README.zh-CN.md']) {
+      const readme = readFileSync(new URL(name, root), 'utf8');
+      expect(readme, name).not.toContain('<!-- readme:catalog:');
+      expect(readme, name).not.toContain(catalog.version);
+      expect(readme, name).not.toContain('pnpm docs:readme');
+      expect(readme, name).toContain('docs/architecture.md');
+    }
+  });
 });
