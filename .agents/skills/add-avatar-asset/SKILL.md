@@ -38,3 +38,14 @@ description: Add or revise Bot Avatar parts, palettes, or licensed icons through
    contract risk or the user's request requires them.
 4. After visual approval, test changed behavior and run `pnpm check` for handoff.
    Report existing failures separately; never auto-accept snapshots.
+
+## When it fails
+
+| If                                                                          | First fix                                                             | If that still fails                               |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------------------------------------------- |
+| `pnpm assets:build` fails                                                   | Fix the registration or source the build reports                      | Stop. Do not generate the review sheet            |
+| The style skill rejects the samples, or they only read at one of 64 and 256 | Revise that part under the style skill and regenerate the small sheet | Do not expand the catalog                         |
+| Visual feedback has not approved the samples                                | Stop. Leave the catalog and approved baselines unchanged              | Do not replace those baselines                    |
+| The target style is not implemented                                         | Open an architecture task first                                       | Do not integrate assets for that style            |
+| `pnpm check` fails on tests this change did not touch                       | Report those failures separately                                      | Do not auto-accept snapshots to make the run pass |
+| A shared color token would change unrelated assets                          | Isolate the token                                                     | Do not ship the shared change                     |
