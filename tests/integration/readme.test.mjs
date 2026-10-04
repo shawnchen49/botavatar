@@ -44,7 +44,13 @@ describe('maintained README examples', () => {
       expect(readme, name).not.toContain('<!-- readme:catalog:');
       expect(readme, name).not.toContain(catalog.version);
       expect(readme, name).not.toContain('pnpm docs:readme');
+      expect(readme, name).not.toContain('pnpm check');
       expect(readme, name).toContain('docs/architecture.md');
+      expect(readme, name).toContain('soft-layered-2d');
+      expect(readme, name).toContain('docs/images/studio.png');
+      expect(readme, name).toContain('pnpm avatar --batch examples/requests/batch.json');
+      expect(readme, name).toContain('pnpm avatar --help');
+      expect(readme, name).toContain('pnpm studio');
     }
   });
 });

@@ -10,6 +10,8 @@
 
 Deterministic avatars for software bots. A **template** fixes the bot type, an **instance** adds hair and a personal badge, and a **state** shows what the bot is doing. The same request always produces the same SVG.
 
+SVG is the primary format. PNG is available at 64, 128, 256, and 512 pixels. The shipped style is `soft-layered-2d` (Soft Layered 2D): oversized hats, colored hair, a cream mouthless face, and capsule eyes.
+
 ## Gallery
 
 <!-- readme:gallery:start -->
@@ -80,11 +82,31 @@ The image above is generated directly from [`examples/requests/coder.json`](exam
 
 <!-- readme:quick-start:end -->
 
+For PNG, set `"format": "png"` in the request. The filename does not select the format. Batch input is a JSON array of 1–100 requests, up to 1 MiB. The output directory must be new; when generation succeeds it contains numbered files and a `manifest.json`.
+
+```sh
+pnpm avatar --batch examples/requests/batch.json --output-dir output/my-batch
+```
+
 ```sh
 pnpm build && pnpm start
 ```
 
 Open Studio at <http://127.0.0.1:3000>.
+
+<img src="docs/images/studio.png" alt="Bot Avatar Studio, the local editor: Coder preview, runtime state buttons, export settings, and template, hair, and badge controls" width="880">
+
+That is the default Studio screen: the avatar preview and state controls on the left, with template, hair, and badge settings on the right.
+
+## Commands
+
+| Command              | Purpose                                                    |
+| -------------------- | ---------------------------------------------------------- |
+| `pnpm avatar --help` | Print CLI usage                                            |
+| `pnpm start`         | Serve the API and Studio on `127.0.0.1:3000`               |
+| `pnpm studio`        | Run the Vite dev server; start the API in another terminal |
+
+Build once before `pnpm avatar` or `pnpm start`.
 
 See [docs/architecture.md](docs/architecture.md) for how the packages fit together.
 

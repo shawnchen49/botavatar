@@ -10,6 +10,8 @@
 
 给软件机器人用的确定性头像。**模板**决定机器人类型，**实例**再加上发型和一枚个人徽章，**状态**表示它正在做什么。同一个请求，每次得到的 SVG 都一样。
 
+主格式是 SVG。PNG 有 64、128、256、512 像素。自带风格是 `soft-layered-2d`（Soft Layered 2D）：帽子偏大，头发有颜色，脸是奶油色、没有嘴，眼睛是胶囊形。
+
 ## 图库
 
 <!-- readme:gallery:start -->
@@ -80,11 +82,31 @@ pnpm avatar --request examples/requests/coder.json --output output/avatar.svg
 
 <!-- readme:quick-start:end -->
 
+要 PNG，在请求里把 `"format"` 设为 `"png"`。文件名不决定格式。批量输入是 JSON 数组，1–100 条，最大 1 MiB。输出目录必须是新建的。成功后，里面是编号文件和一份 `manifest.json`。
+
+```sh
+pnpm avatar --batch examples/requests/batch.json --output-dir output/my-batch
+```
+
 ```sh
 pnpm build && pnpm start
 ```
 
 在 <http://127.0.0.1:3000> 打开 Studio。
+
+<img src="docs/images/studio.png" alt="Bot Avatar Studio 本地编辑器：程序员预览、状态按钮、导出设置，以及模板、发型和徽章" width="880">
+
+默认布局：左边是头像预览和状态，右边是模板、发型和徽章。
+
+## 命令
+
+| 命令                 | 用途                                     |
+| -------------------- | ---------------------------------------- |
+| `pnpm avatar --help` | 打印 CLI 用法                            |
+| `pnpm start`         | 在 `127.0.0.1:3000` 启动 API 和 Studio   |
+| `pnpm studio`        | 启动 Vite 开发服务器；API 要另开一个终端 |
+
+跑 `pnpm avatar` 或 `pnpm start` 之前要先构建。
 
 各模块如何配合，见 [docs/architecture.md](docs/architecture.md)。
 
