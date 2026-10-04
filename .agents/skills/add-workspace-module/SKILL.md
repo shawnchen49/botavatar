@@ -32,3 +32,14 @@ direction needs an ADR and matching architecture updates.
 Report why the module exists, its allowed dependencies, what behavior is available,
 and the validation result. Scaffolding must not claim a working feature. Keep
 packages private; this workflow does not authorize publishing or deployment.
+
+## When it fails
+
+| If                                                             | First fix                                           | If that still fails                                       |
+| -------------------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------------- |
+| An existing module can own the change                          | Put the change in that module                       | Do not add a workspace                                    |
+| The split changes dependency direction and there is no ADR     | Stop until the ADR and the architecture docs match  | Do not add that dependency                                |
+| The graph becomes cyclic, or workspace policy rejects the edge | Register only a permitted edge, or a type-only edge | Drop the dependency                                       |
+| `pnpm check` fails                                             | Fix the boundary this module added                  | Do not weaken an unrelated check to make it pass          |
+| The module is still scaffolding                                | State what is not implemented                       | Do not describe it as a working feature                   |
+| The change would publish or deploy the package                 | Keep it private                                     | This workflow does not authorize publishing or deployment |
