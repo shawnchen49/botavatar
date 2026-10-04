@@ -1,3 +1,5 @@
+<p align="center"><a href="README.md">English</a> | <a href="README.zh-CN.md">中文</a></p>
+
 <p align="center">
   <img src="assets/branding/bot-avatar-logo-readme.png" alt="Bot Avatar logo" width="320">
 </p>
